@@ -1,0 +1,113 @@
+---
+site_name: My Docs
+site_author: 'Emmmanuel Roux'
+theme:
+  name: 'material'
+  custom_dir: theme/  
+  favicon: images/favicon.png
+  logo: images/logo.svg
+  feature:
+    tabs: true
+  palette:
+    primary: 'blue grey'
+    accent: 'indigo'
+
+nav:
+  - Home: index.md
+  - doc:
+    - Markdown: doc/md.md
+  - Python:
+    - Intro: Python/intro.md
+    - Envs: Python/envs.md
+    - 'Iterators, generators and coroutines': Python/IterGen.md
+    - Ubuntu: Linux/Ubuntu/python.md
+  - DevOps:
+    - Ansible: devops/ansible.md
+  - Linux:
+    - Intro: Linux/_intro.md
+    - zsh: Linux/zsh.md
+    - Ubuntu:
+      - Python: Linux/Ubuntu/python.md
+      - Configuration: Linux/Ubuntu/configuration.md
+  - DB:
+    - intro: DB/intro.md
+    - MongoDB:
+      - Intro: DB/mongoDB/_intro.md
+      - 'Aggregation framework': DB/mongoDB/Aggregation.md
+    - SQL:
+      - PostgreSQL: DB/SQL/postgres.md
+    - 'Object store':
+      - Intro: DB/S3/_intro.md
+  - Data:
+    - Intro: data/_intro.md
+    - ndarray:
+      - Intro: ndarray/intro.md
+    - 'Time series':
+      - 'Intro': data/timeseries/_intro.md
+      - 'Features selection': data/timeseries/features.md
+      - 'Matrix profile': data/timeseries/matrixprofile.md
+      - 'Windowing': data/windowing.md
+    - 'Machine Learning':
+        Time series: ml/dl.md
+  - Visualization:
+    - Matplolib: Viz/matplotlib.md
+  - WebDev:
+    - Intro: WebDev/Intro.md
+    - CSS: WebDev/css.md
+    - REACT: WebDev/REACT.md  
+
+markdown_extensions:
+  - admonition
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: asterisk
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      preserve_tabs: true
+      custom_fences:
+        - name: flow
+          class: uml-flowchart
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: sequence
+          class: uml-sequence-diagram
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: treediagram
+          class: uml-treediagram
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+
+repo_name: 'gwin-zegal.github.io'
+repo_url: 'https://github.com/fesaille/gwin-zegal.github.io'
+
+extra_css:
+  - 'stylesheets/extra.css'
+  - 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css'
+  - 'https://fonts.googleapis.com/icon?family=Material+Icons'
+
+extra_javascript:
+  - js/extra.js
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js'
+  - 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/fesaille'
+...

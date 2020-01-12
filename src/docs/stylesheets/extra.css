@@ -1,0 +1,133 @@
+/* [data-md-component=container] {
+	display: grid;
+	grid-template-columns: 90px 20 0px 500px;
+} */
+
+.md-grid {
+	max-width: none;
+}
+
+.md-sidebar--secondary {
+	margin-left: calc(100vw);
+}
+
+.md-search__scrollwrap, [data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+	width: calc(100vw - 24rem);
+	/* margin-top: 10rem; */
+}
+
+
+.titleLogo {
+	position: absolute;
+	top: 7rem;
+	right: 17rem;
+	max-height: 7rem;
+	z-index: -1;
+	opacity: 0.2;
+	max-width: 10rem;
+}
+
+.md-typeset__table tr {
+	line-height: 1ex;
+}
+
+.md-logo img {
+	color: white;
+}
+
+.mx-card {
+	background-image: url('https://img.freepik.com/free-vector/halftone-white-background_115579-724.jpg?size=626&ext=jpg');
+	border-radius: 4px;
+	box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12);
+	display: grid !important;
+	float: left;
+	grid-template-columns: 7em 1fr!important; 
+	grid-template-rows: 8em 1fr!important; 
+	height: 10em;
+	margin-bottom: 2ex;
+	margin-right: 2ex;
+	width: 20em;
+  	background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.mx-card > div > img {
+  object-fit: cover;
+  max-height: 100%;
+  /* width: 100%;   */
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.mx-card > div:nth-child(2) {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* margin-left: 3ex; */
+}
+
+.mx-card > div:nth-child(3) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1ex 0 1ex 0;
+}
+
+.mx-card > div:nth-child(3) > div {
+
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.mx-card button {
+	/* height: 2ex!important;
+	font-size: 1ex!important; */
+}
+
+.mx-card h2 {
+	font-size: 2.5ex;
+	margin-top: 2ex;
+	margin-bottom: 1ex;
+}
+
+.mx-card h3 {
+	font-size: 1.5ex;
+	margin-top: 1ex!important;
+}
+
+
+#flex {
+  display: flex;
+  flex-flow: row wrap;
+  width: 300px;
+  background-color: #C3C3C3;
+}
+.item {
+  width: 80px;
+  color: #FFF;
+  background-color: #000;
+  flex: auto;
+  margin: 3px;
+}
+
+#grid {
+  margin-top: 10px;
+  display: grid;
+  width: 300px;
+  background-color: #C3C3C3;
+  grid-template-areas:
+	"a b c"
+	"d d d";
+  padding: 3px;
+  grid-gap: 3px 3px;
+}
+
+.itemg {
+  color: #FFF;
+  background-color: #000;
+}
+
+#grid div:last-child {
+	grid-area: d;
+}
