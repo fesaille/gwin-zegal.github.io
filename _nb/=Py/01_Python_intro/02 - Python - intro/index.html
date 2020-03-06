@@ -1,0 +1,2004 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/01_Python_intro/02 - Python - intro/">
+      
+      
+        <meta name="author" content="Emmmanuel Roux">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+    
+    
+      
+        <title>The Python Interpreter - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../_css/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#the-python-interpreter" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                The Python Interpreter
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../doc/md/" class="md-tabs__link">
+          doc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../devops/ansible/" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../shell/_intro/" class="md-tabs__link">
+          shell
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../DB/intro/" class="md-tabs__link">
+          DB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../data/_intro/" class="md-tabs__link">
+          Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Viz/matplotlib/" class="md-tabs__link">
+          Visualization
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../WebDev/Intro/" class="md-tabs__link">
+          WebDev
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../aze/" title="IPYNB" class="md-nav__link">
+      IPYNB
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      doc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        doc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../doc/md/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/envs/" title="Envs" class="md-nav__link">
+      Envs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+      Ubuntu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../devops/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/git/" title="git" class="md-nav__link">
+      git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/zsh/" title="zsh" class="md-nav__link">
+      zsh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/intro/" title="intro" class="md-nav__link">
+      intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      MongoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        MongoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/Aggregation/" title="Aggregation framework" class="md-nav__link">
+      Aggregation framework
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/SQL/postgres/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Object store
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Object store
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/S3/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      ndarray
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        ndarray
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ndarray/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Time series
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Time series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/features/" title="Features selection" class="md-nav__link">
+      Features selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/matrixprofile/" title="Matrix profile" class="md-nav__link">
+      Matrix profile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/windowing/" title="Windowing" class="md-nav__link">
+      Windowing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ml/dl/" title="Time series" class="md-nav__link">
+      Time series
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Visualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Visualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Viz/matplotlib/" title="Matplolib" class="md-nav__link">
+      Matplolib
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      WebDev
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        WebDev
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/Intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/css/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/REACT/" title="REACT" class="md-nav__link">
+      REACT
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ipython-basics" class="md-nav__link">
+    IPython Basics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-ipython-shell" class="md-nav__link">
+    Running the IPython Shell
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-jupyter-notebook" class="md-nav__link">
+    Running the Jupyter Notebook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tab-completion" class="md-nav__link">
+    Tab Completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introspection" class="md-nav__link">
+    Introspection
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interrupting-running-code" class="md-nav__link">
+    Interrupting running code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-language-basics" class="md-nav__link">
+    Python Language Basics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-semantics" class="md-nav__link">
+    Language Semantics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#indentation-not-braces" class="md-nav__link">
+    Indentation, not braces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#everything-is-an-object" class="md-nav__link">
+    Everything is an object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-and-object-method-calls" class="md-nav__link">
+    Function and object method calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-and-argument-passing" class="md-nav__link">
+    Variables and argument passing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-references-strong-types" class="md-nav__link">
+    Dynamic references, strong types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attributes-and-methods" class="md-nav__link">
+    Attributes and methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duck-typing" class="md-nav__link">
+    Duck typing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    Imports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#binary-operators-and-comparisons" class="md-nav__link">
+    Binary operators and comparisons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutable-and-immutable-objects" class="md-nav__link">
+    Mutable and immutable objects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalar-types" class="md-nav__link">
+    Scalar Types
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numeric-types" class="md-nav__link">
+    Numeric types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings" class="md-nav__link">
+    Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bytes-and-unicode" class="md-nav__link">
+    Bytes and Unicode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#booleans" class="md-nav__link">
+    Booleans
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-casting" class="md-nav__link">
+    Type casting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none" class="md-nav__link">
+    None
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates-and-times" class="md-nav__link">
+    Dates and times
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-flow" class="md-nav__link">
+    Control Flow
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-elif-and-else" class="md-nav__link">
+    if, elif, and else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-loops" class="md-nav__link">
+    for loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#while-loops" class="md-nav__link">
+    while loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pass" class="md-nav__link">
+    pass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ternary-expressions" class="md-nav__link">
+    Ternary expressions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="the-python-interpreter">The Python Interpreter</h1>
+<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">3.7</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span>  <span class="mi">3</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">05</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span> 
+<span class="p">[</span><span class="n">GCC</span> <span class="mf">8.3</span><span class="o">.</span><span class="mi">0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
+<span class="n">Type</span> <span class="s2">&quot;help&quot;</span><span class="p">,</span> <span class="s2">&quot;copyright&quot;</span><span class="p">,</span> <span class="s2">&quot;credits&quot;</span> <span class="ow">or</span> <span class="s2">&quot;license&quot;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exit</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>Overwriting hello_world.py
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">python</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Hello</span> <span class="n">world</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>$ ipython
+Python <span class="m">3</span>.6.0 <span class="p">|</span> packaged by conda-forge <span class="p">|</span> <span class="o">(</span>default, Jan <span class="m">13</span> <span class="m">2017</span>, <span class="m">23</span>:17:12<span class="o">)</span>
+Type <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
+
+IPython <span class="m">5</span>.1.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython<span class="s1">&#39;s features.</span>
+<span class="s1">%quickref -&gt; Quick reference.</span>
+<span class="s1">help      -&gt; Python&#39;</span>s own <span class="nb">help</span> system.
+object?   -&gt; Details about <span class="s1">&#39;object&#39;</span>, use <span class="s1">&#39;object??&#39;</span> <span class="k">for</span> extra details.
+
+In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: %run hello_world.py
+Hello world
+
+In <span class="o">[</span><span class="m">2</span><span class="o">]</span>:
+</code></pre></div>
+
+<h2 id="ipython-basics">IPython Basics</h2>
+<h3 id="running-the-ipython-shell">Running the IPython Shell</h3>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from numpy.random import randn
+data = {i : randn() for i in range(7)}
+print(data)
+{0: -1.5948255432744511, 1: 0.10569006472787983, 2: 1.972367135977295,
+3: 0.15455217573074576, 4: -0.24058577449429575, 5: -1.2904897053651216,
+6: 0.3308507317325902}</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="running-the-jupyter-notebook">Running the Jupyter Notebook</h3>
+<div class="highlight"><pre><span></span><code>$ jupyter notebook
+<span class="o">[</span>I <span class="m">15</span>:20:52.739 NotebookApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory:
+/home/wesm/code/pydata-book
+<span class="o">[</span>I <span class="m">15</span>:20:52.739 NotebookApp<span class="o">]</span> <span class="m">0</span> active kernels
+<span class="o">[</span>I <span class="m">15</span>:20:52.739 NotebookApp<span class="o">]</span> The Jupyter Notebook is running at:
+http://localhost:8888/
+<span class="o">[</span>I <span class="m">15</span>:20:52.740 NotebookApp<span class="o">]</span> Use Control-C to stop this server and shut down
+all kernels <span class="o">(</span>twice to skip confirmation<span class="o">)</span>.
+Created new window in existing browser session.
+</code></pre></div>
+
+<h3 id="tab-completion">Tab Completion</h3>
+<div class="highlight"><pre><span></span><code>In [1]: an_apple = 27
+
+In [2]: an_example = 42
+
+In [3]: an
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>In [3]: b = [1, 2, 3]
+
+In [4]: b.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>In [1]: import datetime
+
+In [2]: datetime.
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>In [7]: datasets/movielens/
+</code></pre></div>
+
+<h3 id="introspection">Introspection</h3>
+<div class="highlight"><pre><span></span><code>In [8]: b = [1, 2, 3]
+
+In [9]: b?
+Type:       list
+String Form:[1, 2, 3]
+Length:     3
+Docstring:
+list() -&gt; new empty list
+list(iterable) -&gt; new list initialized from iterable&#39;s items
+
+In [10]: print?
+Docstring:
+print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
+
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.
+Type:      builtin_function_or_method
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add two numbers together</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the_sum : type of arguments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">add_numbers</span><span class="err">?</span>
+<span class="n">Signature</span><span class="p">:</span> <span class="n">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">Docstring</span><span class="p">:</span>
+<span class="n">Add</span> <span class="n">two</span> <span class="n">numbers</span> <span class="n">together</span>
+
+<span class="n">Returns</span>
+<span class="o">-------</span>
+<span class="n">the_sum</span> <span class="p">:</span> <span class="nb">type</span> <span class="n">of</span> <span class="n">arguments</span>
+<span class="n">File</span><span class="p">:</span>      <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">a548a216e27</span><span class="o">&gt;</span>
+<span class="n">Type</span><span class="p">:</span>      <span class="n">function</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">add_numbers</span><span class="err">??</span>
+<span class="n">Signature</span><span class="p">:</span> <span class="n">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">Source</span><span class="p">:</span>
+<span class="k">def</span> <span class="nf">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add two numbers together</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the_sum : type of arguments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">File</span><span class="p">:</span>      <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">a548a216e27</span><span class="o">&gt;</span>
+<span class="n">Type</span><span class="p">:</span>      <span class="n">function</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">np</span><span class="o">.*</span><span class="n">load</span><span class="o">*</span><span class="err">?</span>
+<span class="n">np</span><span class="o">.</span><span class="n">__loader__</span>
+<span class="n">np</span><span class="o">.</span><span class="n">load</span>
+<span class="n">np</span><span class="o">.</span><span class="n">loads</span>
+<span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span>
+<span class="n">np</span><span class="o">.</span><span class="n">pkgload</span>
+</code></pre></div>
+
+<h4 id="interrupting-running-code">Interrupting running code</h4>
+<h2 id="python-language-basics">Python Language Basics</h2>
+<h3 id="language-semantics">Language Semantics</h3>
+<h4 id="indentation-not-braces">Indentation, not braces</h4>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">:</span>
+        <span class="n">less</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">greater</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">7</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="nx">javascript</span>
+<span class="p">(</span><span class="k">new</span> <span class="nb">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])).</span><span class="nx">then</span><span class="p">(</span><span class="nx">elt</span> <span class="p">=&gt;</span> <span class="nx">elt</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre>
+<h4 id="everything-is-an-object">Everything is an object</h4>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">A</span>
+</code></pre></div>
+
+<pre><code>{'first': 1, 'second': 2}
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>dict
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</code></pre></div>
+
+<pre><code>type
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+</code></pre></div>
+
+<pre><code>type
+</code></pre>
+<h4 id="comments">Comments</h4>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+    <span class="c1"># keep the empty lines for now</span>
+    <span class="c1"># if len(line) == 0:</span>
+    <span class="c1">#   continue</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached this line&quot;</span><span class="p">)</span>  <span class="c1"># Simple status report</span>
+</code></pre></div>
+
+<h4 id="function-and-object-method-calls">Function and object method calls</h4>
+<div class="highlight"><pre><span></span><code>result = f(x, y, z)
+g()
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>obj.some_method(x, y, z)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="variables-and-argument-passing">Variables and argument passing</h4>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">b</span>
+</code></pre></div>
+
+<pre><code>[1, 2, 3, 4]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">a</span>
+</code></pre></div>
+
+<pre><code>[1, 2, 3, 4]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">some_list</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+    <span class="n">some_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">append_element</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">data</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+
+<h4 id="dynamic-references-strong-types">Dynamic references, strong types</h4>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>int
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>str
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mi">5</span>
+</code></pre></div>
+
+<pre><code>---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-73-4dd8efb5fac1&gt; in &lt;module&gt;
+----&gt; 1 '5' + 5
+
+
+TypeError: can only concatenate str (not "int") to str
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># String formatting, to be visited later</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a is {type(a)}, b is {type(b)}&#39;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</code></pre></div>
+
+<pre><code>a is &lt;class 'float'&gt;, b is &lt;class 'int'&gt;
+
+
+
+
+
+2.25
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>True
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+</code></pre></div>
+
+<pre><code>True
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
+</code></pre></div>
+
+<pre><code>True
+</code></pre>
+<h4 id="attributes-and-methods">Attributes and methods</h4>
+<div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span><span class="o">.&lt;</span><span class="n">Press</span> <span class="n">Tab</span><span class="o">&gt;</span>
+<span class="n">a</span><span class="o">.</span><span class="n">capitalize</span>  <span class="n">a</span><span class="o">.</span><span class="n">format</span>      <span class="n">a</span><span class="o">.</span><span class="n">isupper</span>     <span class="n">a</span><span class="o">.</span><span class="n">rindex</span>      <span class="n">a</span><span class="o">.</span><span class="n">strip</span>
+<span class="n">a</span><span class="o">.</span><span class="n">center</span>      <span class="n">a</span><span class="o">.</span><span class="n">index</span>       <span class="n">a</span><span class="o">.</span><span class="n">join</span>        <span class="n">a</span><span class="o">.</span><span class="n">rjust</span>       <span class="n">a</span><span class="o">.</span><span class="n">swapcase</span>
+<span class="n">a</span><span class="o">.</span><span class="n">count</span>       <span class="n">a</span><span class="o">.</span><span class="n">isalnum</span>     <span class="n">a</span><span class="o">.</span><span class="n">ljust</span>       <span class="n">a</span><span class="o">.</span><span class="n">rpartition</span>  <span class="n">a</span><span class="o">.</span><span class="n">title</span>
+<span class="n">a</span><span class="o">.</span><span class="n">decode</span>      <span class="n">a</span><span class="o">.</span><span class="n">isalpha</span>     <span class="n">a</span><span class="o">.</span><span class="n">lower</span>       <span class="n">a</span><span class="o">.</span><span class="n">rsplit</span>      <span class="n">a</span><span class="o">.</span><span class="n">translate</span>
+<span class="n">a</span><span class="o">.</span><span class="n">encode</span>      <span class="n">a</span><span class="o">.</span><span class="n">isdigit</span>     <span class="n">a</span><span class="o">.</span><span class="n">lstrip</span>      <span class="n">a</span><span class="o">.</span><span class="n">rstrip</span>      <span class="n">a</span><span class="o">.</span><span class="n">upper</span>
+<span class="n">a</span><span class="o">.</span><span class="n">endswith</span>    <span class="n">a</span><span class="o">.</span><span class="n">islower</span>     <span class="n">a</span><span class="o">.</span><span class="n">partition</span>   <span class="n">a</span><span class="o">.</span><span class="n">split</span>       <span class="n">a</span><span class="o">.</span><span class="n">zfill</span>
+<span class="n">a</span><span class="o">.</span><span class="n">expandtabs</span>  <span class="n">a</span><span class="o">.</span><span class="n">isspace</span>     <span class="n">a</span><span class="o">.</span><span class="n">replace</span>     <span class="n">a</span><span class="o">.</span><span class="n">splitlines</span>
+<span class="n">a</span><span class="o">.</span><span class="n">find</span>        <span class="n">a</span><span class="o">.</span><span class="n">istitle</span>     <span class="n">a</span><span class="o">.</span><span class="n">rfind</span>       <span class="n">a</span><span class="o">.</span><span class="n">startswith</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;split&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>&lt;function str.split(sep=None, maxsplit=-1)&gt;
+</code></pre>
+<h4 id="duck-typing">Duck typing</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">iter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span> <span class="c1"># not iterable</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">isiterable</span><span class="p">(</span><span class="s1">&#39;a string&#39;</span><span class="p">)</span>
+<span class="n">isiterable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">isiterable</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>False
+</code></pre>
+<p>if not isinstance(x, list) and isiterable(x):
+    x = list(x)</p>
+<h4 id="imports">Imports</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># some_module.py</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+
+<p>import some<em>module
+result = some</em>module.f(5)
+pi = some_module.PI</p>
+<p>from some_module import f, g, PI
+result = g(5, PI)</p>
+<p>import some<em>module as sm
+from some</em>module import PI as pi, g as gf</p>
+<p>r1 = sm.f(pi)
+r2 = gf(6, pi)</p>
+<h4 id="binary-operators-and-comparisons">Binary operators and comparisons</h4>
+<div class="highlight"><pre><span></span><code><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>
+<span class="mi">12</span> <span class="o">+</span> <span class="mf">21.5</span>
+<span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">c</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">==</span> <span class="n">c</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span>
+</code></pre></div>
+
+<h4 id="mutable-and-immutable-objects">Mutable and immutable objects</h4>
+<div class="highlight"><pre><span></span><code><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
+<span class="n">a_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">a_list</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">a_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;four&#39;</span>
+</code></pre></div>
+
+<h3 id="scalar-types">Scalar Types</h3>
+<h4 id="numeric-types">Numeric types</h4>
+<div class="highlight"><pre><span></span><code><span class="n">ival</span> <span class="o">=</span> <span class="mi">17239871</span>
+<span class="n">ival</span> <span class="o">**</span> <span class="mi">6</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">fval</span> <span class="o">=</span> <span class="mf">7.243</span>
+<span class="n">fval2</span> <span class="o">=</span> <span class="mf">6.78e-5</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span>
+</code></pre></div>
+
+<h4 id="strings">Strings</h4>
+<p>a = 'one way of writing a string'
+b = "another way"</p>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">This is a longer string that</span>
+<span class="s2">spans multiple lines</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">c</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;this is a string&#39;</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;longer string&#39;</span><span class="p">)</span>
+<span class="n">b</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mf">5.6</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;12</span><span class="se">\\</span><span class="s1">34&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;this\has\no\special\characters&#39;</span>
+<span class="n">s</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;this is the first half &#39;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;and this is the second half&#39;</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:.2f}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1"> are worth US$</span><span class="si">{2:d}</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">4.5560</span><span class="p">,</span> <span class="s1">&#39;Argentine Pesos&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="bytes-and-unicode">Bytes and Unicode</h4>
+<div class="highlight"><pre><span></span><code><span class="n">val</span> <span class="o">=</span> <span class="s2">&quot;español&quot;</span>
+<span class="n">val</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">val_utf8</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">val_utf8</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">val_utf8</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">val_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+<span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-16&#39;</span><span class="p">)</span>
+<span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-16le&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">bytes_val</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;this is bytes&#39;</span>
+<span class="n">bytes_val</span>
+<span class="n">decoded</span> <span class="o">=</span> <span class="n">bytes_val</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+<span class="n">decoded</span>  <span class="c1"># this is str (Unicode) now</span>
+</code></pre></div>
+
+<h4 id="booleans">Booleans</h4>
+<div class="highlight"><pre><span></span><code><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>
+<span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span>
+</code></pre></div>
+
+<h4 id="type-casting">Type casting</h4>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;3.14159&#39;</span>
+<span class="n">fval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">fval</span><span class="p">)</span>
+<span class="nb">int</span><span class="p">(</span><span class="n">fval</span><span class="p">)</span>
+<span class="nb">bool</span><span class="p">(</span><span class="n">fval</span><span class="p">)</span>
+<span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="none">None</h4>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</code></pre></div>
+
+<p>def add<em>and</em>maybe_multiply(a, b, c=None):
+    result = a + b</p>
+<pre><code>if c is not None:
+    result = result * c
+
+return result
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="dates-and-times">Dates and times</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">minute</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+<span class="n">dt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %H:%M&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;20091031&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">dt2</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">dt2</span> <span class="o">-</span> <span class="n">dt</span>
+<span class="n">delta</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">dt</span>
+<span class="n">dt</span> <span class="o">+</span> <span class="n">delta</span>
+</code></pre></div>
+
+<h3 id="control-flow">Control Flow</h3>
+<h4 id="if-elif-and-else">if, elif, and else</h4>
+<p>if x &lt; 0:
+    print('It's negative')</p>
+<p>if x &lt; 0:
+    print('It's negative')
+elif x == 0:
+    print('Equal to zero')
+elif 0 &lt; x &lt; 5:
+    print('Positive but smaller than 5')
+else:
+    print('Positive and larger than or equal to 5')</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Made it&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
+</code></pre></div>
+
+<h4 id="for-loops">for loops</h4>
+<p>for value in collection:
+    # do something with value</p>
+<p>sequence = [1, 2, None, 4, None, 5]
+total = 0
+for value in sequence:
+    if value is None:
+        continue
+    total += value</p>
+<p>sequence = [1, 2, 0, 4, 6, 5, 2, 1]
+total<em>until</em>5 = 0
+for value in sequence:
+    if value == 5:
+        break
+    total<em>until</em>5 += value</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+</code></pre></div>
+
+<p>for a, b, c in iterator:
+    # do something</p>
+<h4 id="while-loops">while loops</h4>
+<p>x = 256
+total = 0
+while x &gt; 0:
+    if total &gt; 500:
+        break
+    total += x
+    x = x // 2</p>
+<h4 id="pass">pass</h4>
+<p>if x &lt; 0:
+    print('negative!')
+elif x == 0:
+    # TODO: put something smart here
+    pass
+else:
+    print('positive!')</p>
+<h4 id="range">range</h4>
+<div class="highlight"><pre><span></span><code><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+
+<p>seq = [1, 2, 3, 4]
+for i in range(len(seq)):
+    val = seq[i]</p>
+<p>sum = 0
+for i in range(100000):
+    # % is the modulo operator
+    if i % 3 == 0 or i % 5 == 0:
+        sum += i</p>
+<h4 id="ternary-expressions">Ternary expressions</h4>
+<p>value = </p>
+<p>if </p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="s1">&#39;Non-negative&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;Negative&#39;</span>
+</code></pre></div>
+
+<hr />
+<p>References:
+- <a href="https://github.com/wesm/pydata-book">Python for Data Analysis" by Wes McKinney, published by O'Reilly Media</a></p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  <!--  -->
+  <!-- <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div> -->
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../_js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+      
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      
+    
+  </body>
+</html>

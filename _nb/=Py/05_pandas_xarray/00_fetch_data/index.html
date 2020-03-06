@@ -1,0 +1,2818 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/05_pandas_xarray/00_fetch_data/">
+      
+      
+        <meta name="author" content="Emmmanuel Roux">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+    
+    
+      
+        <title>00 fetch data - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../_css/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#adac-df0-mit-abgasnorm-euro-6d-temp-euro-6d" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                00 fetch data
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../doc/md/" class="md-tabs__link">
+          doc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../devops/ansible/" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../shell/_intro/" class="md-tabs__link">
+          shell
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../DB/intro/" class="md-tabs__link">
+          DB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../data/_intro/" class="md-tabs__link">
+          Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Viz/matplotlib/" class="md-tabs__link">
+          Visualization
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../WebDev/Intro/" class="md-tabs__link">
+          WebDev
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../aze/" title="IPYNB" class="md-nav__link">
+      IPYNB
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      doc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        doc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../doc/md/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/envs/" title="Envs" class="md-nav__link">
+      Envs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+      Ubuntu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../devops/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/git/" title="git" class="md-nav__link">
+      git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/zsh/" title="zsh" class="md-nav__link">
+      zsh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/intro/" title="intro" class="md-nav__link">
+      intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      MongoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        MongoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/Aggregation/" title="Aggregation framework" class="md-nav__link">
+      Aggregation framework
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/SQL/postgres/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Object store
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Object store
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/S3/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      ndarray
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        ndarray
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ndarray/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Time series
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Time series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/features/" title="Features selection" class="md-nav__link">
+      Features selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/matrixprofile/" title="Matrix profile" class="md-nav__link">
+      Matrix profile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/windowing/" title="Windowing" class="md-nav__link">
+      Windowing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ml/dl/" title="Time series" class="md-nav__link">
+      Time series
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Visualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Visualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Viz/matplotlib/" title="Matplolib" class="md-nav__link">
+      Matplolib
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      WebDev
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        WebDev
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/Intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/css/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/REACT/" title="REACT" class="md-nav__link">
+      REACT
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">10</span>
+</code></pre></div>
+
+<p>Create a HDF Store for serializing the data</p>
+<div class="highlight"><pre><span></span><code><span class="n">store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s1">&#39;store.h5&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h1 id="adac-df0-mit-abgasnorm-euro-6d-temp-euro-6d">ADAC - df0 mit Abgasnorm Euro 6d-Temp, Euro 6d</h1>
+<p><a href="https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/neuwagenkauf/euro-6d-temp-modelle">ADAC - df0 mit Abgasnorm Euro 6d-Temp, Euro 6d</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.adac.de/rund-ums-fahrzeug/auto-kaufen-verkaufen/neuwagenkauf/euro-6d-temp-modelle&quot;</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Concatenate all tables and reindex </p>
+<div class="highlight"><pre><span></span><code><span class="n">df0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">elt</span> <span class="k">for</span> <span class="n">elt</span> <span class="ow">in</span> <span class="n">res</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df0</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span>
+    <span class="s1">&#39;Markt-  einführung&#39;</span><span class="p">:</span> <span class="s1">&#39;Markteinfuehrung&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Hubraum in ccm&#39;</span><span class="p">:</span> <span class="s1">&#39;Hubraum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Leistung in KW&#39;</span><span class="p">:</span> <span class="s1">&#39;Leistung&#39;</span>
+    <span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Convert <em>Markteinfuehrung</em> col to datetime</p>
+<p>For date manipulation, see for ex.<a href="https://www.python-kurs.eu/python3_time_and_date.php">https://www.python-kurs.eu/python3_time_and_date.php</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">locale</span>
+
+<span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_ALL</span><span class="p">,</span> <span class="s1">&#39;de_DE.UTF-8&#39;</span><span class="p">)</span>
+
+<span class="n">pat</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(\w</span><span class="si">{3}</span><span class="s2">).*(\d</span><span class="si">{2}</span><span class="s2">)$&quot;</span>
+<span class="n">repl</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;{m.group(1)} {m.group(2)}&quot;</span>
+
+<span class="n">df0</span><span class="o">.</span><span class="n">Markteinfuehrung</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">Markteinfuehrung</span> \
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;^v&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(Mrz|Mar)&#39;</span><span class="p">,</span> <span class="s1">&#39;Mär&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">repl</span><span class="p">)</span>
+
+<span class="n">df0</span><span class="o">.</span><span class="n">Markteinfuehrung</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df0</span><span class="o">.</span><span class="n">Markteinfuehrung</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%b %y&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df0</span> <span class="o">=</span> <span class="n">df0</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span>
+    <span class="s1">&#39;Hersteller&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Modell&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="s1">&#39;Motorart&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Abgasnorm&#39;</span><span class="p">:</span> <span class="s1">&#39;category&#39;</span>
+    <span class="p">})</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df0</span><span class="o">.</span><span class="n">dtypes</span>
+</code></pre></div>
+
+<pre><code>Hersteller                category
+Modell                      object
+Motorart                  category
+Hubraum                      int64
+Leistung                     int64
+Abgasnorm                 category
+Markteinfuehrung    datetime64[ns]
+dtype: object
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df0</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hersteller</th>
+      <th>Modell</th>
+      <th>Motorart</th>
+      <th>Hubraum</th>
+      <th>Leistung</th>
+      <th>Abgasnorm</th>
+      <th>Markteinfuehrung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2677</th>
+      <td>VW</td>
+      <td>Caddy Maxi Kombi 2.0 TDI SCR</td>
+      <td>Diesel</td>
+      <td>1968</td>
+      <td>75</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-10-01</td>
+    </tr>
+    <tr>
+      <th>690</th>
+      <td>Dacia</td>
+      <td>Dokker Blue dCi 75</td>
+      <td>Diesel</td>
+      <td>1461</td>
+      <td>55</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>1226</th>
+      <td>Lamborghini</td>
+      <td>Huracán LP580-2</td>
+      <td>Otto</td>
+      <td>5204</td>
+      <td>426</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2018-09-01</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df0</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>Index                 128
+Hersteller           4506
+Modell              22992
+Motorart             3082
+Hubraum             22992
+Leistung            22992
+Abgasnorm            3250
+Markteinfuehrung    22992
+dtype: int64
+</code></pre>
+<p>Save to the store</p>
+<div class="highlight"><pre><span></span><code><span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;ADAC&#39;</span><span class="p">,</span> <span class="n">df0</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</code></pre></div>
+
+<pre><code>&lt;class 'pandas.io.pytables.HDFStore'&gt;
+File path: store.h5
+/ADAC                                     frame_table  (typ-&gt;appendable,nrows-&gt;2874,ncols-&gt;7,indexers-&gt;[index],dc-&gt;[])    
+/ADAC/meta/values_block_0/meta            series_table (typ-&gt;appendable,nrows-&gt;44,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+/ADAC/meta/values_block_1/meta            series_table (typ-&gt;appendable,nrows-&gt;6,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values]) 
+/ADAC/meta/values_block_2/meta            series_table (typ-&gt;appendable,nrows-&gt;7,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/ADAC&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Hersteller</th>
+      <th>Modell</th>
+      <th>Motorart</th>
+      <th>Hubraum</th>
+      <th>Leistung</th>
+      <th>Abgasnorm</th>
+      <th>Markteinfuehrung</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Abarth</td>
+      <td>595</td>
+      <td>Otto</td>
+      <td>1368</td>
+      <td>107</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Abarth</td>
+      <td>595 Pista</td>
+      <td>Otto</td>
+      <td>1368</td>
+      <td>118</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Abarth</td>
+      <td>595 Turismo</td>
+      <td>Otto</td>
+      <td>1368</td>
+      <td>121</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Abarth</td>
+      <td>595 Competizione</td>
+      <td>Otto</td>
+      <td>1368</td>
+      <td>132</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Abarth</td>
+      <td>595C</td>
+      <td>Otto</td>
+      <td>1368</td>
+      <td>107</td>
+      <td>Euro 6d-TEMP-EVAP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2869</th>
+      <td>VW</td>
+      <td>Touran 2.0 TDI SCR</td>
+      <td>Diesel</td>
+      <td>1968</td>
+      <td>140</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2019-01-01</td>
+    </tr>
+    <tr>
+      <th>2870</th>
+      <td>VW</td>
+      <td>up! 1.0</td>
+      <td>Otto</td>
+      <td>999</td>
+      <td>44</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2018-08-01</td>
+    </tr>
+    <tr>
+      <th>2871</th>
+      <td>VW</td>
+      <td>up! 1.0</td>
+      <td>Otto</td>
+      <td>999</td>
+      <td>55</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2018-08-01</td>
+    </tr>
+    <tr>
+      <th>2872</th>
+      <td>VW</td>
+      <td>up! 1.0 TSI</td>
+      <td>Otto</td>
+      <td>999</td>
+      <td>66</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2018-09-01</td>
+    </tr>
+    <tr>
+      <th>2873</th>
+      <td>VW</td>
+      <td>up! GTI</td>
+      <td>Otto</td>
+      <td>999</td>
+      <td>85</td>
+      <td>Euro 6d-TEMP</td>
+      <td>2018-01-01</td>
+    </tr>
+  </tbody>
+</table>
+<p>2874 rows × 7 columns</p>
+</div>
+
+<h1 id="umweltdaten-nurnberg">Umweltdaten Nürnberg</h1>
+<p><a href="http://umweltdaten.nuernberg.de/aussenluft/stadt-nuernberg/messstation-jakobsplatz.html">Messstation Jakobsplatz - Stadt Nürnberg</a>
+from datetime import datetime
+today = datetime.today()</p>
+<p>from string import Template</p>
+<p>url = Template(("<a href="http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/">http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/</a>"
+                "archiv/csv-export/SUN/<span><span class="MathJax_Preview">{where}/</span><script type="math/tex">{where}/</script></span>{what}/"
+                "individuell/<span><span class="MathJax_Preview">{first}/</span><script type="math/tex">{first}/</script></span>{until}/export.csv"))</p>
+<p>make_url = lambda where, what, year: url.substitute(
+    where=where,
+    what=what,
+    first=f"01.01.{year}",
+    until=f'31.12.{year}')</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_air_data_in_nuremberg</span><span class="p">(</span><span class="n">where</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">opts</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;skiprows&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sep&#39;</span><span class="p">:</span> <span class="s1">&#39;;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;parse_dates&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="s1">&#39;index_col&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;na_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">]</span>
+    <span class="p">}</span>    
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;archiv/csv-export/SUN/</span><span class="si">{where}</span><span class="s2">/</span><span class="si">{what}</span><span class="s2">/&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;individuell/01.01.</span><span class="si">{year}</span><span class="s2">/31.12.</span><span class="si">{year}</span><span class="s2">/export.csv&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">get_air_data_in_nuremberg</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s2">&quot;nuernberg-jakobsplatz&quot;</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s2">&quot;stickstoffdioxid&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2020</span><span class="p">)])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">messstation</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">feinstaub</span><span class="o">-</span><span class="n">pm10</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">staubpartikel</span><span class="o">-</span><span class="n">pm10</span><span class="o">/</span><span class="mi">7</span><span class="o">-</span><span class="n">Tages</span><span class="o">-</span><span class="n">Ansicht</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">Nu2HD5</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nuernberg-jakobsplatz&#39;</span><span class="p">:</span> <span class="s1">&#39;JAKOBSPALTZ&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nuernberg-flugfeld&#39;</span><span class="p">:</span> <span class="s1">&#39;FLUGFELD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stickstoffmonoxid&#39;</span><span class="p">:</span> <span class="s1">&#39;NO&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stickstoffdioxid&#39;</span><span class="p">:</span> <span class="s1">&#39;NO2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ozon&#39;</span><span class="p">:</span> <span class="s1">&#39;O3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;staubpartikel-pm10&#39;</span><span class="p">:</span> <span class="s1">&#39;PM10&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;staub-pm-25&#39;</span><span class="p">:</span> <span class="s1">&#39;PM25&#39;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="k">for</span> <span class="n">what</span><span class="p">,</span> <span class="n">where</span> <span class="ow">in</span> <span class="n">product</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">Nu2HD5</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;nuernberg&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span><span class="p">],</span>
+                           <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">Nu2HD5</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="s1">&#39;nuernberg&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">get_air_data_in_nuremberg</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="n">what</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2020</span><span class="p">)])</span>
+
+        <span class="n">tableName</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;AIR/</span><span class="si">{Nu2HD5[where]}</span><span class="s2">/</span><span class="si">{Nu2HD5[what]}</span><span class="s2">&quot;</span>
+        <span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">tableName</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</code></pre></div>
+
+<pre><code>&lt;class 'pandas.io.pytables.HDFStore'&gt;
+File path: store.h5
+/ADAC                                     frame_table  (typ-&gt;appendable,nrows-&gt;2874,ncols-&gt;7,indexers-&gt;[index],dc-&gt;[])    
+/ADAC/meta/values_block_0/meta            series_table (typ-&gt;appendable,nrows-&gt;44,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values])
+/ADAC/meta/values_block_1/meta            series_table (typ-&gt;appendable,nrows-&gt;6,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values]) 
+/ADAC/meta/values_block_2/meta            series_table (typ-&gt;appendable,nrows-&gt;7,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[values]) 
+/AIR/FLUGFELD/NO                          frame_table  (typ-&gt;appendable,nrows-&gt;127817,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/FLUGFELD/NO2                         frame_table  (typ-&gt;appendable,nrows-&gt;127779,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/FLUGFELD/O3                          frame_table  (typ-&gt;appendable,nrows-&gt;129541,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/FLUGFELD/PM10                        frame_table  (typ-&gt;appendable,nrows-&gt;130374,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/FLUGFELD/PM25                        frame_table  (typ-&gt;appendable,nrows-&gt;103667,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/JAKOBSPALTZ/NO                       frame_table  (typ-&gt;appendable,nrows-&gt;123168,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/JAKOBSPALTZ/NO2                      frame_table  (typ-&gt;appendable,nrows-&gt;123353,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/JAKOBSPALTZ/O3                       frame_table  (typ-&gt;appendable,nrows-&gt;125972,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/JAKOBSPALTZ/PM10                     frame_table  (typ-&gt;appendable,nrows-&gt;126952,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])  
+/AIR/JAKOBSPALTZ/PM25                     frame_table  (typ-&gt;appendable,nrows-&gt;87343,ncols-&gt;1,indexers-&gt;[index],dc-&gt;[])
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/AIR/JAKOBSPALTZ/O3&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2005-05-24 21:00:00</th>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>2005-01-06 00:00:00</th>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>2005-01-06 01:00:00</th>
+      <td>49.0</td>
+    </tr>
+    <tr>
+      <th>2005-01-06 02:00:00</th>
+      <td>51.0</td>
+    </tr>
+    <tr>
+      <th>2005-01-06 03:00:00</th>
+      <td>34.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+</code></pre></div>
+
+<p><img alt="png" src="output_29_0.png" /></p>
+<h2 id="with-pandas">with <strong>pandas</strong></h2>
+<div class="highlight"><pre><span></span><code><span class="n">dfk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">make_url</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s2">&quot;nuernberg-jakobsplatz&quot;</span><span class="p">,</span> <span class="n">what</span><span class="o">=</span><span class="s2">&quot;stickstoffdioxid&quot;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">),</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The data will be retrieved year for year, see no</p>
+<blockquote>
+<p>"<em>Da bei den Abfragen möglicherweise große Datenmengen entstehen, wird empfohlen maximal 12 Monate als Bezugszeitraum anzugeben und bei Bedarf mehrere Abfragen durchzuführen.</em>"</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+<h2 id="with-pyarrow">with <strong>pyarrow</strong></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyarrow</span> <span class="kn">import</span> <span class="n">csv</span>
+<span class="kn">from</span> <span class="nn">pyarrow.csv</span> <span class="kn">import</span> <span class="p">(</span><span class="n">ReadOptions</span><span class="p">,</span> <span class="n">ParseOptions</span><span class="p">,</span> <span class="n">ConvertOptions</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">read_opts</span> <span class="o">=</span> <span class="n">ReadOptions</span><span class="p">(</span><span class="n">skip_rows</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">column_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;NO2&quot;</span><span class="p">])</span>
+<span class="n">parse_opts</span> <span class="o">=</span> <span class="n">ParseOptions</span><span class="p">(</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">conv_opts</span> <span class="o">=</span> <span class="n">ConvertOptions</span><span class="p">(</span><span class="n">column_types</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NO2&#39;</span><span class="p">:</span> <span class="n">pa</span><span class="o">.</span><span class="n">int32</span><span class="p">()},</span> <span class="n">null_values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">])</span>
+<span class="c1"># Date are not an </span>
+<span class="c1"># &#39;Date&#39;: pa.timestamp(&#39;s&#39;),</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="p">(</span><span class="n">BytesIO</span><span class="p">,</span> <span class="n">StringIO</span><span class="p">)</span>
+
+<span class="n">bio</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">bio</span><span class="p">,</span> <span class="n">read_options</span><span class="o">=</span><span class="n">read_opts</span><span class="p">,</span> <span class="n">parse_options</span><span class="o">=</span><span class="n">parse_opts</span><span class="p">,</span> <span class="n">convert_options</span><span class="o">=</span><span class="n">conv_opts</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">table</span><span class="o">.</span><span class="n">schema</span>
+</code></pre></div>
+
+<pre><code>Date: string
+NO2: int32
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">dfk</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6fe5bd2710&gt;
+</code></pre>
+<p><img alt="png" src="output_39_1.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyarrow</span> <span class="kn">import</span> <span class="n">csv</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">requests</span> <span class="kn">import</span> <span class="n">Session</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">year</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">u1</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="s2">&quot;stickstoffdioxid&quot;</span><span class="p">,</span>
+                                 <span class="n">first</span><span class="o">=</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                                 <span class="n">until</span><span class="o">=</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">table</span><span class="o">.</span><span class="n">schema</span>
+</code></pre></div>
+
+<pre><code>Date: string
+NO2: int32
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>Date     object
+NO2     float64
+dtype: object
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">what</span><span class="o">=</span><span class="s2">&quot;stickstoffdioxid&quot;</span><span class="p">,</span>
+                                 <span class="n">first</span><span class="o">=</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                                 <span class="n">until</span><span class="o">=</span><span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">year</span><span class="p">)),</span>
+                  <span class="o">**</span><span class="n">opts</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+DatetimeIndex: 112269 entries, 2019-01-01 01:00:00 to 2005-11-27 23:00:00
+Data columns (total 1 columns):
+Wert (µg/m³)    111358 non-null float64
+dtypes: float64(1)
+memory usage: 1.7 MB
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Wert (µg/m³)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;Wert (µg/m³)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">30</span><span class="p">]</span>
+</code></pre></div>
+
+<pre><code>Datum/Zeit
+2019-01-01 01:00:00    30.0
+2019-01-01 02:00:00    29.0
+2019-01-01 03:00:00    24.0
+2019-01-01 04:00:00    22.0
+2019-01-01 05:00:00    20.0
+                       ... 
+2019-02-01 02:00:00     8.0
+2019-02-01 03:00:00     6.0
+2019-02-01 04:00:00     7.0
+2019-02-01 05:00:00     6.0
+2019-02-01 06:00:00     8.0
+Name: Wert (µg/m³), Length: 30, dtype: float64
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">week_df</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>15849.0</td>
+      <td>30.795003</td>
+      <td>17.231654</td>
+      <td>1.0</td>
+      <td>18.0</td>
+      <td>27.0</td>
+      <td>40.0</td>
+      <td>133.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15949.0</td>
+      <td>31.919744</td>
+      <td>17.604728</td>
+      <td>0.0</td>
+      <td>19.0</td>
+      <td>28.0</td>
+      <td>41.0</td>
+      <td>129.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15943.0</td>
+      <td>32.267578</td>
+      <td>17.488338</td>
+      <td>0.0</td>
+      <td>19.0</td>
+      <td>29.0</td>
+      <td>42.0</td>
+      <td>148.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15954.0</td>
+      <td>32.525385</td>
+      <td>17.798968</td>
+      <td>1.0</td>
+      <td>19.0</td>
+      <td>29.0</td>
+      <td>42.0</td>
+      <td>135.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15959.0</td>
+      <td>31.770725</td>
+      <td>17.249226</td>
+      <td>-1.0</td>
+      <td>19.0</td>
+      <td>28.0</td>
+      <td>41.0</td>
+      <td>135.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>15816.0</td>
+      <td>28.693349</td>
+      <td>15.996195</td>
+      <td>0.0</td>
+      <td>17.0</td>
+      <td>25.0</td>
+      <td>37.0</td>
+      <td>129.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>15888.0</td>
+      <td>25.967082</td>
+      <td>16.686306</td>
+      <td>0.0</td>
+      <td>14.0</td>
+      <td>22.0</td>
+      <td>34.0</td>
+      <td>128.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<blockquote>
+<p>"<em>Although fine particle OC concentrations did not correlate with day of the week, EC concentrations showed a significant weekly pattern, with the highest concentration during the middle of the workweek and the lowest concentration on Sundays.</em>"
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/15303295">https://www.ncbi.nlm.nih.gov/pubmed/15303295</a></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+</code></pre></div>
+
+<p><img alt="png" src="output_56_0.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">gp</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+
+<pre><code>7.61 ms ± 75.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span><span class="p">)</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>10.2 ms ± 73.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df_wend</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">weekday</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df_wend</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_wend</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6ff53afc88&gt;
+</code></pre>
+<p><img alt="png" src="output_61_1.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df_wend_h</span> <span class="o">=</span> <span class="n">df_wend</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_wend</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df_wend_h</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>667.0</td>
+      <td>35.112444</td>
+      <td>19.408852</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>30.0</td>
+      <td>46.00</td>
+      <td>117.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>665.0</td>
+      <td>32.306767</td>
+      <td>18.458983</td>
+      <td>0.0</td>
+      <td>18.0</td>
+      <td>28.0</td>
+      <td>44.00</td>
+      <td>105.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>665.0</td>
+      <td>29.712782</td>
+      <td>17.153460</td>
+      <td>0.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>40.00</td>
+      <td>94.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>666.0</td>
+      <td>28.234234</td>
+      <td>15.617778</td>
+      <td>0.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>37.00</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>667.0</td>
+      <td>28.008996</td>
+      <td>14.758310</td>
+      <td>1.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>37.00</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>667.0</td>
+      <td>35.962519</td>
+      <td>18.899770</td>
+      <td>6.0</td>
+      <td>21.0</td>
+      <td>32.0</td>
+      <td>46.00</td>
+      <td>144.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>668.0</td>
+      <td>38.938623</td>
+      <td>19.969410</td>
+      <td>6.0</td>
+      <td>25.0</td>
+      <td>36.0</td>
+      <td>48.25</td>
+      <td>148.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>666.0</td>
+      <td>39.978979</td>
+      <td>20.332119</td>
+      <td>4.0</td>
+      <td>25.0</td>
+      <td>36.0</td>
+      <td>50.00</td>
+      <td>125.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>665.0</td>
+      <td>40.756391</td>
+      <td>20.704699</td>
+      <td>6.0</td>
+      <td>26.0</td>
+      <td>37.0</td>
+      <td>52.00</td>
+      <td>124.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>665.0</td>
+      <td>39.533835</td>
+      <td>20.385202</td>
+      <td>5.0</td>
+      <td>24.0</td>
+      <td>36.0</td>
+      <td>51.00</td>
+      <td>118.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>24 rows × 8 columns</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">sns</span><span class="o">.</span><span class="n">pointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">68</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df_wend_h</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">column</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df_wend_h</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</code></pre></div>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6fe55677b8&gt;
+</code></pre>
+<p><img alt="png" src="output_66_1.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">df_wend_h</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>667.0</td>
+      <td>35.112444</td>
+      <td>19.408852</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>30.0</td>
+      <td>46.00</td>
+      <td>117.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>665.0</td>
+      <td>32.306767</td>
+      <td>18.458983</td>
+      <td>0.0</td>
+      <td>18.0</td>
+      <td>28.0</td>
+      <td>44.00</td>
+      <td>105.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>665.0</td>
+      <td>29.712782</td>
+      <td>17.153460</td>
+      <td>0.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>40.00</td>
+      <td>94.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>666.0</td>
+      <td>28.234234</td>
+      <td>15.617778</td>
+      <td>0.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>37.00</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>667.0</td>
+      <td>28.008996</td>
+      <td>14.758310</td>
+      <td>1.0</td>
+      <td>16.0</td>
+      <td>25.0</td>
+      <td>37.00</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>667.0</td>
+      <td>35.962519</td>
+      <td>18.899770</td>
+      <td>6.0</td>
+      <td>21.0</td>
+      <td>32.0</td>
+      <td>46.00</td>
+      <td>144.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>668.0</td>
+      <td>38.938623</td>
+      <td>19.969410</td>
+      <td>6.0</td>
+      <td>25.0</td>
+      <td>36.0</td>
+      <td>48.25</td>
+      <td>148.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>666.0</td>
+      <td>39.978979</td>
+      <td>20.332119</td>
+      <td>4.0</td>
+      <td>25.0</td>
+      <td>36.0</td>
+      <td>50.00</td>
+      <td>125.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>665.0</td>
+      <td>40.756391</td>
+      <td>20.704699</td>
+      <td>6.0</td>
+      <td>26.0</td>
+      <td>37.0</td>
+      <td>52.00</td>
+      <td>124.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>665.0</td>
+      <td>39.533835</td>
+      <td>20.385202</td>
+      <td>5.0</td>
+      <td>24.0</td>
+      <td>36.0</td>
+      <td>51.00</td>
+      <td>118.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>24 rows × 8 columns</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df_wend_h</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Datum/Zeit&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">));</span>
+</code></pre></div>
+
+<pre><code>---------------------------------------------------------------------------
+
+KeyboardInterrupt                         Traceback (most recent call last)
+
+&lt;ipython-input-204-ee7cf848b6f4&gt; in &lt;module&gt;
+----&gt; 1 df_wend_h.boxplot(by='Datum/Zeit', figsize=(16, 10));
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_core.py in boxplot_frame_groupby(grouped, subplots, column, fontsize, rot, grid, ax, figsize, layout, sharex, sharey, **kwds)
+    498         sharex=sharex,
+    499         sharey=sharey,
+--&gt; 500         **kwds
+    501     )
+    502
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/boxplot.py in boxplot_frame_groupby(grouped, subplots, column, fontsize, rot, grid, ax, figsize, layout, sharex, sharey, **kwds)
+    390         for (key, group), ax in zip(grouped, axes):
+    391             d = group.boxplot(
+--&gt; 392                 ax=ax, column=column, fontsize=fontsize, rot=rot, grid=grid, **kwds
+    393             )
+    394             ax.set_title(pprint_thing(key))
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_core.py in boxplot_frame(self, column, by, ax, fontsize, rot, grid, figsize, layout, return_type, **kwds)
+    418         layout=layout,
+    419         return_type=return_type,
+--&gt; 420         **kwds
+    421     )
+    422
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/boxplot.py in boxplot_frame(self, column, by, ax, fontsize, rot, grid, figsize, layout, return_type, **kwds)
+    353         layout=layout,
+    354         return_type=return_type,
+--&gt; 355         **kwds
+    356     )
+    357     plt.draw_if_interactive()
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/boxplot.py in boxplot(data, column, by, ax, fontsize, rot, grid, figsize, layout, return_type, **kwds)
+    300             ax=ax,
+    301             layout=layout,
+--&gt; 302             return_type=return_type,
+    303         )
+    304     else:
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/boxplot.py in _grouped_plot_by_column(plotf, data, columns, by, numeric_only, grid, figsize, ax, layout, return_type, **kwargs)
+    205         gp_col = grouped[col]
+    206         keys, values = zip(*gp_col)
+--&gt; 207         re_plotf = plotf(keys, values, ax, **kwargs)
+    208         ax.set_title(col)
+    209         ax.set_xlabel(pprint_thing(by))
+
+
+/opt/conda/lib/python3.7/site-packages/pandas/plotting/_matplotlib/boxplot.py in plot_group(keys, values, ax)
+    262         keys = [pprint_thing(x) for x in keys]
+    263         values = [np.asarray(remove_na_arraylike(v)) for v in values]
+--&gt; 264         bp = ax.boxplot(values, **kwds)
+    265         if fontsize is not None:
+    266             ax.tick_params(axis="both", labelsize=fontsize)
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/cbook/deprecation.py in wrapper(*args, **kwargs)
+    305                 f"for the old name will be dropped %(removal)s.")
+    306             kwargs[new] = kwargs.pop(old)
+--&gt; 307         return func(*args, **kwargs)
+    308 
+    309     # wrapper() must keep the same documented signature as func(): if we
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/__init__.py in inner(ax, data, *args, **kwargs)
+   1599     def inner(ax, *args, data=None, **kwargs):
+   1600         if data is None:
+-&gt; 1601             return func(ax, *map(sanitize_sequence, args), **kwargs)
+   1602 
+   1603         bound = new_sig.bind(ax, *args, **kwargs)
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_axes.py in boxplot(self, x, notch, sym, vert, whis, positions, widths, patch_artist, bootstrap, usermedians, conf_intervals, meanline, showmeans, showcaps, showbox, showfliers, boxprops, labels, flierprops, medianprops, meanprops, capprops, whiskerprops, manage_ticks, autorange, zorder)
+   3770                            meanline=meanline, showfliers=showfliers,
+   3771                            capprops=capprops, whiskerprops=whiskerprops,
+-&gt; 3772                            manage_ticks=manage_ticks, zorder=zorder)
+   3773         return artists
+   3774
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/cbook/deprecation.py in wrapper(*args, **kwargs)
+    305                 f"for the old name will be dropped %(removal)s.")
+    306             kwargs[new] = kwargs.pop(old)
+--&gt; 307         return func(*args, **kwargs)
+    308 
+    309     # wrapper() must keep the same documented signature as func(): if we
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_axes.py in bxp(self, bxpstats, positions, widths, vert, patch_artist, shownotches, showmeans, showcaps, showbox, showfliers, boxprops, whiskerprops, flierprops, medianprops, capprops, meanprops, meanline, manage_ticks, zorder)
+   4094 
+   4095             # draw the medians
+-&gt; 4096             medians.extend(doplot(med_x, med_y, **final_medianprops))
+   4097 
+   4098             # maybe draw the means
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_axes.py in doplot(*args, **kwargs)
+   3996         if vert:
+   3997             def doplot(*args, **kwargs):
+-&gt; 3998                 return self.plot(*args, **kwargs)
+   3999 
+   4000             def dopatch(xs, ys, **kwargs):
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_axes.py in plot(self, scalex, scaley, data, *args, **kwargs)
+   1667         for line in lines:
+   1668             self.add_line(line)
+-&gt; 1669         self.autoscale_view(scalex=scalex, scaley=scaley)
+   1670         return lines
+   1671
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_base.py in autoscale_view(self, tight, scalex, scaley)
+   2493         handle_single_axis(
+   2494             scalex, self._autoscaleXon, self._shared_x_axes, 'intervalx',
+-&gt; 2495             'minposx', self.xaxis, self._xmargin, x_stickies, self.set_xbound)
+   2496         handle_single_axis(
+   2497             scaley, self._autoscaleYon, self._shared_y_axes, 'intervaly',
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/axes/_base.py in handle_single_axis(scale, autoscaleon, shared_axes, interval, minpos, axis, margin, stickies, set_bound)
+   2460             x0, x1 = getattr(bb, interval)
+   2461             locator = axis.get_major_locator()
+-&gt; 2462             x0, x1 = locator.nonsingular(x0, x1)
+   2463 
+   2464             # Add the margin in figure space and then transform back, to handle
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/ticker.py in nonsingular(self, v0, v1)
+   1523     def nonsingular(self, v0, v1):
+   1524         """Expand a range as needed to avoid singularities."""
+-&gt; 1525         return mtransforms.nonsingular(v0, v1, expander=.05)
+   1526 
+   1527     def view_limits(self, vmin, vmax):
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/transforms.py in nonsingular(vmin, vmax, expander, tiny, increasing)
+   2825         swapped = True
+   2826 
+-&gt; 2827     maxabsvalue = max(abs(vmin), abs(vmax))
+   2828     if maxabsvalue &lt; (1e6 / tiny) * np.finfo(float).tiny:
+   2829         vmin = -expander
+
+
+KeyboardInterrupt:
+
+
+Error in callback &lt;function flush_figures at 0x7f6ff8de0d90&gt; (for post_execute):
+
+
+
+---------------------------------------------------------------------------
+
+KeyboardInterrupt                         Traceback (most recent call last)
+
+/opt/conda/lib/python3.7/site-packages/ipykernel/pylab/backend_inline.py in flush_figures()
+    115         # ignore the tracking, just draw and close all figures
+    116         try:
+--&gt; 117             return show(True)
+    118         except Exception as e:
+    119             # safely show traceback if in IPython, else raise
+
+
+/opt/conda/lib/python3.7/site-packages/ipykernel/pylab/backend_inline.py in show(close, block)
+     37             display(
+     38                 figure_manager.canvas.figure,
+---&gt; 39                 metadata=_fetch_figure_metadata(figure_manager.canvas.figure)
+     40             )
+     41     finally:
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/display.py in display(include, exclude, metadata, transient, display_id, *objs, **kwargs)
+    311             publish_display_data(data=obj, metadata=metadata, **kwargs)
+    312         else:
+--&gt; 313             format_dict, md_dict = format(obj, include=include, exclude=exclude)
+    314             if not format_dict:
+    315                 # nothing to display (e.g. _ipython_display_ took over)
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/formatters.py in format(self, obj, include, exclude)
+    178             md = None
+    179             try:
+--&gt; 180                 data = formatter(obj)
+    181             except:
+    182                 # FIXME: log the exception
+
+
+&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-9&gt; in __call__(self, obj)
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/formatters.py in catch_format_error(method, self, *args, **kwargs)
+    222     """show traceback on failed format call"""
+    223     try:
+--&gt; 224         r = method(self, *args, **kwargs)
+    225     except NotImplementedError:
+    226         # don't warn on NotImplementedErrors
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/formatters.py in __call__(self, obj)
+    339                 pass
+    340             else:
+--&gt; 341                 return printer(obj)
+    342             # Finally look for special method names
+    343             method = get_real_method(obj, self.print_method)
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/pylabtools.py in &lt;lambda&gt;(fig)
+    242 
+    243     if 'png' in formats:
+--&gt; 244         png_formatter.for_type(Figure, lambda fig: print_figure(fig, 'png', **kwargs))
+    245     if 'retina' in formats or 'png2x' in formats:
+    246         png_formatter.for_type(Figure, lambda fig: retina_figure(fig, **kwargs))
+
+
+/opt/conda/lib/python3.7/site-packages/IPython/core/pylabtools.py in print_figure(fig, fmt, bbox_inches, **kwargs)
+    126 
+    127     bytes_io = BytesIO()
+--&gt; 128     fig.canvas.print_figure(bytes_io, **kw)
+    129     data = bytes_io.getvalue()
+    130     if fmt == 'svg':
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/backend_bases.py in print_figure(self, filename, dpi, facecolor, edgecolor, orientation, format, bbox_inches, **kwargs)
+   2058                     bbox_artists = kwargs.pop("bbox_extra_artists", None)
+   2059                     bbox_inches = self.figure.get_tightbbox(renderer,
+-&gt; 2060                             bbox_extra_artists=bbox_artists)
+   2061                     pad = kwargs.pop("pad_inches", None)
+   2062                     if pad is None:
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/figure.py in get_tightbbox(self, renderer, bbox_extra_artists)
+   2386             return self.bbox_inches
+   2387 
+-&gt; 2388         _bbox = Bbox.union(bb)
+   2389 
+   2390         bbox_inches = TransformedBbox(_bbox,
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/transforms.py in union(bboxes)
+    702         x0 = np.min([bbox.xmin for bbox in bboxes])
+    703         x1 = np.max([bbox.xmax for bbox in bboxes])
+--&gt; 704         y0 = np.min([bbox.ymin for bbox in bboxes])
+    705         y1 = np.max([bbox.ymax for bbox in bboxes])
+    706         return Bbox([[x0, y0], [x1, y1]])
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/transforms.py in &lt;listcomp&gt;(.0)
+    702         x0 = np.min([bbox.xmin for bbox in bboxes])
+    703         x1 = np.max([bbox.xmax for bbox in bboxes])
+--&gt; 704         y0 = np.min([bbox.ymin for bbox in bboxes])
+    705         y1 = np.max([bbox.ymax for bbox in bboxes])
+    706         return Bbox([[x0, y0], [x1, y1]])
+
+
+/opt/conda/lib/python3.7/site-packages/matplotlib/transforms.py in ymin(self)
+    353     def ymin(self):
+    354         """The bottom edge of the bounding box."""
+--&gt; 355         return np.min(self.get_points()[:, 1])
+    356 
+    357     @property
+
+
+&lt;__array_function__ internals&gt; in amin(*args, **kwargs)
+
+
+/opt/conda/lib/python3.7/site-packages/numpy/core/fromnumeric.py in amin(a, axis, out, keepdims, initial, where)
+   2744     """
+   2745     return _wrapreduction(a, np.minimum, 'min', axis, None, out,
+-&gt; 2746                           keepdims=keepdims, initial=initial, where=where)
+   2747 
+   2748
+
+
+/opt/conda/lib/python3.7/site-packages/numpy/core/fromnumeric.py in _wrapreduction(obj, ufunc, method, axis, dtype, out, **kwargs)
+     88                 return reduction(axis=axis, out=out, **passkwargs)
+     89 
+---&gt; 90     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+     91 
+     92
+
+
+KeyboardInterrupt:
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wert (µg/m³)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>111358.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>30.567341</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>17.305318</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>18.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>27.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>40.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>148.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+<pre><code>(1, 8)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>array([30., 29., 24., ..., 38., 33., 39.])
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">cut</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">cut</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wert (µg/m³)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>(-1.001, 12.0]</th>
+      <td>9.379547</td>
+    </tr>
+    <tr>
+      <th>(12.0, 16.0]</th>
+      <td>14.562010</td>
+    </tr>
+    <tr>
+      <th>(16.0, 19.0]</th>
+      <td>17.998225</td>
+    </tr>
+    <tr>
+      <th>(19.0, 23.0]</th>
+      <td>21.479578</td>
+    </tr>
+    <tr>
+      <th>(23.0, 27.0]</th>
+      <td>25.477695</td>
+    </tr>
+    <tr>
+      <th>(27.0, 31.0]</th>
+      <td>29.440277</td>
+    </tr>
+    <tr>
+      <th>(31.0, 37.0]</th>
+      <td>34.399984</td>
+    </tr>
+    <tr>
+      <th>(37.0, 44.0]</th>
+      <td>40.804197</td>
+    </tr>
+    <tr>
+      <th>(44.0, 54.0]</th>
+      <td>49.080055</td>
+    </tr>
+    <tr>
+      <th>(54.0, 148.0]</th>
+      <td>67.818124</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">week_df</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30.795003</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31.919744</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>32.267578</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>32.525385</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>31.770725</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>28.693349</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>25.967082</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">df1</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7feedcd0e780&gt;
+</code></pre>
+<p><img alt="png" src="output_75_1.png" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">stickstoffmonoxid</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">lufttemperatur</span><span class="o">-</span><span class="n">aussen</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">stickstoffdioxid</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>    
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">staub</span><span class="o">-</span><span class="n">pm</span><span class="o">-</span><span class="mi">25</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>    
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">staubpartikel</span><span class="o">-</span><span class="n">pm10</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>    
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">staubpartikel</span><span class="o">-</span><span class="n">pm10</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>    
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">urls</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;stickstoffmonoxid&#39;</span><span class="p">:</span> <span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/messstation-jakobsplatz/stickstoffmonoxid/csv-export/SUN/nuernberg-jakobsplatz/stickstoffmonoxid/7-Tages-Ansicht/export.csv&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;stickstoffdioxid&#39;</span><span class="p">:</span> <span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/messstation-jakobsplatz/stickstoffdioxid/csv-export/SUN/nuernberg-jakobsplatz/stickstoffdioxid/7-Tages-Ansicht/export.csv&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;ozon&#39;</span><span class="p">:</span> <span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/messstation-jakobsplatz/ozon/csv-export/SUN/nuernberg-jakobsplatz/ozon/7-Tages-Ansicht/export.csv&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;pm10&#39;</span><span class="p">:</span> <span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/messstation-jakobsplatz/feinstaub-pm10/csv-export/SUN/nuernberg-jakobsplatz/staubpartikel-pm10/7-Tages-Ansicht/export.csv&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;pm25&#39;</span><span class="p">:</span> <span class="s2">&quot;http://umweltdaten.nuernberg.de/csv/aussenluft/stadt-nuernberg/messstation-jakobsplatz/feinstaub-pm25/csv-export/SUN/nuernberg-jakobsplatz/staub-pm-25/7-Tages-Ansicht/export.csv&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">opts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;skiprows&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="s1">&#39;encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sep&#39;</span><span class="p">:</span> <span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="s1">&#39;index_col&#39;</span><span class="p">:</span><span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="n">comp</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span> <span class="k">for</span> <span class="n">comp</span><span class="p">,</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">umweltdaten</span><span class="o">.</span><span class="n">nuernberg</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">csv</span><span class="o">/</span><span class="n">aussenluft</span><span class="o">/</span><span class="n">stadt</span><span class="o">-</span><span class="n">nuernberg</span><span class="o">/</span><span class="n">archiv</span><span class="o">/</span><span class="n">csv</span><span class="o">-</span><span class="n">export</span><span class="o">/</span><span class="n">SUN</span><span class="o">/</span><span class="n">nuernberg</span><span class="o">-</span><span class="n">jakobsplatz</span><span class="o">/</span><span class="n">stickstoffdioxid</span><span class="o">/</span><span class="n">individuell</span><span class="o">/</span><span class="mf">01.06</span><span class="o">.</span><span class="mi">2005</span><span class="o">/</span><span class="mf">27.11</span><span class="o">.</span><span class="mi">2019</span><span class="o">/</span><span class="n">export</span><span class="o">.</span><span class="n">csv</span>    
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+</code></pre></div>
+
+<pre><code>[(187, 1), (187, 1), (187, 1), (187, 1), (187, 1)]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">res</span><span class="p">[</span><span class="s1">&#39;ozon&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wert (µg/m³)</th>
+    </tr>
+    <tr>
+      <th>Datum/Zeit</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20.11.2019 01:00</th>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>20.11.2019 02:00</th>
+      <td>31</td>
+    </tr>
+    <tr>
+      <th>20.11.2019 03:00</th>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>20.11.2019 04:00</th>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>20.11.2019 05:00</th>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>27.11.2019 15:00</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>27.11.2019 16:00</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>27.11.2019 17:00</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>27.11.2019 18:00</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>27.11.2019 19:00</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+<p>187 rows × 1 columns</p>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">stumpy</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">val</span> <span class="o">=</span> <span class="n">dfk</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">st</span> <span class="o">=</span> <span class="n">stumpy</span><span class="o">.</span><span class="n">stump</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">val</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">330</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span>
+                        <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;hspace&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Discord (Anomaly/Novelty) Discovery&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;30&#39;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span><span class="s1">&#39;20&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Matrix Profile&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;20&#39;</span><span class="p">)</span>
+<span class="c1">#axs[1].axvline(x=3864, linestyle=&quot;dashed&quot;)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">st</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x7f03c4501860&gt;]
+</code></pre>
+<p><img alt="png" src="output_87_1.png" /></p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  <!--  -->
+  <!-- <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div> -->
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../_js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+      
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      
+    
+  </body>
+</html>
