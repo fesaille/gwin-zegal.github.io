@@ -95,6 +95,7 @@ markdown_extensions:
   - pymdownx.tilde
 
 site_url: 'https://github.com/fesaille'
+remote_branch: master
 # repo_name: 'gwin-zegal.github.io'
 # repo_url: 'https://github.com/fesaille'
 
