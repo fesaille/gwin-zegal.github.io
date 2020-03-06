@@ -1,0 +1,1957 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/03_MongoDB/MongoDB/">
+      
+      
+        <meta name="author" content="Emmmanuel Roux">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+    
+    
+      
+        <title>MongoDB - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../_css/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                MongoDB
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../doc/md/" class="md-tabs__link">
+          doc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../devops/ansible/" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../shell/_intro/" class="md-tabs__link">
+          shell
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../DB/intro/" class="md-tabs__link">
+          DB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../data/_intro/" class="md-tabs__link">
+          Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Viz/matplotlib/" class="md-tabs__link">
+          Visualization
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../WebDev/Intro/" class="md-tabs__link">
+          WebDev
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../aze/" title="IPYNB" class="md-nav__link">
+      IPYNB
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      doc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        doc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../doc/md/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/envs/" title="Envs" class="md-nav__link">
+      Envs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+      Ubuntu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../devops/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/git/" title="git" class="md-nav__link">
+      git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/zsh/" title="zsh" class="md-nav__link">
+      zsh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/intro/" title="intro" class="md-nav__link">
+      intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      MongoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        MongoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/Aggregation/" title="Aggregation framework" class="md-nav__link">
+      Aggregation framework
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/SQL/postgres/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Object store
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Object store
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/S3/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      ndarray
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        ndarray
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ndarray/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Time series
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Time series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/features/" title="Features selection" class="md-nav__link">
+      Features selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/matrixprofile/" title="Matrix profile" class="md-nav__link">
+      Matrix profile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/windowing/" title="Windowing" class="md-nav__link">
+      Windowing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ml/dl/" title="Time series" class="md-nav__link">
+      Time series
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Visualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Visualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Viz/matplotlib/" title="Matplolib" class="md-nav__link">
+      Matplolib
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      WebDev
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        WebDev
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/Intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/css/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/REACT/" title="REACT" class="md-nav__link">
+      REACT
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>MongoDB</h1>
+                
+                <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">watermark</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">watermark</span> <span class="o">-</span><span class="n">dvmp</span> <span class="n">pymongo</span><span class="p">,</span><span class="n">pyarrow</span>
+</code></pre></div>
+
+<pre><code>2019-11-02
+
+CPython 3.7.3
+IPython 7.8.0
+
+pymongo 3.8.0
+pyarrow not installed
+
+compiler   : GCC 7.3.0
+system     : Linux
+release    : 5.0.0-31-generic
+machine    : x86_64
+processor  : x86_64
+CPU cores  : 8
+interpreter: 64bit
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">mongo_local</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;secret&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">,</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;172.22.0.3&#39;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;starwars&quot;</span><span class="p">,</span>
+    <span class="n">collection</span><span class="o">=</span><span class="s2">&quot;people&quot;</span>    
+<span class="p">)</span>
+
+<span class="n">mongo_atlas</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="s1">&#39;m220student&#39;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s1">&#39;m220password&#39;</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">,</span>
+    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;baobab-crx55.mongodb.net&#39;</span>
+<span class="p">)</span>               
+</code></pre></div>
+
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">post</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Mike&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;My first blog post!&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;mongodb&quot;</span><span class="p">,</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;pymongo&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()}</span>
+</code></pre></div>
+uri = f"mongodb://{user}:{password}@{host}"</p>
+<div class="highlight"><pre><span></span><code><span class="n">conn</span> <span class="o">=</span> <span class="n">mongo_local</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;mongodb://</span><span class="si">{conn[&#39;user&#39;]}</span><span class="s2">:</span><span class="si">{conn[&#39;password&#39;]}</span><span class="s2">@</span><span class="si">{conn[&#39;host&#39;]}</span><span class="s2">:{conn.get(&#39;port&#39;, 27017)}&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;starwars&quot;</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="s2">&quot;people&quot;</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>mongodb://root:secret@172.22.0.3:27017
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;mongodb://root:secret@172.22.0.3:27017/starwars&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<pre><code>'mongodb://root:secret@172.22.0.3:27017'
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;mongodb://mongo:password@mongo&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">m</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>---------------------------------------------------------------------------
+
+OperationFailure                          Traceback (most recent call last)
+
+&lt;ipython-input-71-a100b7e4b26f&gt; in &lt;module&gt;
+----&gt; 1 m.list_database_names()
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/mongo_client.py in list_database_names(self, session)
+   1697         """
+   1698         return [doc["name"]
+-&gt; 1699                 for doc in self.list_databases(session, nameOnly=True)]
+   1700 
+   1701     def database_names(self, session=None):
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/mongo_client.py in list_databases(self, session, **kwargs)
+   1678         cmd.update(kwargs)
+   1679         admin = self._database_default_options("admin")
+-&gt; 1680         res = admin.command(cmd, session=session)
+   1681         # listDatabases doesn't return a cursor (yet). Fake one.
+   1682         cursor = {
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/database.py in command(self, command, value, check, allowable_errors, read_preference, codec_options, session, **kwargs)
+    653                                or ReadPreference.PRIMARY)
+    654         with self.__client._socket_for_reads(
+--&gt; 655                 read_preference) as (sock_info, slave_ok):
+    656             return self._command(sock_info, command, slave_ok, value,
+    657                                  check, allowable_errors, read_preference,
+
+
+/opt/conda/lib/python3.7/contextlib.py in __enter__(self)
+    110         del self.args, self.kwds, self.func
+    111         try:
+--&gt; 112             return next(self.gen)
+    113         except StopIteration:
+    114             raise RuntimeError("generator didn't yield") from None
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/mongo_client.py in _socket_for_reads(self, read_preference)
+   1135         server = topology.select_server(read_preference)
+   1136 
+-&gt; 1137         with self._get_socket(server) as sock_info:
+   1138             slave_ok = (single and not sock_info.is_mongos) or (
+   1139                 read_preference != ReadPreference.PRIMARY)
+
+
+/opt/conda/lib/python3.7/contextlib.py in __enter__(self)
+    110         del self.args, self.kwds, self.func
+    111         try:
+--&gt; 112             return next(self.gen)
+    113         except StopIteration:
+    114             raise RuntimeError("generator didn't yield") from None
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/mongo_client.py in _get_socket(self, server)
+   1092     def _get_socket(self, server):
+   1093         try:
+-&gt; 1094             with server.get_socket(self.__all_credentials) as sock_info:
+   1095                 yield sock_info
+   1096         except NetworkTimeout:
+
+
+/opt/conda/lib/python3.7/contextlib.py in __enter__(self)
+    110         del self.args, self.kwds, self.func
+    111         try:
+--&gt; 112             return next(self.gen)
+    113         except StopIteration:
+    114             raise RuntimeError("generator didn't yield") from None
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/pool.py in get_socket(self, all_credentials, checkout)
+   1009         sock_info = self._get_socket_no_auth()
+   1010         try:
+-&gt; 1011             sock_info.check_auth(all_credentials)
+   1012             yield sock_info
+   1013         except:
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/pool.py in check_auth(self, all_credentials)
+    680 
+    681             for credentials in cached - authset:
+--&gt; 682                 auth.authenticate(credentials, self)
+    683                 self.authset.add(credentials)
+    684
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/auth.py in authenticate(credentials, sock_info)
+    563     mechanism = credentials.mechanism
+    564     auth_func = _AUTH_MAP.get(mechanism)
+--&gt; 565     auth_func(credentials, sock_info)
+    566 
+    567
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/auth.py in _authenticate_default(credentials, sock_info)
+    538             return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-256')
+    539         else:
+--&gt; 540             return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+    541     elif sock_info.max_wire_version &gt;= 3:
+    542         return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/auth.py in _authenticate_scram(credentials, sock_info, mechanism)
+    262                ('payload', Binary(b"n,," + first_bare)),
+    263                ('autoAuthorize', 1)])
+--&gt; 264     res = sock_info.command(source, cmd)
+    265 
+    266     server_first = res['payload']
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/pool.py in command(self, dbname, spec, slave_ok, read_preference, codec_options, check, allowable_errors, check_keys, read_concern, write_concern, parse_write_concern_error, collation, session, client, retryable_write, publish_events, user_fields)
+    582                            use_op_msg=self.op_msg_enabled,
+    583                            unacknowledged=unacknowledged,
+--&gt; 584                            user_fields=user_fields)
+    585         except OperationFailure:
+    586             raise
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/network.py in command(sock, dbname, spec, slave_ok, is_mongos, read_preference, codec_options, session, client, check, allowable_errors, address, check_keys, listeners, max_bson_size, read_concern, parse_write_concern_error, collation, compression_ctx, use_op_msg, unacknowledged, user_fields)
+    156                 helpers._check_command_response(
+    157                     response_doc, None, allowable_errors,
+--&gt; 158                     parse_write_concern_error=parse_write_concern_error)
+    159     except Exception as exc:
+    160         if publish:
+
+
+/opt/conda/lib/python3.7/site-packages/pymongo/helpers.py in _check_command_response(response, msg, allowable_errors, parse_write_concern_error)
+    153 
+    154             msg = msg or "%s"
+--&gt; 155             raise OperationFailure(msg % errmsg, code, response)
+    156 
+    157
+
+
+OperationFailure: Authentication failed.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;mongodb://root:secret@172.22.0.3:27017/starwars&quot;</span><span class="o">.</span><span class="n">split</span>
+</code></pre></div>
+
+<pre><code>&lt;function str.split(sep=None, maxsplit=-1)&gt;
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">aze</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;mongodb://root:secret@172.22.0.3:27017&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">aze</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>['admin',
+ 'config',
+ 'local',
+ 'people-bson',
+ 'saildrone',
+ 'sc',
+ 'starwars',
+ 'test']
+</code></pre>
+<p>aze.get<em>database('starwars').get</em>collection('people').find_one()</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">store</span> <span class="n">uri</span>
+</code></pre></div>
+
+<pre><code>Stored 'uri' (str)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>['admin',
+ 'config',
+ 'local',
+ 'people-bson',
+ 'saildrone',
+ 'sc',
+ 'starwars',
+ 'test']
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_database</span><span class="p">(</span><span class="s1">&#39;starwars&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="s1">&#39;people&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">res</span><span class="o">.</span><span class="n">find_one</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>{'_id': ObjectId('5d31e79f5decab6c5ac11358'),
+ 'name': 'Luke Skywalker',
+ 'height': 172,
+ 'mass': 77,
+ 'hair_color': 'blond',
+ 'skin_color': 'fair',
+ 'eye_color': 'blue',
+ 'birth_year': '19BBY',
+ 'gender': 'male',
+ 'homeworld': {'name': 'Tatooine',
+  'rotation_period': 23,
+  'orbital_period': 304,
+  'diameter': 10465,
+  'climate': 'arid',
+  'gravity': '1 standard',
+  'terrain': 'desert',
+  'surface_water': 1,
+  'population': 200000,
+  'residents': ['https://swapi.co/api/people/1/',
+   'https://swapi.co/api/people/2/',
+   'https://swapi.co/api/people/4/',
+   'https://swapi.co/api/people/6/',
+   'https://swapi.co/api/people/7/',
+   'https://swapi.co/api/people/8/',
+   'https://swapi.co/api/people/9/',
+   'https://swapi.co/api/people/11/',
+   'https://swapi.co/api/people/43/',
+   'https://swapi.co/api/people/62/'],
+  'films': ['https://swapi.co/api/films/5/',
+   'https://swapi.co/api/films/4/',
+   'https://swapi.co/api/films/6/',
+   'https://swapi.co/api/films/3/',
+   'https://swapi.co/api/films/1/'],
+  'created': '2014-12-09T13:50:49.641000Z',
+  'edited': '2014-12-21T20:48:04.175778Z',
+  'url': 'https://swapi.co/api/planets/1/'},
+ 'films': [{'title': 'The Empire Strikes Back',
+   'episode_id': 5,
+   'opening_crawl': 'It is a dark time for the\r\nRebellion. Although the Death\r\nStar has been destroyed,\r\nImperial troops have driven the\r\nRebel forces from their hidden\r\nbase and pursued them across\r\nthe galaxy.\r\n\r\nEvading the dreaded Imperial\r\nStarfleet, a group of freedom\r\nfighters led by Luke Skywalker\r\nhas established a new secret\r\nbase on the remote ice world\r\nof Hoth.\r\n\r\nThe evil lord Darth Vader,\r\nobsessed with finding young\r\nSkywalker, has dispatched\r\nthousands of remote probes into\r\nthe far reaches of space....',
+   'director': 'Irvin Kershner',
+   'producer': 'Gary Kurtz, Rick McCallum',
+   'release_date': '1980-05-17',
+   'characters': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/2/',
+    'https://swapi.co/api/people/3/',
+    'https://swapi.co/api/people/4/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/10/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/14/',
+    'https://swapi.co/api/people/18/',
+    'https://swapi.co/api/people/20/',
+    'https://swapi.co/api/people/21/',
+    'https://swapi.co/api/people/22/',
+    'https://swapi.co/api/people/23/',
+    'https://swapi.co/api/people/24/',
+    'https://swapi.co/api/people/25/',
+    'https://swapi.co/api/people/26/'],
+   'planets': ['https://swapi.co/api/planets/4/',
+    'https://swapi.co/api/planets/5/',
+    'https://swapi.co/api/planets/6/',
+    'https://swapi.co/api/planets/27/'],
+   'starships': ['https://swapi.co/api/starships/15/',
+    'https://swapi.co/api/starships/10/',
+    'https://swapi.co/api/starships/11/',
+    'https://swapi.co/api/starships/12/',
+    'https://swapi.co/api/starships/21/',
+    'https://swapi.co/api/starships/22/',
+    'https://swapi.co/api/starships/23/',
+    'https://swapi.co/api/starships/3/',
+    'https://swapi.co/api/starships/17/'],
+   'vehicles': ['https://swapi.co/api/vehicles/8/',
+    'https://swapi.co/api/vehicles/14/',
+    'https://swapi.co/api/vehicles/16/',
+    'https://swapi.co/api/vehicles/18/',
+    'https://swapi.co/api/vehicles/19/',
+    'https://swapi.co/api/vehicles/20/'],
+   'species': ['https://swapi.co/api/species/6/',
+    'https://swapi.co/api/species/7/',
+    'https://swapi.co/api/species/3/',
+    'https://swapi.co/api/species/2/',
+    'https://swapi.co/api/species/1/'],
+   'created': '2014-12-12T11:26:24.656000Z',
+   'edited': '2017-04-19T10:57:29.544256Z',
+   'url': 'https://swapi.co/api/films/2/'},
+  {'title': 'Revenge of the Sith',
+   'episode_id': 3,
+   'opening_crawl': 'War! The Republic is crumbling\r\nunder attacks by the ruthless\r\nSith Lord, Count Dooku.\r\nThere are heroes on both sides.\r\nEvil is everywhere.\r\n\r\nIn a stunning move, the\r\nfiendish droid leader, General\r\nGrievous, has swept into the\r\nRepublic capital and kidnapped\r\nChancellor Palpatine, leader of\r\nthe Galactic Senate.\r\n\r\nAs the Separatist Droid Army\r\nattempts to flee the besieged\r\ncapital with their valuable\r\nhostage, two Jedi Knights lead a\r\ndesperate mission to rescue the\r\ncaptive Chancellor....',
+   'director': 'George Lucas',
+   'producer': 'Rick McCallum',
+   'release_date': '2005-05-19',
+   'characters': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/2/',
+    'https://swapi.co/api/people/3/',
+    'https://swapi.co/api/people/4/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/6/',
+    'https://swapi.co/api/people/7/',
+    'https://swapi.co/api/people/10/',
+    'https://swapi.co/api/people/11/',
+    'https://swapi.co/api/people/12/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/20/',
+    'https://swapi.co/api/people/21/',
+    'https://swapi.co/api/people/33/',
+    'https://swapi.co/api/people/46/',
+    'https://swapi.co/api/people/51/',
+    'https://swapi.co/api/people/52/',
+    'https://swapi.co/api/people/53/',
+    'https://swapi.co/api/people/54/',
+    'https://swapi.co/api/people/55/',
+    'https://swapi.co/api/people/56/',
+    'https://swapi.co/api/people/58/',
+    'https://swapi.co/api/people/63/',
+    'https://swapi.co/api/people/64/',
+    'https://swapi.co/api/people/67/',
+    'https://swapi.co/api/people/68/',
+    'https://swapi.co/api/people/75/',
+    'https://swapi.co/api/people/78/',
+    'https://swapi.co/api/people/79/',
+    'https://swapi.co/api/people/80/',
+    'https://swapi.co/api/people/81/',
+    'https://swapi.co/api/people/82/',
+    'https://swapi.co/api/people/83/',
+    'https://swapi.co/api/people/35/'],
+   'planets': ['https://swapi.co/api/planets/2/',
+    'https://swapi.co/api/planets/5/',
+    'https://swapi.co/api/planets/8/',
+    'https://swapi.co/api/planets/9/',
+    'https://swapi.co/api/planets/12/',
+    'https://swapi.co/api/planets/13/',
+    'https://swapi.co/api/planets/14/',
+    'https://swapi.co/api/planets/15/',
+    'https://swapi.co/api/planets/16/',
+    'https://swapi.co/api/planets/17/',
+    'https://swapi.co/api/planets/18/',
+    'https://swapi.co/api/planets/19/',
+    'https://swapi.co/api/planets/1/'],
+   'starships': ['https://swapi.co/api/starships/48/',
+    'https://swapi.co/api/starships/59/',
+    'https://swapi.co/api/starships/61/',
+    'https://swapi.co/api/starships/32/',
+    'https://swapi.co/api/starships/63/',
+    'https://swapi.co/api/starships/64/',
+    'https://swapi.co/api/starships/65/',
+    'https://swapi.co/api/starships/66/',
+    'https://swapi.co/api/starships/74/',
+    'https://swapi.co/api/starships/75/',
+    'https://swapi.co/api/starships/2/',
+    'https://swapi.co/api/starships/68/'],
+   'vehicles': ['https://swapi.co/api/vehicles/33/',
+    'https://swapi.co/api/vehicles/50/',
+    'https://swapi.co/api/vehicles/53/',
+    'https://swapi.co/api/vehicles/56/',
+    'https://swapi.co/api/vehicles/60/',
+    'https://swapi.co/api/vehicles/62/',
+    'https://swapi.co/api/vehicles/67/',
+    'https://swapi.co/api/vehicles/69/',
+    'https://swapi.co/api/vehicles/70/',
+    'https://swapi.co/api/vehicles/71/',
+    'https://swapi.co/api/vehicles/72/',
+    'https://swapi.co/api/vehicles/73/',
+    'https://swapi.co/api/vehicles/76/'],
+   'species': ['https://swapi.co/api/species/19/',
+    'https://swapi.co/api/species/33/',
+    'https://swapi.co/api/species/2/',
+    'https://swapi.co/api/species/3/',
+    'https://swapi.co/api/species/36/',
+    'https://swapi.co/api/species/37/',
+    'https://swapi.co/api/species/6/',
+    'https://swapi.co/api/species/1/',
+    'https://swapi.co/api/species/34/',
+    'https://swapi.co/api/species/15/',
+    'https://swapi.co/api/species/35/',
+    'https://swapi.co/api/species/20/',
+    'https://swapi.co/api/species/23/',
+    'https://swapi.co/api/species/24/',
+    'https://swapi.co/api/species/25/',
+    'https://swapi.co/api/species/26/',
+    'https://swapi.co/api/species/27/',
+    'https://swapi.co/api/species/28/',
+    'https://swapi.co/api/species/29/',
+    'https://swapi.co/api/species/30/'],
+   'created': '2014-12-20T18:49:38.403000Z',
+   'edited': '2015-04-11T09:45:44.862122Z',
+   'url': 'https://swapi.co/api/films/6/'},
+  {'title': 'Return of the Jedi',
+   'episode_id': 6,
+   'opening_crawl': 'Luke Skywalker has returned to\r\nhis home planet of Tatooine in\r\nan attempt to rescue his\r\nfriend Han Solo from the\r\nclutches of the vile gangster\r\nJabba the Hutt.\r\n\r\nLittle does Luke know that the\r\nGALACTIC EMPIRE has secretly\r\nbegun construction on a new\r\narmored space station even\r\nmore powerful than the first\r\ndreaded Death Star.\r\n\r\nWhen completed, this ultimate\r\nweapon will spell certain doom\r\nfor the small band of rebels\r\nstruggling to restore freedom\r\nto the galaxy...',
+   'director': 'Richard Marquand',
+   'producer': 'Howard G. Kazanjian, George Lucas, Rick McCallum',
+   'release_date': '1983-05-25',
+   'characters': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/2/',
+    'https://swapi.co/api/people/3/',
+    'https://swapi.co/api/people/4/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/10/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/14/',
+    'https://swapi.co/api/people/16/',
+    'https://swapi.co/api/people/18/',
+    'https://swapi.co/api/people/20/',
+    'https://swapi.co/api/people/21/',
+    'https://swapi.co/api/people/22/',
+    'https://swapi.co/api/people/25/',
+    'https://swapi.co/api/people/27/',
+    'https://swapi.co/api/people/28/',
+    'https://swapi.co/api/people/29/',
+    'https://swapi.co/api/people/30/',
+    'https://swapi.co/api/people/31/',
+    'https://swapi.co/api/people/45/'],
+   'planets': ['https://swapi.co/api/planets/5/',
+    'https://swapi.co/api/planets/7/',
+    'https://swapi.co/api/planets/8/',
+    'https://swapi.co/api/planets/9/',
+    'https://swapi.co/api/planets/1/'],
+   'starships': ['https://swapi.co/api/starships/15/',
+    'https://swapi.co/api/starships/10/',
+    'https://swapi.co/api/starships/11/',
+    'https://swapi.co/api/starships/12/',
+    'https://swapi.co/api/starships/22/',
+    'https://swapi.co/api/starships/23/',
+    'https://swapi.co/api/starships/27/',
+    'https://swapi.co/api/starships/28/',
+    'https://swapi.co/api/starships/29/',
+    'https://swapi.co/api/starships/3/',
+    'https://swapi.co/api/starships/17/',
+    'https://swapi.co/api/starships/2/'],
+   'vehicles': ['https://swapi.co/api/vehicles/8/',
+    'https://swapi.co/api/vehicles/16/',
+    'https://swapi.co/api/vehicles/18/',
+    'https://swapi.co/api/vehicles/19/',
+    'https://swapi.co/api/vehicles/24/',
+    'https://swapi.co/api/vehicles/25/',
+    'https://swapi.co/api/vehicles/26/',
+    'https://swapi.co/api/vehicles/30/'],
+   'species': ['https://swapi.co/api/species/1/',
+    'https://swapi.co/api/species/2/',
+    'https://swapi.co/api/species/3/',
+    'https://swapi.co/api/species/5/',
+    'https://swapi.co/api/species/6/',
+    'https://swapi.co/api/species/8/',
+    'https://swapi.co/api/species/9/',
+    'https://swapi.co/api/species/10/',
+    'https://swapi.co/api/species/15/'],
+   'created': '2014-12-18T10:39:33.255000Z',
+   'edited': '2015-04-11T09:46:05.220365Z',
+   'url': 'https://swapi.co/api/films/3/'},
+  {'title': 'A New Hope',
+   'episode_id': 4,
+   'opening_crawl': "It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....",
+   'director': 'George Lucas',
+   'producer': 'Gary Kurtz, Rick McCallum',
+   'release_date': '1977-05-25',
+   'characters': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/2/',
+    'https://swapi.co/api/people/3/',
+    'https://swapi.co/api/people/4/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/6/',
+    'https://swapi.co/api/people/7/',
+    'https://swapi.co/api/people/8/',
+    'https://swapi.co/api/people/9/',
+    'https://swapi.co/api/people/10/',
+    'https://swapi.co/api/people/12/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/14/',
+    'https://swapi.co/api/people/15/',
+    'https://swapi.co/api/people/16/',
+    'https://swapi.co/api/people/18/',
+    'https://swapi.co/api/people/19/',
+    'https://swapi.co/api/people/81/'],
+   'planets': ['https://swapi.co/api/planets/2/',
+    'https://swapi.co/api/planets/3/',
+    'https://swapi.co/api/planets/1/'],
+   'starships': ['https://swapi.co/api/starships/2/',
+    'https://swapi.co/api/starships/3/',
+    'https://swapi.co/api/starships/5/',
+    'https://swapi.co/api/starships/9/',
+    'https://swapi.co/api/starships/10/',
+    'https://swapi.co/api/starships/11/',
+    'https://swapi.co/api/starships/12/',
+    'https://swapi.co/api/starships/13/'],
+   'vehicles': ['https://swapi.co/api/vehicles/4/',
+    'https://swapi.co/api/vehicles/6/',
+    'https://swapi.co/api/vehicles/7/',
+    'https://swapi.co/api/vehicles/8/'],
+   'species': ['https://swapi.co/api/species/5/',
+    'https://swapi.co/api/species/3/',
+    'https://swapi.co/api/species/2/',
+    'https://swapi.co/api/species/1/',
+    'https://swapi.co/api/species/4/'],
+   'created': '2014-12-10T14:23:31.880000Z',
+   'edited': '2015-04-11T09:46:52.774897Z',
+   'url': 'https://swapi.co/api/films/1/'},
+  {'title': 'The Force Awakens',
+   'episode_id': 7,
+   'opening_crawl': "Luke Skywalker has vanished.\r\nIn his absence, the sinister\r\nFIRST ORDER has risen from\r\nthe ashes of the Empire\r\nand will not rest until\r\nSkywalker, the last Jedi,\r\nhas been destroyed.\r\n \r\nWith the support of the\r\nREPUBLIC, General Leia Organa\r\nleads a brave RESISTANCE.\r\nShe is desperate to find her\r\nbrother Luke and gain his\r\nhelp in restoring peace and\r\njustice to the galaxy.\r\n \r\nLeia has sent her most daring\r\npilot on a secret mission\r\nto Jakku, where an old ally\r\nhas discovered a clue to\r\nLuke's whereabouts....",
+   'director': 'J. J. Abrams',
+   'producer': 'Kathleen Kennedy, J. J. Abrams, Bryan Burk',
+   'release_date': '2015-12-11',
+   'characters': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/3/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/14/',
+    'https://swapi.co/api/people/27/',
+    'https://swapi.co/api/people/84/',
+    'https://swapi.co/api/people/85/',
+    'https://swapi.co/api/people/86/',
+    'https://swapi.co/api/people/87/',
+    'https://swapi.co/api/people/88/'],
+   'planets': ['https://swapi.co/api/planets/61/'],
+   'starships': ['https://swapi.co/api/starships/77/',
+    'https://swapi.co/api/starships/10/'],
+   'vehicles': [],
+   'species': ['https://swapi.co/api/species/3/',
+    'https://swapi.co/api/species/2/',
+    'https://swapi.co/api/species/1/'],
+   'created': '2015-04-17T06:51:30.504780Z',
+   'edited': '2015-12-17T14:31:47.617768Z',
+   'url': 'https://swapi.co/api/films/7/'}],
+ 'species': [{'name': 'Human',
+   'classification': 'mammal',
+   'designation': 'sentient',
+   'average_height': 180,
+   'skin_colors': 'caucasian, black, asian, hispanic',
+   'hair_colors': 'blonde, brown, black, red',
+   'eye_colors': 'brown, blue, green, hazel, grey, amber',
+   'average_lifespan': 120,
+   'homeworld': 'https://swapi.co/api/planets/9/',
+   'language': 'Galactic Basic',
+   'people': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/4/',
+    'https://swapi.co/api/people/5/',
+    'https://swapi.co/api/people/6/',
+    'https://swapi.co/api/people/7/',
+    'https://swapi.co/api/people/9/',
+    'https://swapi.co/api/people/10/',
+    'https://swapi.co/api/people/11/',
+    'https://swapi.co/api/people/12/',
+    'https://swapi.co/api/people/14/',
+    'https://swapi.co/api/people/18/',
+    'https://swapi.co/api/people/19/',
+    'https://swapi.co/api/people/21/',
+    'https://swapi.co/api/people/22/',
+    'https://swapi.co/api/people/25/',
+    'https://swapi.co/api/people/26/',
+    'https://swapi.co/api/people/28/',
+    'https://swapi.co/api/people/29/',
+    'https://swapi.co/api/people/32/',
+    'https://swapi.co/api/people/34/',
+    'https://swapi.co/api/people/43/',
+    'https://swapi.co/api/people/51/',
+    'https://swapi.co/api/people/60/',
+    'https://swapi.co/api/people/61/',
+    'https://swapi.co/api/people/62/',
+    'https://swapi.co/api/people/66/',
+    'https://swapi.co/api/people/67/',
+    'https://swapi.co/api/people/68/',
+    'https://swapi.co/api/people/69/',
+    'https://swapi.co/api/people/74/',
+    'https://swapi.co/api/people/81/',
+    'https://swapi.co/api/people/84/',
+    'https://swapi.co/api/people/85/',
+    'https://swapi.co/api/people/86/',
+    'https://swapi.co/api/people/35/'],
+   'films': ['https://swapi.co/api/films/2/',
+    'https://swapi.co/api/films/7/',
+    'https://swapi.co/api/films/5/',
+    'https://swapi.co/api/films/4/',
+    'https://swapi.co/api/films/6/',
+    'https://swapi.co/api/films/3/',
+    'https://swapi.co/api/films/1/'],
+   'created': '2014-12-10T13:52:11.567000Z',
+   'edited': '2015-04-17T06:59:55.850671Z',
+   'url': 'https://swapi.co/api/species/1/'}],
+ 'vehicles': [{'name': 'Snowspeeder',
+   'model': 't-47 airspeeder',
+   'manufacturer': 'Incom corporation',
+   'cost_in_credits': 'unknown',
+   'length': 4.5,
+   'max_atmosphering_speed': 650,
+   'crew': 2,
+   'passengers': 0,
+   'cargo_capacity': 10,
+   'consumables': 'none',
+   'vehicle_class': 'airspeeder',
+   'pilots': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/18/'],
+   'films': ['https://swapi.co/api/films/2/'],
+   'created': '2014-12-15T12:22:12Z',
+   'edited': '2014-12-22T18:21:15.623033Z',
+   'url': 'https://swapi.co/api/vehicles/14/'},
+  {'name': 'Imperial Speeder Bike',
+   'model': '74-Z speeder bike',
+   'manufacturer': 'Aratech Repulsor Company',
+   'cost_in_credits': 8000,
+   'length': 3,
+   'max_atmosphering_speed': 360,
+   'crew': 1,
+   'passengers': 1,
+   'cargo_capacity': 4,
+   'consumables': '1 day',
+   'vehicle_class': 'speeder',
+   'pilots': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/5/'],
+   'films': ['https://swapi.co/api/films/3/'],
+   'created': '2014-12-18T11:20:04.625000Z',
+   'edited': '2014-12-22T18:21:15.920537Z',
+   'url': 'https://swapi.co/api/vehicles/30/'}],
+ 'starships': [{'name': 'X-wing',
+   'model': 'T-65 X-wing',
+   'manufacturer': 'Incom Corporation',
+   'cost_in_credits': 149999,
+   'length': 12.5,
+   'max_atmosphering_speed': 1050,
+   'crew': 1,
+   'passengers': 0,
+   'cargo_capacity': 110,
+   'consumables': '1 week',
+   'hyperdrive_rating': 1.0,
+   'MGLT': 100,
+   'starship_class': 'Starfighter',
+   'pilots': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/9/',
+    'https://swapi.co/api/people/18/',
+    'https://swapi.co/api/people/19/'],
+   'films': ['https://swapi.co/api/films/2/',
+    'https://swapi.co/api/films/3/',
+    'https://swapi.co/api/films/1/'],
+   'created': '2014-12-12T11:19:05.340000Z',
+   'edited': '2014-12-22T17:35:44.491233Z',
+   'url': 'https://swapi.co/api/starships/12/'},
+  {'name': 'Imperial shuttle',
+   'model': 'Lambda-class T-4a shuttle',
+   'manufacturer': 'Sienar Fleet Systems',
+   'cost_in_credits': 240000,
+   'length': 20,
+   'max_atmosphering_speed': 850,
+   'crew': 6,
+   'passengers': 20,
+   'cargo_capacity': 80000,
+   'consumables': '2 months',
+   'hyperdrive_rating': 1.0,
+   'MGLT': 50,
+   'starship_class': 'Armed government transport',
+   'pilots': ['https://swapi.co/api/people/1/',
+    'https://swapi.co/api/people/13/',
+    'https://swapi.co/api/people/14/'],
+   'films': ['https://swapi.co/api/films/2/', 'https://swapi.co/api/films/3/'],
+   'created': '2014-12-15T13:04:47.235000Z',
+   'edited': '2014-12-22T17:35:44.795405Z',
+   'url': 'https://swapi.co/api/starships/22/'}],
+ 'created': '2014-12-09T13:50:51.644000Z',
+ 'edited': '2014-12-20T21:17:56.891000Z',
+ 'url': {'name': 'Luke Skywalker',
+  'height': 172,
+  'mass': 77,
+  'hair_color': 'blond',
+  'skin_color': 'fair',
+  'eye_color': 'blue',
+  'birth_year': '19BBY',
+  'gender': 'male',
+  'homeworld': 'https://swapi.co/api/planets/1/',
+  'films': ['https://swapi.co/api/films/2/',
+   'https://swapi.co/api/films/6/',
+   'https://swapi.co/api/films/3/',
+   'https://swapi.co/api/films/1/',
+   'https://swapi.co/api/films/7/'],
+  'species': ['https://swapi.co/api/species/1/'],
+  'vehicles': ['https://swapi.co/api/vehicles/14/',
+   'https://swapi.co/api/vehicles/30/'],
+  'starships': ['https://swapi.co/api/starships/12/',
+   'https://swapi.co/api/starships/22/'],
+  'created': '2014-12-09T13:50:51.644000Z',
+  'edited': '2014-12-20T21:17:56.891000Z',
+  'url': 'https://swapi.co/api/people/1/'}}
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">saildrone</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">antarctica</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_collection</span><span class="p">(</span><span class="s1">&#39;antarctica&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">pymongo</span><span class="o">.</span><span class="n">common</span><span class="o">.</span>
+</code></pre></div>
+
+<pre><code>int
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">validator</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;{</span>
+<span class="s2">   &#39;validator&#39;: {</span>
+<span class="s2">      $jsonSchema: {</span>
+<span class="s2">         bsonType: &quot;object&quot;,</span>
+<span class="s2">         required: [ &quot;name&quot;, &quot;year&quot;, &quot;major&quot;, &quot;address&quot; ],</span>
+<span class="s2">         properties: {</span>
+<span class="s2">            name: {</span>
+<span class="s2">               bsonType: &quot;string&quot;,</span>
+<span class="s2">               description: &quot;must be a string and is required&quot;</span>
+<span class="s2">            },</span>
+<span class="s2">            year: {</span>
+<span class="s2">               bsonType: &quot;int&quot;,</span>
+<span class="s2">               minimum: 2017,</span>
+<span class="s2">               maximum: 3017,</span>
+<span class="s2">               description: &quot;must be an integer in [ 2017, 3017 ] and is required&quot;</span>
+<span class="s2">            },</span>
+<span class="s2">            major: {</span>
+<span class="s2">               enum: [ &quot;Math&quot;, &quot;English&quot;, &quot;Computer Science&quot;, &quot;History&quot;, null ],</span>
+<span class="s2">               description: &quot;can only be one of the enum values and is required&quot;</span>
+<span class="s2">            },</span>
+<span class="s2">            gpa: {</span>
+<span class="s2">               bsonType: [ &quot;double&quot; ],</span>
+<span class="s2">               description: &quot;must be a double if the field exists&quot;</span>
+<span class="s2">            },</span>
+<span class="s2">            address: {</span>
+<span class="s2">               bsonType: &quot;object&quot;,</span>
+<span class="s2">               required: [ &quot;city&quot; ],</span>
+<span class="s2">               properties: {</span>
+<span class="s2">                  street: {</span>
+<span class="s2">                     bsonType: &quot;string&quot;,</span>
+<span class="s2">                     description: &quot;must be a string if the field exists&quot;</span>
+<span class="s2">                  },</span>
+<span class="s2">                  city: {</span>
+<span class="s2">                     bsonType: &quot;string&quot;,</span>
+<span class="s2">                     &quot;description&quot;: &quot;must be a string and is required&quot;</span>
+<span class="s2">                  }</span>
+<span class="s2">               }</span>
+<span class="s2">            }</span>
+<span class="s2">         }</span>
+<span class="s2">      }</span>
+<span class="s2">   }</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">&#39;{&quot;validator&quot;: 1}&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>{'validator': 1}
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="o">.</span><span class="n">list_database_names</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>['admin', 'config', 'local', 'saildrone', 'test']
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="o">.</span><span class="n">list_collection_names</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>['antarctica']
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">antarctica</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">antartica</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">antarctica</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([{</span>
+    <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}])</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="p">(</span><span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="p">(</span><span class="n">choice</span><span class="p">,</span> <span class="n">randint</span><span class="p">,</span> <span class="n">random</span><span class="p">,</span> <span class="n">uniform</span><span class="p">,</span> <span class="n">lognormvariate</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">feed_db</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">json_body</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;measurement&quot;</span><span class="p">:</span> <span class="s2">&quot;starfleet_01&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;cmdt&quot;</span><span class="p">:</span> <span class="n">choice</span><span class="p">((</span><span class="s2">&quot;Archer&quot;</span><span class="p">,</span> <span class="s2">&quot;Kirk&quot;</span><span class="p">,</span> <span class="s2">&quot;Kruge&quot;</span><span class="p">)),</span>
+                <span class="s2">&quot;region&quot;</span><span class="p">:</span> <span class="n">choice</span><span class="p">((</span><span class="s2">&quot;Andoria&quot;</span><span class="p">,</span> <span class="s2">&quot;Deep Space Nine&quot;</span><span class="p">,</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Genesis&quot;</span><span class="p">)),</span>
+                <span class="s2">&quot;spacecraft&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;NX-17{randint(1, 10):02d}&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">)))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="n">lognormvariate</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                <span class="s2">&quot;consumption&quot;</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+                <span class="s2">&quot;pressure_a&quot;</span><span class="p">:</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">random</span><span class="p">(),</span>
+                <span class="s2">&quot;status_b&quot;</span><span class="p">:</span> <span class="n">choice</span><span class="p">((</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">antarctica</span><span class="o">.</span><span class="n">insert_many</span><span class="p">(</span><span class="n">json_body</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">feed_db</span><span class="p">(</span><span class="mi">100_000</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>3.56 s ± 26.1 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">antarctica</span><span class="o">.</span><span class="n">count_documents</span><span class="p">({})</span>
+</code></pre></div>
+
+<pre><code>2993003
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">antarctica</span><span class="o">.</span><span class="n">insert_one</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="s2">&quot;canvas&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;qty&quot;</span><span class="p">:</span> <span class="s2">&quot;$myMul(100)&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;cotton&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="mf">35.5</span><span class="p">,</span> <span class="s2">&quot;uom&quot;</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span><span class="p">}})</span>
+</code></pre></div>
+
+<pre><code>&lt;pymongo.results.InsertOneResult at 0x7f1d8c753c08&gt;
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">antarctica</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([{</span>
+    <span class="s2">&quot;$match&quot;</span><span class="p">:</span> <span class="p">{}},{</span>
+    <span class="s2">&quot;$project&quot;</span> <span class="p">:</span> <span class="p">{</span><span class="s2">&quot;qty&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="p">}])</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>{'_id': ObjectId('5d5ef7a5e261536f4714057d'), 'qty': 100}
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">cursor</span> <span class="o">=</span> <span class="n">antarctica</span><span class="o">.</span><span class="n">find</span><span class="p">({})</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="n">cursor</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>[{'_id': ObjectId('5d5ef7a5e261536f4714057d'),
+  'item': 'canvas',
+  'qty': 100,
+  'tags': ['cotton'],
+  'size': {'h': 28, 'w': 35.5, 'uom': 'cm'}},
+ {'_id': ObjectId('5d5ef86be261536f4714057e'),
+  'item': 'canvas',
+  'qty': 'myMul(100)',
+  'tags': ['cotton'],
+  'size': {'h': 28, 'w': 35.5, 'uom': 'cm'}},
+ {'_id': ObjectId('5d5ef897e261536f4714057f'),
+  'item': 'canvas',
+  'qty': '$myMul(100)',
+  'tags': ['cotton'],
+  'size': {'h': 28, 'w': 35.5, 'uom': 'cm'}}]
+</code></pre>
+<hr />
+<p>Replica set: A cluster of MongoDB servers that implements replication and automated failover. MongoDB’s recommended replication strategy. See Replication.</p>
+<p><a href="https://docs.mongodb.com/manual/sharding/#sharded-cluster">Sharded cluster</a></p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  <!--  -->
+  <!-- <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div> -->
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../_js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+      
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      
+    
+  </body>
+</html>
