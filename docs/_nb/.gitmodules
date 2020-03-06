@@ -1,0 +1,21 @@
+[submodule "Go"]
+	path = =Go
+	url = git@github.com:fesaille/ipy_go.git
+[submodule "JS"]
+	path = =JS
+	url = git@github.com:fesaille/ipy_js.git
+[submodule "C"]
+	path = =C
+	url = git@github.com:fesaille/ipy_C.git
+[submodule "bios-823-2019"]
+	path = extern/cliburn_bios-823-2019
+	url = git@github.com:fesaille/bios-823-2019.git
+[submodule "Python_intro"]
+	path = =Py
+	url = git@github.com:fesaille/ipy_py_intro.git
+[submodule "ageron_handson_ml"]
+	path = extern/ageron_handson_ml
+	url = git@github.com:fesaille/handson-ml.git
+[submodule "sta-663-2020"]
+	path = extern/cliburn-sta-663-2020
+	url = git@github.com:fesaille/sta-663-2020.git

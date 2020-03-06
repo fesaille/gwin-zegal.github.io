@@ -1,0 +1,2210 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+        <meta name="author" content="Emmmanuel Roux">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+    
+    
+      
+        <title>S01 Relational Databases - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../_css/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#s01-relational-databases" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                S01 Relational Databases
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../doc/md/" class="md-tabs__link">
+          doc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../devops/ansible/" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../shell/_intro/" class="md-tabs__link">
+          shell
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../DB/intro/" class="md-tabs__link">
+          DB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../data/_intro/" class="md-tabs__link">
+          Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Viz/matplotlib/" class="md-tabs__link">
+          Visualization
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../WebDev/Intro/" class="md-tabs__link">
+          WebDev
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="My Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../aze/" title="IPYNB" class="md-nav__link">
+      IPYNB
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      doc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        doc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../doc/md/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/envs/" title="Envs" class="md-nav__link">
+      Envs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+      Ubuntu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../devops/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/git/" title="git" class="md-nav__link">
+      git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/zsh/" title="zsh" class="md-nav__link">
+      zsh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/intro/" title="intro" class="md-nav__link">
+      intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      MongoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        MongoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/Aggregation/" title="Aggregation framework" class="md-nav__link">
+      Aggregation framework
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/SQL/postgres/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Object store
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Object store
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/S3/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      ndarray
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        ndarray
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ndarray/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Time series
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Time series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/features/" title="Features selection" class="md-nav__link">
+      Features selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/matrixprofile/" title="Matrix profile" class="md-nav__link">
+      Matrix profile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/windowing/" title="Windowing" class="md-nav__link">
+      Windowing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ml/dl/" title="Time series" class="md-nav__link">
+      Time series
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Visualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Visualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Viz/matplotlib/" title="Matplolib" class="md-nav__link">
+      Matplolib
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      WebDev
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        WebDev
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/Intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/css/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/REACT/" title="REACT" class="md-nav__link">
+      REACT
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-packages-for-working-with-relational-databases-in-python" class="md-nav__link">
+    0. Packages for working with relational databases in Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-motivation" class="md-nav__link">
+    1. Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rdbms" class="md-nav__link">
+    2. RDBMS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-anatomy" class="md-nav__link">
+    3. Anatomy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-concepts" class="md-nav__link">
+    4. Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    Constraints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referential-integrity" class="md-nav__link">
+    Referential integrity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships" class="md-nav__link">
+    Relationships
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    Indexes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-design" class="md-nav__link">
+    5. Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#columns" class="md-nav__link">
+    Columns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationships_1" class="md-nav__link">
+    Relationships
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-example" class="md-nav__link">
+    6. Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework-walk-through" class="md-nav__link">
+    Homework walk-through
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="s01-relational-databases">S01 Relational Databases</h1>
+<p>For a simple tutorial on database design, see <a href="https://www.datanamic.com/support/lt-dez005-introduction-db-modeling.html">Introduction to Database Design</a></p>
+<p>For a deep dive, see <a href="https://www.amazon.com/Database-Design-Mere-Mortals-Hands/dp/0321884493/ref=dp_ob_title_bk">Database Design for Mere Mortals</a></p>
+<h2 id="0-packages-for-working-with-relational-databases-in-python">0. Packages for working with relational databases in Python</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0249/">Python Database API Specification v2.0</a> - The standard Python Database API</li>
+<li><a href="https://docs.python.org/3.7/library/sqlite3.html">sqlite3</a> - API for builit-in <code>sqlite3</code> package</li>
+<li><a href="https://github.com/vinta/awesome-python#database-drivers">Database drivers</a> - For connecting to other databases</li>
+<li><a href="https://github.com/catherinedevlin/ipython-sql">ipython-sql</a> - SQL magic in Jupyter</li>
+<li><a href="https://www.sqlalchemy.org">SQLAlchemy</a> - Most well-known Object Relational Mapper (ORM)</li>
+<li><a href="https://ponyorm.com">Pony ORM</a> - Alternative ORM</li>
+</ul>
+<h2 id="1-motivation">1. Motivation</h2>
+<p>Why relational databases and SQL?</p>
+<ul>
+<li>History of databases</li>
+<li>ACID</li>
+<li>Data integrity</li>
+<li>Schema</li>
+</ul>
+<h2 id="2-rdbms">2. RDBMS</h2>
+<ul>
+<li>Memory</li>
+<li>Storage</li>
+<li>Dictionary</li>
+<li>Query language</li>
+</ul>
+<h2 id="3-anatomy">3. Anatomy</h2>
+<ul>
+<li><strong>Table</strong> (Relation): Represents a <em>subject</em> or an <em>event</em>.</li>
+<li><strong>Column</strong> (Attribute): Represents a single <em>variable</em> or <em>feature</em>.- </li>
+<li><strong>Row</strong> (Tuple): represents an <em>observation</em>.</li>
+</ul>
+<h2 id="4-concepts">4. Concepts</h2>
+<h3 id="constraints">Constraints</h3>
+<p>You can impose constraints that values in a column have to take. For example, you can specify that values are compulsory (NOT NULL), or UNIQUE or fall within a certain range.</p>
+<h3 id="referential-integrity">Referential integrity</h3>
+<ul>
+<li>Primary key represents a unique identifier of a row. It may be simple or composite.</li>
+<li>Unique</li>
+<li>Non-null</li>
+<li>Never optional</li>
+<li>Foreign key is a column containing the primary key of a different table. It enforces <em>referential integrity</em>.</li>
+</ul>
+<h3 id="relationships">Relationships</h3>
+<ul>
+<li>One to one</li>
+<li>One to many</li>
+<li>
+<p>Many to many</p>
+</li>
+<li>
+<p>What happens on delete?</p>
+</li>
+<li>Restrict</li>
+<li>Cascade</li>
+</ul>
+<h3 id="indexes">Indexes</h3>
+<p>An index is a data structure that allows fast search of a column (typically from linear to log time complexity). Most databases will automatically build an index for every primary key column, but you can also manually specify columns to build indexes for. </p>
+<h3 id="views">Views</h3>
+<ul>
+<li>Temporary virtual table returned as a result of a <em>query</em>.</li>
+<li>Views only specify the strucutre of a table - the contents are constructed on the fly from existing tables.</li>
+<li>Queries return a Result Set</li>
+</ul>
+<h2 id="5-design">5. Design</h2>
+<h3 id="columns">Columns</h3>
+<ul>
+<li>Use singlular form for name </li>
+<li>Use informative names</li>
+<li>Use unique names not shared by any other table (except foreign keys)</li>
+<li>Column must be an attribute of the table's subject</li>
+<li>Eliminate multi-part columns</li>
+<li>Eliminate multi-value columsn</li>
+<li>Eliminate redundant columns</li>
+</ul>
+<h3 id="tables">Tables</h3>
+<ul>
+<li>Use singular/plural forms for name (controversial)</li>
+<li>Enusre every table has a primary key</li>
+<li>Eliminate duplicate columns</li>
+</ul>
+<h3 id="relationships_1">Relationships</h3>
+<ul>
+<li>Establish participation type and degree of relationship</li>
+<li>One to one</li>
+<li>One to many</li>
+<li>Many to many</li>
+</ul>
+<h2 id="6-example">6. Example</h2>
+<p>Use <code>sqlmagic</code> as alternative to using <code>sqlite3</code> driver.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">env</span> <span class="n">DATABASE_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="n">psycopg2</span><span class="p">:</span><span class="o">//</span><span class="n">postgres</span><span class="p">:</span><span class="n">postgres</span><span class="nd">@db</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">com</span>
+</code></pre></div>
+
+<pre><code>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+</code></pre></div>
+
+<p>Connect to Postgres</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span>
+</code></pre></div>
+
+<pre><code>SqlMagic options
+--------------
+SqlMagic.autocommit=&lt;Bool&gt;
+    Current: True
+    Set autocommit mode
+SqlMagic.autolimit=&lt;Int&gt;
+    Current: 0
+    Automatically limit the size of the returned result sets
+SqlMagic.autopandas=&lt;Bool&gt;
+    Current: False
+    Return Pandas DataFrames instead of regular result sets
+SqlMagic.column_local_vars=&lt;Bool&gt;
+    Current: False
+    Return data into local variables from column names
+SqlMagic.displaylimit=&lt;Int&gt;
+    Current: None
+    Automatically limit the number of rows displayed (full result set is still
+    stored)
+SqlMagic.dsn_filename=&lt;Unicode&gt;
+    Current: 'odbc.ini'
+    Path to DSN file. When the first argument is of the form [section], a
+    sqlalchemy connection string is formed from the matching section in the DSN
+    file.
+SqlMagic.feedback=&lt;Bool&gt;
+    Current: True
+    Print number of rows affected by DML
+SqlMagic.short_errors=&lt;Bool&gt;
+    Current: True
+    Don't display the full traceback on SQL Programming Error
+SqlMagic.style=&lt;Unicode&gt;
+    Current: 'DEFAULT'
+    Set the table printing style to any of prettytable's defined styles
+    (currently DEFAULT, MSWORD_FRIENDLY, PLAIN_COLUMNS, RANDOM)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+\<span class="n">d</span>
+</code></pre></div>
+
+<pre><code>6 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>Schema</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Owner</th>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>accounts</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>flat</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;postgresql+psycopg2://postgres:postgres@db.postgres.app.com&quot;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="p">{</span><span class="n">uri</span><span class="p">}</span>
+</code></pre></div>
+
+<pre><code>'Connected: postgres@None'
+</code></pre>
+<p>SQL for table deletion and creation</p>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Person</span><span class="p">;</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Country</span><span class="p">;</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">Country</span> <span class="p">(</span>
+    <span class="n">country_id</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+    <span class="n">country_name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">Person</span> <span class="p">(</span>
+    <span class="n">person_id</span> <span class="n">SERIAL</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+    <span class="n">person_first</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">person_last</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">country_id</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span>
+    <span class="n">FOREIGN</span> <span class="n">KEY</span> <span class="p">(</span><span class="n">country_id</span><span class="p">)</span> <span class="n">REFERENCES</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+   postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+Done.
+Done.
+Done.
+Done.
+
+
+
+
+
+[]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">pg_catalog</span><span class="o">.</span><span class="n">pg_tables</span>
+<span class="n">WHERE</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;pg_catalog&#39;</span>
+<span class="n">AND</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;information_schema&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+   postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>schemaname</th>
+        <th>tablename</th>
+        <th>tableowner</th>
+        <th>tablespace</th>
+        <th>hasindexes</th>
+        <th>hasrules</th>
+        <th>hastriggers</th>
+        <th>rowsecurity</th>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>country</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>person</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+    </tr>
+</table>
+
+<p>SQL to insert rows.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> 
+<span class="n">VALUES</span> 
+<span class="p">(</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;CU&#39;</span><span class="p">,</span> <span class="s1">&#39;CUBA&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+   postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+
+
+
+
+
+[]
+</code></pre>
+<p>The <code>pg_relation_size()</code> function returns the size of the table only, not included indexes or additional objects.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">pg_size_pretty</span><span class="p">(</span><span class="n">pg_relation_size</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">));</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+   postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+1 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>pg_size_pretty</th>
+    </tr>
+    <tr>
+        <td>8192 bytes</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">Person</span><span class="p">(</span><span class="n">person_first</span><span class="p">,</span> <span class="n">person_last</span><span class="p">,</span> <span class="n">country_id</span><span class="p">)</span> 
+<span class="n">VALUES</span> 
+<span class="p">(</span><span class="s1">&#39;Napolean&#39;</span><span class="p">,</span> <span class="s1">&#39;Bonaparte&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;Luis&#39;</span><span class="p">,</span><span class="s1">&#39;Alvarez&#39;</span><span class="p">,</span> <span class="s1">&#39;CU&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+   postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+
+
+
+
+
+[]
+</code></pre>
+<p>Accessing the RDBMS dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">pg_catalog</span><span class="o">.</span><span class="n">pg_tables</span>
+<span class="n">WHERE</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;pg_catalog&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+9 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>schemaname</th>
+        <th>tablename</th>
+        <th>tableowner</th>
+        <th>tablespace</th>
+        <th>hasindexes</th>
+        <th>hasrules</th>
+        <th>hastriggers</th>
+        <th>rowsecurity</th>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>country</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>person</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_features</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_implementation_info</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_languages</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_packages</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_parts</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_sizing</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>information_schema</td>
+        <td>sql_sizing_profiles</td>
+        <td>postgres</td>
+        <td>None</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">sql</span> <span class="n">FROM</span> <span class="n">postgres</span> 
+<span class="n">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Person&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+(psycopg2.errors.UndefinedTable) relation "postgres" does not exist
+LINE 1: SELECT sql FROM postgres 
+                        ^
+
+[SQL: SELECT sql FROM postgres 
+WHERE name='Person';]
+(Background on this error at: http://sqlalche.me/e/f405)
+</code></pre>
+<p>SQL as a Query Language.</p>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">person_first</span> <span class="k">as</span> <span class="n">first</span><span class="p">,</span> <span class="n">person_last</span> <span class="n">AS</span> <span class="n">last</span><span class="p">,</span> <span class="n">country_name</span> <span class="n">AS</span> <span class="n">nationality</span>
+<span class="n">FROM</span> <span class="n">Person</span> 
+<span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">country</span> 
+<span class="n">ON</span> <span class="n">Person</span><span class="o">.</span><span class="n">country_id</span> <span class="o">=</span> <span class="n">Country</span><span class="o">.</span><span class="n">country_id</span><span class="p">;</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>nationality</th>
+    </tr>
+    <tr>
+        <td>Napolean</td>
+        <td>Bonaparte</td>
+        <td>France</td>
+    </tr>
+    <tr>
+        <td>Luis</td>
+        <td>Alvarez</td>
+        <td>CUBA</td>
+    </tr>
+</table>
+
+<p>Visualizing the entitry-relationship diagram (ERd).</p>
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">config</span><span class="err">?</span>
+</code></pre></div>
+
+<pre><code>[0;31mDocstring:[0m
+configure IPython
+
+    %config Class[.trait=value]
+
+This magic exposes most of the IPython config system. Any
+Configurable class should be able to be configured with the simple
+line::
+
+    %config Class.trait=value
+
+Where `value` will be resolved in the user's namespace, if it is an
+expression or variable name.
+
+Examples
+--------
+
+To see what classes are available for config, pass no arguments::
+
+    In [1]: %config
+    Available objects for config:
+        TerminalInteractiveShell
+        HistoryManager
+        PrefilterManager
+        AliasManager
+        IPCompleter
+        DisplayFormatter
+
+To view what is configurable on a given class, just pass the class
+name::
+
+    In [2]: %config IPCompleter
+    IPCompleter options
+    -----------------
+    IPCompleter.omit__names=&lt;Enum&gt;
+        Current: 2
+        Choices: (0, 1, 2)
+        Instruct the completer to omit private method names
+        Specifically, when completing on ``object.&lt;tab&gt;``.
+        When 2 [default]: all names that start with '_' will be excluded.
+        When 1: all 'magic' names (``__foo__``) will be excluded.
+        When 0: nothing will be excluded.
+    IPCompleter.merge_completions=&lt;CBool&gt;
+        Current: True
+        Whether to merge completion results into a single list
+        If False, only the completion results from the first non-empty
+        completer will be returned.
+    IPCompleter.limit_to__all__=&lt;CBool&gt;
+        Current: False
+        Instruct the completer to use __all__ for the completion
+        Specifically, when completing on ``object.&lt;tab&gt;``.
+        When True: only those names in obj.__all__ will be included.
+        When False [default]: the __all__ attribute is ignored
+    IPCompleter.greedy=&lt;CBool&gt;
+        Current: False
+        Activate greedy completion
+        This will enable completion on elements of lists, results of
+        function calls, etc., but can be unsafe because the code is
+        actually evaluated on TAB.
+
+but the real use is in setting values::
+
+    In [3]: %config IPCompleter.greedy = True
+
+and these values are read from the user_ns if they are variables::
+
+    In [4]: feeling_greedy=False
+
+    In [5]: %config IPCompleter.greedy = feeling_greedy
+[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/IPython/core/magics/config.py
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ibis</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eralchemy</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">eralchemy</span> <span class="kn">import</span> <span class="n">render_er</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;erd_from_sqlalchemy.png&#39;</span><span class="p">):</span>
+    <span class="n">render_er</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">&#39;erd_from_sqlalchemy.png&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>/opt/conda/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/base.py:2972: SAWarning: Did not recognize type 'point' of column 'location'
+  "Did not recognize type '%s' of column '%s'" % (attype, name)
+</code></pre>
+<p><img alt="" src="../erd_from_sqlalchemy.png" /></p>
+<h2 id="homework-walk-through">Homework walk-through</h2>
+<p>Convert the flat file data in <code>data/flat.csv</code> into a well-structured relational database in SQLite3 stored as <code>data/faculty.db</code>. Note - salary information is confidential and should be kept in a separate table from other personal data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">flat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/flat.csv&#39;</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">flat</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>salary</th>
+      <th>nationality</th>
+      <th>code</th>
+      <th>country</th>
+      <th>language1</th>
+      <th>language2</th>
+      <th>language3</th>
+      <th>first</th>
+      <th>last</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>899</th>
+      <td>Lucien Pittman</td>
+      <td>Male</td>
+      <td>61</td>
+      <td>1.87</td>
+      <td>58</td>
+      <td>73000</td>
+      <td>Danish</td>
+      <td>DK</td>
+      <td>Denmark</td>
+      <td>AutoIt</td>
+      <td>Dylan</td>
+      <td>Transact-SQL</td>
+      <td>Lucien</td>
+      <td>Pittman</td>
+    </tr>
+    <tr>
+      <th>1516</th>
+      <td>Zane Calhoun</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>1.93</td>
+      <td>48</td>
+      <td>127000</td>
+      <td>Greek</td>
+      <td>GR</td>
+      <td>Greece</td>
+      <td>Io</td>
+      <td>Java</td>
+      <td></td>
+      <td>Zane</td>
+      <td>Calhoun</td>
+    </tr>
+    <tr>
+      <th>827</th>
+      <td>Lauran Willis</td>
+      <td>Female</td>
+      <td>34</td>
+      <td>1.92</td>
+      <td>75</td>
+      <td>89000</td>
+      <td>Romanian</td>
+      <td>RO</td>
+      <td>Romania</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Lauran</td>
+      <td>Willis</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+\<span class="n">d</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+6 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>Schema</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Owner</th>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>accounts</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>flat</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">USE</span> <span class="n">faculty</span><span class="p">;</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+(psycopg2.errors.SyntaxError) syntax error at or near "USE"
+LINE 1: USE faculty;
+        ^
+
+[SQL: USE faculty;]
+(Background on this error at: http://sqlalche.me/e/f405)
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Person</span><span class="p">;</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Country</span><span class="p">;</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">Country</span> <span class="p">(</span>
+    <span class="n">country_id</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+    <span class="n">country_name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">Person</span> <span class="p">(</span>
+    <span class="n">person_id</span> <span class="n">SERIAL</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span>
+    <span class="n">name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+    <span class="n">age</span> <span class="n">INTEGER</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span>
+    <span class="n">country_id</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span>
+      <span class="n">FOREIGN</span> <span class="n">KEY</span> <span class="p">(</span><span class="n">country_id</span><span class="p">)</span> <span class="n">REFERENCES</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+Done.
+Done.
+Done.
+Done.
+
+
+
+
+
+[]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> 
+<span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;CU&#39;</span><span class="p">,</span> <span class="s1">&#39;CUBA&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+
+
+
+
+
+[]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+<span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">Country</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+2 rows affected.
+
+
+
+
+
+[]
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Country</span>
+</code></pre></div>
+
+<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+0 rows affected.
+</code></pre>
+<table>
+    <tr>
+        <th>country_id</th>
+        <th>country_name</th>
+    </tr>
+</table>
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+<pre><code>Index(['name', 'gender', 'age', 'height', 'weight', 'salary', 'nationality',
+       'code', 'country', 'language1', 'language2', 'language3', 'first',
+       'last'],
+      dtype='object')
+</code></pre>
+<p><div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapper</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;country_name&#39;</span><span class="p">},</span>
+           <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+country = flat[['country<em>id', 'country</em>name']]country.set<em>index('country</em>id').to<em>sql('Country', engine, if</em>exists='append')</p>
+<h1 id="sql">%%sql</h1>
+<p>SELECT * FROM Country</p>
+<div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">to_sql</span><span class="err">?</span>
+</code></pre></div>
+
+<pre><code>[0;31mSignature:[0m
+[0mflat[0m[0;34m.[0m[0mto_sql[0m[0;34m([0m[0;34m[0m
+[0;34m[0m    [0mname[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mcon[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mschema[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mif_exists[0m[0;34m=[0m[0;34m'fail'[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mindex[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mindex_label[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mchunksize[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mdtype[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m    [0mmethod[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
+[0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mDocstring:[0m
+Write records stored in a DataFrame to a SQL database.
+
+Databases supported by SQLAlchemy [1]_ are supported. Tables can be
+newly created, appended to, or overwritten.
+
+Parameters
+----------
+name : string
+    Name of SQL table.
+con : sqlalchemy.engine.Engine or sqlite3.Connection
+    Using SQLAlchemy makes it possible to use any DB supported by that
+    library. Legacy support is provided for sqlite3.Connection objects.
+schema : string, optional
+    Specify the schema (if database flavor supports this). If None, use
+    default schema.
+if_exists : {'fail', 'replace', 'append'}, default 'fail'
+    How to behave if the table already exists.
+
+    * fail: Raise a ValueError.
+    * replace: Drop the table before inserting new values.
+    * append: Insert new values to the existing table.
+
+index : bool, default True
+    Write DataFrame index as a column. Uses `index_label` as the column
+    name in the table.
+index_label : string or sequence, default None
+    Column label for index column(s). If None is given (default) and
+    `index` is True, then the index names are used.
+    A sequence should be given if the DataFrame uses MultiIndex.
+chunksize : int, optional
+    Rows will be written in batches of this size at a time. By default,
+    all rows will be written at once.
+dtype : dict, optional
+    Specifying the datatype for columns. The keys should be the column
+    names and the values should be the SQLAlchemy types or strings for
+    the sqlite3 legacy mode.
+method : {None, 'multi', callable}, default None
+    Controls the SQL insertion clause used:
+
+    * None : Uses standard SQL ``INSERT`` clause (one per row).
+    * 'multi': Pass multiple values in a single ``INSERT`` clause.
+    * callable with signature ``(pd_table, conn, keys, data_iter)``.
+
+    Details and a sample callable implementation can be found in the
+    section :ref:`insert method &lt;io.sql.method&gt;`.
+
+    .. versionadded:: 0.24.0
+
+Raises
+------
+ValueError
+    When the table already exists and `if_exists` is 'fail' (the
+    default).
+
+See Also
+--------
+read_sql : Read a DataFrame from a table.
+
+Notes
+-----
+Timezone aware datetime columns will be written as
+``Timestamp with timezone`` type with SQLAlchemy if supported by the
+database. Otherwise, the datetimes will be stored as timezone unaware
+timestamps local to the original timezone.
+
+.. versionadded:: 0.24.0
+
+References
+----------
+.. [1] http://docs.sqlalchemy.org
+.. [2] https://www.python.org/dev/peps/pep-0249/
+
+Examples
+--------
+
+Create an in-memory SQLite database.
+
+&gt;&gt;&gt; from sqlalchemy import create_engine
+&gt;&gt;&gt; engine = create_engine('sqlite://', echo=False)
+
+Create a table from scratch with 3 rows.
+
+&gt;&gt;&gt; df = pd.DataFrame({'name' : ['User 1', 'User 2', 'User 3']})
+&gt;&gt;&gt; df
+     name
+0  User 1
+1  User 2
+2  User 3
+
+&gt;&gt;&gt; df.to_sql('users', con=engine)
+&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
+[(0, 'User 1'), (1, 'User 2'), (2, 'User 3')]
+
+&gt;&gt;&gt; df1 = pd.DataFrame({'name' : ['User 4', 'User 5']})
+&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='append')
+&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
+[(0, 'User 1'), (1, 'User 2'), (2, 'User 3'),
+ (0, 'User 4'), (1, 'User 5')]
+
+Overwrite the table with just ``df1``.
+
+&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='replace',
+...            index_label='id')
+&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
+[(0, 'User 4'), (1, 'User 5')]
+
+Specify the dtype (especially useful for integers with missing values).
+Notice that while pandas is forced to store the data as floating point,
+the database supports nullable integers. When fetching the data with
+Python, we get back integer scalars.
+
+&gt;&gt;&gt; df = pd.DataFrame({"A": [1, None, 2]})
+&gt;&gt;&gt; df
+     A
+0  1.0
+1  NaN
+2  2.0
+
+&gt;&gt;&gt; from sqlalchemy.types import Integer
+&gt;&gt;&gt; df.to_sql('integers', con=engine, index=False,
+...           dtype={"A": Integer()})
+
+&gt;&gt;&gt; engine.execute("SELECT * FROM integers").fetchall()
+[(1,), (None,), (2,)]
+[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
+[0;31mType:[0m      method
+</code></pre>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  <!--  -->
+  <!-- <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/fesaille" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div> -->
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../_js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+      
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      
+    
+  </body>
+</html>
