@@ -1,0 +1,3 @@
+[submodule "notebook"]
+	path = src/docs/_nb
+	url = git@github.com:fesaille/ipy_all.git

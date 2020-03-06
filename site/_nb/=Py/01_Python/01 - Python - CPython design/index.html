@@ -1,0 +1,1519 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/01_Python/01 - Python - CPython design/">
+      
+      
+        <meta name="author" content="Emmmanuel Roux">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+    
+    
+      
+        <title>Intro - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../_css/extra.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#high-level" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              My Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Intro
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../doc/md/" class="md-tabs__link">
+          doc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Python
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../devops/ansible/" class="md-tabs__link">
+          DevOps
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../shell/_intro/" class="md-tabs__link">
+          shell
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../DB/intro/" class="md-tabs__link">
+          DB
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../data/_intro/" class="md-tabs__link">
+          Data
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../Viz/matplotlib/" class="md-tabs__link">
+          Visualization
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../WebDev/Intro/" class="md-tabs__link">
+          WebDev
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../aze/" title="IPYNB" class="md-nav__link">
+      IPYNB
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      doc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        doc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../doc/md/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Intro" class="md-nav__link md-nav__link--active">
+      Intro
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/envs/" title="Envs" class="md-nav__link">
+      Envs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+      Ubuntu
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      DevOps
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        DevOps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../devops/ansible/" title="Ansible" class="md-nav__link">
+      Ansible
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/git/" title="git" class="md-nav__link">
+      git
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/zsh/" title="zsh" class="md-nav__link">
+      zsh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Ubuntu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Ubuntu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../shell/Ubuntu/configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      DB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        DB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/intro/" title="intro" class="md-nav__link">
+      intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      MongoDB
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        MongoDB
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/mongoDB/Aggregation/" title="Aggregation framework" class="md-nav__link">
+      Aggregation framework
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/SQL/postgres/" title="PostgreSQL" class="md-nav__link">
+      PostgreSQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Object store
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Object store
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../DB/S3/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Data
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      ndarray
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        ndarray
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ndarray/intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Time series
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Time series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/_intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/features/" title="Features selection" class="md-nav__link">
+      Features selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/timeseries/matrixprofile/" title="Matrix profile" class="md-nav__link">
+      Matrix profile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../data/windowing/" title="Windowing" class="md-nav__link">
+      Windowing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Machine Learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Machine Learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../ml/dl/" title="Time series" class="md-nav__link">
+      Time series
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Visualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Visualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Viz/matplotlib/" title="Matplolib" class="md-nav__link">
+      Matplolib
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      WebDev
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        WebDev
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/Intro/" title="Intro" class="md-nav__link">
+      Intro
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/css/" title="CSS" class="md-nav__link">
+      CSS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../WebDev/REACT/" title="REACT" class="md-nav__link">
+      REACT
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.</p>
+<p>Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python is often described as a "batteries included" language due to its comprehensive standard library.</p>
+<p><sup id="fn1">[src]</sup><a href="http://cpython-devguide.readthedocs.io/compiler/">Design of CPython’s Compiler</a><br/>
+<sup id="fn1">[src]</sup> <a href="http://pgbovine.net/cpython-internals.htm">Philip Guo CPython internals lectures</a><br/>
+<sup id="fn1">[src]</sup> <a href="http://trizpug.org/Members/cbc/wyntkap/compiler.html" title="PyOhio PyCamp 2014 :: The Compiler">PyOhio PyCamp 2014 :: The Compiler</a><br/>
+<sup id="fn1">[src]</sup> <a href="https://greentreesnakes.readthedocs.io" title="The missing Python AST docs">The missing Python AST docs</a><br/>
+<sup id="fn1">[src]</sup> <a href="pythontutor.com" title="Visualize program execution">Visualize program execution</a><br/></p>
+<h1 id="high-level">High-level</h1>
+<p>In computer science, a high-level programming language is a programming language with strong abstraction from the details of the computer. In contrast to low-level programming languages, it may use natural language elements, be easier to use, or may automate (or even hide entirely) significant areas of computing systems (e.g. memory management), making the process of developing a program simpler and more understandable than when using a lower-level language</p>
+<p><a href="https://en.wikipedia.org/wiki/High-level_programming_language"><em>Wikipedia</em></a></p>
+<h1 id="interpreted">Interpreted</h1>
+<p>There are three general modes of execution for modern high-level languages:</p>
+<ul>
+<li>
+<p><strong>Interpreted</strong>: the syntax is read and then executed directly, with no compilation stage. A program called an interpreter reads each program statement, following the program flow, then decides what to do, and does it.</p>
+</li>
+<li>
+<p><strong>Compiled</strong>: the code written in a language is compiled, its syntax is transformed into an executable form before running. There are two types of compilation:</p>
+<ul>
+<li><strong>Machine code generation</strong></li>
+<li><strong>Intermediate representations</strong>: the code written in a language is compiled to an intermediate representation, that representation can be optimized or saved for later execution without the need to re-read the source file. When the intermediate representation is saved, it may be in a form such as bytecode. The intermediate representation must then be interpreted or further compiled to execute it.</li>
+</ul>
+</li>
+<li>
+<p><strong>Source-to-source translated or transcompiled</strong></p>
+</li>
+</ul>
+<h1 id="code-structure">Code structure</h1>
+<p>The code directory structure is described in <a href="http://cpython-devguide.readthedocs.io/setup/#directory-structure">Python Developer's Guide</a>. Guido van Rossum summarizes it in <a href="https://paper.dropbox.com/doc/Yet-another-guided-tour-of-CPython-XY7KgFGn88zMNivGJ4Jzv">Yet another guided tour of CPython</a></p>
+<ul>
+<li>Include — header files</li>
+<li>Objects — object implementations, from int to type</li>
+<li>Python — interpreter, bytecode compiler and other essential infrastructure</li>
+<li>Parser — parser, lexer and parser generator</li>
+<li>Modules — stdlib extension modules, and <code>main.c</code> </li>
+<li>
+<p>Programs — not much, but has the real <code>main()</code> function
+cpython/
+│
+├── Doc      ← Source for the documentation
+├── Grammar  ← The computer-readable language definition
+├── Include  ← The C header files
+├── Lib      ← Standard library modules written in Python
+├── Mac      ← macOS support files
+├── Misc     ← Miscellaneous files
+├── Modules  ← Standard Library Modules written in C
+├── Objects  ← Core types and the object model
+├── Parser   ← The Python parser source code
+├── PC       ← Windows build support files
+├── PCbuild  ← Windows build support files for older Windows versions
+├── Programs ← Source code for the python executable and other binaries
+├── Python   ← The CPython interpreter source code
+└── Tools    ← Standalone tools useful for building or extending Python
+In CPython, the compilation from source code to bytecode involves several steps <sup id="fn1"><a href="http://cpython-devguide.readthedocs.io/compiler/">[src]</a></sup></p>
+</li>
+<li>
+<p>Parse source code into a parse tree (Parser/pgen.c)</p>
+</li>
+<li>Transform parse tree into an Abstract Syntax Tree (Python/ast.c)</li>
+<li>Transform AST into a Control Flow Graph (Python/compile.c)</li>
+<li>Emit bytecode based on the Control Flow Graph (Python/compile.c)</li>
+</ul>
+<h3 id="ast">AST</h3>
+<p><a href="https://docs.python.org/3/library/ast.html">Doc</a></p>
+<p>The code is parsed, i.e. split up into a list of pieces called tokens. These tokens are based on a set of rules for things that should be treated differently. For instance, the keyword <em>if</em> is a different token than a numeric value like <em>42</em>.</p>
+<p>The list of tokens is transformed to build an <strong>Abstract Syntax Tree, AST</strong>, collection of nodes which are linked together based on the Python language <a href="https://docs.python.org/3/reference/grammar.html">grammar</a>.</p>
+<p>In python, everything is an object, AST represents logicaly each element as an object. <a href="https://greentreesnakes.readthedocs.io">A third pary documentation on AST</a></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">PyCF_ONLY_AST</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># The code is beeing striped to remove</span>
+<span class="c1"># left and right space before parsing</span>
+<span class="c1"># and limit thee size of the tree</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">def hello(who: str) -&gt; None:</span>
+<span class="s2">    msg = f&#39;Hello </span><span class="si">{who}</span><span class="s2">&#39;</span>
+<span class="s2">    print(msg)</span>
+
+<span class="s2">hello(&quot;world&quot;)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Execute the code</p>
+<div class="highlight"><pre><span></span><code><span class="n">exec</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>Hello world
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The code is seen as two elements in the tree</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">elt</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>0 &lt;_ast.FunctionDef object at 0x7f79c9aa0690&gt;
+1 &lt;_ast.Expr object at 0x7f79c9ad1890&gt;
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the FunctionDef</span>
+<span class="n">fdef</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Get the first function argument</span>
+<span class="n">arg</span> <span class="o">=</span> <span class="n">fdef</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Some informations from the tree can be retrieved:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{arg.arg}</span><span class="s1">: </span><span class="si">{arg.annotation.id}</span><span class="s1"> at col #</span><span class="si">{arg.col_offset}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>who: str at col #10
+</code></pre>
+<p>The code can be compiled</p>
+<div class="highlight"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">code</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># None at [0] so we can index lines from 1</span>
+<span class="n">test_namespace</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">tree</span><span class="o">.</span><span class="n">body</span><span class="p">:</span>
+    <span class="n">wrapper</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">Module</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="p">[</span><span class="n">node</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">co</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">wrapper</span><span class="p">,</span> <span class="s2">&quot;&lt;ast&gt;&quot;</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">co</span><span class="p">,</span> <span class="n">test_namespace</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Assertion failed on line&quot;</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">lineno</span><span class="p">])</span>
+        <span class="c1"># If the error has a message, show it.</span>
+        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+
+<pre><code>Hello world
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">code</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;&lt;ast&gt;&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;exec&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FuncLister</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeVisitor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">visit_FunctionDef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic_visit</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="n">FuncLister</span><span class="p">()</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>hello
+</code></pre>
+<h3 id="bytecode">Bytecode</h3>
+<p>From an abstract syntax tree, the interpreter can produce a lower level form of instructions called <strong>bytecode</strong>. These instructions are things like <code>BINARY_ADD</code> and are meant to be very generic so that a computer can run them.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>Hello, World!
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dis</span> <span class="kn">import</span> <span class="n">dis</span>
+<span class="n">dis</span><span class="p">(</span><span class="s1">&#39;print(&quot;Hello, World!&quot;)&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<pre><code>  1           0 LOAD_NAME                0 (print)
+              2 LOAD_CONST               0 ('Hello, World!')
+              4 CALL_FUNCTION            1
+              6 RETURN_VALUE
+</code></pre>
+<p>CPython uses a stack-based virtual machine. That is, it's oriented entirely around stack data structures (where you can "push" an item onto the "top" of the structure, or "pop" an item off the "top").</p>
+<p>With the bytecode instructions available, the interpreter can finally run your code. The bytecode is used to call functions in your operating system which will ultimately interact with a CPU and memory to run the program.</p>
+<h1 id="opcodes-and-main-interpreter-loop">Opcodes and main interpreter loop</h1>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span> <span class="k">as</span> <span class="n">pjoin</span>
+
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">()</span>
+<span class="n">fName</span> <span class="o">=</span> <span class="n">pjoin</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="s1">&#39;test.py&#39;</span><span class="p">)</span>
+
+<span class="n">codeExemple</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;ppl = [&#39;Alice&#39;, &#39;Bob&#39;, &#39;Carol&#39;, &#39;Doug&#39;]</span>
+<span class="s2">excited_ppl = [e + &#39;!!&#39; for e in ppl]</span>
+<span class="s2">ppl_len = [len(x) for x in ppl]&quot;&quot;&quot;</span>
+
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fName</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">codeExemple</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">dis</span> <span class="p">{</span><span class="n">fName</span><span class="p">}</span>
+</code></pre></div>
+
+<pre><code>  1           0 LOAD_CONST               0 ('Alice')
+              2 LOAD_CONST               1 ('Bob')
+              4 LOAD_CONST               2 ('Carol')
+              6 LOAD_CONST               3 ('Doug')
+              8 BUILD_LIST               4
+             10 STORE_NAME               0 (ppl)
+
+  2          12 LOAD_CONST               4 (&lt;code object &lt;listcomp&gt; at 0x7f43f9dc4ed0, file "/tmp/test.py", line 2&gt;)
+             14 LOAD_CONST               5 ('&lt;listcomp&gt;')
+             16 MAKE_FUNCTION            0
+             18 LOAD_NAME                0 (ppl)
+             20 GET_ITER
+             22 CALL_FUNCTION            1
+             24 STORE_NAME               1 (excited_ppl)
+
+  3          26 LOAD_CONST               6 (&lt;code object &lt;listcomp&gt; at 0x7f43f9dca390, file "/tmp/test.py", line 3&gt;)
+             28 LOAD_CONST               5 ('&lt;listcomp&gt;')
+             30 MAKE_FUNCTION            0
+             32 LOAD_NAME                0 (ppl)
+             34 GET_ITER
+             36 CALL_FUNCTION            1
+             38 STORE_NAME               2 (ppl_len)
+             40 LOAD_CONST               7 (None)
+             42 RETURN_VALUE
+
+Disassembly of &lt;code object &lt;listcomp&gt; at 0x7f43f9dc4ed0, file "/tmp/test.py", line 2&gt;:
+  2           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        &gt;&gt;    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (e)
+              8 LOAD_FAST                1 (e)
+             10 LOAD_CONST               0 ('!!')
+             12 BINARY_ADD
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        &gt;&gt;   18 RETURN_VALUE
+
+Disassembly of &lt;code object &lt;listcomp&gt; at 0x7f43f9dca390, file "/tmp/test.py", line 3&gt;:
+  3           0 BUILD_LIST               0
+              2 LOAD_FAST                0 (.0)
+        &gt;&gt;    4 FOR_ITER                12 (to 18)
+              6 STORE_FAST               1 (x)
+              8 LOAD_GLOBAL              0 (len)
+             10 LOAD_FAST                1 (x)
+             12 CALL_FUNCTION            1
+             14 LIST_APPEND              2
+             16 JUMP_ABSOLUTE            4
+        &gt;&gt;   18 RETURN_VALUE
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">codeExemple</span><span class="p">,</span> <span class="s1">&#39;test.py&#39;</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">c</span><span class="o">.</span><span class="n">co_code</span>
+</code></pre></div>
+
+<pre><code>b'd\x00d\x01d\x02d\x03g\x04Z\x00d\x04d\x05\x84\x00e\x00D\x00\x83\x01Z\x01d\x06d\x05\x84\x00e\x00D\x00\x83\x01Z\x02d\x07S\x00'
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">cat</span> <span class="p">{</span><span class="n">fName</span><span class="p">}</span>
+</code></pre></div>
+
+<pre><code>ppl = ['Alice', 'Bob', 'Carol', 'Doug']
+excited_ppl = [e + '!!' for e in ppl]
+ppl_len = [len(x) for x in ppl]
+</code></pre>
+<h2 id="opcodeh">opcode.h</h2>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">wget</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cpython</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">Include</span><span class="o">/</span><span class="n">opcode</span><span class="o">.</span><span class="n">h</span> <span class="o">-</span><span class="n">O</span> <span class="p">{</span><span class="n">tmp</span><span class="p">}</span><span class="o">/</span><span class="n">opcode</span><span class="o">.</span><span class="n">h</span>
+<span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">30</span> <span class="p">{</span><span class="n">tmp</span><span class="p">}</span><span class="o">/</span><span class="n">opcode</span><span class="o">.</span><span class="n">h</span>
+</code></pre></div>
+
+<pre><code>/* Auto-generated by Tools/scripts/generate_opcode_h.py from Lib/opcode.py */
+#ifndef Py_OPCODE_H
+#define Py_OPCODE_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+    /* Instruction opcodes for compiled code */
+#define POP_TOP                   1
+#define ROT_TWO                   2
+#define ROT_THREE                 3
+#define DUP_TOP                   4
+#define DUP_TOP_TWO               5
+#define ROT_FOUR                  6
+#define NOP                       9
+#define UNARY_POSITIVE           10
+#define UNARY_NEGATIVE           11
+#define UNARY_NOT                12
+#define UNARY_INVERT             15
+#define BINARY_MATRIX_MULTIPLY   16
+#define INPLACE_MATRIX_MULTIPLY  17
+#define BINARY_POWER             19
+#define BINARY_MULTIPLY          20
+#define BINARY_MODULO            22
+#define BINARY_ADD               23
+#define BINARY_SUBTRACT          24
+#define BINARY_SUBSCR            25
+#define BINARY_FLOOR_DIVIDE      26
+#define BINARY_TRUE_DIVIDE       27
+</code></pre>
+<h2 id="cevalc">ceval.c</h2>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">wget</span> <span class="o">--</span><span class="n">quiet</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cpython</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="n">ceval</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">O</span> <span class="p">{</span><span class="n">tmp</span><span class="p">}</span><span class="o">/</span><span class="n">ceval</span><span class="o">.</span><span class="n">c</span>
+<span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="mi">20</span> <span class="p">{</span><span class="n">tmp</span><span class="p">}</span><span class="o">/</span><span class="n">ceval</span><span class="o">.</span><span class="n">c</span>
+</code></pre></div>
+
+<pre><code>/* Execute compiled code */
+
+/* XXX TO DO:
+   XXX speed up searching for keywords by using a dictionary
+   XXX document it!
+   */
+
+/* enable more aggressive intra-module optimizations, where available */
+#define PY_LOCAL_AGGRESSIVE
+
+#include "Python.h"
+#include "pycore_call.h"
+#include "pycore_ceval.h"
+#include "pycore_code.h"
+#include "pycore_object.h"
+#include "pycore_pyerrors.h"
+#include "pycore_pylifecycle.h"
+#include "pycore_pystate.h"
+#include "pycore_tupleobject.h"
+</code></pre>
+<iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x+%3D+5%0Ay+%3D+10%0Az+%3D+x+%2B+y&cumulative=false&py=2&curInstr=3"/>
+
+# General purpose
+
+[https://awesome-python.com/](awesome-python):
+
+___
+References:
+- [Your Guide to the CPython Source Code](https://realpython.com/cpython-source-code-guide/)
+- [Inside The Python Virtual Machine](https://leanpub.com/insidethepythonvirtualmachine/read)
+- [An introduction to Python bytecode](https://opensource.com/article/18/4/introduction-python-bytecode)
+- [Deciphering Python: How to use Abstract Syntax Trees (AST) to understand code
+](https://www.mattlayman.com/blog/2018/decipher-python-ast/)
+
+# Garbage collected
+
+https://github.com/python/cpython/blob/ce6a070414ed1e1374d1e6212bfbff61b6d5d755/Include/object.h#L104
+
+
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">getrefcount</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;un&quot;</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+    2
+
+
+
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="ow">is</span> <span class="n">a</span>
+</code></pre></div>
+
+
+
+
+    True
+
+
+
+
+<div class="highlight"><pre><span></span><code><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+    3
+
+
+
+
+<div class="highlight"><pre><span></span><code><span class="k">del</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+    2
+
+
+
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  <!-- 
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../../doc/md/" title="Markdown" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Markdown
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../Python/envs/" title="Envs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Envs
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+   -->
+  <!-- <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div> -->
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../_js/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+      
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+      
+    
+  </body>
+</html>
