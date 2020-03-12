@@ -11,6 +11,7 @@
 
 - until character (unsing the "till" motion): <kbd>d</kbd><kbd>t</kbd><kbd>CHAR</kbd>
 
+
 ## Visual mode
 
 
@@ -26,6 +27,6 @@ Open a file under cursor:
 ## Plugins
 
 - <b>Ale</b> <badge-stars repo='dense-analysis/ale'></badge-stars> <badge-doc href="https://vimawesome.com/plugin/ale"></badge-doc> is a providing asynchronous linting
-- <b>vim-markdown</b> <badge-stars repo='plasticboy/vim-markdown'></badge-stars> <badge-doc href="plasticboy/vim-markdown"></badge-doc>, Markdown Vim Mode. 
+- <b>vim-markdown</b> <badge-stars repo='plasticboy/vim-markdown'></badge-stars> <badge-doc href="https://github.com/plasticboy/vim-markdown#vim-markdown"></badge-doc>, Markdown Vim Mode. 
 
 
