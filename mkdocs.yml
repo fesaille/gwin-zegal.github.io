@@ -27,7 +27,9 @@ nav:
   - shell:
     - Intro: shell/_intro.md
     - git: shell/git.md
+    - fzf: shell/fzf.md
     - zsh: shell/zsh.md
+    - vim: shell/vim.md 
     - Ubuntu:
       - Python: shell/Ubuntu/python.md
       - Configuration: shell/Ubuntu/configuration.md

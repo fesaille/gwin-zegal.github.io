@@ -1,5 +1,13 @@
 # GIT
 
+## Configuration
+
+The configuration is made out of [four files](https://git-scm.com/docs/git-config#FILES):
+
+- `$(prefix)/etc/gitconfig`
+- `$XDG_CONFIG_HOME/git/config`
+- `~/.gitconfig`
+- `$GIT_DIR/config`
 
 ## Pull request
 
@@ -48,8 +56,19 @@ git push -u origin mybranch
 z--z--z   (master, upstream/master, origin/master)
 ```
 
+## Submodules
 
-### Remove a submodule
+### Commands
+
+`status` prints the SHA1 status of checked submodules. Prefixed with:
+
+- **-** if the submodule is not initialized
+- **+** in case of conflicts between current subdmodule and the index of the containing directory
+- **U** in case of merge conflicts 
+
+
+
+#### Remove a submodule
 
 
 Remove the submodule entry from .git/config
@@ -72,7 +91,7 @@ Remove the entry in .gitmodules and remove the submodule directory located at pa
 git rm -f path/to/submodule
 ```
 
-### Cherry pick from another repository
+## Cherry pick from another repository
 
 First the other repository source must be added to the remote list
 ```
