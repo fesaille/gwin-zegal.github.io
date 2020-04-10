@@ -18,14 +18,3 @@
 ![Cheatsheet](https://ranger.github.io/cheatsheet.png)
 
 
-## VIM
-
-
-> set foldmethod=indent
-
-
-  za: Toggle code folding at the current line. The block that the current line belongs to is folded (closed) or unfolded (opened).
-  zo: Open fold.
-  zc: Close fold.
-  zR: Open all folds.
-  zM: Close all folds.

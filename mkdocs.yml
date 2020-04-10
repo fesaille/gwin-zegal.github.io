@@ -19,20 +19,23 @@ nav:
     - Markdown: doc/md.md
   - Python:
     - Intro: _nb/=Py/01_Python/01 - Python - CPython design.ipynb
+    - Typing: Python/typing.md
     - Envs: Python/envs.md
     - 'Iterators, generators and coroutines': Python/IterGen.md
+    - Tests: Python/test.md
     - Ubuntu: Linux/Ubuntu/python.md
   - DevOps:
     - Ansible: devops/ansible.md
   - shell:
     - Intro: shell/_intro.md
-    - git: shell/git.md
-    - fzf: shell/fzf.md
     - zsh: shell/zsh.md
     - vim: shell/vim.md 
+    - git: shell/git.md
+    - fzf: shell/fzf.md
     - Ubuntu:
-      - Python: shell/Ubuntu/python.md
       - Configuration: shell/Ubuntu/configuration.md
+      - Python: shell/Ubuntu/python.md
+    - helpers: shell/sys.md 
   - DB:
     - intro: DB/intro.md
     - MongoDB:
@@ -58,6 +61,7 @@ nav:
   - WebDev:
     - Intro: WebDev/Intro.md
     - CSS: WebDev/css.md
+    - node: WebDev/node.md
     - REACT: WebDev/REACT.md
 
 plugins:

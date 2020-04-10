@@ -1,5 +1,12 @@
 
+/**
+ * Represents a Badge.
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
+ */
 class Badge extends HTMLElement {
+  //
   constructor() {
     // Always call super first in constructor
     super();
@@ -10,6 +17,7 @@ class Badge extends HTMLElement {
     var wrapper = document.createElement('span');
     wrapper.setAttribute('class','myBadge');
 
+    // badge attributes
     var href = this.hasAttribute('href')?this.getAttribute('href'):'img/default.png';
     var alt = this.hasAttribute('alt')?this.getAttribute('alt'):'Documentation';
     var label = this.hasAttribute('label')?this.getAttribute('label'):'docs';
@@ -49,6 +57,23 @@ class StarsBadge extends Badge {
   }
 }
 
+class PEPBadge extends Badge {
+  constructor() {
+    super();
+
+    var nr = this.hasAttribute('nr')?this.getAttribute('nr'):'';
+    var pep = new Intl.NumberFormat("en", { minimumIntegerDigits: 4, useGrouping:false }).format(nr);
+
+    var img = this.shadowRoot.children[0].getElementsByTagName('img')[0];
+    img.setAttribute('src', `https://img.shields.io/badge/PEP-${nr}-ffd43b?logo=Python&style=flat&labelColor=306998&logoColor=white`);
+
+    var link = this.shadowRoot.children[0].getElementsByTagName('a')[0];
+    link.setAttribute('href', `https://www.python.org/dev/peps/pep-${pep}`);
+
+  }
+}
+
+
 class DocBadge extends Badge {
   constructor() {
     super();
@@ -57,6 +82,7 @@ class DocBadge extends Badge {
 
 customElements.define('badge-doc', DocBadge);
 customElements.define('badge-stars', StarsBadge);
+customElements.define('badge-pep', PEPBadge);
 
 
 const uml = (converter, className, settings) => {
