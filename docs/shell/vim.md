@@ -23,6 +23,14 @@ Comment line (via plugin vim-commentary): <kbd>gcc</kbd> in normal mode,
 
 Surroung element while editing
 
+## Code edition
+
+### Folding
+
+
+For Python, https://github.com/Vimjas/vim-python-pep8-indent
+
+
 ## Plugins
 
 [comment]: <> (- <b>Ale</b> <badge-stars repo='dense-analysis/ale'></badge-stars> <badge-doc href="https://vimawesome.com/plugin/ale"></badge-doc> is a providing asynchronous linting)
@@ -34,9 +42,11 @@ Surroung element while editing
 - <b>vim-surround</b> <badge-stars repo='tpope/vim-surround'></badge-stars> provides mapping for parentheses, brackets, quotes, XML tags, and more.
 - <b>vim-multiple-cursors</b> <badge-stars repo='terryma/vim-multiple-cursors'></badge-stars> <badge-doc href="https://github.com/terryma/vim-multiple-cursors#quick-start" message="latest" logo="github"></badge-doc> is a Sublime Text style multiple selections for Vim
 
-### Browse files, buffers
+### Browse files, buffers, search
 
 - <b>Ranger.vim</b> <badge-stars repo='francoiscabrol/ranger.vim'></badge-stars> <badge-doc href="https://github.com/francoiscabrol/ranger.vim#how-to-use-it"></badge-doc>, Ranger integration in vim
+- <b>ctrlp.vim</b> <badge-stars repo='ctrlpvim/ctrlp.vim'></badge-stars>
+- <b>ack.vim</b> <badge-stars repo='mileszs/ack.vim'></badge-stars>
 
 ### Languages
 
