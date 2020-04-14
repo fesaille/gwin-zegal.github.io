@@ -4,10 +4,6 @@
      <lastmod>2020-04-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/aze/</loc>
-     <lastmod>2020-04-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://github.com/fesaille/doc/md/</loc>
      <lastmod>2020-04-14</lastmod>
      <changefreq>daily</changefreq>
@@ -37,6 +33,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/fesaille/devops/ansible/</loc>
+     <lastmod>2020-04-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/devops/codecov/</loc>
      <lastmod>2020-04-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>

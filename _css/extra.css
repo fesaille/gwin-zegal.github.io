@@ -35,6 +35,10 @@
   color: white;
 }
 
+.md-container .md-tabs {
+  opacity: 0.9;
+}
+
 .mx-card {
   background-image: url("https://img.freepik.com/free-vector/halftone-white-background_115579-724.jpg?size=626&ext=jpg");
   border-radius: 4px;
