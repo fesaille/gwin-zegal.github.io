@@ -27,7 +27,7 @@ Second Term
 
 JavaScript file defines a class called `PopUpInfo`, which extends `HTMLElement`. Inside the constructor, all the functionality the element will have when an instance of it is instantiated.
 
-!!! Example 
+??? Example 
 	Create a badge similar to the one at the top of the page:
 
 	```javascript linenums="1"
