@@ -1,52 +1,31 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/02_SQL/01_RDBMS/">
+        <link rel="canonical" href="https://github.com/fesaille/_nb/%3DPy/02_SQL/01_RDBMS/">
       
       
         <meta name="author" content="Emmmanuel Roux">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
     
       
-        <title>S01 Relational Databases - My Docs</title>
+        <title>01 RDBMS - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../../../_css/extra.css">
@@ -73,74 +49,106 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
     
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#s01-relational-databases" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              My Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                S01 Relational Databases
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-      </div>
+        <a href="#s01-relational-databases" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              01 RDBMS
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
-<nav class="md-tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -174,7 +182,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+        <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" class="md-tabs__link">
           Python
         </a>
       
@@ -200,7 +208,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../shell/_intro/" class="md-tabs__link">
+        <a href="../../../../shell/intro/" class="md-tabs__link">
           shell
         </a>
       
@@ -263,20 +271,21 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
       
-        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
-      
+  <img src="../../../../images/logo.svg" alt="logo">
+
     </a>
     My Docs
   </label>
@@ -314,13 +323,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       doc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="doc" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         doc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,13 +365,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -368,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+    <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -428,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+    <a href="../../../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
   </li>
@@ -446,13 +467,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       DevOps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DevOps" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DevOps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -482,13 +509,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       shell
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="shell" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         shell
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -500,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+    <a href="../../../../shell/intro/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -561,13 +594,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
     <label class="md-nav__link" for="nav-6-6">
       Ubuntu
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Ubuntu" data-md-level="2">
       <label class="md-nav__title" for="nav-6-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Ubuntu
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -626,13 +665,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       DB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DB" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -657,13 +702,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
       MongoDB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -705,13 +756,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="SQL" data-md-level="2">
       <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -741,13 +798,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
     <label class="md-nav__link" for="nav-7-4">
       Object store
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Object store" data-md-level="2">
       <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Object store
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -782,13 +845,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Data
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -813,13 +882,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
     
     <label class="md-nav__link" for="nav-8-2">
       ndarray
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="ndarray" data-md-level="2">
       <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         ndarray
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -849,13 +924,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
     
     <label class="md-nav__link" for="nav-8-3">
       Time series
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Time series" data-md-level="2">
       <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Time series
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -921,13 +1002,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
     
     <label class="md-nav__link" for="nav-8-4">
       Machine Learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Machine Learning" data-md-level="2">
       <label class="md-nav__title" for="nav-8-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Machine Learning
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -962,13 +1049,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Visualization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Visualization" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Visualization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -998,13 +1091,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       WebDev
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="WebDev" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         WebDev
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1074,13 +1173,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1116,7 +1220,7 @@
     4. Concepts
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="4. Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1164,7 +1268,7 @@
     5. Design
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="5. Design">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1207,10 +1311,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -1224,110 +1324,317 @@
               
                 
                 
-                <h1 id="s01-relational-databases">S01 Relational Databases</h1>
+                  
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h1 id="s01-relational-databases">S01 Relational Databases</h1>
 <p>For a simple tutorial on database design, see <a href="https://www.datanamic.com/support/lt-dez005-introduction-db-modeling.html">Introduction to Database Design</a></p>
-<p>For a deep dive, see <a href="https://www.amazon.com/Database-Design-Mere-Mortals-Hands/dp/0321884493/ref=dp_ob_title_bk">Database Design for Mere Mortals</a></p>
+<p>For a deep dive, see <a href="https://www.amazon.com/Database-Design-Mere-Mortals-Hands/dp/0321884493/ref=dp_ob_title_bk">Database Design for Mere Mortals</a>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="0-packages-for-working-with-relational-databases-in-python">0. Packages for working with relational databases in Python</h2>
-<ul>
-<li><a href="https://www.python.org/dev/peps/pep-0249/">Python Database API Specification v2.0</a> - The standard Python Database API</li>
-<li><a href="https://docs.python.org/3.7/library/sqlite3.html">sqlite3</a> - API for builit-in <code>sqlite3</code> package</li>
-<li><a href="https://github.com/vinta/awesome-python#database-drivers">Database drivers</a> - For connecting to other databases</li>
-<li><a href="https://github.com/catherinedevlin/ipython-sql">ipython-sql</a> - SQL magic in Jupyter</li>
-<li><a href="https://www.sqlalchemy.org">SQLAlchemy</a> - Most well-known Object Relational Mapper (ORM)</li>
-<li><a href="https://ponyorm.com">Pony ORM</a> - Alternative ORM</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- <a href="https://www.python.org/dev/peps/pep-0249/">Python Database API Specification v2.0</a> - The standard Python Database API
+- <a href="https://docs.python.org/3.7/library/sqlite3.html">sqlite3</a> - API for builit-in <code>sqlite3</code> package
+- <a href="https://github.com/vinta/awesome-python#database-drivers">Database drivers</a> - For connecting to other databases
+- <a href="https://github.com/catherinedevlin/ipython-sql">ipython-sql</a> - SQL magic in Jupyter
+- <a href="https://www.sqlalchemy.org">SQLAlchemy</a> - Most well-known Object Relational Mapper (ORM)
+- <a href="https://ponyorm.com">Pony ORM</a> - Alternative ORM
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="1-motivation">1. Motivation</h2>
-<p>Why relational databases and SQL?</p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Why relational databases and SQL?</p>
 <ul>
 <li>History of databases</li>
 <li>ACID</li>
 <li>Data integrity</li>
-<li>Schema</li>
+<li>Schema
+</div>
+</div></li>
 </ul>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="2-rdbms">2. RDBMS</h2>
 <ul>
 <li>Memory</li>
 <li>Storage</li>
 <li>Dictionary</li>
-<li>Query language</li>
+<li>Query language
+</div>
+</div></li>
 </ul>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="3-anatomy">3. Anatomy</h2>
 <ul>
 <li><strong>Table</strong> (Relation): Represents a <em>subject</em> or an <em>event</em>.</li>
 <li><strong>Column</strong> (Attribute): Represents a single <em>variable</em> or <em>feature</em>.- </li>
-<li><strong>Row</strong> (Tuple): represents an <em>observation</em>.</li>
+<li><strong>Row</strong> (Tuple): represents an <em>observation</em>.
+</div>
+</div></li>
 </ul>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="4-concepts">4. Concepts</h2>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="constraints">Constraints</h3>
-<p>You can impose constraints that values in a column have to take. For example, you can specify that values are compulsory (NOT NULL), or UNIQUE or fall within a certain range.</p>
+<p>You can impose constraints that values in a column have to take. For example, you can specify that values are compulsory (NOT NULL), or UNIQUE or fall within a certain range.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="referential-integrity">Referential integrity</h3>
-<ul>
-<li>Primary key represents a unique identifier of a row. It may be simple or composite.</li>
-<li>Unique</li>
-<li>Non-null</li>
-<li>Never optional</li>
-<li>Foreign key is a column containing the primary key of a different table. It enforces <em>referential integrity</em>.</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Primary key represents a unique identifier of a row. It may be simple or composite.
+  - Unique
+  - Non-null
+  - Never optional
+- Foreign key is a column containing the primary key of a different table. It enforces <em>referential integrity</em>.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="relationships">Relationships</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- One to one
+- One to many
+- Many to many</p>
 <ul>
-<li>One to one</li>
-<li>One to many</li>
-<li>
-<p>Many to many</p>
-</li>
-<li>
-<p>What happens on delete?</p>
-</li>
+<li>What happens on delete?</li>
 <li>Restrict</li>
-<li>Cascade</li>
+<li>Cascade
+</div>
+</div></li>
 </ul>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="indexes">Indexes</h3>
-<p>An index is a data structure that allows fast search of a column (typically from linear to log time complexity). Most databases will automatically build an index for every primary key column, but you can also manually specify columns to build indexes for. </p>
+<p>An index is a data structure that allows fast search of a column (typically from linear to log time complexity). Most databases will automatically build an index for every primary key column, but you can also manually specify columns to build indexes for. 
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="views">Views</h3>
-<ul>
-<li>Temporary virtual table returned as a result of a <em>query</em>.</li>
-<li>Views only specify the strucutre of a table - the contents are constructed on the fly from existing tables.</li>
-<li>Queries return a Result Set</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Temporary virtual table returned as a result of a <em>query</em>.
+- Views only specify the strucutre of a table - the contents are constructed on the fly from existing tables.
+- Queries return a Result Set
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="5-design">5. Design</h2>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="columns">Columns</h3>
-<ul>
-<li>Use singlular form for name </li>
-<li>Use informative names</li>
-<li>Use unique names not shared by any other table (except foreign keys)</li>
-<li>Column must be an attribute of the table's subject</li>
-<li>Eliminate multi-part columns</li>
-<li>Eliminate multi-value columsn</li>
-<li>Eliminate redundant columns</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Use singlular form for name 
+- Use informative names
+- Use unique names not shared by any other table (except foreign keys)
+- Column must be an attribute of the table's subject
+- Eliminate multi-part columns
+- Eliminate multi-value columsn
+- Eliminate redundant columns
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="tables">Tables</h3>
-<ul>
-<li>Use singular/plural forms for name (controversial)</li>
-<li>Enusre every table has a primary key</li>
-<li>Eliminate duplicate columns</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Use singular/plural forms for name (controversial)
+- Enusre every table has a primary key
+- Eliminate duplicate columns
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="relationships_1">Relationships</h3>
-<ul>
-<li>Establish participation type and degree of relationship</li>
-<li>One to one</li>
-<li>One to many</li>
-<li>Many to many</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Establish participation type and degree of relationship
+  - One to one
+  - One to many
+  - Many to many
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="6-example">6. Example</h2>
-<p>Use <code>sqlmagic</code> as alternative to using <code>sqlite3</code> driver.</p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Use <code>sqlmagic</code> as alternative to using <code>sqlite3</code> driver.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">env</span> <span class="n">DATABASE_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="n">psycopg2</span><span class="p">:</span><span class="o">//</span><span class="n">postgres</span><span class="p">:</span><span class="n">postgres</span><span class="nd">@db</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">com</span>
 </code></pre></div>
 
-<pre><code>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
 </code></pre></div>
 
-<p>Connect to Postgres</p>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Connect to Postgres
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span>
 </code></pre></div>
 
-<pre><code>SqlMagic options
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>SqlMagic options
 --------------
 SqlMagic.autocommit=&lt;Bool&gt;
     Current: True
@@ -1346,7 +1653,7 @@ SqlMagic.displaylimit=&lt;Int&gt;
     Automatically limit the number of rows displayed (full result set is still
     stored)
 SqlMagic.dsn_filename=&lt;Unicode&gt;
-    Current: 'odbc.ini'
+    Current: &#39;odbc.ini&#39;
     Path to DSN file. When the first argument is of the form [section], a
     sqlalchemy connection string is formed from the matching section in the DSN
     file.
@@ -1355,18 +1662,43 @@ SqlMagic.feedback=&lt;Bool&gt;
     Print number of rows affected by DML
 SqlMagic.short_errors=&lt;Bool&gt;
     Current: True
-    Don't display the full traceback on SQL Programming Error
+    Don&#39;t display the full traceback on SQL Programming Error
 SqlMagic.style=&lt;Unicode&gt;
-    Current: 'DEFAULT'
-    Set the table printing style to any of prettytable's defined styles
+    Current: &#39;DEFAULT&#39;
+    Set the table printing style to any of prettytable&#39;s defined styles
     (currently DEFAULT, MSWORD_FRIENDLY, PLAIN_COLUMNS, RANDOM)
-</code></pre>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 \<span class="n">d</span>
 </code></pre></div>
 
-<pre><code>6 rows affected.
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>Schema</th>
@@ -1411,16 +1743,58 @@ SqlMagic.style=&lt;Unicode&gt;
         <td>postgres</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;postgresql+psycopg2://postgres:postgres@db.postgres.app.com&quot;</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="p">{</span><span class="n">uri</span><span class="p">}</span>
 </code></pre></div>
 
-<pre><code>'Connected: postgres@None'
-</code></pre>
-<p>SQL for table deletion and creation</p>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Connected: postgres@None&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+SQL for table deletion and creation
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Person</span><span class="p">;</span>
@@ -1440,29 +1814,63 @@ SqlMagic.style=&lt;Unicode&gt;
 <span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
    postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 Done.
 Done.
 Done.
 Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">pg_catalog</span><span class="o">.</span><span class="n">pg_tables</span>
 <span class="n">WHERE</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;pg_catalog&#39;</span>
 <span class="n">AND</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;information_schema&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
    postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>schemaname</th>
@@ -1495,8 +1903,23 @@ Done.
         <td>False</td>
     </tr>
 </table>
+</div>
 
-<p>SQL to insert rows.</p>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+SQL to insert rows.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> 
@@ -1505,26 +1928,68 @@ Done.
 <span class="p">(</span><span class="s1">&#39;CU&#39;</span><span class="p">,</span> <span class="s1">&#39;CUBA&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
    postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
-<p>The <code>pg_relation_size()</code> function returns the size of the table only, not included indexes or additional objects.</p>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The <code>pg_relation_size()</code> function returns the size of the table only, not included indexes or additional objects.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">pg_size_pretty</span><span class="p">(</span><span class="n">pg_relation_size</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">));</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
    postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 1 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>pg_size_pretty</th>
@@ -1533,6 +1998,15 @@ Done.
         <td>8192 bytes</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1542,26 +2016,68 @@ Done.
 <span class="p">(</span><span class="s1">&#39;Luis&#39;</span><span class="p">,</span><span class="s1">&#39;Alvarez&#39;</span><span class="p">,</span> <span class="s1">&#39;CU&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
    postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
-<p>Accessing the RDBMS dictionary.</p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Accessing the RDBMS dictionary.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">pg_catalog</span><span class="o">.</span><span class="n">pg_tables</span>
 <span class="n">WHERE</span> <span class="n">schemaname</span> <span class="o">!=</span> <span class="s1">&#39;pg_catalog&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 9 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>schemaname</th>
@@ -1664,6 +2180,15 @@ Done.
         <td>False</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1671,16 +2196,41 @@ Done.
 <span class="n">WHERE</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Person&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
-(psycopg2.errors.UndefinedTable) relation "postgres" does not exist
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+(psycopg2.errors.UndefinedTable) relation &#34;postgres&#34; does not exist
 LINE 1: SELECT sql FROM postgres 
                         ^
 
 [SQL: SELECT sql FROM postgres 
-WHERE name='Person';]
+WHERE name=&#39;Person&#39;;]
 (Background on this error at: http://sqlalche.me/e/f405)
-</code></pre>
-<p>SQL as a Query Language.</p>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+SQL as a Query Language.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person_first</span> <span class="k">as</span> <span class="n">first</span><span class="p">,</span> <span class="n">person_last</span> <span class="n">AS</span> <span class="n">last</span><span class="p">,</span> <span class="n">country_name</span> <span class="n">AS</span> <span class="n">nationality</span>
@@ -1689,9 +2239,23 @@ WHERE name='Person';]
 <span class="n">ON</span> <span class="n">Person</span><span class="o">.</span><span class="n">country_id</span> <span class="o">=</span> <span class="n">Country</span><span class="o">.</span><span class="n">country_id</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -1709,12 +2273,39 @@ WHERE name='Person';]
         <td>CUBA</td>
     </tr>
 </table>
+</div>
 
-<p>Visualizing the entitry-relationship diagram (ERd).</p>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Visualizing the entitry-relationship diagram (ERd).
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">config</span><span class="err">?</span>
 </code></pre></div>
 
-<pre><code>[0;31mDocstring:[0m
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Docstring:</span>
 configure IPython
 
     %config Class[.trait=value]
@@ -1725,7 +2316,7 @@ line::
 
     %config Class.trait=value
 
-Where `value` will be resolved in the user's namespace, if it is an
+Where `value` will be resolved in the user&#39;s namespace, if it is an
 expression or variable name.
 
 Examples
@@ -1753,8 +2344,8 @@ name::
         Choices: (0, 1, 2)
         Instruct the completer to omit private method names
         Specifically, when completing on ``object.&lt;tab&gt;``.
-        When 2 [default]: all names that start with '_' will be excluded.
-        When 1: all 'magic' names (``__foo__``) will be excluded.
+        When 2 [default]: all names that start with &#39;_&#39; will be excluded.
+        When 1: all &#39;magic&#39; names (``__foo__``) will be excluded.
         When 0: nothing will be excluded.
     IPCompleter.merge_completions=&lt;CBool&gt;
         Current: True
@@ -1783,19 +2374,47 @@ and these values are read from the user_ns if they are variables::
     In [4]: feeling_greedy=False
 
     In [5]: %config IPCompleter.greedy = feeling_greedy
-[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/IPython/core/magics/config.py
-</code></pre>
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/IPython/core/magics/config.py
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ibis</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">eralchemy</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 
 <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">eralchemy</span> <span class="kn">import</span> <span class="n">render_er</span>
@@ -1804,19 +2423,64 @@ and these values are read from the user_ns if they are variables::
     <span class="n">render_er</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">&#39;erd_from_sqlalchemy.png&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>/opt/conda/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/base.py:2972: SAWarning: Did not recognize type 'point' of column 'location'
-  "Did not recognize type '%s' of column '%s'" % (attype, name)
-</code></pre>
-<p><img alt="" src="../erd_from_sqlalchemy.png" /></p>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.7/site-packages/sqlalchemy/dialects/postgresql/base.py:2972: SAWarning: Did not recognize type &#39;point&#39; of column &#39;location&#39;
+  &#34;Did not recognize type &#39;%s&#39; of column &#39;%s&#39;&#34; % (attype, name)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<img alt="" src="../erd_from_sqlalchemy.png" />
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="homework-walk-through">Homework walk-through</h2>
-<p>Convert the flat file data in <code>data/flat.csv</code> into a well-structured relational database in SQLite3 stored as <code>data/faculty.db</code>. Note - salary information is confidential and should be kept in a separate table from other personal data.</p>
+<p>Convert the flat file data in <code>data/flat.csv</code> into a well-structured relational database in SQLite3 stored as <code>data/faculty.db</code>. Note - salary information is confidential and should be kept in a separate table from other personal data.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">flat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/flat.csv&#39;</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">flat</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1906,18 +2570,48 @@ and these values are read from the user_ns if they are variables::
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 \<span class="n">d</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
 6 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>Schema</th>
@@ -1962,20 +2656,46 @@ and these values are read from the user_ns if they are variables::
         <td>postgres</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">USE</span> <span class="n">faculty</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
-(psycopg2.errors.SyntaxError) syntax error at or near "USE"
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+(psycopg2.errors.SyntaxError) syntax error at or near &#34;USE&#34;
 LINE 1: USE faculty;
         ^
 
 [SQL: USE faculty;]
 (Background on this error at: http://sqlalche.me/e/f405)
-</code></pre>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">Person</span><span class="p">;</span>
@@ -1995,59 +2715,146 @@ LINE 1: USE faculty;
 <span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 Done.
 Done.
 Done.
 Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">Country</span><span class="p">(</span><span class="n">country_id</span><span class="p">,</span> <span class="n">country_name</span><span class="p">)</span> 
 <span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;CU&#39;</span><span class="p">,</span> <span class="s1">&#39;CUBA&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 <span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">Country</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 2 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">Country</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com/postgres
 0 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>country_id</th>
         <th>country_name</th>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 
@@ -2055,37 +2862,83 @@ Done.
 <span class="n">conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </code></pre></div>
 
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">columns</span>
 </code></pre></div>
 
-<pre><code>Index(['name', 'gender', 'age', 'height', 'weight', 'salary', 'nationality',
-       'code', 'country', 'language1', 'language2', 'language3', 'first',
-       'last'],
-      dtype='object')
-</code></pre>
-<p><div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapper</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;name&#39;, &#39;gender&#39;, &#39;age&#39;, &#39;height&#39;, &#39;weight&#39;, &#39;salary&#39;, &#39;nationality&#39;,
+       &#39;code&#39;, &#39;country&#39;, &#39;language1&#39;, &#39;language2&#39;, &#39;language3&#39;, &#39;first&#39;,
+       &#39;last&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">mapper</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;country_id&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;country_name&#39;</span><span class="p">},</span>
            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-country = flat[['country<em>id', 'country</em>name']]country.set<em>index('country</em>id').to<em>sql('Country', engine, if</em>exists='append')</p>
+
+</div>
+
+</div>
+</div>
+<p>country = flat[['country<em>id', 'country</em>name']]country.set<em>index('country</em>id').to<em>sql('Country', engine, if</em>exists='append')
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h1 id="sql">%%sql</h1>
-<p>SELECT * FROM Country</p>
+<p>SELECT * FROM Country
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">flat</span><span class="o">.</span><span class="n">to_sql</span><span class="err">?</span>
 </code></pre></div>
 
-<pre><code>[0;31mSignature:[0m
-[0mflat[0m[0;34m.[0m[0mto_sql[0m[0;34m([0m[0;34m[0m
-[0;34m[0m    [0mname[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mcon[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mschema[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mif_exists[0m[0;34m=[0m[0;34m'fail'[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mindex[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mindex_label[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mchunksize[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mdtype[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mmethod[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mDocstring:[0m
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+flat<span class="ansi-blue-fg">.</span>to_sql<span class="ansi-blue-fg">(</span>
+    name<span class="ansi-blue-fg">,</span>
+    con<span class="ansi-blue-fg">,</span>
+    schema<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    if_exists<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;fail&#39;</span><span class="ansi-blue-fg">,</span>
+    index<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    index_label<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    chunksize<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    method<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
 Write records stored in a DataFrame to a SQL database.
 
 Databases supported by SQLAlchemy [1]_ are supported. Tables can be
@@ -2101,7 +2954,7 @@ con : sqlalchemy.engine.Engine or sqlite3.Connection
 schema : string, optional
     Specify the schema (if database flavor supports this). If None, use
     default schema.
-if_exists : {'fail', 'replace', 'append'}, default 'fail'
+if_exists : {&#39;fail&#39;, &#39;replace&#39;, &#39;append&#39;}, default &#39;fail&#39;
     How to behave if the table already exists.
 
     * fail: Raise a ValueError.
@@ -2122,11 +2975,11 @@ dtype : dict, optional
     Specifying the datatype for columns. The keys should be the column
     names and the values should be the SQLAlchemy types or strings for
     the sqlite3 legacy mode.
-method : {None, 'multi', callable}, default None
+method : {None, &#39;multi&#39;, callable}, default None
     Controls the SQL insertion clause used:
 
     * None : Uses standard SQL ``INSERT`` clause (one per row).
-    * 'multi': Pass multiple values in a single ``INSERT`` clause.
+    * &#39;multi&#39;: Pass multiple values in a single ``INSERT`` clause.
     * callable with signature ``(pd_table, conn, keys, data_iter)``.
 
     Details and a sample callable implementation can be found in the
@@ -2137,7 +2990,7 @@ method : {None, 'multi', callable}, default None
 Raises
 ------
 ValueError
-    When the table already exists and `if_exists` is 'fail' (the
+    When the table already exists and `if_exists` is &#39;fail&#39; (the
     default).
 
 See Also
@@ -2164,40 +3017,40 @@ Examples
 Create an in-memory SQLite database.
 
 &gt;&gt;&gt; from sqlalchemy import create_engine
-&gt;&gt;&gt; engine = create_engine('sqlite://', echo=False)
+&gt;&gt;&gt; engine = create_engine(&#39;sqlite://&#39;, echo=False)
 
 Create a table from scratch with 3 rows.
 
-&gt;&gt;&gt; df = pd.DataFrame({'name' : ['User 1', 'User 2', 'User 3']})
+&gt;&gt;&gt; df = pd.DataFrame({&#39;name&#39; : [&#39;User 1&#39;, &#39;User 2&#39;, &#39;User 3&#39;]})
 &gt;&gt;&gt; df
      name
 0  User 1
 1  User 2
 2  User 3
 
-&gt;&gt;&gt; df.to_sql('users', con=engine)
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 1'), (1, 'User 2'), (2, 'User 3')]
+&gt;&gt;&gt; df.to_sql(&#39;users&#39;, con=engine)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;)]
 
-&gt;&gt;&gt; df1 = pd.DataFrame({'name' : ['User 4', 'User 5']})
-&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='append')
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 1'), (1, 'User 2'), (2, 'User 3'),
- (0, 'User 4'), (1, 'User 5')]
+&gt;&gt;&gt; df1 = pd.DataFrame({&#39;name&#39; : [&#39;User 4&#39;, &#39;User 5&#39;]})
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;append&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;),
+ (0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
 
 Overwrite the table with just ``df1``.
 
-&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='replace',
-...            index_label='id')
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 4'), (1, 'User 5')]
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;replace&#39;,
+...            index_label=&#39;id&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
 
 Specify the dtype (especially useful for integers with missing values).
 Notice that while pandas is forced to store the data as floating point,
 the database supports nullable integers. When fetching the data with
 Python, we get back integer scalars.
 
-&gt;&gt;&gt; df = pd.DataFrame({"A": [1, None, 2]})
+&gt;&gt;&gt; df = pd.DataFrame({&#34;A&#34;: [1, None, 2]})
 &gt;&gt;&gt; df
      A
 0  1.0
@@ -2205,19 +3058,31 @@ Python, we get back integer scalars.
 2  2.0
 
 &gt;&gt;&gt; from sqlalchemy.types import Integer
-&gt;&gt;&gt; df.to_sql('integers', con=engine, index=False,
-...           dtype={"A": Integer()})
+&gt;&gt;&gt; df.to_sql(&#39;integers&#39;, con=engine, index=False,
+...           dtype={&#34;A&#34;: Integer()})
 
-&gt;&gt;&gt; engine.execute("SELECT * FROM integers").fetchall()
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM integers&#34;).fetchall()
 [(1,), (None,), (2,)]
-[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
-[0;31mType:[0m      method
-</code></pre>
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
+<span class="ansi-red-fg">Type:</span>      method
+</pre>
+</div>
+
+</div>
+
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-                
-                  
-                
+
+</div>
+
+</div>
+
+</div>
+</div>
                 
               
               
@@ -2250,9 +3115,18 @@ Python, we get back integer scalars.
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../../../_js/extra.js"></script>
       

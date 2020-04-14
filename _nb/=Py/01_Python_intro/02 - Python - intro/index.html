@@ -1,52 +1,31 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/01_Python_intro/02 - Python - intro/">
+        <link rel="canonical" href="https://github.com/fesaille/_nb/%3DPy/01_Python_intro/02%20-%20Python%20-%20intro/">
       
       
         <meta name="author" content="Emmmanuel Roux">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
     
       
-        <title>The Python Interpreter - My Docs</title>
+        <title>02 Python intro - My Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../../../_css/extra.css">
@@ -73,74 +49,106 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
     
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#the-python-interpreter" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              My Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                The Python Interpreter
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-      </div>
+        <a href="#the-python-interpreter" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              02   Python   intro
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
-<nav class="md-tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -174,7 +182,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+        <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" class="md-tabs__link">
           Python
         </a>
       
@@ -200,7 +208,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../shell/_intro/" class="md-tabs__link">
+        <a href="../../../../shell/intro/" class="md-tabs__link">
           shell
         </a>
       
@@ -263,20 +271,21 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
       
-        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
-      
+  <img src="../../../../images/logo.svg" alt="logo">
+
     </a>
     My Docs
   </label>
@@ -314,13 +323,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       doc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="doc" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         doc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,13 +365,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -368,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+    <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -428,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+    <a href="../../../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
   </li>
@@ -446,13 +467,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       DevOps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DevOps" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DevOps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -482,13 +509,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       shell
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="shell" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         shell
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -500,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+    <a href="../../../../shell/intro/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -561,13 +594,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
     <label class="md-nav__link" for="nav-6-6">
       Ubuntu
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Ubuntu" data-md-level="2">
       <label class="md-nav__title" for="nav-6-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Ubuntu
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -626,13 +665,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       DB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DB" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -657,13 +702,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
       MongoDB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -705,13 +756,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="SQL" data-md-level="2">
       <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -741,13 +798,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
     <label class="md-nav__link" for="nav-7-4">
       Object store
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Object store" data-md-level="2">
       <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Object store
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -782,13 +845,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Data
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -813,13 +882,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
     
     <label class="md-nav__link" for="nav-8-2">
       ndarray
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="ndarray" data-md-level="2">
       <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         ndarray
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -849,13 +924,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
     
     <label class="md-nav__link" for="nav-8-3">
       Time series
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Time series" data-md-level="2">
       <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Time series
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -921,13 +1002,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
     
     <label class="md-nav__link" for="nav-8-4">
       Machine Learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Machine Learning" data-md-level="2">
       <label class="md-nav__title" for="nav-8-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Machine Learning
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -962,13 +1049,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Visualization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Visualization" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Visualization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -998,13 +1091,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       WebDev
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="WebDev" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         WebDev
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1074,13 +1173,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1088,7 +1192,7 @@
     IPython Basics
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="IPython Basics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1117,7 +1221,7 @@
     Introspection
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Introspection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1142,7 +1246,7 @@
     Python Language Basics
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Python Language Basics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1150,7 +1254,7 @@
     Language Semantics
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Language Semantics">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1240,7 +1344,7 @@
     Scalar Types
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Scalar Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1302,7 +1406,7 @@
     Control Flow
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Control Flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1357,10 +1461,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -1374,7 +1474,48 @@
               
                 
                 
-                <h1 id="the-python-interpreter">The Python Interpreter</h1>
+                  
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h1 id="the-python-interpreter">The Python Interpreter</h1>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">python</span>
 <span class="n">Python</span> <span class="mf">3.7</span><span class="o">.</span><span class="mi">3</span> <span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">Apr</span>  <span class="mi">3</span> <span class="mi">2019</span><span class="p">,</span> <span class="mi">05</span><span class="p">:</span><span class="mi">39</span><span class="p">:</span><span class="mi">12</span><span class="p">)</span> 
 <span class="p">[</span><span class="n">GCC</span> <span class="mf">8.3</span><span class="o">.</span><span class="mi">0</span><span class="p">]</span> <span class="n">on</span> <span class="n">linux</span>
@@ -1385,17 +1526,45 @@
 <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">exit</span><span class="p">()</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>Overwriting hello_world.py
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting hello_world.py
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="err">$</span> <span class="n">python</span> <span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
 <span class="n">Hello</span> <span class="n">world</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>$ ipython
 Python <span class="m">3</span>.6.0 <span class="p">|</span> packaged by conda-forge <span class="p">|</span> <span class="o">(</span>default, Jan <span class="m">13</span> <span class="m">2017</span>, <span class="m">23</span>:17:12<span class="o">)</span>
 Type <span class="s2">&quot;copyright&quot;</span>, <span class="s2">&quot;credits&quot;</span> or <span class="s2">&quot;license&quot;</span> <span class="k">for</span> more information.
@@ -1411,9 +1580,23 @@ Hello world
 
 In <span class="o">[</span><span class="m">2</span><span class="o">]</span>:
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="ipython-basics">IPython Basics</h2>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="running-the-ipython-shell">Running the IPython Shell</h3>
+<p></div>
+</div></p>
+</div>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -1422,11 +1605,20 @@ data = {i : randn() for i in range(7)}
 print(data)
 {0: -1.5948255432744511, 1: 0.10569006472787983, 2: 1.972367135977295,
 3: 0.15455217573074576, 4: -0.24058577449429575, 5: -1.2904897053651216,
-6: 0.3308507317325902}</p>
+6: 0.3308507317325902}
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 </blockquote>
 </blockquote>
 </blockquote>
 <h3 id="running-the-jupyter-notebook">Running the Jupyter Notebook</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>$ jupyter notebook
 <span class="o">[</span>I <span class="m">15</span>:20:52.739 NotebookApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory:
 /home/wesm/code/pydata-book
@@ -1437,29 +1629,66 @@ http://localhost:8888/
 all kernels <span class="o">(</span>twice to skip confirmation<span class="o">)</span>.
 Created new window in existing browser session.
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="tab-completion">Tab Completion</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>In [1]: an_apple = 27
 
 In [2]: an_example = 42
 
 In [3]: an
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>In [3]: b = [1, 2, 3]
 
 In [4]: b.
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>In [1]: import datetime
 
 In [2]: datetime.
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>In [7]: datasets/movielens/
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="introspection">Introspection</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>In [8]: b = [1, 2, 3]
 
 In [9]: b?
@@ -1482,7 +1711,12 @@ end:   string appended after the last value, default a newline.
 flush: whether to forcibly flush the stream.
 Type:      builtin_function_or_method
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add two numbers together</span>
@@ -1493,7 +1727,12 @@ Type:      builtin_function_or_method
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">add_numbers</span><span class="err">?</span>
 <span class="n">Signature</span><span class="p">:</span> <span class="n">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">Docstring</span><span class="p">:</span>
@@ -1505,7 +1744,12 @@ Type:      builtin_function_or_method
 <span class="n">File</span><span class="p">:</span>      <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">a548a216e27</span><span class="o">&gt;</span>
 <span class="n">Type</span><span class="p">:</span>      <span class="n">function</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">add_numbers</span><span class="err">??</span>
 <span class="n">Signature</span><span class="p">:</span> <span class="n">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="n">Source</span><span class="p">:</span>
@@ -1521,7 +1765,12 @@ Type:      builtin_function_or_method
 <span class="n">File</span><span class="p">:</span>      <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">a548a216e27</span><span class="o">&gt;</span>
 <span class="n">Type</span><span class="p">:</span>      <span class="n">function</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">np</span><span class="o">.*</span><span class="n">load</span><span class="o">*</span><span class="err">?</span>
 <span class="n">np</span><span class="o">.</span><span class="n">__loader__</span>
 <span class="n">np</span><span class="o">.</span><span class="n">load</span>
@@ -1529,50 +1778,188 @@ Type:      builtin_function_or_method
 <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span>
 <span class="n">np</span><span class="o">.</span><span class="n">pkgload</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="interrupting-running-code">Interrupting running code</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="python-language-basics">Python Language Basics</h2>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="language-semantics">Language Semantics</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="indentation-not-braces">Indentation, not braces</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">array</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">pivot</span><span class="p">:</span>
         <span class="n">less</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">greater</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">7</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="nx">javascript</span>
 <span class="p">(</span><span class="k">new</span> <span class="nb">Array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])).</span><span class="nx">then</span><span class="p">(</span><span class="nx">elt</span> <span class="p">=&gt;</span> <span class="nx">elt</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>&lt;IPython.core.display.Javascript object&gt;
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div id="9b2c296e-b28d-49a5-a48d-e287b4e1df6c"></div>
+<div class="output_subarea output_javascript ">
+<script type="text/javascript">
+var element = $('#9b2c296e-b28d-49a5-a48d-e287b4e1df6c');
+(new Array([1, 2])).then(elt => elt)
+
+</script>
+</div>
+
+
+
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="everything-is-an-object">Everything is an object</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">A</span>
 </code></pre></div>
 
-<pre><code>{'first': 1, 'second': 2}
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;first&#39;: 1, &#39;second&#39;: 2}</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>dict
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>dict</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 </code></pre></div>
 
-<pre><code>type
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>type</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
 </code></pre></div>
 
-<pre><code>type
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>type</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="comments">Comments</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
     <span class="c1"># keep the empty lines for now</span>
@@ -1580,43 +1967,127 @@ Type:      builtin_function_or_method
     <span class="c1">#   continue</span>
     <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">))</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached this line&quot;</span><span class="p">)</span>  <span class="c1"># Simple status report</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="function-and-object-method-calls">Function and object method calls</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>result = f(x, y, z)
 g()
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code>obj.some_method(x, y, z)
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="variables-and-argument-passing">Variables and argument passing</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b</span>
 </code></pre></div>
 
-<pre><code>[1, 2, 3, 4]
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3, 4]</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span>
 </code></pre></div>
 
-<pre><code>[1, 2, 3, 4]
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3, 4]</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">append_element</span><span class="p">(</span><span class="n">some_list</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
     <span class="n">some_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">append_element</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1624,66 +2095,192 @@ g()
 <span class="n">In</span> <span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">data</span>
 <span class="n">Out</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="dynamic-references-strong-types">Dynamic references, strong types</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>int
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>int</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>str
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>str</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="s1">&#39;5&#39;</span> <span class="o">+</span> <span class="mi">5</span>
 </code></pre></div>
 
-<pre><code>---------------------------------------------------------------------------
+</div>
 
-TypeError                                 Traceback (most recent call last)
+<div class="output_wrapper">
+<div class="output" markdown="1">
 
-&lt;ipython-input-73-4dd8efb5fac1&gt; in &lt;module&gt;
-----&gt; 1 '5' + 5
+<div class="output_area">
+<p><div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-73-4dd8efb5fac1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-blue-fg">&#39;5&#39;</span> <span class="ansi-blue-fg">+</span> <span class="ansi-cyan-fg">5</span></p>
+<p><span class="ansi-red-fg">TypeError</span>: can only concatenate str (not &#34;int&#34;) to str</pre>
+</div>
+</p>
+</div>
+</div>
 
 
-TypeError: can only concatenate str (not "int") to str
-</code></pre>
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mf">4.5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="c1"># String formatting, to be visited later</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a is {type(a)}, b is {type(b)}&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="si">}</span><span class="s1">, b is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 </code></pre></div>
 
-<pre><code>a is &lt;class 'float'&gt;, b is &lt;class 'int'&gt;
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<p><div class="output_subarea output_stream output_stdout output_text">
+<pre>a is &lt;class &#39;float&#39;&gt;, b is &lt;class &#39;int&#39;&gt;
+</pre>
+</div></p>
+</div>
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>2.25</pre>
+</div>
+
+</div>
+</div>
 
 
-
-
-
-2.25
-</code></pre>
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>True
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">4.5</span>
 <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
 </code></pre></div>
 
-<pre><code>True
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>
 </code></pre></div>
 
-<pre><code>True
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="attributes-and-methods">Attributes and methods</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
 
 <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">a</span><span class="o">.&lt;</span><span class="n">Press</span> <span class="n">Tab</span><span class="o">&gt;</span>
@@ -1696,16 +2293,47 @@ TypeError: can only concatenate str (not "int") to str
 <span class="n">a</span><span class="o">.</span><span class="n">expandtabs</span>  <span class="n">a</span><span class="o">.</span><span class="n">isspace</span>     <span class="n">a</span><span class="o">.</span><span class="n">replace</span>     <span class="n">a</span><span class="o">.</span><span class="n">splitlines</span>
 <span class="n">a</span><span class="o">.</span><span class="n">find</span>        <span class="n">a</span><span class="o">.</span><span class="n">istitle</span>     <span class="n">a</span><span class="o">.</span><span class="n">rfind</span>       <span class="n">a</span><span class="o">.</span><span class="n">startswith</span>
 </code></pre></div>
-
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;split&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>&lt;function str.split(sep=None, maxsplit=-1)&gt;
-</code></pre>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;function str.split(sep=None, maxsplit=-1)&gt;</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="duck-typing">Duck typing</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">isiterable</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="nb">iter</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
@@ -1714,16 +2342,50 @@ TypeError: can only concatenate str (not "int") to str
         <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">isiterable</span><span class="p">(</span><span class="s1">&#39;a string&#39;</span><span class="p">)</span>
 <span class="n">isiterable</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">isiterable</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>False
-</code></pre>
-<p>if not isinstance(x, list) and isiterable(x):
-    x = list(x)</p>
+</div>
+
+<div class="output_wrapper">
+<div class="output" markdown="1">
+
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>False</pre>
+</div>
+
+</div>
+</div>
+
+
+</div>
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+if not isinstance(x, list) and isiterable(x):
+    x = list(x)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="imports">Imports</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="c1"># some_module.py</span>
 <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
 
@@ -1733,22 +2395,55 @@ TypeError: can only concatenate str (not "int") to str
 <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
-
-<p>import some<em>module
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+import some<em>module
 result = some</em>module.f(5)
-pi = some_module.PI</p>
-<p>from some_module import f, g, PI
-result = g(5, PI)</p>
-<p>import some<em>module as sm
+pi = some<em>module.PI
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+from some</em>module import f, g, PI
+result = g(5, PI)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+import some<em>module as sm
 from some</em>module import PI as pi, g as gf</p>
 <p>r1 = sm.f(pi)
-r2 = gf(6, pi)</p>
+r2 = gf(6, pi)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="binary-operators-and-comparisons">Binary operators and comparisons</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>
 <span class="mi">12</span> <span class="o">+</span> <span class="mf">21.5</span>
 <span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">2</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">c</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -1756,119 +2451,297 @@ r2 = gf(6, pi)</p>
 <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">c</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">==</span> <span class="n">c</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="mutable-and-immutable-objects">Mutable and immutable objects</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
 <span class="n">a_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">a_list</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">a_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;four&#39;</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="scalar-types">Scalar Types</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="numeric-types">Numeric types</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">ival</span> <span class="o">=</span> <span class="mi">17239871</span>
 <span class="n">ival</span> <span class="o">**</span> <span class="mi">6</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">fval</span> <span class="o">=</span> <span class="mf">7.243</span>
 <span class="n">fval2</span> <span class="o">=</span> <span class="mf">6.78e-5</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="mi">3</span> <span class="o">//</span> <span class="mi">2</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="strings">Strings</h4>
-<p>a = 'one way of writing a string'
-b = "another way"</p>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+a = 'one way of writing a string'
+b = "another way"
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">This is a longer string that</span>
 <span class="s2">spans multiple lines</span>
 <span class="s2">&quot;&quot;&quot;</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">c</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;this is a string&#39;</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="s1">&#39;longer string&#39;</span><span class="p">)</span>
 <span class="n">b</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mf">5.6</span>
 <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;12</span><span class="se">\\</span><span class="s1">34&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;this\has\no\special\characters&#39;</span>
 <span class="n">s</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;this is the first half &#39;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;and this is the second half&#39;</span>
 <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">template</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:.2f}</span><span class="s1"> </span><span class="si">{1:s}</span><span class="s1"> are worth US$</span><span class="si">{2:d}</span><span class="s1">&#39;</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">4.5560</span><span class="p">,</span> <span class="s1">&#39;Argentine Pesos&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="bytes-and-unicode">Bytes and Unicode</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">val</span> <span class="o">=</span> <span class="s2">&quot;español&quot;</span>
 <span class="n">val</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">val_utf8</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <span class="n">val_utf8</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">val_utf8</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">val_utf8</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
 <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-16&#39;</span><span class="p">)</span>
 <span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-16le&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">bytes_val</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;this is bytes&#39;</span>
 <span class="n">bytes_val</span>
 <span class="n">decoded</span> <span class="o">=</span> <span class="n">bytes_val</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
 <span class="n">decoded</span>  <span class="c1"># this is str (Unicode) now</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="booleans">Booleans</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span>
 <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="type-casting">Type casting</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;3.14159&#39;</span>
 <span class="n">fval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">fval</span><span class="p">)</span>
@@ -1877,89 +2750,215 @@ b = "another way"</p>
 <span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="none">None</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">a</span> <span class="ow">is</span> <span class="kc">None</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">b</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </code></pre></div>
 
-<p>def add<em>and</em>maybe_multiply(a, b, c=None):
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+def add<em>and</em>maybe_multiply(a, b, c=None):
     result = a + b</p>
 <pre><code>if c is not None:
     result = result * c
 
 return result
 </code></pre>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="dates-and-times">Dates and times</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
 <span class="n">dt</span><span class="o">.</span><span class="n">day</span>
 <span class="n">dt</span><span class="o">.</span><span class="n">minute</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 <span class="n">dt</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %H:%M&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;20091031&#39;</span><span class="p">,</span> <span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">dt2</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">delta</span> <span class="o">=</span> <span class="n">dt2</span> <span class="o">-</span> <span class="n">dt</span>
 <span class="n">delta</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">dt</span>
 <span class="n">dt</span> <span class="o">+</span> <span class="n">delta</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="control-flow">Control Flow</h3>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="if-elif-and-else">if, elif, and else</h4>
-<p>if x &lt; 0:
-    print('It's negative')</p>
-<p>if x &lt; 0:
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+if x &lt; 0:
+    print('It's negative')
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+if x &lt; 0:
     print('It's negative')
 elif x == 0:
     print('Equal to zero')
 elif 0 &lt; x &lt; 5:
     print('Positive but smaller than 5')
 else:
-    print('Positive and larger than or equal to 5')</p>
+    print('Positive and larger than or equal to 5')
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">c</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Made it&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="mi">4</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">1</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="for-loops">for loops</h4>
-<p>for value in collection:
-    # do something with value</p>
-<p>sequence = [1, 2, None, 4, None, 5]
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+for value in collection:
+    # do something with value
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+sequence = [1, 2, None, 4, None, 5]
 total = 0
 for value in sequence:
     if value is None:
         continue
-    total += value</p>
-<p>sequence = [1, 2, 0, 4, 6, 5, 2, 1]
+    total += value
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+sequence = [1, 2, 0, 4, 6, 5, 2, 1]
 total<em>until</em>5 = 0
 for value in sequence:
     if value == 5:
         break
-    total<em>until</em>5 += value</p>
+    total<em>until</em>5 += value
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span><span class="p">:</span>
@@ -1967,56 +2966,149 @@ for value in sequence:
         <span class="nb">print</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
 </code></pre></div>
 
-<p>for a, b, c in iterator:
-    # do something</p>
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+for a, b, c in iterator:
+    # do something
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="while-loops">while loops</h4>
-<p>x = 256
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+x = 256
 total = 0
 while x &gt; 0:
     if total &gt; 500:
         break
     total += x
-    x = x // 2</p>
+    x = x // 2
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="pass">pass</h4>
-<p>if x &lt; 0:
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+if x &lt; 0:
     print('negative!')
 elif x == 0:
     # TODO: put something smart here
     pass
 else:
-    print('positive!')</p>
+    print('positive!')
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="range">range</h4>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
-<p>seq = [1, 2, 3, 4]
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+seq = [1, 2, 3, 4]
 for i in range(len(seq)):
-    val = seq[i]</p>
-<p>sum = 0
+    val = seq[i]
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+sum = 0
 for i in range(100000):
     # % is the modulo operator
     if i % 3 == 0 or i % 5 == 0:
-        sum += i</p>
+        sum += i
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="ternary-expressions">Ternary expressions</h4>
-<p>value = </p>
-<p>if </p>
+<p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+value = 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+if 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="s1">&#39;Non-negative&#39;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;Negative&#39;</span>
 </code></pre></div>
 
+</div>
+
+<p></div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <hr />
 <p>References:
-- <a href="https://github.com/wesm/pydata-book">Python for Data Analysis" by Wes McKinney, published by O'Reilly Media</a></p>
+- <a href="https://github.com/wesm/pydata-book">Python for Data Analysis" by Wes McKinney, published by O'Reilly Media</a>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input"></p>
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-                
-                  
-                
+
+</div>
+
+</div>
                 
               
               
@@ -2049,9 +3141,18 @@ for i in range(100000):
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../../../_js/extra.js"></script>
       

@@ -1,42 +1,21 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/02_SQL/00_Init/">
+        <link rel="canonical" href="https://github.com/fesaille/_nb/%3DPy/02_SQL/00_Init/">
       
       
         <meta name="author" content="Emmmanuel Roux">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
     
       
@@ -44,9 +23,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../../../_css/extra.css">
@@ -73,70 +49,101 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
     
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              My Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                00 Init
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-      </div>
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              00 Init
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
-<nav class="md-tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -170,7 +177,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+        <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" class="md-tabs__link">
           Python
         </a>
       
@@ -196,7 +203,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../shell/_intro/" class="md-tabs__link">
+        <a href="../../../../shell/intro/" class="md-tabs__link">
           shell
         </a>
       
@@ -259,20 +266,21 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
       
-        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
-      
+  <img src="../../../../images/logo.svg" alt="logo">
+
     </a>
     My Docs
   </label>
@@ -310,13 +318,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       doc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="doc" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         doc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -346,13 +360,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -364,7 +384,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+    <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -424,7 +444,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+    <a href="../../../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
   </li>
@@ -442,13 +462,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       DevOps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DevOps" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DevOps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -478,13 +504,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       shell
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="shell" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         shell
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -496,7 +528,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+    <a href="../../../../shell/intro/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -557,13 +589,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
     <label class="md-nav__link" for="nav-6-6">
       Ubuntu
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Ubuntu" data-md-level="2">
       <label class="md-nav__title" for="nav-6-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Ubuntu
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -622,13 +660,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       DB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DB" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -653,13 +697,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
       MongoDB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -701,13 +751,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="SQL" data-md-level="2">
       <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -737,13 +793,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
     <label class="md-nav__link" for="nav-7-4">
       Object store
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Object store" data-md-level="2">
       <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Object store
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -778,13 +840,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Data
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -809,13 +877,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
     
     <label class="md-nav__link" for="nav-8-2">
       ndarray
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="ndarray" data-md-level="2">
       <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         ndarray
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -845,13 +919,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
     
     <label class="md-nav__link" for="nav-8-3">
       Time series
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Time series" data-md-level="2">
       <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Time series
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -917,13 +997,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
     
     <label class="md-nav__link" for="nav-8-4">
       Machine Learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Machine Learning" data-md-level="2">
       <label class="md-nav__title" for="nav-8-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Machine Learning
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -958,13 +1044,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Visualization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Visualization" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Visualization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -994,13 +1086,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       WebDev
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="WebDev" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         WebDev
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1072,9 +1170,44 @@
               
                 
                 
+                  
+                
+                
                   <h1>00 Init</h1>
                 
-                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">intake</span>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">intake</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">int8</span>
 
 <span class="n">accounts</span> <span class="o">=</span> <span class="n">intake</span><span class="o">.</span><span class="n">open_csv</span><span class="p">(</span><span class="s2">&quot;../data/accounts/*.csv&quot;</span><span class="p">,</span> 
@@ -1086,61 +1219,191 @@
                           <span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">accounts</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3_000_000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">accounts</span><span class="o">.</span><span class="n">discover</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>{'datashape': None,
- 'dtype': {'id': 'int8', 'names': 'object', 'amount': 'int64'},
- 'shape': (None, 3),
- 'npartitions': 3,
- 'metadata': {}}
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;datashape&#39;: None,
+ &#39;dtype&#39;: {&#39;id&#39;: &#39;int8&#39;, &#39;names&#39;: &#39;object&#39;, &#39;amount&#39;: &#39;int64&#39;},
+ &#39;shape&#39;: (None, 3),
+ &#39;npartitions&#39;: 3,
+ &#39;metadata&#39;: {}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">accounts</span><span class="o">.</span><span class="n">dtype</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span>
 </code></pre></div>
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">accounts</span><span class="o">.</span><span class="n">to_dask</span><span class="p">()</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>Dask Series Structure:
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Dask Series Structure:
 npartitions=1
     int64
       ...
 dtype: int64
-Dask Name: series-groupby-sum-agg, 19 tasks
-</code></pre>
+Dask Name: series-groupby-sum-agg, 19 tasks</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>Index          240
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index          240
 amount    24000000
 id         3000000
 names     24000000
-dtype: int64
-</code></pre>
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">gp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">gp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">gp</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>2
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">gp</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1535,42 +1798,105 @@ dtype: int64
 </table>
 <p>1280 rows × 3 columns</p>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">newIndex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">newIndex</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
-<pre><code>(3000000,)
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3000000,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pad&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>---------------------------------------------------------------------------
+</div>
 
-AttributeError                            Traceback (most recent call last)
-
-&lt;ipython-input-36-df976a66ae41&gt; in &lt;module&gt;
-----&gt; 1 df.reindex(axis=0, method="pad").tail()
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
 
 
-/opt/conda/lib/python3.7/site-packages/dask/dataframe/core.py in __getattr__(self, key)
-   2586             return self[key]
-   2587         else:
--&gt; 2588             raise AttributeError("'DataFrame' object has no attribute %r" % key)
-   2589 
-   2590     def __dir__(self):
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-36-df976a66ae41&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">.</span>reindex<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;pad&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tail<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/dask/dataframe/core.py</span> in <span class="ansi-cyan-fg">__getattr__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2586</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">   2587</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 2588</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> AttributeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;&#39;DataFrame&#39; object has no attribute %r&#34;</span> <span class="ansi-blue-fg">%</span> key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2589</span> 
+<span class="ansi-green-intense-fg ansi-bold">   2590</span>     <span class="ansi-green-fg">def</span> __dir__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-AttributeError: 'DataFrame' object has no attribute 'reindex'
-</code></pre>
+<span class="ansi-red-fg">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;reindex&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="c1"># %timeit df.names.map(lambda x: len(x)).max()</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">dfp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">compute</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="c1"># dfp.names = dfp.names.astype(np.dtype(&#39;|S8&#39;))</span>
 <span class="n">dfp</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">dfp</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
@@ -1578,20 +1904,60 @@ AttributeError: 'DataFrame' object has no attribute 'reindex'
 <span class="c1"># dfp.names = dfp.names.astype(np.dtype(&#39;|S16&#39;))</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">dfp</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">dfp</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">dfp</span><span class="o">.</span><span class="n">dtypes</span>
 </code></pre></div>
 
-<pre><code>id         int32
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>id         int32
 names     object
 amount     int64
-dtype: object
-</code></pre>
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">dfp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
 
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1649,32 +2015,72 @@ dtype: object
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">dfp</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>Index           80
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index           80
 id        12000000
 names     24000000
 amount    24000000
-dtype: int64
-</code></pre>
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">dfp</span><span class="o">.</span><span class="n">to_sql</span><span class="err">?</span>
 </code></pre></div>
 
-<pre><code>[0;31mSignature:[0m
-[0mdfp[0m[0;34m.[0m[0mto_sql[0m[0;34m([0m[0;34m[0m
-[0;34m[0m    [0mname[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mcon[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mschema[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mif_exists[0m[0;34m=[0m[0;34m'fail'[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mindex[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mindex_label[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mchunksize[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mdtype[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m    [0mmethod[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m[0;34m[0m
-[0;34m[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mDocstring:[0m
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+dfp<span class="ansi-blue-fg">.</span>to_sql<span class="ansi-blue-fg">(</span>
+    name<span class="ansi-blue-fg">,</span>
+    con<span class="ansi-blue-fg">,</span>
+    schema<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    if_exists<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;fail&#39;</span><span class="ansi-blue-fg">,</span>
+    index<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    index_label<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    chunksize<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    method<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
 Write records stored in a DataFrame to a SQL database.
 
 Databases supported by SQLAlchemy [1]_ are supported. Tables can be
@@ -1690,7 +2096,7 @@ con : sqlalchemy.engine.Engine or sqlite3.Connection
 schema : string, optional
     Specify the schema (if database flavor supports this). If None, use
     default schema.
-if_exists : {'fail', 'replace', 'append'}, default 'fail'
+if_exists : {&#39;fail&#39;, &#39;replace&#39;, &#39;append&#39;}, default &#39;fail&#39;
     How to behave if the table already exists.
 
     * fail: Raise a ValueError.
@@ -1711,11 +2117,11 @@ dtype : dict, optional
     Specifying the datatype for columns. The keys should be the column
     names and the values should be the SQLAlchemy types or strings for
     the sqlite3 legacy mode.
-method : {None, 'multi', callable}, default None
+method : {None, &#39;multi&#39;, callable}, default None
     Controls the SQL insertion clause used:
 
     * None : Uses standard SQL ``INSERT`` clause (one per row).
-    * 'multi': Pass multiple values in a single ``INSERT`` clause.
+    * &#39;multi&#39;: Pass multiple values in a single ``INSERT`` clause.
     * callable with signature ``(pd_table, conn, keys, data_iter)``.
 
     Details and a sample callable implementation can be found in the
@@ -1726,7 +2132,7 @@ method : {None, 'multi', callable}, default None
 Raises
 ------
 ValueError
-    When the table already exists and `if_exists` is 'fail' (the
+    When the table already exists and `if_exists` is &#39;fail&#39; (the
     default).
 
 See Also
@@ -1753,40 +2159,40 @@ Examples
 Create an in-memory SQLite database.
 
 &gt;&gt;&gt; from sqlalchemy import create_engine
-&gt;&gt;&gt; engine = create_engine('sqlite://', echo=False)
+&gt;&gt;&gt; engine = create_engine(&#39;sqlite://&#39;, echo=False)
 
 Create a table from scratch with 3 rows.
 
-&gt;&gt;&gt; df = pd.DataFrame({'name' : ['User 1', 'User 2', 'User 3']})
+&gt;&gt;&gt; df = pd.DataFrame({&#39;name&#39; : [&#39;User 1&#39;, &#39;User 2&#39;, &#39;User 3&#39;]})
 &gt;&gt;&gt; df
      name
 0  User 1
 1  User 2
 2  User 3
 
-&gt;&gt;&gt; df.to_sql('users', con=engine)
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 1'), (1, 'User 2'), (2, 'User 3')]
+&gt;&gt;&gt; df.to_sql(&#39;users&#39;, con=engine)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;)]
 
-&gt;&gt;&gt; df1 = pd.DataFrame({'name' : ['User 4', 'User 5']})
-&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='append')
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 1'), (1, 'User 2'), (2, 'User 3'),
- (0, 'User 4'), (1, 'User 5')]
+&gt;&gt;&gt; df1 = pd.DataFrame({&#39;name&#39; : [&#39;User 4&#39;, &#39;User 5&#39;]})
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;append&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;),
+ (0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
 
 Overwrite the table with just ``df1``.
 
-&gt;&gt;&gt; df1.to_sql('users', con=engine, if_exists='replace',
-...            index_label='id')
-&gt;&gt;&gt; engine.execute("SELECT * FROM users").fetchall()
-[(0, 'User 4'), (1, 'User 5')]
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;replace&#39;,
+...            index_label=&#39;id&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
 
 Specify the dtype (especially useful for integers with missing values).
 Notice that while pandas is forced to store the data as floating point,
 the database supports nullable integers. When fetching the data with
 Python, we get back integer scalars.
 
-&gt;&gt;&gt; df = pd.DataFrame({"A": [1, None, 2]})
+&gt;&gt;&gt; df = pd.DataFrame({&#34;A&#34;: [1, None, 2]})
 &gt;&gt;&gt; df
      A
 0  1.0
@@ -1794,22 +2200,59 @@ Python, we get back integer scalars.
 2  2.0
 
 &gt;&gt;&gt; from sqlalchemy.types import Integer
-&gt;&gt;&gt; df.to_sql('integers', con=engine, index=False,
-...           dtype={"A": Integer()})
+&gt;&gt;&gt; df.to_sql(&#39;integers&#39;, con=engine, index=False,
+...           dtype={&#34;A&#34;: Integer()})
 
-&gt;&gt;&gt; engine.execute("SELECT * FROM integers").fetchall()
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM integers&#34;).fetchall()
 [(1,), (None,), (2,)]
-[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
-[0;31mType:[0m      method
-</code></pre>
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
+<span class="ansi-red-fg">Type:</span>      method
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy.types</span> <span class="kn">import</span> <span class="n">String</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">String</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>String(length=16)
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>String(length=16)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;postgresql+psycopg2://postgres:postgres@db.postgres.app.com/postgres&quot;</span>
@@ -1820,14 +2263,49 @@ Python, we get back integer scalars.
            <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">)</span>
 </code></pre></div>
 
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">timeit</span> <span class="n">dfp</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </code></pre></div>
 
-<pre><code>1.16 s ± 8.62 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.16 s ± 8.62 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
 
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1927,12 +2405,31 @@ Python, we get back integer scalars.
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">ibis</span><span class="o">.</span><span class="n">schema</span><span class="err">?</span>
 </code></pre></div>
 
-<pre><code>[0;31mSignature:[0m [0mibis[0m[0;34m.[0m[0mschema[0m[0;34m([0m[0mpairs[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0;32mNone[0m[0;34m,[0m [0mtypes[0m[0;34m=[0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mDocstring:[0m
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span> ibis<span class="ansi-blue-fg">.</span>schema<span class="ansi-blue-fg">(</span>pairs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> names<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> types<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
 Validate and return an Ibis Schema object
 
 Ibis uses its own type aliases that map onto database types. See, for
@@ -1964,37 +2461,73 @@ types : list of string
 Examples
 --------
 &gt;&gt;&gt; from ibis import schema
-&gt;&gt;&gt; sc = schema([('foo', 'string'),
-...              ('bar', 'int64'),
-...              ('baz', 'boolean')])
-&gt;&gt;&gt; sc2 = schema(names=['foo', 'bar', 'baz'],
-...              types=['string', 'int64', 'boolean'])
+&gt;&gt;&gt; sc = schema([(&#39;foo&#39;, &#39;string&#39;),
+...              (&#39;bar&#39;, &#39;int64&#39;),
+...              (&#39;baz&#39;, &#39;boolean&#39;)])
+&gt;&gt;&gt; sc2 = schema(names=[&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;],
+...              types=[&#39;string&#39;, &#39;int64&#39;, &#39;boolean&#39;])
 
 Returns
 -------
 schema : Schema
-[0;31mFile:[0m      /opt/conda/lib/python3.7/site-packages/ibis/expr/api.py
-[0;31mType:[0m      function
-</code></pre>
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/ibis/expr/api.py
+<span class="ansi-red-fg">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">accounts</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;accounts&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<pre><code>---------------------------------------------------------------------------
+</div>
 
-NameError                                 Traceback (most recent call last)
-
-&lt;ipython-input-66-b976ae21ec75&gt; in &lt;module&gt;
-----&gt; 1 accounts = con.table('accounts')
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
 
 
-NameError: name 'con' is not defined
-</code></pre>
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-66-b976ae21ec75&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>accounts <span class="ansi-blue-fg">=</span> con<span class="ansi-blue-fg">.</span>table<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;accounts&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;con&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">accounts</span><span class="o">.</span><span class="n">names</span><span class="err">?</span>
 </code></pre></div>
 
-<pre><code>[0;31mCall signature:[0m  [0maccounts[0m[0;34m.[0m[0mnames[0m[0;34m([0m[0mf[0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;31mType:[0m            StringColumn
-[0;31mString form:[0m    
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Call signature:</span>  accounts<span class="ansi-blue-fg">.</span>names<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Type:</span>            StringColumn
+<span class="ansi-red-fg">String form:</span>    
 ref_0
 PostgreSQLTable[table]
   name: accounts
@@ -2004,14 +2537,14 @@ PostgreSQLTable[table]
     names : string
     amount : int64
 
-names = Column[string*] 'names' from table
+names = Column[string*] &#39;names&#39; from table
   ref_0
-[0;31mFile:[0m            /opt/conda/lib/python3.7/site-packages/ibis/expr/types.py
-[0;31mDocstring:[0m       &lt;no docstring&gt;
-[0;31mClass docstring:[0m
+<span class="ansi-red-fg">File:</span>            /opt/conda/lib/python3.7/site-packages/ibis/expr/types.py
+<span class="ansi-red-fg">Docstring:</span>       &lt;no docstring&gt;
+<span class="ansi-red-fg">Class docstring:</span>
 Base class for a data generating expression having a fixed and known type,
 either a single value (scalar)
-[0;31mCall docstring:[0m 
+<span class="ansi-red-fg">Call docstring:</span> 
 Generic composition function to enable expression pipelining.
 
 Parameters
@@ -2019,16 +2552,16 @@ Parameters
 f : function or (function, arg_name) tuple
   If the expression needs to be passed as anything other than the first
   argument to the function, pass a tuple with the argument name. For
-  example, (f, 'data') if the function f expects a 'data' keyword
+  example, (f, &#39;data&#39;) if the function f expects a &#39;data&#39; keyword
 args : positional arguments
 kwargs : keyword arguments
 
 Examples
 --------
 &gt;&gt;&gt; import ibis
-&gt;&gt;&gt; t = ibis.table([('a', 'int64'), ('b', 'string')], name='t')
-&gt;&gt;&gt; f = lambda a: (a + 1).name('a')
-&gt;&gt;&gt; g = lambda a: (a * 2).name('a')
+&gt;&gt;&gt; t = ibis.table([(&#39;a&#39;, &#39;int64&#39;), (&#39;b&#39;, &#39;string&#39;)], name=&#39;t&#39;)
+&gt;&gt;&gt; f = lambda a: (a + 1).name(&#39;a&#39;)
+&gt;&gt;&gt; g = lambda a: (a * 2).name(&#39;a&#39;)
 &gt;&gt;&gt; result1 = t.a.pipe(f).pipe(g)
 &gt;&gt;&gt; result1  # doctest: +NORMALIZE_WHITESPACE
 ref_0
@@ -2041,7 +2574,7 @@ a = Multiply[int64*]
   left:
     a = Add[int64*]
       left:
-        a = Column[int64*] 'a' from table
+        a = Column[int64*] &#39;a&#39; from table
           ref_0
       right:
         Literal[int8]
@@ -2056,10 +2589,15 @@ True
 Returns
 -------
 result : result type of passed function
-</code></pre>
-                
-                  
-                
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
                 
               
               
@@ -2092,9 +2630,18 @@ result : result type of passed function
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../../../_js/extra.js"></script>
       

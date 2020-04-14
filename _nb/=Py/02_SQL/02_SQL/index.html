@@ -1,42 +1,21 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/02_SQL/02_SQL/">
+        <link rel="canonical" href="https://github.com/fesaille/_nb/%3DPy/02_SQL/02_SQL/">
       
       
         <meta name="author" content="Emmmanuel Roux">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
     
       
@@ -44,9 +23,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../../../_css/extra.css">
@@ -73,74 +49,106 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
     
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#rdbms-concepts" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              My Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                02 SQL
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-      </div>
+        <a href="#rdbms-concepts" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              02 SQL
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
-<nav class="md-tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -174,7 +182,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+        <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" class="md-tabs__link">
           Python
         </a>
       
@@ -200,7 +208,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../shell/_intro/" class="md-tabs__link">
+        <a href="../../../../shell/intro/" class="md-tabs__link">
           shell
         </a>
       
@@ -263,20 +271,21 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
       
-        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
-      
+  <img src="../../../../images/logo.svg" alt="logo">
+
     </a>
     My Docs
   </label>
@@ -314,13 +323,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       doc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="doc" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         doc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,13 +365,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -368,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+    <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -428,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+    <a href="../../../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
   </li>
@@ -446,13 +467,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       DevOps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DevOps" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DevOps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -482,13 +509,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       shell
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="shell" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         shell
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -500,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+    <a href="../../../../shell/intro/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -561,13 +594,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
     <label class="md-nav__link" for="nav-6-6">
       Ubuntu
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Ubuntu" data-md-level="2">
       <label class="md-nav__title" for="nav-6-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Ubuntu
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -626,13 +665,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       DB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DB" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -657,13 +702,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
       MongoDB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -705,13 +756,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="SQL" data-md-level="2">
       <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -741,13 +798,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
     <label class="md-nav__link" for="nav-7-4">
       Object store
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Object store" data-md-level="2">
       <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Object store
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -782,13 +845,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Data
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -813,13 +882,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
     
     <label class="md-nav__link" for="nav-8-2">
       ndarray
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="ndarray" data-md-level="2">
       <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         ndarray
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -849,13 +924,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
     
     <label class="md-nav__link" for="nav-8-3">
       Time series
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Time series" data-md-level="2">
       <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Time series
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -921,13 +1002,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
     
     <label class="md-nav__link" for="nav-8-4">
       Machine Learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Machine Learning" data-md-level="2">
       <label class="md-nav__title" for="nav-8-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Machine Learning
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -962,13 +1049,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Visualization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Visualization" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Visualization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -998,13 +1091,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       WebDev
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="WebDev" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         WebDev
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1074,11 +1173,16 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1086,7 +1190,7 @@
     RDBMS concepts
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="RDBMS concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1120,7 +1224,7 @@
     B. Basic SQL queries
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="B. Basic SQL queries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1142,7 +1246,7 @@
     Types
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Types">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1169,7 +1273,7 @@
     Bineary operators
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Bineary operators">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1210,7 +1314,7 @@
     Filtering
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Filtering">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1237,7 +1341,7 @@
     Joins
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Joins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1271,7 +1375,7 @@
     Set operations
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Set operations">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1305,7 +1409,7 @@
     Subqueries
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Subqueries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1353,7 +1457,7 @@
     The CASE switch
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="The CASE switch">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1385,7 +1489,7 @@
     C.  Window Functions
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="C.  Window Functions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1449,10 +1553,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -1466,13 +1566,72 @@
               
                 
                 
+                  
+                
+                
                   <h1>02 SQL</h1>
                 
-                <p>RDBMS</p>
-<p>For more SQL examples in the SQLite3 dialect, seee <a href="https://www.techonthenet.com/sqlite/index.php">SQLite3 tutorial</a>. </p>
-<p>For a deep dive, see <a href="https://www.amazon.com/SQL-Queries-Mere-Mortals-Hands/dp/0134858336/ref=dp_ob_title_bk">SQL Queries for Mere Mortals</a>.</p>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+RDBMS
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+For more SQL examples in the SQLite3 dialect, seee <a href="https://www.techonthenet.com/sqlite/index.php">SQLite3 tutorial</a>.</p>
+<p>For a deep dive, see <a href="https://www.amazon.com/SQL-Queries-Mere-Mortals-Hands/dp/0134858336/ref=dp_ob_title_bk">SQL Queries for Mere Mortals</a>.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="rdbms-concepts">RDBMS concepts</h2>
-<p><a href="https://en.wikipedia.org/wiki/Codd%27s_12_rules">Codd's 12 rules</a></p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<a href="https://en.wikipedia.org/wiki/Codd%27s_12_rules">Codd's 12 rules</a>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="oltp-and-olap">OLTP and OLAP</h3>
 <ul>
 <li><strong>OLTP</strong><ul>
@@ -1515,30 +1674,93 @@
 <li>Data mart        </li>
 </ul>
 <p>Data marts typically use a star schema that is customized for the analysis needs. For example, the finance department in a hospital may be most interested in Facts about Claims.</p>
-<p><img alt="img" src="https://www.researchgate.net/profile/Hugh_Watson3/publication/239823035/figure/fig2/AS:375035886882819@1466426931869/A-Star-Schema-for-Health-Care-courtesy-of-Arthur-Andersen.png" /></p>
+<p><img alt="img" src="https://www.researchgate.net/profile/Hugh_Watson3/publication/239823035/figure/fig2/AS:375035886882819@1466426931869/A-Star-Schema-for-Health-Care-courtesy-of-Arthur-Andersen.png" />
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="robustness-and-scaling">Robustness and scaling</h3>
 <ul>
 <li>Replication</li>
-<li>Sharding</li>
+<li>Sharding
+</div>
+</div></li>
 </ul>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="b-basic-sql-queries">B. Basic SQL queries</h2>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="data-we-will-work-with-in-part-b">Data we will work with in Part B</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">sqlite</span><span class="p">:</span><span class="o">///</span><span class="n">data</span><span class="o">/</span><span class="n">faculty</span><span class="o">.</span><span class="n">db</span>
 </code></pre></div>
 
-<pre><code>'Connected: @data/faculty.db'
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Connected: @data/faculty.db&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">sqlite_master</span> <span class="n">WHERE</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>type</th>
@@ -1597,32 +1819,74 @@ Done.
         <td>CREATE TABLE df (<br>   &quot;index&quot; BIGINT, <br>  person TEXT, <br>   time BIGINT, <br>   bsl BIGINT<br>)</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="basic-structure">Basic Structure</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">value_expression</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">FROM</span> <span class="n">tables</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">WHERE</span> <span class="n">predicate</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">value_expression</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="types">Types</h3>
-<ul>
-<li>Character (Fixed width, variable width)</li>
-<li>National Character (Fixed width, variable width)</li>
-<li>Binary</li>
-<li>Numeric (Exact, Arpproximate)</li>
-<li>Boolean</li>
-<li>DateTime</li>
-<li>Interval</li>
-</ul>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Character (Fixed width, variable width)
+- National Character (Fixed width, variable width)
+- Binary
+- Numeric (Exact, Arpproximate)
+- Boolean
+- DateTime
+- Interval</p>
 <p>The SQL standard specifies that character strings and datetime literals are enclosed by single quotes. Two single quotes wihtin a string is intepreted as a literal single quote.</p>
-<div class="highlight"><pre><span></span><code><span class="s1">&#39;Gilligan&#39;&#39;s island&#39;</span>
+<p><div class="highlight"><pre><span></span><code><span class="s1">&#39;Gilligan&#39;&#39;s island&#39;</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="the-cast-function">The CAST function</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">CAST</span><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="nb">CHARACTER</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="value-expreesion">Value expreesion</h3>
 <ul>
 <li>Literal</li>
@@ -1632,23 +1896,68 @@ Done.
 <li>(Value expression)</li>
 <li>(SELECT expression)</li>
 </ul>
-<p>which may be prefixed with unary operaors <code>-</code> and <code>+</code> and combined with binary operators appropriate for the data type.</p>
+<p>which may be prefixed with unary operaors <code>-</code> and <code>+</code> and combined with binary operators appropriate for the data type.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="bineary-operators">Bineary operators</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="concatenation">Concatenation</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">||</span> <span class="n">B</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="mathematical">Mathematical</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
 <span class="n">A</span> <span class="o">-</span> <span class="n">B</span>
 <span class="n">A</span> <span class="o">*</span> <span class="n">B</span>
 <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="data-and-time-arithmetic">Data and time arithmetic</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="s1">&#39;2018-08-29&#39;</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="s1">&#39;11:59&#39;</span> <span class="o">+</span> <span class="s1">&#39;00:01&#39;</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1657,9 +1966,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>language_name</th>
@@ -1680,12 +2003,33 @@ Done.
         <td>D</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="sorting">Sorting</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">value_expression</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">FROM</span> <span class="n">tables</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">value_expression</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1695,9 +2039,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>language_name</th>
@@ -1718,31 +2076,67 @@ Done.
         <td>Bash</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="filtering">Filtering</h3>
-<p>For efficiency, place the most stringent filters first.</p>
+<p>For efficiency, place the most stringent filters first.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">value_expression</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">FROM</span> <span class="n">tables</span> <span class="k">AS</span> <span class="k">alias</span>
 <span class="k">WHERE</span> <span class="n">predicate</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">value_expression</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="predicates-for-filtering-rows">Predicates for filtering rows</h4>
-<ul>
-<li>Comparison operators (=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=)</li>
-<li>BETWEEN start AND end</li>
-<li>IN(A, B, C)</li>
-<li>LIKE</li>
-<li>IS NULL</li>
-<li>REGEX</li>
-</ul>
-<p>Use NOT prefix for negation</p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Comparison operators (=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=)
+- BETWEEN start AND end
+- IN(A, B, C)
+- LIKE
+- IS NULL
+- REGEX</p>
+<p>Use NOT prefix for negation
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="combining-predicates">Combining predicates</h4>
 <div class="highlight"><pre><span></span><code><span class="k">AND</span>
 <span class="k">OR</span>
 </code></pre></div>
 
-<p>USe parenthesis to indicate order of evaluation for compound statements.</p>
+<p>USe parenthesis to indicate order of evaluation for compound statements.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">age</span>
@@ -1751,9 +2145,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -1786,38 +2194,86 @@ Done.
         <td>17</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="joins">Joins</h3>
-<p>Joins combine data from 1 or more tables to form a new result set.</p>
+<p>Joins combine data from 1 or more tables to form a new result set.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="natural-join">Natural join</h4>
+</div>
+</div>
 <p>Uses all common columns in Tables 1 and 2 for JOIN</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
+<p><div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
 <span class="k">NATURAL</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="k">Table</span> <span class="mi">2</span>
 </code></pre></div>
-
+</div>
+</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="inner-join">Inner join</h4>
-<p>General form of INNER JOIN uisng ON</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+General form of INNER JOIN uisng ON</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
 <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Table2</span>
 <span class="k">ON</span> <span class="n">Table1</span><span class="p">.</span><span class="k">Column</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="k">Column</span>
 </code></pre></div>
-
-<p>If there is a common column in both tables</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+If there is a common column in both tables</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span>
 <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Table2</span>
 <span class="k">USING</span> <span class="k">Column</span>
 </code></pre></div>
-
-<p>Joining more than two tables</p>
-<div class="highlight"><pre><span></span><code><span class="k">From</span> <span class="p">(</span><span class="n">Table1</span> 
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Joining more than two tables</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">From</span> <span class="p">(</span><span class="n">Table1</span> 
       <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Table2</span>
       <span class="k">ON</span> <span class="n">Table1</span><span class="p">.</span><span class="n">column1</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="n">Column1</span><span class="p">)</span>
       <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">Table3</span> 
       <span class="k">ON</span> <span class="n">Table3</span><span class="p">.</span><span class="n">column2</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="n">Column2</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="outer-join">Outer join</h4>
-<p>General form of OUTER JOIN uisng ON</p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+General form of OUTER JOIN uisng ON</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
 <span class="k">RIGHT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">Table2</span>
 <span class="k">ON</span> <span class="n">Table1</span><span class="p">.</span><span class="k">Column</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="k">Column</span>
@@ -1828,10 +2284,15 @@ Done.
 <span class="k">ON</span> <span class="n">Table1</span><span class="p">.</span><span class="k">Column</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="k">Column</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
+<p><div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="n">Table1</span> 
 <span class="k">FULL</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="n">Table2</span>
 <span class="k">ON</span> <span class="n">Table1</span><span class="p">.</span><span class="k">Column</span> <span class="o">=</span> <span class="n">Table2</span><span class="p">.</span><span class="k">Column</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1842,9 +2303,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -1902,31 +2377,80 @@ Done.
         <td>Dart</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="set-operations">Set operations</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> 
 <span class="k">FROM</span> <span class="n">table1</span>
 <span class="n">SetOp</span>
 <span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> 
 <span class="k">FROM</span> <span class="n">table2</span>
-</code></pre></div>
-
-<p>wehre SetOp is <code>INTERSECT</code>, <code>EXCEPT</code>, <code>UNION</code> or <code>UNION ALL</code>.</p>
+</code></pre></div></p>
+<p>wehre SetOp is <code>INTERSECT</code>, <code>EXCEPT</code>, <code>UNION</code> or <code>UNION ALL</code>.
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="intersection">Intersection</h4>
 <div class="highlight"><pre><span></span><code><span class="k">INTERSECT</span>
 </code></pre></div>
 
-<p>Alternative using <code>INNER JOIN</code></p>
+<p>Alternative using <code>INNER JOIN</code>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="union">Union</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">UNION</span>
 <span class="k">UNION</span> <span class="k">ALL</span> <span class="p">(</span><span class="n">does</span> <span class="k">not</span> <span class="n">eliminate</span> <span class="n">duplicate</span> <span class="k">rows</span><span class="p">)</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="difference">Difference</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">EXCEPT</span>
-</code></pre></div>
+</code></pre></div></p>
+<p>Alternative using <code>OUTER JOIN</code> with test for <code>NULL</code>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-<p>Alternative using <code>OUTER JOIN</code> with test for <code>NULL</code></p>
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">DROP</span> <span class="n">VIEW</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">language_view</span><span class="p">;</span>
@@ -1938,16 +2462,36 @@ Done.
 <span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
 Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECt</span> <span class="o">*</span> 
@@ -1955,9 +2499,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -2015,6 +2573,17 @@ Done.
         <td>Dart</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2028,9 +2597,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -2088,6 +2671,15 @@ Done.
         <td>Haskell</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2098,9 +2690,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -2158,9 +2764,32 @@ Done.
         <td>Haskell</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="subqueries">Subqueries</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="as-column-expresions">As column expresions</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> 
 <span class="p">(</span>
     <span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="k">c</span><span class="p">)</span> 
@@ -2170,8 +2799,19 @@ Done.
 <span class="p">)</span> <span class="k">as</span> <span class="n">max_c</span>
 <span class="k">FROM</span> <span class="n">table1</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="as-filters">As filters</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> 
 <span class="k">FROM</span> <span class="n">table1</span>
 <span class="k">WHERE</span> <span class="n">b</span> <span class="o">&gt;</span> 
@@ -2180,14 +2820,24 @@ Done.
     <span class="k">FROM</span> <span class="n">table1</span>
 <span class="p">)</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="quantified-subqueires">Quantified Subqueires</h4>
-<div class="highlight"><pre><span></span><code><span class="k">ALl</span>
+<p><div class="highlight"><pre><span></span><code><span class="k">ALl</span>
 <span class="k">SOME</span>
 <span class="k">ANY</span>
 <span class="k">EXISTS</span>
 </code></pre></div>
-
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> 
 <span class="k">FROM</span> <span class="n">table1</span>
 <span class="k">WHERE</span> <span class="k">EXISTS</span>
@@ -2196,6 +2846,11 @@ Done.
     <span class="k">FROM</span> <span class="n">table2</span>
 <span class="p">)</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2209,9 +2864,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -2269,14 +2938,35 @@ Done.
         <td>Io</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="aggregate-functions">Aggregate functions</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">COUNT</span>
 <span class="k">MIN</span>
 <span class="k">MAX</span>
 <span class="k">AVG</span>
 <span class="k">SUM</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2284,9 +2974,23 @@ Done.
 <span class="n">FROM</span> <span class="n">language_view</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>count(language_name)</th>
@@ -2295,20 +2999,51 @@ Done.
         <td>2297</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="grouping">Grouping</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">AS</span> <span class="n">min_b</span><span class="p">,</span> <span class="k">MAX</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">AS</span> <span class="n">max_b</span><span class="p">,</span> <span class="k">AVG</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">AS</span> <span class="n">mean_b</span>
 <span class="k">FROM</span> <span class="k">table</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">a</span>
 <span class="k">HAVING</span> <span class="n">mean_b</span> <span class="o">&gt;</span> <span class="mi">5</span>
 </code></pre></div>
-
-<p>The <code>HAVING</code> is analagous to the <code>WHERE</code> clause, but filters on aggregate conditions. Note that the <code>WHERE</code> statement filters rows BEFORE the grouping is done.</p>
-<p>Note: Any variable in the SELECT part that is not an aggregte function needs to be in the GROUP BY part.</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The <code>HAVING</code> is analagous to the <code>WHERE</code> clause, but filters on aggregate conditions. Note that the <code>WHERE</code> statement filters rows BEFORE the grouping is done.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Note: Any variable in the SELECT part that is not an aggregte function needs to be in the GROUP BY part.</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="k">FROM</span> <span class="k">table</span>
 <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="k">c</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2318,9 +3053,23 @@ Done.
 <span class="n">HAVING</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">45</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>language_name</th>
@@ -2359,9 +3108,31 @@ Done.
         <td>50</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="the-case-switch">The CASE switch</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="simple-case">Simple CASE</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered"></div>
+</div>
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
 <span class="p">(</span><span class="k">CASE</span> <span class="n">sex</span> 
  <span class="k">WHEN</span> <span class="s1">&#39;M&#39;</span> <span class="k">THEN</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="n">dose</span>
@@ -2369,8 +3140,18 @@ Done.
  <span class="k">END</span><span class="p">)</span> <span class="k">as</span> <span class="n">adjusted_dose</span>
 <span class="k">FROM</span> <span class="k">table</span>
 </code></pre></div>
-
+</div>
+</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h4 id="searched-case">Searched CASE</h4>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
 <span class="p">(</span><span class="k">CASE</span>  
  <span class="k">WHEN</span> <span class="n">sex</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span> <span class="k">THEN</span> <span class="mi">1</span><span class="p">.</span><span class="mi">5</span><span class="o">*</span><span class="n">dose</span>
@@ -2378,6 +3159,11 @@ Done.
  <span class="k">END</span><span class="p">)</span> <span class="k">as</span> <span class="n">adjusted_dose</span>
 <span class="k">FROM</span> <span class="k">table</span>
 </code></pre></div>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2391,9 +3177,23 @@ Done.
 <span class="n">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * sqlite:///data/faculty.db
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
 Done.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>first</th>
@@ -2462,25 +3262,90 @@ Done.
         <td>FIRE</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="c-window-functions">C.  Window Functions</h2>
-<p>We use the PostgreSQL databsaee because window functions are not supported in SQLite3 <a href="https://www.sqlite.org/draft/releaselog/3_25_0.html">yet</a></p>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We use the PostgreSQL databsaee because window functions are not supported in SQLite3 <a href="https://www.sqlite.org/draft/releaselog/3_25_0.html">yet</a>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
 </code></pre></div>
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">postgres</span><span class="p">:</span><span class="n">postgres</span><span class="nd">@postgres</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">postgres</span>
 </code></pre></div>
 
-<pre><code>'Connected: postgres@postgres'
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Connected: postgres@postgres&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </code></pre></div>
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2490,9 +3355,24 @@ Done.
                 <span class="n">bsl</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">n</span><span class="p">)))</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;person&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">])</span>
 </code></pre></div>
 
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2580,32 +3460,94 @@ Done.
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">df</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
-<p>Magic shortcut to creating a database table from <code>pandas</code> DataFrame.</p>
+<div class="cell border-box-sizing text_cell rendered"></div>
+</div>
+</div>
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Magic shortcut to creating a database table from <code>pandas</code> DataFrame.
+</div>
+</div></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">persist</span> <span class="n">df</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
 
 
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Persisted df&#39;</pre>
+</div>
 
-'Persisted df'
-</code></pre>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="over-creates-widows">Over  creates widows</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> <span class="n">row_number</span><span class="p">()</span> 
@@ -2613,9 +3555,25 @@ Done.
 <span class="n">FROM</span> <span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -2684,8 +3642,23 @@ Done.
         <td>10</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="order-by">Order by</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> <span class="n">row_number</span><span class="p">()</span> 
@@ -2693,9 +3666,23 @@ Done.
 <span class="n">FROM</span> <span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -2764,8 +3751,23 @@ Done.
         <td>10</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="partition-by">Partition by</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> <span class="n">row_number</span><span class="p">()</span> 
@@ -2773,9 +3775,25 @@ Done.
 <span class="n">FROM</span> <span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -2844,6 +3862,15 @@ Done.
         <td>3</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -2852,9 +3879,23 @@ Done.
 <span class="n">FROM</span> <span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -2923,8 +3964,23 @@ Done.
         <td>221, 89, 98</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="specifying-rows-in-window">Specifying rows in window</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> <span class="n">STRING_AGG</span><span class="p">(</span><span class="n">CAST</span><span class="p">(</span><span class="n">bsl</span> <span class="n">AS</span> <span class="n">TEXT</span><span class="p">),</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span>
@@ -2936,9 +3992,25 @@ Done.
 <span class="n">FROM</span> <span class="n">df</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3007,8 +4079,23 @@ Done.
         <td>89, 98</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="using-window-functions">Using window functions</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> 
@@ -3021,9 +4108,23 @@ Done.
 <span class="n">WINDOW</span> <span class="n">win</span> <span class="n">AS</span> <span class="p">(</span><span class="n">ORDER</span> <span class="n">BY</span> <span class="n">person</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3136,8 +4237,23 @@ Done.
         <td>1.0</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="using-aggregate-functions">Using aggregate functions</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span>
@@ -3151,9 +4267,25 @@ Done.
 <span class="n">WINDOW</span> <span class="n">win</span> <span class="n">AS</span> <span class="p">(</span><span class="n">PARTITION</span> <span class="n">BY</span> <span class="n">person</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">time</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+</div>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3277,8 +4409,23 @@ Done.
         <td>98</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="using-rows-and-range-to-constrain-windows">Using rows and range to constrain windows</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> 
@@ -3294,9 +4441,23 @@ Done.
 <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3387,9 +4548,26 @@ Done.
         <td>93.5000000000000000</td>
     </tr>
 </table>
+</div>
 
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="frames-using-rows-and-range">Frames using Rows and Range</h3>
-<p>For Range, all rows with the same ORDER BY value are considered peers.</p>
+<p>For Range, all rows with the same ORDER BY value are considered peers.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">SELECT</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">bsl</span><span class="p">,</span> 
@@ -3404,9 +4582,23 @@ Done.
 <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3497,6 +4689,15 @@ Done.
         <td>182.5000000000000000</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -3512,9 +4713,23 @@ Done.
 <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">person</span><span class="p">,</span> <span class="n">time</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql://postgres:***@172.26.0.3/postgres
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
 10 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>person</th>
@@ -3605,12 +4820,23 @@ Done.
         <td>182.5000000000000000</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-                
-                  
-                
+
+</div>
+
+</div>
+</div>
                 
               
               
@@ -3643,9 +4869,18 @@ Done.
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../../../_js/extra.js"></script>
       

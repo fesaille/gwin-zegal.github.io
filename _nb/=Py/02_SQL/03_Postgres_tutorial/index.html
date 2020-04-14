@@ -1,42 +1,21 @@
 
 
 
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://github.com/fesaille/_nb/=Py/02_SQL/03_Postgres_tutorial/">
+        <link rel="canonical" href="https://github.com/fesaille/_nb/%3DPy/02_SQL/03_Postgres_tutorial/">
       
       
         <meta name="author" content="Emmmanuel Roux">
       
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.0">
     
     
       
@@ -44,9 +23,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.89dc9fe3.min.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecd4686e.min.css">
       
       
         
@@ -55,16 +34,13 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="../../../../_css/extra.css">
@@ -73,74 +49,106 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
     
       
     
     
   </head>
   
+  
     
     
     <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#create-tables" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://github.com/fesaille" title="My Docs" aria-label="My Docs" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              My Docs
-            </span>
-            <span class="md-header-nav__topic">
-              
-                03 Postgres tutorial
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
         
-      </div>
+        <a href="#create-tables" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-header-nav__button md-logo" aria-label="My Docs">
+      
+  <img src="../../../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            My Docs
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              03 Postgres tutorial
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
         
+          
 
-<nav class="md-tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -174,7 +182,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../01_Python/01 - Python - CPython design/" class="md-tabs__link">
+        <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" class="md-tabs__link">
           Python
         </a>
       
@@ -200,7 +208,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../shell/_intro/" class="md-tabs__link">
+        <a href="../../../../shell/intro/" class="md-tabs__link">
           shell
         </a>
       
@@ -263,20 +271,21 @@
     </ul>
   </div>
 </nav>
+        
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://github.com/fesaille" title="My Docs" class="md-nav__button md-logo" aria-label="My Docs">
       
-        <img alt="logo" src="../../../../images/logo.svg" width="48" height="48">
-      
+  <img src="../../../../images/logo.svg" alt="logo">
+
     </a>
     My Docs
   </label>
@@ -314,13 +323,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       doc
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="doc" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         doc
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -350,13 +365,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Python
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Python
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -368,7 +389,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../01_Python/01 - Python - CPython design/" title="Intro" class="md-nav__link">
+    <a href="../../01_Python/01%20-%20Python%20-%20CPython%20design/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -428,7 +449,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Linux/Ubuntu/python.md" title="Ubuntu" class="md-nav__link">
+    <a href="../../../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
   </li>
@@ -446,13 +467,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       DevOps
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DevOps" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DevOps
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -482,13 +509,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
     <label class="md-nav__link" for="nav-6">
       shell
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="shell" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         shell
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -500,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../shell/_intro/" title="Intro" class="md-nav__link">
+    <a href="../../../../shell/intro/" title="Intro" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -561,13 +594,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
     <label class="md-nav__link" for="nav-6-6">
       Ubuntu
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Ubuntu" data-md-level="2">
       <label class="md-nav__title" for="nav-6-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Ubuntu
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -626,13 +665,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       DB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="DB" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         DB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -657,13 +702,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
       MongoDB
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         MongoDB
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -705,13 +756,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
     <label class="md-nav__link" for="nav-7-3">
       SQL
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="SQL" data-md-level="2">
       <label class="md-nav__title" for="nav-7-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         SQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -741,13 +798,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
     <label class="md-nav__link" for="nav-7-4">
       Object store
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Object store" data-md-level="2">
       <label class="md-nav__title" for="nav-7-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Object store
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -782,13 +845,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Data
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Data
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -813,13 +882,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
     
     <label class="md-nav__link" for="nav-8-2">
       ndarray
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="ndarray" data-md-level="2">
       <label class="md-nav__title" for="nav-8-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         ndarray
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -849,13 +924,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
     
     <label class="md-nav__link" for="nav-8-3">
       Time series
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Time series" data-md-level="2">
       <label class="md-nav__title" for="nav-8-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Time series
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -921,13 +1002,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
     
     <label class="md-nav__link" for="nav-8-4">
       Machine Learning
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" aria-label="Machine Learning" data-md-level="2">
       <label class="md-nav__title" for="nav-8-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Machine Learning
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -962,13 +1049,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Visualization
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="Visualization" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         Visualization
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -998,13 +1091,19 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       WebDev
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+    <nav class="md-nav" aria-label="WebDev" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
         WebDev
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1074,13 +1173,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -1089,10 +1193,6 @@
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1107,27 +1207,118 @@
               
                 
                 
-                <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+                  
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
 </code></pre></div>
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">env</span> <span class="n">DATABASE_URL</span><span class="o">=</span><span class="n">postgresql</span><span class="o">+</span><span class="n">psycopg2</span><span class="p">:</span><span class="o">//</span><span class="n">postgres</span><span class="p">:</span><span class="n">postgres</span><span class="nd">@db</span><span class="o">.</span><span class="n">postgres</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">com</span>
 <span class="n">uri</span> <span class="o">=</span> <span class="o">%</span><span class="n">env</span> <span class="n">DATABASE_URL</span>
 </code></pre></div>
 
-<pre><code>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
-</code></pre>
-<p>or</p>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+or
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;postgresql+psycopg2://postgres:postgres@db.postgres.app.com&quot;</span>
 </code></pre></div>
 
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h1 id="create-tables"><a href="https://www.postgresql.org/docs/11/tutorial-table.html">Create tables</a></h1>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 \<span class="n">d</span>
 </code></pre></div>
 
-<pre><code>6 rows affected.
-</code></pre>
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>Schema</th>
@@ -1172,6 +1363,15 @@
         <td>postgres</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1193,41 +1393,110 @@
 <span class="p">);</span>
 </code></pre></div>
 
-<pre><code>Done.
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Done.
 Done.
 Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h2 id="populate-a-table-with-a-row"><a href="https://www.postgresql.org/docs/11/tutorial-populate.html">Populate a table with a row</a></h2>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
 <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">t_cities</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
 <span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;(-194.2, 53.0)&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
 1 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">SELECT</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">Cities</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
 1 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>name</th>
@@ -1238,6 +1507,15 @@ Done.
         <td>(-194.2,53)</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1245,21 +1523,57 @@ Done.
 <span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;1994-11-29&#39;</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
 1 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
 
 
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
 
+</div>
 
+</div>
+</div>
 
-[]
-</code></pre>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">sql</span> <span class="n">SELECT</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">weather</span><span class="p">;</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
 2 rows affected.
-</code></pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
 <table>
     <tr>
         <th>id</th>
@@ -1286,6 +1600,15 @@ Done.
         <td>1994-11-29</td>
     </tr>
 </table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">sql</span>
 
@@ -1293,170 +1616,169 @@ Done.
 <span class="n">VALUES</span> <span class="p">(</span><span class="s1">&#39;1994-11-29&#39;</span><span class="p">,</span> <span class="s1">&#39;Hayward&#39;</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">37</span><span class="p">);</span>
 </code></pre></div>
 
-<pre><code> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
 
 
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</pre>
+</div>
+</div>
 
----------------------------------------------------------------------------
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ForeignKeyViolation</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1243</span>                     self.dialect.do_execute(
+<span class="ansi-green-fg">-&gt; 1244</span><span class="ansi-red-fg">                         </span>cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1245</span>                     )
 
-ForeignKeyViolation                       Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py</span> in <span class="ansi-cyan-fg">do_execute</span><span class="ansi-blue-fg">(self, cursor, statement, parameters, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    549</span>     <span class="ansi-green-fg">def</span> do_execute<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 550</span><span class="ansi-red-fg">         </span>cursor<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    551</span> 
 
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
-   1243                     self.dialect.do_execute(
--&gt; 1244                         cursor, statement, parameters, context
-   1245                     )
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py in do_execute(self, cursor, statement, parameters, context)
-    549     def do_execute(self, cursor, statement, parameters, context=None):
---&gt; 550         cursor.execute(statement, parameters)
-    551
-
-
-ForeignKeyViolation: insert or update on table "weather" violates foreign key constraint "weather_city_fkey"
-DETAIL:  Key (city)=(Hayward) is not present in table "cities".
-
+<span class="ansi-red-fg">ForeignKeyViolation</span>: insert or update on table &#34;weather&#34; violates foreign key constraint &#34;weather_city_fkey&#34;
+DETAIL:  Key (city)=(Hayward) is not present in table &#34;cities&#34;.
 
 
 The above exception was the direct cause of the following exception:
 
+<span class="ansi-red-fg">IntegrityError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-93-3bccff404bf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;sql&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;\nINSERT INTO weather (date, city, temp_hi, temp_lo)\nVALUES (&#39;1994-11-29&#39;, &#39;Hayward&#39;, 54, 37);\n&#34;</span><span class="ansi-blue-fg">)</span>
 
-IntegrityError                            Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2356</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   2357</span>                 args <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>magic_arg_s<span class="ansi-blue-fg">,</span> cell<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 2358</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2359</span>             <span class="ansi-green-fg">return</span> result
+<span class="ansi-green-intense-fg ansi-bold">   2360</span> 
 
-&lt;ipython-input-93-3bccff404bf3&gt; in &lt;module&gt;
-----&gt; 1 get_ipython().run_cell_magic('sql', '', "\nINSERT INTO weather (date, city, temp_hi, temp_lo)\nVALUES ('1994-11-29', 'Hayward', 54, 37);\n")
+<span class="ansi-green-fg">&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-157&gt;</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span> 
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-/opt/conda/lib/python3.7/site-packages/IPython/core/interactiveshell.py in run_cell_magic(self, magic_name, line, cell)
-   2356             with self.builtin_trap:
-   2357                 args = (magic_arg_s, cell)
--&gt; 2358                 result = fn(*args, **kwargs)
-   2359             return result
-   2360
+<span class="ansi-green-fg">&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-156&gt;</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span> 
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-157&gt; in execute(self, line, cell, local_ns)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sql/magic.py</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
+<span class="ansi-green-intense-fg ansi-bold">     93</span> 
+<span class="ansi-green-intense-fg ansi-bold">     94</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 95</span><span class="ansi-red-fg">             </span>result <span class="ansi-blue-fg">=</span> sql<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">,</span> parsed<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;sql&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">,</span> user_ns<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span> 
+<span class="ansi-green-intense-fg ansi-bold">     97</span>             <span class="ansi-green-fg">if</span> result <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> self<span class="ansi-blue-fg">.</span>column_local_vars<span class="ansi-blue-fg">:</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sql/run.py</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(conn, sql, config, user_namespace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    338</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    339</span>                 txt <span class="ansi-blue-fg">=</span> sqlalchemy<span class="ansi-blue-fg">.</span>sql<span class="ansi-blue-fg">.</span>text<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 340</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> conn<span class="ansi-blue-fg">.</span>session<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>txt<span class="ansi-blue-fg">,</span> user_namespace<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    341</span>             _commit<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">=</span>conn<span class="ansi-blue-fg">,</span> config<span class="ansi-blue-fg">=</span>config<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    342</span>             <span class="ansi-green-fg">if</span> result <span class="ansi-green-fg">and</span> config<span class="ansi-blue-fg">.</span>feedback<span class="ansi-blue-fg">:</span>
 
-/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py in &lt;lambda&gt;(f, *a, **k)
-    185     # but it's overkill for just that one bit of state.
-    186     def magic_deco(arg):
---&gt; 187         call = lambda f, *a, **k: f(*a, **k)
-    188 
-    189         if callable(arg):
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, object_, *multiparams, **params)</span>
+<span class="ansi-green-intense-fg ansi-bold">    986</span>             <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>ObjectNotExecutableError<span class="ansi-blue-fg">(</span>object_<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    987</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 988</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> meth<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    989</span> 
+<span class="ansi-green-intense-fg ansi-bold">    990</span>     <span class="ansi-green-fg">def</span> _execute_function<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/sql/elements.py</span> in <span class="ansi-cyan-fg">_execute_on_connection</span><span class="ansi-blue-fg">(self, connection, multiparams, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">    285</span>     <span class="ansi-green-fg">def</span> _execute_on_connection<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> connection<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    286</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>supports_execution<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 287</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> connection<span class="ansi-blue-fg">.</span>_execute_clauseelement<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    288</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    289</span>             <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>ObjectNotExecutableError<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
 
-&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-156&gt; in execute(self, line, cell, local_ns)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_clauseelement</span><span class="ansi-blue-fg">(self, elem, multiparams, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1105</span>             distilled_params<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1106</span>             compiled_sql<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 1107</span><span class="ansi-red-fg">             </span>distilled_params<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1108</span>         )
+<span class="ansi-green-intense-fg ansi-bold">   1109</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_has_events <span class="ansi-green-fg">or</span> self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">.</span>_has_events<span class="ansi-blue-fg">:</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1246</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1247</span>             self._handle_dbapi_exception(
+<span class="ansi-green-fg">-&gt; 1248</span><span class="ansi-red-fg">                 </span>e<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1249</span>             )
+<span class="ansi-green-intense-fg ansi-bold">   1250</span> 
 
-/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py in &lt;lambda&gt;(f, *a, **k)
-    185     # but it's overkill for just that one bit of state.
-    186     def magic_deco(arg):
---&gt; 187         call = lambda f, *a, **k: f(*a, **k)
-    188 
-    189         if callable(arg):
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_handle_dbapi_exception</span><span class="ansi-blue-fg">(self, e, statement, parameters, cursor, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1464</span>                 util<span class="ansi-blue-fg">.</span>raise_from_cause<span class="ansi-blue-fg">(</span>newraise<span class="ansi-blue-fg">,</span> exc_info<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1465</span>             <span class="ansi-green-fg">elif</span> should_wrap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1466</span><span class="ansi-red-fg">                 </span>util<span class="ansi-blue-fg">.</span>raise_from_cause<span class="ansi-blue-fg">(</span>sqlalchemy_exception<span class="ansi-blue-fg">,</span> exc_info<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1467</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1468</span>                 util<span class="ansi-blue-fg">.</span>reraise<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>exc_info<span class="ansi-blue-fg">)</span>
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py</span> in <span class="ansi-cyan-fg">raise_from_cause</span><span class="ansi-blue-fg">(exception, exc_info)</span>
+<span class="ansi-green-intense-fg ansi-bold">    397</span>     exc_type<span class="ansi-blue-fg">,</span> exc_value<span class="ansi-blue-fg">,</span> exc_tb <span class="ansi-blue-fg">=</span> exc_info
+<span class="ansi-green-intense-fg ansi-bold">    398</span>     cause <span class="ansi-blue-fg">=</span> exc_value <span class="ansi-green-fg">if</span> exc_value <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> exception <span class="ansi-green-fg">else</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 399</span><span class="ansi-red-fg">     </span>reraise<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>exception<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> exception<span class="ansi-blue-fg">,</span> tb<span class="ansi-blue-fg">=</span>exc_tb<span class="ansi-blue-fg">,</span> cause<span class="ansi-blue-fg">=</span>cause<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    400</span> 
+<span class="ansi-green-intense-fg ansi-bold">    401</span> 
 
-/opt/conda/lib/python3.7/site-packages/sql/magic.py in execute(self, line, cell, local_ns)
-     93 
-     94         try:
----&gt; 95             result = sql.run.run(conn, parsed['sql'], self, user_ns)
-     96 
-     97             if result is not None and not isinstance(result, str) and self.column_local_vars:
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py</span> in <span class="ansi-cyan-fg">reraise</span><span class="ansi-blue-fg">(tp, value, tb, cause)</span>
+<span class="ansi-green-intense-fg ansi-bold">    151</span>             value<span class="ansi-blue-fg">.</span>__cause__ <span class="ansi-blue-fg">=</span> cause
+<span class="ansi-green-intense-fg ansi-bold">    152</span>         <span class="ansi-green-fg">if</span> value<span class="ansi-blue-fg">.</span>__traceback__ <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> tb<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 153</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> value<span class="ansi-blue-fg">.</span>with_traceback<span class="ansi-blue-fg">(</span>tb<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    154</span>         <span class="ansi-green-fg">raise</span> value
+<span class="ansi-green-intense-fg ansi-bold">    155</span> 
 
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1242</span>                 <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> evt_handled<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1243</span>                     self.dialect.do_execute(
+<span class="ansi-green-fg">-&gt; 1244</span><span class="ansi-red-fg">                         </span>cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1245</span>                     )
+<span class="ansi-green-intense-fg ansi-bold">   1246</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
 
-/opt/conda/lib/python3.7/site-packages/sql/run.py in run(conn, sql, config, user_namespace)
-    338             else:
-    339                 txt = sqlalchemy.sql.text(statement)
---&gt; 340                 result = conn.session.execute(txt, user_namespace)
-    341             _commit(conn=conn, config=config)
-    342             if result and config.feedback:
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py</span> in <span class="ansi-cyan-fg">do_execute</span><span class="ansi-blue-fg">(self, cursor, statement, parameters, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    548</span> 
+<span class="ansi-green-intense-fg ansi-bold">    549</span>     <span class="ansi-green-fg">def</span> do_execute<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 550</span><span class="ansi-red-fg">         </span>cursor<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    551</span> 
+<span class="ansi-green-intense-fg ansi-bold">    552</span>     <span class="ansi-green-fg">def</span> do_execute_no_params<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in execute(self, object_, *multiparams, **params)
-    986             raise exc.ObjectNotExecutableError(object_)
-    987         else:
---&gt; 988             return meth(self, multiparams, params)
-    989 
-    990     def _execute_function(self, func, multiparams, params):
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/sql/elements.py in _execute_on_connection(self, connection, multiparams, params)
-    285     def _execute_on_connection(self, connection, multiparams, params):
-    286         if self.supports_execution:
---&gt; 287             return connection._execute_clauseelement(self, multiparams, params)
-    288         else:
-    289             raise exc.ObjectNotExecutableError(self)
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_clauseelement(self, elem, multiparams, params)
-   1105             distilled_params,
-   1106             compiled_sql,
--&gt; 1107             distilled_params,
-   1108         )
-   1109         if self._has_events or self.engine._has_events:
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
-   1246         except BaseException as e:
-   1247             self._handle_dbapi_exception(
--&gt; 1248                 e, statement, parameters, cursor, context
-   1249             )
-   1250
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _handle_dbapi_exception(self, e, statement, parameters, cursor, context)
-   1464                 util.raise_from_cause(newraise, exc_info)
-   1465             elif should_wrap:
--&gt; 1466                 util.raise_from_cause(sqlalchemy_exception, exc_info)
-   1467             else:
-   1468                 util.reraise(*exc_info)
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py in raise_from_cause(exception, exc_info)
-    397     exc_type, exc_value, exc_tb = exc_info
-    398     cause = exc_value if exc_value is not exception else None
---&gt; 399     reraise(type(exception), exception, tb=exc_tb, cause=cause)
-    400 
-    401
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py in reraise(tp, value, tb, cause)
-    151             value.__cause__ = cause
-    152         if value.__traceback__ is not tb:
---&gt; 153             raise value.with_traceback(tb)
-    154         raise value
-    155
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py in _execute_context(self, dialect, constructor, statement, parameters, *args)
-   1242                 if not evt_handled:
-   1243                     self.dialect.do_execute(
--&gt; 1244                         cursor, statement, parameters, context
-   1245                     )
-   1246         except BaseException as e:
-
-
-/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py in do_execute(self, cursor, statement, parameters, context)
-    548 
-    549     def do_execute(self, cursor, statement, parameters, context=None):
---&gt; 550         cursor.execute(statement, parameters)
-    551 
-    552     def do_execute_no_params(self, cursor, statement, context=None):
-
-
-IntegrityError: (psycopg2.errors.ForeignKeyViolation) insert or update on table "weather" violates foreign key constraint "weather_city_fkey"
-DETAIL:  Key (city)=(Hayward) is not present in table "cities".
+<span class="ansi-red-fg">IntegrityError</span>: (psycopg2.errors.ForeignKeyViolation) insert or update on table &#34;weather&#34; violates foreign key constraint &#34;weather_city_fkey&#34;
+DETAIL:  Key (city)=(Hayward) is not present in table &#34;cities&#34;.
 
 [SQL: INSERT INTO weather (date, city, temp_hi, temp_lo)
-VALUES ('1994-11-29', 'Hayward', 54, 37);]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-</code></pre>
+VALUES (&#39;1994-11-29&#39;, &#39;Hayward&#39;, 54, 37);]
+(Background on this error at: http://sqlalche.me/e/gkpj)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-                
-                  
-                
+
+</div>
+
+</div>
                 
               
               
@@ -1489,9 +1811,18 @@ VALUES ('1994-11-29', 'Hayward', 54, 37);]
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      <script src="../../../../assets/javascripts/vendor.36cbf620.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../../../../_js/extra.js"></script>
       
