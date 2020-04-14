@@ -1,6 +1,24 @@
 # Web Developpment
 
 
+[WHATWG spec](https://html.spec.whatwg.org/multipage/)
+
+
+First Term
+: This is the definition of the first term.
+
+Second Term
+: This is one definition of the second term.
+: This is another definition of the second term.
+
+
+## HTML semantic elements
+
+> Elements, attributes, and attribute values in HTML are defined (by this specification) to have certain meanings (semantics). For example, the ol element represents an ordered list, and the lang attribute represents the language of the content.
+> 
+> These definitions allow HTML processors, such as Web browsers or search engines, to present and use documents and applications in a wide variety of contexts that the author might not have considered.
+>
+
 ## Web components
 
 

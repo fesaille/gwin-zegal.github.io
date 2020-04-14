@@ -6,8 +6,8 @@ theme:
   custom_dir: theme/
   favicon: images/favicon.png
   logo: images/logo.svg
-  feature:
-    tabs: true
+  features:
+    - tabs
   palette:
     primary: 'blue grey'
     accent: 'indigo'
@@ -23,11 +23,11 @@ nav:
     - Envs: Python/envs.md
     - 'Iterators, generators and coroutines': Python/IterGen.md
     - Tests: Python/test.md
-    - Ubuntu: Linux/Ubuntu/python.md
+    - Ubuntu: shell/Ubuntu/python.md
   - DevOps:
     - Ansible: devops/ansible.md
   - shell:
-    - Intro: shell/_intro.md
+    - Intro: shell/intro.md
     - zsh: shell/zsh.md
     - vim: shell/vim.md 
     - git: shell/git.md
@@ -69,6 +69,8 @@ plugins:
   - exclude:
       glob:
       - _nb/extern/*
+  - awesome-pages
+  - search
 
 markdown_extensions:
   - admonition
