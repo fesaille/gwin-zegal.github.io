@@ -1,13 +1,17 @@
-# Zsh
-
-<a href="https://github.com/topics/zsh" target="_blank">
-	<img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/>
-</a>
+# Zsh <badge-doc href="http://www.zsh.org/"></badge-doc> <a href="https://github.com/topics/zsh" target="_blank"> <img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/> </a>
 
 The Z-shell
 
 
-http://www.zsh.org/
+
+### Glob qualifiers
+
+http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Qualifiers
+
+| Qualifiers   | Scope         |
+| ------------ | ------------- |
+| /            | directories   |
+
 
 
 ## Plugins	

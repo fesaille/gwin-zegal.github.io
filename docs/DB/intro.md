@@ -1,6 +1,13 @@
 
 # Database
 
+
+## Entity Relationship Diagram (ERD)
+
+Type of data modeling representing objects or concepts within an information system or organization and their relation to one other.
+
+
+
 <a href='https://github.com/edgedb/edgedb' target='_blank'>EdgeDB</a>
 
 

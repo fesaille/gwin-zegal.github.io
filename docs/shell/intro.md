@@ -9,12 +9,19 @@
   <!-- ... content ... -->
 </div>
 
-- <b>[fzf (fuzzy finder)](../fzf)</b> <badge-stars repo='junegunn/fzf'></badge-stars> <badge-doc href="https://github.com/junegunn/fzf#table-of-contents"></badge-doc>
-- <b>Ranger</b> <badge-stars repo='ranger/ranger'></badge-stars> <badge-doc href="https://ranger.github.io"></badge-doc>
+## Finding files 
 
- A VIM-inspired filemanager for the console
-
-
-![Cheatsheet](https://ranger.github.io/cheatsheet.png)
+### [ fzf (fuzzy finder) ](../fzf)
+<badge-stars repo='junegunn/fzf'></badge-stars> <badge-doc href="https://github.com/junegunn/fzf#table-of-contents"></badge-doc>
 
 
+## Ranger
+<badge-stars repo='ranger/ranger'></badge-stars> <badge-doc href="https://ranger.github.io"></badge-doc>
+
+  A VIM-inspired filemanager for the console
+  ![Cheatsheet](https://ranger.github.io/cheatsheet.png)
+
+### exa 
+<badge-stars repo='ogham/exa'></badge-stars> <badge-doc href="https://the.exa.website/"></badge-doc> 
+
+    exa is a replacement for ls written in Rust.

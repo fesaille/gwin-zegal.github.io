@@ -20,8 +20,29 @@ theme:
 
 nav:
   - Home: index.md
-  - doc:
-      - Markdown: doc/md.md
+  - Doc: doc/md.md
+  - Linux:
+      - shell: shell/intro.md
+      - zsh: shell/zsh.md
+      - GNU:
+          - Intro: shell/GNU/Intro.md
+          - Makefile: shell/GNU/Makefile.md
+      - vim: 
+          - Intro: shell/vim.md
+          - Panes: shell/vim/panes.md
+          - Edition: shell/vim/edition.md
+          - Motion: shell/vim/motion.md
+          - Plugins: shell/vim/plugins.md
+          - "Language support": shell/vim/languages.md
+      - utils:
+          - fzf: shell/fzf.md
+          - git: shell/git.md
+      - network: linux/network.md
+      - Ubuntu:
+          - Configuration: shell/Ubuntu/configuration.md
+          - Python: shell/Ubuntu/python.md
+      - helpers: shell/sys.md
+      - Virtualization: shell/vm.md
   - Python:
       - Intro: _nb/=Py/01_Python/01 - Python - CPython design.ipynb
       - Typing: Python/typing.md
@@ -29,25 +50,18 @@ nav:
       - "Iterators, generators and coroutines": Python/IterGen.md
       - Tests: Python/test.md
       - Ubuntu: shell/Ubuntu/python.md
+  - Go:
+      - Concurency: go/concurency.md
   - DevOps:
       - Ansible: devops/ansible.md
       - "Code coverage": devops/codecov.md
-  - Shell:
-      - Intro: shell/intro.md
-      - zsh: shell/zsh.md
-      - vim: shell/vim.md
-      - git: shell/git.md
-      - fzf: shell/fzf.md
-      - Ubuntu:
-          - Configuration: shell/Ubuntu/configuration.md
-          - Python: shell/Ubuntu/python.md
-      - helpers: shell/sys.md
   - DB:
       - intro: DB/intro.md
       - MongoDB:
           - Intro: DB/mongoDB/_intro.md
           - "Aggregation framework": DB/mongoDB/Aggregation.md
       - SQL:
+          - Intro: DB/SQL/_intro.md
           - PostgreSQL: DB/SQL/postgres.md
       - "Object store":
           - Intro: DB/S3/_intro.md
@@ -61,6 +75,7 @@ nav:
           - "Matrix profile": data/timeseries/matrixprofile.md
           - "Windowing": data/windowing.md
       - "Machine Learning":
+          - Regression: ml/regression.md 
           - Time series: ml/dl.md
   - Visualization:
     - Matplolib: Viz/matplotlib.md
@@ -86,6 +101,7 @@ markdown_extensions:
   # Adds the ability to add inline footnotes to your documentation
   # https://squidfunk.github.io/mkdocs-material/extensions/footnotes/
   - footnotes
+  - meta
   # ########################################################################
   # PyMdown Extensions
   # https://squidfunk.github.io/mkdocs-material/extensions/pymdown/

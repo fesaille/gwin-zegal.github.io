@@ -70,6 +70,9 @@ z--z--z   (master, upstream/master, origin/master)
 
 #### Remove a submodule
 
+A submodule can be deleted by running `git rm <submodule path> && git commit`. `$GIT_DIR/modules/<name>` delete the submodule completly. Util then, deletion can be undone using `git revert`.
+
+Alternative method:
 
 Remove the submodule entry from .git/config
 ```
@@ -85,6 +88,8 @@ Commit the changes
 ```
  git commit-m "Removed submodule "
 ```
+
+
 
 Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
 ```
