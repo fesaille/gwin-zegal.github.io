@@ -1,0 +1,3346 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+RDBMS
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+For more SQL examples in the SQLite3 dialect, seee [SQLite3 tutorial](https://www.techonthenet.com/sqlite/index.php). 
+
+For a deep dive, see [SQL Queries for Mere Mortals](https://www.amazon.com/SQL-Queries-Mere-Mortals-Hands/dp/0134858336/ref=dp_ob_title_bk).
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+## RDBMS concepts
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+[Codd's 12 rules](https://en.wikipedia.org/wiki/Codd%27s_12_rules)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### OLTP and OLAP
+
+- **OLTP**
+    - Normalized schema
+- **OLAP** (Online analytical processing):
+    - At the core is an OLAP cube (also called a 'multidimensional cube' or a hypercube)
+         - numeric facts called measures that are categorized by dimensions
+    - denormalized schema
+    - multi-dimensional analytical (MDA) queries
+         - typically stored in a star schema or snowflake schema
+    - mostly optimized for read
+    - Generated from OLTP databases by ETL (Extract-Transform-Load) operations
+        
+        
+        
+consolidation (roll-up), drill-down, and slicing and dicing
+
+- **Rotate** (or **Pivot**)  : sélection du couple de dimensions qui formera le résultat de la requête,
+- **Slicing** : extraction d'une tranche d'information,
+![Slicing](https://commons.wikimedia.org/wiki/File:OLAP_slicing.png)
+
+
+- **Scoping** (or **Dicing**) : extraction d'un bloc de [[donnée]]s (opération plus générale que le ''slicing''),
+- **Drill-up**: synthèse des informations en fonction d'une dimension (exemple de ''drill-up'' sur l'axe temps : passer de la présentation de l'information jour par jour sur une année, à une valeur synthétique pour l'année),
+- **Drill-down** : c'est l'équivalent d'un « zoom », opération inverse du ''drill-up'',
+- **Drill-through** : lorsqu'on ne dispose que de [[donnée]]s agrégées (indicateurs totalisés), le ''drill through'' permet d'accéder au détail élémentaire des informations (voir notamment les outils H-OLAP).
+
+### Types of REBMS
+    
+- Data lake
+- Data warehouse
+- Data mart        
+        
+Data marts typically use a star schema that is customized for the analysis needs. For example, the finance department in a hospital may be most interested in Facts about Claims.
+        
+![img](https://www.researchgate.net/profile/Hugh_Watson3/publication/239823035/figure/fig2/AS:375035886882819@1466426931869/A-Star-Schema-for-Health-Care-courtesy-of-Arthur-Andersen.png)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Robustness and scaling
+
+- Replication
+- Sharding
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+## B. Basic SQL queries
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Data we will work with in Part B
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%load_ext sql
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql sqlite:///data/faculty.db
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Connected: @data/faculty.db&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT * FROM sqlite_master WHERE type='table';
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>type</th>
+        <th>name</th>
+        <th>tbl_name</th>
+        <th>rootpage</th>
+        <th>sql</th>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>person</td>
+        <td>person</td>
+        <td>2</td>
+        <td>CREATE TABLE person (<br>	&quot;index&quot; BIGINT, <br>	person_id BIGINT, <br>	first TEXT, <br>	last TEXT, <br>	age BIGINT, <br>	height FLOAT, <br>	weight BIGINT, <br>	country_id TEXT, <br>	gender_id BIGINT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>confidential</td>
+        <td>confidential</td>
+        <td>18</td>
+        <td>CREATE TABLE confidential (<br>	&quot;index&quot; BIGINT, <br>	person_id BIGINT, <br>	salary BIGINT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>person_language</td>
+        <td>person_language</td>
+        <td>33</td>
+        <td>CREATE TABLE person_language (<br>	&quot;index&quot; BIGINT, <br>	person_id BIGINT, <br>	language_id BIGINT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>language</td>
+        <td>language</td>
+        <td>50</td>
+        <td>CREATE TABLE language (<br>	&quot;index&quot; BIGINT, <br>	language_id BIGINT, <br>	language_name TEXT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>gender</td>
+        <td>gender</td>
+        <td>55</td>
+        <td>CREATE TABLE gender (<br>	&quot;index&quot; BIGINT, <br>	gender_id BIGINT, <br>	gender TEXT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>country</td>
+        <td>country</td>
+        <td>57</td>
+        <td>CREATE TABLE country (<br>	&quot;index&quot; BIGINT, <br>	country_id TEXT, <br>	country TEXT, <br>	nationality TEXT<br>)</td>
+    </tr>
+    <tr>
+        <td>table</td>
+        <td>df</td>
+        <td>df</td>
+        <td>59</td>
+        <td>CREATE TABLE df (<br>	&quot;index&quot; BIGINT, <br>	person TEXT, <br>	time BIGINT, <br>	bsl BIGINT<br>)</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Basic Structure
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT DISTINCT value_expression AS alias
+FROM tables AS alias
+WHERE predicate
+ORDER BY value_expression
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Types
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Character (Fixed width, variable width)
+- National Character (Fixed width, variable width)
+- Binary
+- Numeric (Exact, Arpproximate)
+- Boolean
+- DateTime
+- Interval
+
+The SQL standard specifies that character strings and datetime literals are enclosed by single quotes. Two single quotes wihtin a string is intepreted as a literal single quote.
+
+```sql
+'Gilligan''s island'
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### The CAST function
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```sql
+CAST(X as CHARACTER(10))
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Value expreesion
+
+- Literal
+- Column reference
+- Function
+- CASES
+- (Value expression)
+- (SELECT expression)
+
+which may be prefixed with unary operaors `-` and `+` and combined with binary operators appropriate for the data type.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Bineary operators
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Concatenation
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+A || B
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Mathematical
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+A + B
+A - B
+A * B
+A / B
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Data and time arithmetic
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+'2018-08-29' + 3
+'11:59' + '00:01'
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT DISTINCT language_name
+FROM language
+LIMIT 5;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>PHP</td>
+    </tr>
+    <tr>
+        <td>Clojure</td>
+    </tr>
+    <tr>
+        <td>Dylan</td>
+    </tr>
+    <tr>
+        <td>GNU Octave</td>
+    </tr>
+    <tr>
+        <td>D</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Sorting
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT DISTINCT value_expression AS alias
+FROM tables AS alias
+ORDER BY value_expression
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT DISTINCT language_name
+FROM language
+ORDER BY language_name ASC
+LIMIT 5;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>ASP</td>
+    </tr>
+    <tr>
+        <td>Assembly</td>
+    </tr>
+    <tr>
+        <td>AutoIt</td>
+    </tr>
+    <tr>
+        <td>Awk</td>
+    </tr>
+    <tr>
+        <td>Bash</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Filtering
+
+For efficiency, place the most stringent filters first.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT DISTINCT value_expression AS alias
+FROM tables AS alias
+WHERE predicate
+ORDER BY value_expression
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Predicates for filtering rows
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+- Comparison operators (=, <>, <, >, <=, >=)
+- BETWEEN start AND end
+- IN(A, B, C)
+- LIKE
+- IS NULL
+- REGEX
+
+Use NOT prefix for negation
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Combining predicates
+
+```sql
+AND
+OR
+```
+
+USe parenthesis to indicate order of evaluation for compound statements.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT first, last, age
+FROM person
+WHERE age BETWEEN 16 AND 17
+LIMIT 5;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>age</th>
+    </tr>
+    <tr>
+        <td>Antoine</td>
+        <td>Beard</td>
+        <td>16</td>
+    </tr>
+    <tr>
+        <td>Augustine</td>
+        <td>Mejia</td>
+        <td>16</td>
+    </tr>
+    <tr>
+        <td>Boris</td>
+        <td>Mejia</td>
+        <td>16</td>
+    </tr>
+    <tr>
+        <td>Brain</td>
+        <td>Haney</td>
+        <td>16</td>
+    </tr>
+    <tr>
+        <td>Burl</td>
+        <td>Mayo</td>
+        <td>17</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Joins
+
+Joins combine data from 1 or more tables to form a new result set.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Natural join
+
+Uses all common columns in Tables 1 and 2 for JOIN
+
+```SQL
+FROM Table1 
+NATURAL INNER JOIN Table 2
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Inner join
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+General form of INNER JOIN uisng ON
+
+```SQL
+FROM Table1 
+INNER JOIN Table2
+ON Table1.Column = Table2.Column
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+If there is a common column in both tables
+
+```SQL
+FROM Table1
+INNER JOIN Table2
+USING Column
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Joining more than two tables
+
+```SQL
+From (Table1 
+      INNER JOIN Table2
+      ON Table1.column1 = Table2.Column1)
+      INNER JOIN Table3 
+      ON Table3.column2 = Table2.Column2
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Outer join
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+General form of OUTER JOIN uisng ON
+
+```SQL
+FROM Table1 
+RIGHT OUTER JOIN Table2
+ON Table1.Column = Table2.Column
+```
+
+```SQL
+FROM Table1 
+LEFT OUTER JOIN Table2
+ON Table1.Column = Table2.Column
+```
+
+```SQL
+FROM Table1 
+FULL OUTER JOIN Table2
+ON Table1.Column = Table2.Column
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT first, last, language_name 
+FROM person
+INNER JOIN person_language ON person.person_id = person_language.person_id
+INNER JOIN language ON language.language_id = person_language.language_id
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>GNU Octave</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>haXe</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>Falcon</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Allen</td>
+        <td>TypeScript</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Lua</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Falcon</td>
+    </tr>
+    <tr>
+        <td>Adan</td>
+        <td>Brown</td>
+        <td>F#</td>
+    </tr>
+    <tr>
+        <td>Adolph</td>
+        <td>Dalton</td>
+        <td>Dart</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Set operations 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT a, b 
+FROM table1
+SetOp
+SELECT a, b 
+FROM table2
+```
+
+wehre SetOp is `INTERSECT`, `EXCEPT`, `UNION` or `UNION ALL`.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Intersection
+
+```sql
+INTERSECT
+```
+
+Alternative using `INNER JOIN`
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Union
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+UNION
+UNION ALL (does not eliminate duplicate rows)
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Difference
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+EXCEPT
+```
+
+Alternative using `OUTER JOIN` with test for `NULL`
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+DROP VIEW IF EXISTS language_view;
+CREATE VIEW language_view AS
+SELECT first, last, language_name 
+FROM person
+INNER JOIN person_language ON person.person_id = person_language.person_id
+INNER JOIN language ON language.language_id = person_language.language_id
+;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECt * 
+FROM language_view 
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>GNU Octave</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>haXe</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>Falcon</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Allen</td>
+        <td>TypeScript</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Lua</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Falcon</td>
+    </tr>
+    <tr>
+        <td>Adan</td>
+        <td>Brown</td>
+        <td>F#</td>
+    </tr>
+    <tr>
+        <td>Adolph</td>
+        <td>Dalton</td>
+        <td>Dart</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECt * 
+FROM language_view 
+WHERE language_name = 'Python'
+UNION
+SELECt * 
+FROM language_view 
+WHERE language_name = 'Haskell'
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Andree</td>
+        <td>Douglas</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Arlie</td>
+        <td>Terrell</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Boyd</td>
+        <td>Blackwell</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Buck</td>
+        <td>Howe</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Carlton</td>
+        <td>Richard</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Carylon</td>
+        <td>Zamora</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Clarisa</td>
+        <td>Rodgers</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Dinorah</td>
+        <td>O&#x27;brien</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Dorian</td>
+        <td>Lloyd</td>
+        <td>Haskell</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECt * 
+FROM language_view 
+WHERE language_name IN ('Python', 'Haskell')
+ORDER BY first
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Andree</td>
+        <td>Douglas</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Arlie</td>
+        <td>Terrell</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Boyd</td>
+        <td>Blackwell</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Buck</td>
+        <td>Howe</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Carlton</td>
+        <td>Richard</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Carylon</td>
+        <td>Zamora</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Clarisa</td>
+        <td>Rodgers</td>
+        <td>Python</td>
+    </tr>
+    <tr>
+        <td>Dinorah</td>
+        <td>O&#x27;brien</td>
+        <td>Haskell</td>
+    </tr>
+    <tr>
+        <td>Dorian</td>
+        <td>Lloyd</td>
+        <td>Haskell</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Subqueries
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### As column expresions
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT a, b, 
+(
+    SELECT MAX(c) 
+    FROM table2
+    INNER JOIN table1
+    USING column1
+) as max_c
+FROM table1
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### As filters
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT a, b, 
+FROM table1
+WHERE b > 
+(
+    SELECT AVG(b)
+    FROM table1
+)
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Quantified Subqueires
+
+```SQL
+ALl
+SOME
+ANY
+EXISTS
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT a, b, 
+FROM table1
+WHERE EXISTS
+(
+    SELECT c
+    FROM table2
+)
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT first, last, language_name
+FROM person, language
+WHERE language_name IN (
+    SELECT language_name 
+    FROM language_view
+    WHERe first='Abram' AND last='Boyer'
+)
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Allen</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Adan</td>
+        <td>Brown</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Adolph</td>
+        <td>Dalton</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Adrian</td>
+        <td>Blevins</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Agustin</td>
+        <td>Fulton</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Agustin</td>
+        <td>Mcdonald</td>
+        <td>Io</td>
+    </tr>
+    <tr>
+        <td>Alberto</td>
+        <td>Dudley</td>
+        <td>Io</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Aggregate functions
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+COUNT
+MIN
+MAX
+AVG
+SUM
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT count(language_name) 
+FROM language_view;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>count(language_name)</th>
+    </tr>
+    <tr>
+        <td>2297</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Grouping
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT a, MIN(b) AS min_b, MAX(b) AS max_b, AVG(b) AS mean_b
+FROM table
+GROUP BY a
+HAVING mean_b > 5
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The `HAVING` is analagous to the `WHERE` clause, but filters on aggregate conditions. Note that the `WHERE` statement filters rows BEFORE the grouping is done.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Note: Any variable in the SELECT part that is not an aggregte function needs to be in the GROUP BY part.
+
+```SQL
+SELECT a, b, c, COUNT(d)
+FROM table
+GROUP BY a, b, c
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT language_name, count(*) AS n
+FROM language_view
+GROUP BY language_name
+HAVING n > 45;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>language_name</th>
+        <th>n</th>
+    </tr>
+    <tr>
+        <td>AutoIt</td>
+        <td>61</td>
+    </tr>
+    <tr>
+        <td>Bash</td>
+        <td>48</td>
+    </tr>
+    <tr>
+        <td>ECMAScript</td>
+        <td>48</td>
+    </tr>
+    <tr>
+        <td>GNU Octave</td>
+        <td>49</td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td>48</td>
+    </tr>
+    <tr>
+        <td>Perl</td>
+        <td>55</td>
+    </tr>
+    <tr>
+        <td>PowerShell</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Prolog</td>
+        <td>50</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### The CASE switch
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Simple CASE
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT name,
+(CASE sex 
+ WHEN 'M' THEN 1.5*dose
+ WHEN 'F' THEN dose
+ END) as adjusted_dose
+FROM table
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+#### Searched CASE
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+```SQL
+SELECT name,
+(CASE  
+ WHEN sex = 'M' THEN 1.5*dose
+ WHEN sex = 'F' THEN dose
+ END) as adjusted_dose
+FROM table
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT first, last, language_name,
+(CASE
+    WHEN language_name LIKE 'H%' THEN 'Hire'
+    ELSE 'FIRE'
+END
+) AS outcome
+FROM language_view
+LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * sqlite:///data/faculty.db
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>first</th>
+        <th>last</th>
+        <th>language_name</th>
+        <th>outcome</th>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Alexander</td>
+        <td>Haskell</td>
+        <td>Hire</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>GNU Octave</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>haXe</td>
+        <td>Hire</td>
+    </tr>
+    <tr>
+        <td>Aaron</td>
+        <td>Kirby</td>
+        <td>Falcon</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Allen</td>
+        <td>TypeScript</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Io</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Lua</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Abram</td>
+        <td>Boyer</td>
+        <td>Falcon</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Adan</td>
+        <td>Brown</td>
+        <td>F#</td>
+        <td>FIRE</td>
+    </tr>
+    <tr>
+        <td>Adolph</td>
+        <td>Dalton</td>
+        <td>Dart</td>
+        <td>FIRE</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+## C.  Window Functions
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We use the PostgreSQL databsaee because window functions are not supported in SQLite3 [yet](https://www.sqlite.org/draft/releaselog/3_25_0.html)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%load_ext sql
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql postgresql://postgres:postgres@postgres.app.com/postgres
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Connected: postgres@postgres&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+import pandas as pd
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+import numpy as np
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+from collections import OrderedDict
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+np.random.seed(23)
+n = 10
+df = pd.DataFrame(
+    OrderedDict(person=np.random.choice(['A', 'B', 'C', 'D'], n,),
+                time=np.random.randint(0, 10, n), 
+                bsl=np.random.randint(50, 400, n)))
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df.sort_values(['person', 'time'])
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>person</th>
+      <th>time</th>
+      <th>bsl</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>A</td>
+      <td>0</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>A</td>
+      <td>2</td>
+      <td>237</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>3</td>
+      <td>129</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>B</td>
+      <td>5</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>B</td>
+      <td>6</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>C</td>
+      <td>1</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>C</td>
+      <td>9</td>
+      <td>347</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>D</td>
+      <td>5</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>D</td>
+      <td>5</td>
+      <td>221</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>D</td>
+      <td>7</td>
+      <td>98</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql DROP TABLE IF EXISTS df
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Magic shortcut to creating a database table from `pandas` DataFrame.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql persist df
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Persisted df&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Over  creates widows
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, row_number() 
+OVER ()
+FROM df;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>row_number</th>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>10</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Order by
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, row_number() 
+OVER (ORDER BY person, time)
+FROM df;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>row_number</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>7</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>9</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>10</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Partition by
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, row_number() 
+OVER (PARTITION BY person ORDER BY time)
+FROM df;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>row_number</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>3</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, STRING_AGG(CAST(bsl AS TEXT), ', ')
+OVER (PARTITION BY person ORDER BY time)
+FROM df;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>string_agg</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>115, 237</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>115, 237, 129</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>86</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>86, 396</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>107</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>107, 347</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>221, 89</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>221, 89</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>221, 89, 98</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Specifying rows in window
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, STRING_AGG(CAST(bsl AS TEXT), ', ')
+OVER (
+    PARTITION BY person
+    ORDER BY time
+    ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+     )
+FROM df;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>string_agg</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115, 237</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>115, 237, 129</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>237, 129</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>86, 396</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>86, 396</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>107, 347</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>107, 347</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>221, 89</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>221, 89, 98</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>89, 98</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Using window functions
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, 
+       row_number() OVER win    AS row_number,
+       rank() OVER win          AS rank,
+       dense_rank() OVER win    AS dense_rank,
+       percent_rank() OVER win  AS percent_rank,
+       cume_dist() OVER win     AS cume_dist
+FROM df
+WINDOW win AS (ORDER BY person);
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>row_number</th>
+        <th>rank</th>
+        <th>dense_rank</th>
+        <th>percent_rank</th>
+        <th>cume_dist</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.0</td>
+        <td>0.3</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>2</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.0</td>
+        <td>0.3</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>3</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0.0</td>
+        <td>0.3</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>4</td>
+        <td>4</td>
+        <td>2</td>
+        <td>0.333333333333333</td>
+        <td>0.5</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>5</td>
+        <td>4</td>
+        <td>2</td>
+        <td>0.333333333333333</td>
+        <td>0.5</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>6</td>
+        <td>6</td>
+        <td>3</td>
+        <td>0.555555555555556</td>
+        <td>0.7</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>7</td>
+        <td>6</td>
+        <td>3</td>
+        <td>0.555555555555556</td>
+        <td>0.7</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>8</td>
+        <td>8</td>
+        <td>4</td>
+        <td>0.777777777777778</td>
+        <td>1.0</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>9</td>
+        <td>8</td>
+        <td>4</td>
+        <td>0.777777777777778</td>
+        <td>1.0</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>10</td>
+        <td>8</td>
+        <td>4</td>
+        <td>0.777777777777778</td>
+        <td>1.0</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Using aggregate functions
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl,
+       SUM(bsl) OVER win    AS bsl_sum,
+       AVG(bsl) OVER win    AS bsl_avg,
+       MIN(bsl) OVER win    AS bsl_min,
+       MAX(bsl) over win as bsl_max,
+       FIRST_VALUE(bsl) OVER win as bsl_start,
+       LAST_VALUE(bsl) OVER win as bsl_end
+FROM df
+WINDOW win AS (PARTITION BY person ORDER BY time);
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>bsl_sum</th>
+        <th>bsl_avg</th>
+        <th>bsl_min</th>
+        <th>bsl_max</th>
+        <th>bsl_start</th>
+        <th>bsl_end</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115</td>
+        <td>115.0000000000000000</td>
+        <td>115</td>
+        <td>115</td>
+        <td>115</td>
+        <td>115</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>352</td>
+        <td>176.0000000000000000</td>
+        <td>115</td>
+        <td>237</td>
+        <td>115</td>
+        <td>237</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+        <td>115</td>
+        <td>237</td>
+        <td>115</td>
+        <td>129</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>86</td>
+        <td>86.0000000000000000</td>
+        <td>86</td>
+        <td>86</td>
+        <td>86</td>
+        <td>86</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>482</td>
+        <td>241.0000000000000000</td>
+        <td>86</td>
+        <td>396</td>
+        <td>86</td>
+        <td>396</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>107</td>
+        <td>107.0000000000000000</td>
+        <td>107</td>
+        <td>107</td>
+        <td>107</td>
+        <td>107</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>454</td>
+        <td>227.0000000000000000</td>
+        <td>107</td>
+        <td>347</td>
+        <td>107</td>
+        <td>347</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>310</td>
+        <td>155.0000000000000000</td>
+        <td>89</td>
+        <td>221</td>
+        <td>221</td>
+        <td>89</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>310</td>
+        <td>155.0000000000000000</td>
+        <td>89</td>
+        <td>221</td>
+        <td>221</td>
+        <td>89</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>408</td>
+        <td>136.0000000000000000</td>
+        <td>89</td>
+        <td>221</td>
+        <td>221</td>
+        <td>98</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Using rows and range to constrain windows
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, 
+       STRING_AGG(CAST(bsl AS TEXT), ', ') OVER win AS vals,
+       SUM(bsl) OVER win AS bsl_sum,
+       AVG(bsl) OVER win AS bsl_avg
+FROM df
+WINDOW win AS (
+    PARTITION BY person
+    ORDER BY time
+    ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+)
+ORDER BY person, time;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>vals</th>
+        <th>bsl_sum</th>
+        <th>bsl_avg</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115, 237</td>
+        <td>352</td>
+        <td>176.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>115, 237, 129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>237, 129</td>
+        <td>366</td>
+        <td>183.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>86, 396</td>
+        <td>482</td>
+        <td>241.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>86, 396</td>
+        <td>482</td>
+        <td>241.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>107, 347</td>
+        <td>454</td>
+        <td>227.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>107, 347</td>
+        <td>454</td>
+        <td>227.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>221, 89</td>
+        <td>310</td>
+        <td>155.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>221, 89, 98</td>
+        <td>408</td>
+        <td>136.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>89, 98</td>
+        <td>187</td>
+        <td>93.5000000000000000</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Frames using Rows and Range
+
+For Range, all rows with the same ORDER BY value are considered peers.
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, 
+       STRING_AGG(CAST(bsl AS TEXT), ', ') OVER win AS vals,
+       SUM(bsl) OVER win AS bsl_sum,
+       AVG(bsl) OVER win AS bsl_avg
+FROM df
+WINDOW win AS (
+    ORDER BY person
+    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+)
+ORDER BY person, time;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>vals</th>
+        <th>bsl_sum</th>
+        <th>bsl_avg</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115</td>
+        <td>115</td>
+        <td>115.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>115, 237</td>
+        <td>352</td>
+        <td>176.0000000000000000</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>115, 237, 129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>115, 237, 129, 396, 86</td>
+        <td>963</td>
+        <td>192.6000000000000000</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>115, 237, 129, 396</td>
+        <td>877</td>
+        <td>219.2500000000000000</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>115, 237, 129, 396, 86, 107</td>
+        <td>1070</td>
+        <td>178.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>115, 237, 129, 396, 86, 107, 347</td>
+        <td>1417</td>
+        <td>202.4285714285714286</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221</td>
+        <td>1638</td>
+        <td>204.7500000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221, 89</td>
+        <td>1727</td>
+        <td>191.8888888888888889</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221, 89, 98</td>
+        <td>1825</td>
+        <td>182.5000000000000000</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+SELECT person, time, bsl, 
+       STRING_AGG(CAST(bsl AS TEXT), ', ') OVER win AS vals,
+       SUM(bsl) OVER win AS bsl_sum,
+       AVG(bsl) OVER win AS bsl_avg
+FROM df
+WINDOW win AS (
+    ORDER BY person
+    RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+)
+ORDER BY person, time;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql://postgres:***@172.26.0.3/postgres
+10 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>person</th>
+        <th>time</th>
+        <th>bsl</th>
+        <th>vals</th>
+        <th>bsl_sum</th>
+        <th>bsl_avg</th>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>0</td>
+        <td>115</td>
+        <td>115, 237, 129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>2</td>
+        <td>237</td>
+        <td>115, 237, 129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>3</td>
+        <td>129</td>
+        <td>115, 237, 129</td>
+        <td>481</td>
+        <td>160.3333333333333333</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>5</td>
+        <td>86</td>
+        <td>115, 237, 129, 396, 86</td>
+        <td>963</td>
+        <td>192.6000000000000000</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>6</td>
+        <td>396</td>
+        <td>115, 237, 129, 396, 86</td>
+        <td>963</td>
+        <td>192.6000000000000000</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>1</td>
+        <td>107</td>
+        <td>115, 237, 129, 396, 86, 107, 347</td>
+        <td>1417</td>
+        <td>202.4285714285714286</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>9</td>
+        <td>347</td>
+        <td>115, 237, 129, 396, 86, 107, 347</td>
+        <td>1417</td>
+        <td>202.4285714285714286</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>221</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221, 89, 98</td>
+        <td>1825</td>
+        <td>182.5000000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>5</td>
+        <td>89</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221, 89, 98</td>
+        <td>1825</td>
+        <td>182.5000000000000000</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>7</td>
+        <td>98</td>
+        <td>115, 237, 129, 396, 86, 107, 347, 221, 89, 98</td>
+        <td>1825</td>
+        <td>182.5000000000000000</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+
+```
+
+</div>
+
+</div>
+
+

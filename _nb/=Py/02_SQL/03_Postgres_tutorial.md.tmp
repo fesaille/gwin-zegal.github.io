@@ -1,0 +1,582 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%load_ext sql
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%env DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
+uri = %env DATABASE_URL
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>env: DATABASE_URL=postgresql+psycopg2://postgres:postgres@db.postgres.app.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+or
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+uri = "postgresql+psycopg2://postgres:postgres@db.postgres.app.com"
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+# [Create tables](https://www.postgresql.org/docs/11/tutorial-table.html)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+\d
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>6 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>Schema</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Owner</th>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>accounts</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>flat</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_cities_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations</td>
+        <td>table</td>
+        <td>postgres</td>
+    </tr>
+    <tr>
+        <td>public</td>
+        <td>t_weather_observations_id_seq</td>
+        <td>sequence</td>
+        <td>postgres</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+DROP TABLE IF EXISTS t_weather_observations, t_cities;
+
+CREATE TABLE t_cities (
+    name            varchar(80) PRIMARY KEY,
+    location        point
+);
+
+CREATE TABLE t_weather_observations (
+    id              SERIAL PRIMARY KEY,
+    city            varchar(80),
+    temp_lo         int,           -- low temperature
+    temp_hi         int,           -- high temperature
+    prcp            real,          -- precipitation
+    date            date,
+    FOREIGN KEY (city) REFERENCES t_cities(name) -- or city varchar(80) REFERENCES cities(name),
+);
+
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Done.
+Done.
+Done.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+## [Populate a table with a row](https://www.postgresql.org/docs/11/tutorial-populate.html)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+INSERT INTO t_cities (name, location)
+VALUES ('San Francisco', '(-194.2, 53.0)');
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+1 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql SELECT * from Cities;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+1 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>name</th>
+        <th>location</th>
+    </tr>
+    <tr>
+        <td>San Francisco</td>
+        <td>(-194.2,53)</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
+VALUES ('San Francisco', 43, 57, 0.0, '1994-11-29');
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+1 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%sql SELECT * from weather;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+2 rows affected.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table>
+    <tr>
+        <th>id</th>
+        <th>city</th>
+        <th>temp_lo</th>
+        <th>temp_hi</th>
+        <th>prcp</th>
+        <th>date</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>San Francisco</td>
+        <td>43</td>
+        <td>57</td>
+        <td>0.0</td>
+        <td>1994-11-29</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>San Francisco</td>
+        <td>43</td>
+        <td>57</td>
+        <td>0.0</td>
+        <td>1994-11-29</td>
+    </tr>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%%sql
+
+INSERT INTO weather (date, city, temp_hi, temp_lo)
+VALUES ('1994-11-29', 'Hayward', 54, 37);
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> * postgresql+psycopg2://postgres:***@db.postgres.app.com
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ForeignKeyViolation</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1243</span>                     self.dialect.do_execute(
+<span class="ansi-green-fg">-&gt; 1244</span><span class="ansi-red-fg">                         </span>cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1245</span>                     )
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py</span> in <span class="ansi-cyan-fg">do_execute</span><span class="ansi-blue-fg">(self, cursor, statement, parameters, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    549</span>     <span class="ansi-green-fg">def</span> do_execute<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 550</span><span class="ansi-red-fg">         </span>cursor<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    551</span> 
+
+<span class="ansi-red-fg">ForeignKeyViolation</span>: insert or update on table &#34;weather&#34; violates foreign key constraint &#34;weather_city_fkey&#34;
+DETAIL:  Key (city)=(Hayward) is not present in table &#34;cities&#34;.
+
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-fg">IntegrityError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-93-3bccff404bf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>get_ipython<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>run_cell_magic<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;sql&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;\nINSERT INTO weather (date, city, temp_hi, temp_lo)\nVALUES (&#39;1994-11-29&#39;, &#39;Hayward&#39;, 54, 37);\n&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/interactiveshell.py</span> in <span class="ansi-cyan-fg">run_cell_magic</span><span class="ansi-blue-fg">(self, magic_name, line, cell)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2356</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>builtin_trap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   2357</span>                 args <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>magic_arg_s<span class="ansi-blue-fg">,</span> cell<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">-&gt; 2358</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> fn<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2359</span>             <span class="ansi-green-fg">return</span> result
+<span class="ansi-green-intense-fg ansi-bold">   2360</span> 
+
+<span class="ansi-green-fg">&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-157&gt;</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span> 
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">&lt;/opt/conda/lib/python3.7/site-packages/decorator.py:decorator-gen-156&gt;</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/IPython/core/magic.py</span> in <span class="ansi-cyan-fg">&lt;lambda&gt;</span><span class="ansi-blue-fg">(f, *a, **k)</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>     <span class="ansi-red-fg"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-green-fg">def</span> magic_deco<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 187</span><span class="ansi-red-fg">         </span>call <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">lambda</span> f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">:</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>a<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>k<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span> 
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-green-fg">if</span> callable<span class="ansi-blue-fg">(</span>arg<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sql/magic.py</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, line, cell, local_ns)</span>
+<span class="ansi-green-intense-fg ansi-bold">     93</span> 
+<span class="ansi-green-intense-fg ansi-bold">     94</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 95</span><span class="ansi-red-fg">             </span>result <span class="ansi-blue-fg">=</span> sql<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">.</span>run<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">,</span> parsed<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;sql&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">,</span> user_ns<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span> 
+<span class="ansi-green-intense-fg ansi-bold">     97</span>             <span class="ansi-green-fg">if</span> result <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> isinstance<span class="ansi-blue-fg">(</span>result<span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> self<span class="ansi-blue-fg">.</span>column_local_vars<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sql/run.py</span> in <span class="ansi-cyan-fg">run</span><span class="ansi-blue-fg">(conn, sql, config, user_namespace)</span>
+<span class="ansi-green-intense-fg ansi-bold">    338</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    339</span>                 txt <span class="ansi-blue-fg">=</span> sqlalchemy<span class="ansi-blue-fg">.</span>sql<span class="ansi-blue-fg">.</span>text<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 340</span><span class="ansi-red-fg">                 </span>result <span class="ansi-blue-fg">=</span> conn<span class="ansi-blue-fg">.</span>session<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>txt<span class="ansi-blue-fg">,</span> user_namespace<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    341</span>             _commit<span class="ansi-blue-fg">(</span>conn<span class="ansi-blue-fg">=</span>conn<span class="ansi-blue-fg">,</span> config<span class="ansi-blue-fg">=</span>config<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    342</span>             <span class="ansi-green-fg">if</span> result <span class="ansi-green-fg">and</span> config<span class="ansi-blue-fg">.</span>feedback<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">execute</span><span class="ansi-blue-fg">(self, object_, *multiparams, **params)</span>
+<span class="ansi-green-intense-fg ansi-bold">    986</span>             <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>ObjectNotExecutableError<span class="ansi-blue-fg">(</span>object_<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    987</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 988</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> meth<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    989</span> 
+<span class="ansi-green-intense-fg ansi-bold">    990</span>     <span class="ansi-green-fg">def</span> _execute_function<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/sql/elements.py</span> in <span class="ansi-cyan-fg">_execute_on_connection</span><span class="ansi-blue-fg">(self, connection, multiparams, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">    285</span>     <span class="ansi-green-fg">def</span> _execute_on_connection<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> connection<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    286</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>supports_execution<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 287</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> connection<span class="ansi-blue-fg">.</span>_execute_clauseelement<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> multiparams<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    288</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    289</span>             <span class="ansi-green-fg">raise</span> exc<span class="ansi-blue-fg">.</span>ObjectNotExecutableError<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_clauseelement</span><span class="ansi-blue-fg">(self, elem, multiparams, params)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1105</span>             distilled_params<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1106</span>             compiled_sql<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">-&gt; 1107</span><span class="ansi-red-fg">             </span>distilled_params<span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1108</span>         )
+<span class="ansi-green-intense-fg ansi-bold">   1109</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_has_events <span class="ansi-green-fg">or</span> self<span class="ansi-blue-fg">.</span>engine<span class="ansi-blue-fg">.</span>_has_events<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1246</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1247</span>             self._handle_dbapi_exception(
+<span class="ansi-green-fg">-&gt; 1248</span><span class="ansi-red-fg">                 </span>e<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1249</span>             )
+<span class="ansi-green-intense-fg ansi-bold">   1250</span> 
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_handle_dbapi_exception</span><span class="ansi-blue-fg">(self, e, statement, parameters, cursor, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1464</span>                 util<span class="ansi-blue-fg">.</span>raise_from_cause<span class="ansi-blue-fg">(</span>newraise<span class="ansi-blue-fg">,</span> exc_info<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1465</span>             <span class="ansi-green-fg">elif</span> should_wrap<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 1466</span><span class="ansi-red-fg">                 </span>util<span class="ansi-blue-fg">.</span>raise_from_cause<span class="ansi-blue-fg">(</span>sqlalchemy_exception<span class="ansi-blue-fg">,</span> exc_info<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1467</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1468</span>                 util<span class="ansi-blue-fg">.</span>reraise<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>exc_info<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py</span> in <span class="ansi-cyan-fg">raise_from_cause</span><span class="ansi-blue-fg">(exception, exc_info)</span>
+<span class="ansi-green-intense-fg ansi-bold">    397</span>     exc_type<span class="ansi-blue-fg">,</span> exc_value<span class="ansi-blue-fg">,</span> exc_tb <span class="ansi-blue-fg">=</span> exc_info
+<span class="ansi-green-intense-fg ansi-bold">    398</span>     cause <span class="ansi-blue-fg">=</span> exc_value <span class="ansi-green-fg">if</span> exc_value <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> exception <span class="ansi-green-fg">else</span> <span class="ansi-green-fg">None</span>
+<span class="ansi-green-fg">--&gt; 399</span><span class="ansi-red-fg">     </span>reraise<span class="ansi-blue-fg">(</span>type<span class="ansi-blue-fg">(</span>exception<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> exception<span class="ansi-blue-fg">,</span> tb<span class="ansi-blue-fg">=</span>exc_tb<span class="ansi-blue-fg">,</span> cause<span class="ansi-blue-fg">=</span>cause<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    400</span> 
+<span class="ansi-green-intense-fg ansi-bold">    401</span> 
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/util/compat.py</span> in <span class="ansi-cyan-fg">reraise</span><span class="ansi-blue-fg">(tp, value, tb, cause)</span>
+<span class="ansi-green-intense-fg ansi-bold">    151</span>             value<span class="ansi-blue-fg">.</span>__cause__ <span class="ansi-blue-fg">=</span> cause
+<span class="ansi-green-intense-fg ansi-bold">    152</span>         <span class="ansi-green-fg">if</span> value<span class="ansi-blue-fg">.</span>__traceback__ <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">not</span> tb<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 153</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> value<span class="ansi-blue-fg">.</span>with_traceback<span class="ansi-blue-fg">(</span>tb<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    154</span>         <span class="ansi-green-fg">raise</span> value
+<span class="ansi-green-intense-fg ansi-bold">    155</span> 
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/base.py</span> in <span class="ansi-cyan-fg">_execute_context</span><span class="ansi-blue-fg">(self, dialect, constructor, statement, parameters, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1242</span>                 <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> evt_handled<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   1243</span>                     self.dialect.do_execute(
+<span class="ansi-green-fg">-&gt; 1244</span><span class="ansi-red-fg">                         </span>cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context
+<span class="ansi-green-intense-fg ansi-bold">   1245</span>                     )
+<span class="ansi-green-intense-fg ansi-bold">   1246</span>         <span class="ansi-green-fg">except</span> BaseException <span class="ansi-green-fg">as</span> e<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/sqlalchemy/engine/default.py</span> in <span class="ansi-cyan-fg">do_execute</span><span class="ansi-blue-fg">(self, cursor, statement, parameters, context)</span>
+<span class="ansi-green-intense-fg ansi-bold">    548</span> 
+<span class="ansi-green-intense-fg ansi-bold">    549</span>     <span class="ansi-green-fg">def</span> do_execute<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 550</span><span class="ansi-red-fg">         </span>cursor<span class="ansi-blue-fg">.</span>execute<span class="ansi-blue-fg">(</span>statement<span class="ansi-blue-fg">,</span> parameters<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    551</span> 
+<span class="ansi-green-intense-fg ansi-bold">    552</span>     <span class="ansi-green-fg">def</span> do_execute_no_params<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> cursor<span class="ansi-blue-fg">,</span> statement<span class="ansi-blue-fg">,</span> context<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">IntegrityError</span>: (psycopg2.errors.ForeignKeyViolation) insert or update on table &#34;weather&#34; violates foreign key constraint &#34;weather_city_fkey&#34;
+DETAIL:  Key (city)=(Hayward) is not present in table &#34;cities&#34;.
+
+[SQL: INSERT INTO weather (date, city, temp_hi, temp_lo)
+VALUES (&#39;1994-11-29&#39;, &#39;Hayward&#39;, 54, 37);]
+(Background on this error at: http://sqlalche.me/e/gkpj)</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+
+```
+
+</div>
+
+</div>
+
+

@@ -1,0 +1,624 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+-- connection: postgresql://postgres:postgres@db.postgres.app.com
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Failed to connect to a database at postgresql://postgres:postgres@db.postgres.app.com</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+-- connection: postgresql://johnny:password@192.168.32.3:5432/grafana
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+# [Create tables](https://www.postgresql.org/docs/11/tutorial-table.html)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+DROP TABLE IF EXISTS t_weather_observations, t_cities;
+
+-- data from https://simplemaps.com/data/world-cities
+-- fields are limited in free version
+-- https://simplemaps.com/data/world-cities#fields
+CREATE TABLE t_cities (
+    id              SERIAL PRIMARY KEY,
+    name            VARCHAR(120) NOT NULL,
+    name_ascii      VARCHAR(120),
+    location        POINT,
+    country         VARCHAR(120),
+    iso2            VARCHAR(2),
+    iso3            VARCHAR(3),
+    admin_name      VARCHAR(120),
+    capital         VARCHAR(7),
+    population      VARCHAR(120)
+);
+
+CREATE TABLE t_weather_observations (
+    id              SERIAL PRIMARY KEY,
+    city            VARCHAR(80),
+    temp_lo         INT,           -- low temperature
+    temp_hi         INT,           -- high temperature
+    prcp            REAL,          -- precipitation
+    date            DATE
+    -- FOREIGN KEY (city) REFERENCES t_cities(name) -- or city varchar(80) REFERENCES cities(name),
+);
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+**DESCRIBE TABLE using `information_schema`**
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT
+   COLUMN_NAME, DATA_TYPE
+FROM
+   information_schema.COLUMNS
+WHERE
+   TABLE_NAME = 't_cities';
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th>column_name  </th><th>data_type        </th></tr>
+</thead>
+<tbody>
+<tr><td>id           </td><td>integer          </td></tr>
+<tr><td>name         </td><td>character varying</td></tr>
+<tr><td>name_ascii   </td><td>character varying</td></tr>
+<tr><td>location     </td><td>point            </td></tr>
+<tr><td>country      </td><td>character varying</td></tr>
+<tr><td>iso2         </td><td>character varying</td></tr>
+<tr><td>iso3         </td><td>character varying</td></tr>
+<tr><td>admin_name   </td><td>character varying</td></tr>
+<tr><td>capital      </td><td>character varying</td></tr>
+<tr><td>population   </td><td>character varying</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+## [Populate a table with a row](https://www.postgresql.org/docs/11/tutorial-populate.html)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Simple insertion
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+INSERT INTO t_cities (name, location, capital)
+VALUES ('San Francisco', '-194.2, 53.0', NULL);
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT * FROM t_cities LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th style="text-align: right;">  id</th><th>name         </th><th>name_ascii  </th><th>location   </th><th>country  </th><th>iso2  </th><th>iso3  </th><th>admin_name  </th><th>capital  </th><th>population  </th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">   2</td><td>San Francisco</td><td>            </td><td>(-194.2,53)</td><td>         </td><td>      </td><td>      </td><td>            </td><td>         </td><td>            </td></tr>
+<tr><td style="text-align: right;">   3</td><td>San Francisco</td><td>            </td><td>(-194.2,53)</td><td>         </td><td>      </td><td>      </td><td>            </td><td>         </td><td>            </td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Delete all the entries in table with optionall `RETURNING` (returns deletions)
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+DELETE FROM t_cities RETURNING *;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th style="text-align: right;">  id</th><th>name         </th><th>name_ascii  </th><th>location   </th><th>country  </th><th>iso2  </th><th>iso3  </th><th>admin_name  </th><th>capital  </th><th>population  </th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">   2</td><td>San Francisco</td><td>            </td><td>(-194.2,53)</td><td>         </td><td>      </td><td>      </td><td>            </td><td>         </td><td>            </td></tr>
+<tr><td style="text-align: right;">   3</td><td>San Francisco</td><td>            </td><td>(-194.2,53)</td><td>         </td><td>      </td><td>      </td><td>            </td><td>         </td><td>            </td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT * FROM t_cities;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 row(s) returned.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered" markdown="1">
+<div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+### Populate a table using `FROM`
+
+Copy the csv data from [simplemaps.com](https://simplemaps.com/data/world-cities#fields)
+with the [`COPY`...`FROM`](https://www.postgresql.org/docs/current/sql-copy.html) command
+http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/  
+First, remove unused fields with `cut` in a terminal
+```bash
+cut -d, -f11 --complement worldcities.csv > worldcities_modified.csv
+```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+COPY t_cities(name, name_ascii, location, country, iso2, iso3, admin_name, capital, population)
+FROM '/tmp/worldcities_modified.csv'
+NULL 'NULL'
+CSV
+HEADER
+DELIMITER ';';
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT count(*) FROM t_cities;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th style="text-align: right;">  count</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">  12958</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT * FROM t_cities LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th style="text-align: right;">  id</th><th>name        </th><th>name_ascii  </th><th>location         </th><th>country  </th><th>iso2  </th><th>iso3  </th><th>admin_name  </th><th>capital  </th><th>population  </th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">   4</td><td>Prizren     </td><td>Prizren     </td><td>(42.2139,20.7397)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Prizren     </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">   5</td><td>Zubin Potok </td><td>Zubin Potok </td><td>(42.9144,20.6897)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Zubin Potok </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">   6</td><td>Kamenicë    </td><td>Kamenice    </td><td>(42.5781,21.5803)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Kamenicë    </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">   7</td><td>Viti        </td><td>Viti        </td><td>(42.3214,21.3583)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Viti        </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">   8</td><td>Shtërpcë    </td><td>Shterpce    </td><td>(42.2394,21.0272)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Shtërpcë    </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">   9</td><td>Shtime      </td><td>Shtime      </td><td>(42.4331,21.0397)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Shtime      </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">  10</td><td>Vushtrri    </td><td>Vushtrri    </td><td>(42.8231,20.9675)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Vushtrri    </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">  11</td><td>Dragash     </td><td>Dragash     </td><td>(42.0265,20.6533)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Dragash     </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">  12</td><td>Podujevë    </td><td>Podujeve    </td><td>(42.9111,21.1899)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Podujevë    </td><td>admin    </td><td>            </td></tr>
+<tr><td style="text-align: right;">  13</td><td>Fushë Kosovë</td><td>Fushe Kosove</td><td>(42.6639,21.0961)</td><td>Kosovo   </td><td>XK    </td><td>XKS   </td><td>Fushë Kosovë</td><td>admin    </td><td>            </td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT * FROM t_cities WHERE iso3 = 'USA' LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th style="text-align: right;">  id</th><th>name             </th><th>name_ascii       </th><th>location           </th><th>country      </th><th>iso2  </th><th>iso3  </th><th>admin_name  </th><th>capital  </th><th style="text-align: right;">      population</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: right;">8098</td><td>Renton           </td><td>Renton           </td><td>(47.4758,-122.1905)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">101379          </td></tr>
+<tr><td style="text-align: right;">8099</td><td>Chehalis         </td><td>Chehalis         </td><td>(46.6637,-122.9647)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">  7533          </td></tr>
+<tr><td style="text-align: right;">8100</td><td>Mercer Island    </td><td>Mercer Island    </td><td>(47.5625,-122.2265)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;"> 25261          </td></tr>
+<tr><td style="text-align: right;">8101</td><td>Lynnwood         </td><td>Lynnwood         </td><td>(47.8285,-122.3034)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;"> 38273          </td></tr>
+<tr><td style="text-align: right;">8102</td><td>Centralia        </td><td>Centralia        </td><td>(46.7226,-122.9695)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;"> 41643          </td></tr>
+<tr><td style="text-align: right;">8103</td><td>Mountlake Terrace</td><td>Mountlake Terrace</td><td>(47.792,-122.3076) </td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;"> 21337          </td></tr>
+<tr><td style="text-align: right;">8104</td><td>Seattle          </td><td>Seattle          </td><td>(47.6211,-122.3244)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">     3.64376e+06</td></tr>
+<tr><td style="text-align: right;">8105</td><td>Liberty Lake     </td><td>Liberty Lake     </td><td>(47.6687,-117.1032)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">  9893          </td></tr>
+<tr><td style="text-align: right;">8106</td><td>Airway Heights   </td><td>Airway Heights   </td><td>(47.6459,-117.5792)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">  8166          </td></tr>
+<tr><td style="text-align: right;">8107</td><td>Brier            </td><td>Brier            </td><td>(47.7922,-122.2734)</td><td>United States</td><td>US    </td><td>USA   </td><td>Washington  </td><td>         </td><td style="text-align: right;">  6884          </td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT DISTINCT capital FROM t_cities LIMIT 10;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4 row(s) returned.
+</pre>
+</div>
+</div>
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead>
+<tr><th>capital  </th></tr>
+</thead>
+<tbody>
+<tr><td>primary  </td></tr>
+<tr><td>         </td></tr>
+<tr><td>minor    </td></tr>
+<tr><td>admin    </td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+SELECT DISTINCT name, admin_name, capital
+FROM t_cities
+WHERE iso3 = 'USA' AND capital <> NULL
+ORDER BY capital DESC;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0 row(s) returned.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+DO $$
+DECLARE
+   counter    INTEGER := 1;
+   first_name VARCHAR(50) := 'John';
+   last_name  VARCHAR(50) := 'Doe';
+   payment    NUMERIC(11,2) := 20.5;
+BEGIN 
+   RAISE NOTICE '% % % has been paid % USD', counter, first_name, last_name, payment;
+END $$;
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>NOTICE:  1 John Doe has been paid 20.50 USD
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+INSERT INTO t_weather_observations (city, temp_lo, temp_hi, prcp, date)
+VALUES ('San Francisco', 43, 57, 0.0, '1994-11-29');
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+INSERT INTO t_weather_observations (date, city, temp_hi, temp_lo)
+VALUES ('1994-11-29', 'Hayward', 54, 37);
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>insert or update on table &#34;t_weather_observations&#34; violates foreign key constraint &#34;t_weather_observations_city_fkey&#34;
+DETAIL:  Key (city)=(Hayward) is not present in table &#34;t_cities&#34;.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```PostgreSQL
+
+```
+
+</div>
+
+</div>
+
+

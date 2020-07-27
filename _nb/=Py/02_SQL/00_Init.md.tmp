@@ -1,0 +1,1454 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+import intake
+from numpy import int8
+
+accounts = intake.open_csv("../data/accounts/*.csv", 
+                           csv_kwargs={
+                              "dtype": {
+                                  'id': int8,
+                                  'names': str}
+                              }
+                          )
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+accounts.shape = (3_000_000, 3)
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+accounts.discover()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;datashape&#39;: None,
+ &#39;dtype&#39;: {&#39;id&#39;: &#39;int8&#39;, &#39;names&#39;: &#39;object&#39;, &#39;amount&#39;: &#39;int64&#39;},
+ &#39;shape&#39;: (None, 3),
+ &#39;npartitions&#39;: 3,
+ &#39;metadata&#39;: {}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+accounts.dtype['names'] = str
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df = accounts.to_dask()
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+from numpy import arange
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df.memory_usage()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Dask Series Structure:
+npartitions=1
+    int64
+      ...
+dtype: int64
+Dask Name: series-groupby-sum-agg, 19 tasks</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df.memory_usage().compute()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index          240
+amount    24000000
+id         3000000
+names     24000000
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+gp = df.groupby('id')
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+gp = df.compute().groupby('id')
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+import numpy as np
+gp.agg(lambda x: len(np.unique(x))).names.max()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+gp.head(5)
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>names</th>
+      <th>amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>59</td>
+      <td>Tim</td>
+      <td>-330</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>43</td>
+      <td>Yvonne</td>
+      <td>2731</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>58</td>
+      <td>Hannah</td>
+      <td>888</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>Wendy</td>
+      <td>1670</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>82</td>
+      <td>Zelda</td>
+      <td>-1114</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-108</td>
+      <td>Ray</td>
+      <td>2221</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>122</td>
+      <td>Victor</td>
+      <td>1068</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>96</td>
+      <td>Charlie</td>
+      <td>373</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>Ray</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-85</td>
+      <td>Ingrid</td>
+      <td>1684</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>104</td>
+      <td>Yvonne</td>
+      <td>454</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>28</td>
+      <td>Quinn</td>
+      <td>559</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-84</td>
+      <td>Hannah</td>
+      <td>583</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-104</td>
+      <td>Tim</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-72</td>
+      <td>Ray</td>
+      <td>1836</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>87</td>
+      <td>Jerry</td>
+      <td>-16</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>71</td>
+      <td>George</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-61</td>
+      <td>Patricia</td>
+      <td>675</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>94</td>
+      <td>Yvonne</td>
+      <td>1581</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>94</td>
+      <td>Laura</td>
+      <td>669</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-39</td>
+      <td>Quinn</td>
+      <td>1938</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>-9</td>
+      <td>Frank</td>
+      <td>117</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-24</td>
+      <td>Ursula</td>
+      <td>479</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>110</td>
+      <td>Xavier</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>72</td>
+      <td>Laura</td>
+      <td>3620</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>85</td>
+      <td>Kevin</td>
+      <td>274</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>25</td>
+      <td>Edith</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>28</td>
+      <td>Quinn</td>
+      <td>606</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-56</td>
+      <td>Charlie</td>
+      <td>1565</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>-120</td>
+      <td>Dan</td>
+      <td>1560</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7293</th>
+      <td>7</td>
+      <td>Zelda</td>
+      <td>-176</td>
+    </tr>
+    <tr>
+      <th>7305</th>
+      <td>-101</td>
+      <td>Norbert</td>
+      <td>1047</td>
+    </tr>
+    <tr>
+      <th>7496</th>
+      <td>40</td>
+      <td>Ingrid</td>
+      <td>2373</td>
+    </tr>
+    <tr>
+      <th>7500</th>
+      <td>-19</td>
+      <td>Quinn</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>7516</th>
+      <td>-101</td>
+      <td>Norbert</td>
+      <td>1083</td>
+    </tr>
+    <tr>
+      <th>7716</th>
+      <td>-98</td>
+      <td>Yvonne</td>
+      <td>603</td>
+    </tr>
+    <tr>
+      <th>7823</th>
+      <td>-1</td>
+      <td>Yvonne</td>
+      <td>4222</td>
+    </tr>
+    <tr>
+      <th>7835</th>
+      <td>-1</td>
+      <td>Yvonne</td>
+      <td>4501</td>
+    </tr>
+    <tr>
+      <th>7841</th>
+      <td>-117</td>
+      <td>Dan</td>
+      <td>483</td>
+    </tr>
+    <tr>
+      <th>8015</th>
+      <td>-105</td>
+      <td>Norbert</td>
+      <td>1715</td>
+    </tr>
+    <tr>
+      <th>8043</th>
+      <td>-25</td>
+      <td>Ray</td>
+      <td>4943</td>
+    </tr>
+    <tr>
+      <th>8565</th>
+      <td>7</td>
+      <td>Zelda</td>
+      <td>-183</td>
+    </tr>
+    <tr>
+      <th>8653</th>
+      <td>40</td>
+      <td>Ingrid</td>
+      <td>2466</td>
+    </tr>
+    <tr>
+      <th>8671</th>
+      <td>-53</td>
+      <td>Charlie</td>
+      <td>1051</td>
+    </tr>
+    <tr>
+      <th>9268</th>
+      <td>-105</td>
+      <td>Norbert</td>
+      <td>1694</td>
+    </tr>
+    <tr>
+      <th>9301</th>
+      <td>-19</td>
+      <td>Quinn</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>9824</th>
+      <td>-4</td>
+      <td>Michael</td>
+      <td>2126</td>
+    </tr>
+    <tr>
+      <th>10776</th>
+      <td>-8</td>
+      <td>Frank</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>10809</th>
+      <td>-117</td>
+      <td>Dan</td>
+      <td>517</td>
+    </tr>
+    <tr>
+      <th>10987</th>
+      <td>-105</td>
+      <td>Norbert</td>
+      <td>1581</td>
+    </tr>
+    <tr>
+      <th>11002</th>
+      <td>-117</td>
+      <td>Dan</td>
+      <td>519</td>
+    </tr>
+    <tr>
+      <th>11345</th>
+      <td>-25</td>
+      <td>Ray</td>
+      <td>4029</td>
+    </tr>
+    <tr>
+      <th>12017</th>
+      <td>-12</td>
+      <td>Michael</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th>14472</th>
+      <td>-12</td>
+      <td>Michael</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>14700</th>
+      <td>-12</td>
+      <td>Michael</td>
+      <td>-35</td>
+    </tr>
+    <tr>
+      <th>14955</th>
+      <td>-12</td>
+      <td>Michael</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <th>15474</th>
+      <td>-8</td>
+      <td>Frank</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>15895</th>
+      <td>-105</td>
+      <td>Norbert</td>
+      <td>1598</td>
+    </tr>
+    <tr>
+      <th>17015</th>
+      <td>-4</td>
+      <td>Michael</td>
+      <td>2070</td>
+    </tr>
+    <tr>
+      <th>17635</th>
+      <td>-105</td>
+      <td>Norbert</td>
+      <td>1781</td>
+    </tr>
+  </tbody>
+</table>
+<p>1280 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+newIndex = np.arange(df.shape[0])
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+newIndex.shape
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3000000,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df.reindex(axis=0, method="pad").tail()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-36-df976a66ae41&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">.</span>reindex<span class="ansi-blue-fg">(</span>axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;pad&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>tail<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/opt/conda/lib/python3.7/site-packages/dask/dataframe/core.py</span> in <span class="ansi-cyan-fg">__getattr__</span><span class="ansi-blue-fg">(self, key)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2586</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">   2587</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">-&gt; 2588</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> AttributeError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;&#39;DataFrame&#39; object has no attribute %r&#34;</span> <span class="ansi-blue-fg">%</span> key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2589</span> 
+<span class="ansi-green-intense-fg ansi-bold">   2590</span>     <span class="ansi-green-fg">def</span> __dir__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;reindex&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+# %timeit df.names.map(lambda x: len(x)).max()
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+import pandas as pd
+dfp = pd.DataFrame(df.values.compute(), columns=df.columns)
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+# dfp.names = dfp.names.astype(np.dtype('|S8'))
+dfp.id = dfp.id.astype(np.int32)
+dfp.amount = dfp.amount.astype(np.int64)
+# dfp.names = dfp.names.astype(np.dtype('|S16'))
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+dfp.names = dfp.names.astype(str)
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+dfp.dtypes
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>id         int32
+names     object
+amount     int64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+dfp.head()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>names</th>
+      <th>amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>59</td>
+      <td>Tim</td>
+      <td>-330</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>43</td>
+      <td>Yvonne</td>
+      <td>2731</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>58</td>
+      <td>Hannah</td>
+      <td>888</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>Wendy</td>
+      <td>1670</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>82</td>
+      <td>Zelda</td>
+      <td>-1114</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+dfp.memory_usage()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index           80
+id        12000000
+names     24000000
+amount    24000000
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+dfp.to_sql?
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span>
+dfp<span class="ansi-blue-fg">.</span>to_sql<span class="ansi-blue-fg">(</span>
+    name<span class="ansi-blue-fg">,</span>
+    con<span class="ansi-blue-fg">,</span>
+    schema<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    if_exists<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;fail&#39;</span><span class="ansi-blue-fg">,</span>
+    index<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">,</span>
+    index_label<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    chunksize<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    dtype<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+    method<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Write records stored in a DataFrame to a SQL database.
+
+Databases supported by SQLAlchemy [1]_ are supported. Tables can be
+newly created, appended to, or overwritten.
+
+Parameters
+----------
+name : string
+    Name of SQL table.
+con : sqlalchemy.engine.Engine or sqlite3.Connection
+    Using SQLAlchemy makes it possible to use any DB supported by that
+    library. Legacy support is provided for sqlite3.Connection objects.
+schema : string, optional
+    Specify the schema (if database flavor supports this). If None, use
+    default schema.
+if_exists : {&#39;fail&#39;, &#39;replace&#39;, &#39;append&#39;}, default &#39;fail&#39;
+    How to behave if the table already exists.
+
+    * fail: Raise a ValueError.
+    * replace: Drop the table before inserting new values.
+    * append: Insert new values to the existing table.
+
+index : bool, default True
+    Write DataFrame index as a column. Uses `index_label` as the column
+    name in the table.
+index_label : string or sequence, default None
+    Column label for index column(s). If None is given (default) and
+    `index` is True, then the index names are used.
+    A sequence should be given if the DataFrame uses MultiIndex.
+chunksize : int, optional
+    Rows will be written in batches of this size at a time. By default,
+    all rows will be written at once.
+dtype : dict, optional
+    Specifying the datatype for columns. The keys should be the column
+    names and the values should be the SQLAlchemy types or strings for
+    the sqlite3 legacy mode.
+method : {None, &#39;multi&#39;, callable}, default None
+    Controls the SQL insertion clause used:
+
+    * None : Uses standard SQL ``INSERT`` clause (one per row).
+    * &#39;multi&#39;: Pass multiple values in a single ``INSERT`` clause.
+    * callable with signature ``(pd_table, conn, keys, data_iter)``.
+
+    Details and a sample callable implementation can be found in the
+    section :ref:`insert method &lt;io.sql.method&gt;`.
+
+    .. versionadded:: 0.24.0
+
+Raises
+------
+ValueError
+    When the table already exists and `if_exists` is &#39;fail&#39; (the
+    default).
+
+See Also
+--------
+read_sql : Read a DataFrame from a table.
+
+Notes
+-----
+Timezone aware datetime columns will be written as
+``Timestamp with timezone`` type with SQLAlchemy if supported by the
+database. Otherwise, the datetimes will be stored as timezone unaware
+timestamps local to the original timezone.
+
+.. versionadded:: 0.24.0
+
+References
+----------
+.. [1] http://docs.sqlalchemy.org
+.. [2] https://www.python.org/dev/peps/pep-0249/
+
+Examples
+--------
+
+Create an in-memory SQLite database.
+
+&gt;&gt;&gt; from sqlalchemy import create_engine
+&gt;&gt;&gt; engine = create_engine(&#39;sqlite://&#39;, echo=False)
+
+Create a table from scratch with 3 rows.
+
+&gt;&gt;&gt; df = pd.DataFrame({&#39;name&#39; : [&#39;User 1&#39;, &#39;User 2&#39;, &#39;User 3&#39;]})
+&gt;&gt;&gt; df
+     name
+0  User 1
+1  User 2
+2  User 3
+
+&gt;&gt;&gt; df.to_sql(&#39;users&#39;, con=engine)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;)]
+
+&gt;&gt;&gt; df1 = pd.DataFrame({&#39;name&#39; : [&#39;User 4&#39;, &#39;User 5&#39;]})
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;append&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 1&#39;), (1, &#39;User 2&#39;), (2, &#39;User 3&#39;),
+ (0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
+
+Overwrite the table with just ``df1``.
+
+&gt;&gt;&gt; df1.to_sql(&#39;users&#39;, con=engine, if_exists=&#39;replace&#39;,
+...            index_label=&#39;id&#39;)
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM users&#34;).fetchall()
+[(0, &#39;User 4&#39;), (1, &#39;User 5&#39;)]
+
+Specify the dtype (especially useful for integers with missing values).
+Notice that while pandas is forced to store the data as floating point,
+the database supports nullable integers. When fetching the data with
+Python, we get back integer scalars.
+
+&gt;&gt;&gt; df = pd.DataFrame({&#34;A&#34;: [1, None, 2]})
+&gt;&gt;&gt; df
+     A
+0  1.0
+1  NaN
+2  2.0
+
+&gt;&gt;&gt; from sqlalchemy.types import Integer
+&gt;&gt;&gt; df.to_sql(&#39;integers&#39;, con=engine, index=False,
+...           dtype={&#34;A&#34;: Integer()})
+
+&gt;&gt;&gt; engine.execute(&#34;SELECT * FROM integers&#34;).fetchall()
+[(1,), (None,), (2,)]
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/pandas/core/generic.py
+<span class="ansi-red-fg">Type:</span>      method
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+from sqlalchemy.types import String
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+String(16)
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>String(length=16)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+from sqlalchemy import create_engine
+
+uri = "postgresql+psycopg2://postgres:postgres@db.postgres.app.com/postgres"
+
+dfp.to_sql("accounts",
+           con=create_engine(uri).connect(),
+           index=False,
+           if_exists='replace')
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+%timeit dfp.names.map(lambda x: len(x)).max()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.16 s ± 8.62 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+df.head()
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>housing_median_age</th>
+      <th>total_rooms</th>
+      <th>total_bedrooms</th>
+      <th>population</th>
+      <th>households</th>
+      <th>median_income</th>
+      <th>median_house_value</th>
+      <th>ocean_proximity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-122.23</td>
+      <td>37.88</td>
+      <td>41.0</td>
+      <td>880.0</td>
+      <td>129.0</td>
+      <td>322.0</td>
+      <td>126.0</td>
+      <td>8.3252</td>
+      <td>452600.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-122.22</td>
+      <td>37.86</td>
+      <td>21.0</td>
+      <td>7099.0</td>
+      <td>1106.0</td>
+      <td>2401.0</td>
+      <td>1138.0</td>
+      <td>8.3014</td>
+      <td>358500.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-122.24</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1467.0</td>
+      <td>190.0</td>
+      <td>496.0</td>
+      <td>177.0</td>
+      <td>7.2574</td>
+      <td>352100.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1274.0</td>
+      <td>235.0</td>
+      <td>558.0</td>
+      <td>219.0</td>
+      <td>5.6431</td>
+      <td>341300.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-122.25</td>
+      <td>37.85</td>
+      <td>52.0</td>
+      <td>1627.0</td>
+      <td>280.0</td>
+      <td>565.0</td>
+      <td>259.0</td>
+      <td>3.8462</td>
+      <td>342200.0</td>
+      <td>NEAR BAY</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+ibis.schema?
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Signature:</span> ibis<span class="ansi-blue-fg">.</span>schema<span class="ansi-blue-fg">(</span>pairs<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> names<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> types<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Validate and return an Ibis Schema object
+
+Ibis uses its own type aliases that map onto database types. See, for
+example, the correspondence between Ibis type names and Impala type names:
+
+Ibis type      Impala Type
+~~~~~~~~~      ~~~~~~~~~~~
+int8           TINYINT
+int16          SMALLINT
+int32          INT
+int64          BIGINT
+float          FLOAT
+double         DOUBLE
+boolean        BOOLEAN
+string         STRING
+timestamp      TIMESTAMP
+decimal(p, s)  DECIMAL(p,s)
+interval(u)    INTERVAL(u)
+
+Parameters
+----------
+pairs : list of (name, type) tuples
+  Mutually exclusive with names/types
+names : list of string
+  Field names
+types : list of string
+  Field types
+
+Examples
+--------
+&gt;&gt;&gt; from ibis import schema
+&gt;&gt;&gt; sc = schema([(&#39;foo&#39;, &#39;string&#39;),
+...              (&#39;bar&#39;, &#39;int64&#39;),
+...              (&#39;baz&#39;, &#39;boolean&#39;)])
+&gt;&gt;&gt; sc2 = schema(names=[&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;],
+...              types=[&#39;string&#39;, &#39;int64&#39;, &#39;boolean&#39;])
+
+Returns
+-------
+schema : Schema
+<span class="ansi-red-fg">File:</span>      /opt/conda/lib/python3.7/site-packages/ibis/expr/api.py
+<span class="ansi-red-fg">Type:</span>      function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+accounts = con.table('accounts')
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-66-b976ae21ec75&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>accounts <span class="ansi-blue-fg">=</span> con<span class="ansi-blue-fg">.</span>table<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;accounts&#39;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;con&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```python
+accounts.names?
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea ">
+<pre><span class="ansi-red-fg">Call signature:</span>  accounts<span class="ansi-blue-fg">.</span>names<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Type:</span>            StringColumn
+<span class="ansi-red-fg">String form:</span>    
+ref_0
+PostgreSQLTable[table]
+  name: accounts
+  schema:
+    index : int64
+    id : int32
+    names : string
+    amount : int64
+
+names = Column[string*] &#39;names&#39; from table
+  ref_0
+<span class="ansi-red-fg">File:</span>            /opt/conda/lib/python3.7/site-packages/ibis/expr/types.py
+<span class="ansi-red-fg">Docstring:</span>       &lt;no docstring&gt;
+<span class="ansi-red-fg">Class docstring:</span>
+Base class for a data generating expression having a fixed and known type,
+either a single value (scalar)
+<span class="ansi-red-fg">Call docstring:</span> 
+Generic composition function to enable expression pipelining.
+
+Parameters
+----------
+f : function or (function, arg_name) tuple
+  If the expression needs to be passed as anything other than the first
+  argument to the function, pass a tuple with the argument name. For
+  example, (f, &#39;data&#39;) if the function f expects a &#39;data&#39; keyword
+args : positional arguments
+kwargs : keyword arguments
+
+Examples
+--------
+&gt;&gt;&gt; import ibis
+&gt;&gt;&gt; t = ibis.table([(&#39;a&#39;, &#39;int64&#39;), (&#39;b&#39;, &#39;string&#39;)], name=&#39;t&#39;)
+&gt;&gt;&gt; f = lambda a: (a + 1).name(&#39;a&#39;)
+&gt;&gt;&gt; g = lambda a: (a * 2).name(&#39;a&#39;)
+&gt;&gt;&gt; result1 = t.a.pipe(f).pipe(g)
+&gt;&gt;&gt; result1  # doctest: +NORMALIZE_WHITESPACE
+ref_0
+UnboundTable[table]
+  name: t
+  schema:
+    a : int64
+    b : string
+a = Multiply[int64*]
+  left:
+    a = Add[int64*]
+      left:
+        a = Column[int64*] &#39;a&#39; from table
+          ref_0
+      right:
+        Literal[int8]
+          1
+  right:
+    Literal[int8]
+      2
+&gt;&gt;&gt; result2 = g(f(t.a))  # equivalent to the above
+&gt;&gt;&gt; result1.equals(result2)
+True
+
+Returns
+-------
+result : result type of passed function
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+

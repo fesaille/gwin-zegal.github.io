@@ -1,0 +1,145 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```javascript
+var vega = require('vega');
+const fetch = require('node-fetch');
+```
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```javascript
+var view;
+
+fetch('https://vega.github.io/vega/examples/bar-chart.vg.json')
+  .then(res => res.json())
+  .then(spec => render(spec))
+  .catch(err => console.error(err));
+
+function render(spec) {
+  view = new vega.View(vega.parse(spec), {
+    renderer:  'canvas',  // renderer (canvas or svg)
+    container: '#view',   // parent DOM container
+    hover:     true       // enable hover processing
+  });
+  return view.runAsync();
+}
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>ERROR DOM document instance not found.
+TypeError: Cannot read property &#39;getContext&#39; of null
+    at resize (/home/jovyan/node_modules/vega-scenegraph/build/vega-scenegraph.js:3442:26)
+    at CanvasRenderer.prototype$6.resize (/home/jovyan/node_modules/vega-scenegraph/build/vega-scenegraph.js:3492:5)
+    at CanvasRenderer.prototype$4.initialize (/home/jovyan/node_modules/vega-scenegraph/build/vega-scenegraph.js:3054:17)
+    at CanvasRenderer.prototype$6.initialize (/home/jovyan/node_modules/vega-scenegraph/build/vega-scenegraph.js:3487:28)
+    at initializeRenderer (/home/jovyan/node_modules/vega-view/build/vega-view.js:630:8)
+    at View.initialize (/home/jovyan/node_modules/vega-view/build/vega-view.js:677:9)
+    at new View (/home/jovyan/node_modules/vega-view/build/vega-view.js:1060:33)
+    at render (evalmachine.&lt;anonymous&gt;:9:10)
+    at fetch.then.then.spec (evalmachine.&lt;anonymous&gt;:5:17)
+    at processTicksAndRejections (internal/process/task_queues.js:86:5)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```javascript
+fetch('https://vega.github.io/vega/examples/bar-chart.vg.json')
+  .then(res => res.json())
+```
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{ &#39;$schema&#39;: &#39;https://vega.github.io/schema/vega/v5.json&#39;,
+  width: 400,
+  height: 200,
+  padding: 5,
+  data: [ { name: &#39;table&#39;, values: [Array] } ],
+  signals: [ { name: &#39;tooltip&#39;, value: {}, on: [Array] } ],
+  scales:
+   [ { name: &#39;xscale&#39;,
+       type: &#39;band&#39;,
+       domain: [Object],
+       range: &#39;width&#39;,
+       padding: 0.05,
+       round: true },
+     { name: &#39;yscale&#39;, domain: [Object], nice: true, range: &#39;height&#39; } ],
+  axes:
+   [ { orient: &#39;bottom&#39;, scale: &#39;xscale&#39; },
+     { orient: &#39;left&#39;, scale: &#39;yscale&#39; } ],
+  marks:
+   [ { type: &#39;rect&#39;, from: [Object], encode: [Object] },
+     { type: &#39;text&#39;, encode: [Object] } ] }</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered" markdown="1">
+<div class="input">
+
+```javascript
+
+```
+
+</div>
+
+</div>
+
+
