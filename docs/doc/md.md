@@ -37,6 +37,66 @@ Markdown conversion process so that they can be used with MathJax.
 
 ### Admonition
 
-The Admonition extension, part of the standard Markdown library, is integrated with material for MkDocs
+[ Admonition ](https://squidfunk.github.io/mkdocs-material/extensions/admonition/) is an extension included in the standard Markdown library that makes it possible to add block-styled side content
+ 
 
-###
+!!! note
+    ```
+    !!! note
+        For fixed block
+    ```
+
+??? note
+    ```
+    ??? note
+        For collapsible block
+    ```
+
+Supported types:
+
+<div class="admonition-no-margin"></div>
+
+!!! note "note, seealso"
+!!! abstract "abstract, summary, tldr"
+!!! info "info, todo"
+!!! tip "tip, hint, important"
+!!! success "success, check, done"
+!!! question "question, help, faq"
+!!! warning "warning, caution, attention"
+!!! failure "failure, fail, missing"
+!!! danger "danger, error"
+!!! bug 
+!!! example
+!!! quote "quote, cite"
+
+
+### Content tab
+
+
+=== "Unordered list"
+    * Sed sagittis eleifend rutrum
+    * Donec vitae suscipit est
+    * Nulla tempor lobortis orci
+
+
+=== "Ordered list"
+    1. Sed sagittis eleifend rutrum
+    2. Donec vitae suscipit est
+    3. Nulla tempor lobortis orci
+
+=== "C++"
+    ``` c++
+    #include <iostream>
+
+    int main(void) {
+      std::cout << "Hello world!" << std::endl;
+      return 0;
+    }
+    ```
+
+### Keys
+
+> ```++ctrl+alt+del++```
+
+++ctrl+C++
+

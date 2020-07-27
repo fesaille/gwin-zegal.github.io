@@ -159,3 +159,7 @@ div.highlight:before {
   color: slategrey;
 }
 
+
+.admonition-no-margin ~ div.admonition {
+  margin: 0;
+}
