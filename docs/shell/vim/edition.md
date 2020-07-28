@@ -1,4 +1,13 @@
 
+### Editing
+
+
+| Operation | ...entire line | ...to eol      | entire word | ...to eow      | ... to begin of next word |
+|-----------|----------------|----------------|-------------|----------------|---------------------------|
+| Change    | `cc`           | `C` ( or `c$`) | `ciw`       | `cw` (or `ce`) |                           |
+| Delete    | `dd`           | `D` ( or `d$`) | `diw`       | `de`           | `dw`                      |
+
+
 ### Selection
 
 `:h text-objects` or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection. 
