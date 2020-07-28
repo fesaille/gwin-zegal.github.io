@@ -4,6 +4,8 @@ site_author: "Emmmanuel Roux"
 theme:
   name: "material"
   custom_dir: theme/
+  font:
+    text: Work Sans
   logo : images/logo.svg
   icon:
     # logo: images/logo.svg
@@ -20,13 +22,9 @@ theme:
 
 nav:
   - Home: index.md
-  - Doc: doc/md.md
   - Linux:
       - shell: shell/intro.md
       - zsh: shell/zsh.md
-      - GNU:
-          - Intro: shell/GNU/Intro.md
-          - Makefile: shell/GNU/Makefile.md
       - vim: 
           - Intro: shell/vim.md
           - Panes: shell/vim/panes.md
@@ -34,9 +32,8 @@ nav:
           - Motion: shell/vim/motion.md
           - Plugins: shell/vim/plugins.md
           - "Language support": shell/vim/languages.md
-      - utils:
-          - fzf: shell/fzf.md
-          - git: shell/git.md
+      - fzf: shell/fzf.md
+      - git: shell/git.md
       - network: linux/network.md
       - Ubuntu:
           - Configuration: shell/Ubuntu/configuration.md
@@ -53,7 +50,17 @@ nav:
   - Go:
       - Concurency: go/concurency.md
   - DevOps:
+      - "Cloud native": devops/cloudnative.md
+      - "Cloud landscape": devops/cloudlandscape.md
+      - Containerization:
+          - Intro: devops/containerization/intro.md
+          - CLI usage: devops/containerization/cli.md
+      - Orchestration:
+          - Intro: devops/orchestration/intro.md
+          - Minikube: devops/orchestration/minikube.md
+          - CLI usage: devops/orchestration/cli.md
       - Ansible: devops/ansible.md
+      - "CI/CD":  devops/cicd.md
       - "Code coverage": devops/codecov.md
   - DB:
       - intro: DB/intro.md
@@ -84,6 +91,10 @@ nav:
       - CSS: WebDev/css.md
       - node: WebDev/node.md
       - REACT: WebDev/REACT.md
+  - "?":
+      - Help: doc/md.md
+      - "MD: basic": extern/md-guide/basic-syntax.md
+      - "MD: extended": extern/md-guide/extended-syntax.md
 
 plugins:
   - mknotebooks
@@ -101,6 +112,7 @@ markdown_extensions:
   # Adds the ability to add inline footnotes to your documentation
   # https://squidfunk.github.io/mkdocs-material/extensions/footnotes/
   - footnotes
+  - md_in_html
   - meta
   # ########################################################################
   # PyMdown Extensions
@@ -139,7 +151,7 @@ markdown_extensions:
   # Snippets is an extension to insert markdown or HTML snippets into another
   # markdown file.
   - pymdownx.snippets
-  # - pymdownx.superfences:
+  - pymdownx.superfences
   #     preserve_tabs: true
   #     custom_fences:
   #       - name: flow
@@ -152,7 +164,9 @@ markdown_extensions:
   #         class: uml-treediagram
   #         format: !!python/name:pymdownx.superfences.fence_code_format
   # To denote a subscript, you can surround the desired content in single ~
+  - pymdownx.tabbed
   - pymdownx.tilde
+  - pymdownx.keys
   - toc:
       permalink: True
 
