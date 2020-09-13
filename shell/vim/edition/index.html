@@ -436,6 +436,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Edition
@@ -450,19 +452,14 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#editing" class="md-nav__link">
-    Editing
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#selection" class="md-nav__link">
@@ -1727,19 +1724,14 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#editing" class="md-nav__link">
-    Editing
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#selection" class="md-nav__link">
@@ -1785,9 +1777,7 @@
                   
                 
                 
-                  <h1>Edition</h1>
-                
-                <h3 id="editing">Editing<a class="headerlink" href="#editing" title="Permanent link">&para;</a></h3>
+                <h1 id="editing">Editing<a class="headerlink" href="#editing" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
@@ -1818,20 +1808,65 @@
 </tr>
 </tbody>
 </table>
-<h3 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h3>
+<h2 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h2>
 <p><code>:h text-objects</code> or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection. </p>
-<h3 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h3>
+<h2 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h2>
 <p>Comment line (via plugin vim-commentary): <kbd>gcc</kbd> in normal mode,
 <kbd>gc</kbd> in visual mode</p>
-<p>Surroung element while editing
-k</p>
-<h3 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h3>
+<p>Surroung element while editing</p>
+<h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
 <p>File completion is activated with <kbd>C-x</kbd><kbd>C-f</kbd></p>
 <ul>
 <li><strong>ale</strong> <badge-stars repo="dense-analysis/ale"></badge-stars></li>
 </ul>
-<h3 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h3>
-<p>For Python, https://github.com/Vimjas/vim-python-pep8-indent</p>
+<h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
+<p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim" message="usr_28"></badge-doc></p>
+<p><strong>Types of Folding</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">manual</td>
+<td align="left">folds are created manually and remain in RAM</td>
+</tr>
+<tr>
+<td align="center">indent</td>
+<td align="left">lines with equal indent form a fold</td>
+</tr>
+<tr>
+<td align="center">expr</td>
+<td align="left">vim scripts give identation of a line</td>
+</tr>
+<tr>
+<td align="center">marker</td>
+<td align="left">based on specific characters</td>
+</tr>
+<tr>
+<td align="center">syntax</td>
+<td align="left">syntax highlightung items specify folds</td>
+</tr>
+<tr>
+<td align="center">diff</td>
+<td align="left">fold test that is not changed</td>
+</tr>
+</tbody>
+</table>
+<p>The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It's easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).</p>
+<p>The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).</p>
+<p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
+<p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds. </p>
+<p>Source: https://vim.fandom.com/wiki/Folding</p>
+<p>Close folds at level:
+<div class="highlight"><pre><span></span><code>:set foldlevel=&lt;LEVEL&gt;
+</code></pre></div>
+To fold level at start:
+<div class="highlight"><pre><span></span><code>:set foldlevelstart=&lt;LEVEL&gt;
+</code></pre></div></p>
                 
               
               

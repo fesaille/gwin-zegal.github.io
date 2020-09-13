@@ -17,6 +17,10 @@
 /*   /1* margin-top: 10rem; *1/ */
 /* } */
 
+h2:not([class]),h2 [class=""]{
+     border-bottom: solid 0.5px gray;
+}
+
 .titleLogo {
   position: absolute;
   top: 7rem;
