@@ -638,18 +638,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../shell/sys/" title="helpers" class="md-nav__link">
-      helpers
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../shell/vm/" title="Virtualization" class="md-nav__link">
       Virtualization
     </a>
@@ -1797,6 +1785,9 @@
 <li><strong>mtr</strong> <badge-stars repo="traviscross/mtr"></badge-stars> determines the address of each network hop between the machines, it sends a sequence of ICMP ECHO requests to each one to determine the quality of the link to each machine.</li>
 </ul>
 <h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
+<p><strong>Displaying IP address on eth0 interface</strong>
+<div class="highlight"><pre><span></span><code>ifconfig eth0 | grep &quot;inet ad&quot; | cut -d &#39;:&#39; -f 2 | cut -d &#39; &#39; -f 1
+</code></pre></div></p>
 <p><a href="https://www.binarytides.com/linux-commands-monitor-network/">18 commands to monitor network bandwith on Linux server</a></p>
                 
               
