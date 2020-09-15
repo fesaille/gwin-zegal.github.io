@@ -526,6 +526,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../script/" title="Script" class="md-nav__link">
+      Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../languages/" title="Language support" class="md-nav__link">
       Language support
     </a>
@@ -1815,10 +1827,24 @@
 <kbd>gc</kbd> in visual mode</p>
 <p>Surroung element while editing</p>
 <h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
+<p>The completion menu is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
 <p>File completion is activated with <kbd>C-x</kbd><kbd>C-f</kbd></p>
 <ul>
 <li><strong>ale</strong> <badge-stars repo="dense-analysis/ale"></badge-stars></li>
 </ul>
+<p>function! InputTarget()
+  let c = getchar()
+  echo c
+endfunction</p>
+<p>function! Codify()
+  let selection = getpos('.')
+  echo string(selection) . "Yo"
+  " Get selection
+  " Length == 1   (normal mode)
+  " -&gt; expand selection to zone delimited by space
+  " Length &gt;= 1   (visual mode)
+  " -&gt; get selection and introduce ` around selection
+endfunction</p>
 <h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
 <p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim" message="usr_28"></badge-doc></p>
 <p><strong>Types of Folding</strong>:</p>
@@ -1861,12 +1887,11 @@
 <p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
 <p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds. </p>
 <p>Source: https://vim.fandom.com/wiki/Folding</p>
-<p>Close folds at level:
-<div class="highlight"><pre><span></span><code>:set foldlevel=&lt;LEVEL&gt;
-</code></pre></div>
-To fold level at start:
-<div class="highlight"><pre><span></span><code>:set foldlevelstart=&lt;LEVEL&gt;
-</code></pre></div></p>
+<p>Folding principel:</p>
+<ul>
+<li>folds at defined per level: <code>:set foldlevel=&lt;LEVEL&gt;</code> and adjacent lines are fold grouped by level value</li>
+<li>to fold level at start <code>:set foldlevelstart=&lt;LEVEL&gt;</code></li>
+</ul>
                 
               
               
