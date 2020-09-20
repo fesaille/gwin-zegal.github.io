@@ -417,6 +417,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vagrant" class="md-nav__link">
+    Vagrant
+  </a>
+  
+    <nav class="md-nav" aria-label="Vagrant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-debian-based-systems" class="md-nav__link">
+    Installation on Debian based systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-on-hosts-with-secure-mode-enabled" class="md-nav__link">
+    Troubleshooting on hosts with secure mode enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1769,6 +1803,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vagrant" class="md-nav__link">
+    Vagrant
+  </a>
+  
+    <nav class="md-nav" aria-label="Vagrant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-debian-based-systems" class="md-nav__link">
+    Installation on Debian based systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-on-hosts-with-secure-mode-enabled" class="md-nav__link">
+    Troubleshooting on hosts with secure mode enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1786,6 +1854,7 @@
                 
                 
                 <h1 id="vm">VM<a class="headerlink" href="#vm" title="Permanent link">&para;</a></h1>
+<p><a href="https://fr.wikipedia.org/wiki/Virtualisation">Wikipedia</a></p>
 <h2 id="virtualbox">VirtualBox<a class="headerlink" href="#virtualbox" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a> is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use. </p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
@@ -1794,6 +1863,8 @@
 <h3 id="basic-command-for-running-vm">Basic command for running VM<a class="headerlink" href="#basic-command-for-running-vm" title="Permanent link">&para;</a></h3>
 <p>List VM's:
 <div class="highlight"><pre><span></span><code>VBoxManage list vms
+# List running vms
+VBoxManage list runningvms
 </code></pre></div></p>
 <p>Change the name of a VM:
 <div class="highlight"><pre><span></span><code>VBoxManage modifyvm &quot;VirtualMachine provided for test purpose&quot; --name &quot;MyVM&quot;
@@ -1806,6 +1877,51 @@
 VBoxManage controlvm &quot;MyVM&quot; resume --type headless
 VBoxManage controlvm &quot;MyVM&quot; poweroff --type headless
 </code></pre></div></p>
+<p>View VM properties 
+<div class="highlight"><pre><span></span><code>VBoxManage guestproperty enumerate &quot;MyVM&quot;
+</code></pre></div></p>
+<h2 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h2>
+<h3 id="installation-on-debian-based-systems">Installation on Debian based systems<a class="headerlink" href="#installation-on-debian-based-systems" title="Permanent link">&para;</a></h3>
+<p>deb package can be found at <a href="https://www.vagrantup.com/downloads.html">download</a></p>
+<div class="highlight"><pre><span></span><code>curl -LO https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+sudo apt install ./vagrant_2.2.9_x86_64.deb
+# or dpkg -i 
+</code></pre></div>
+
+<p><a href="https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html">Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters</a></p>
+<p><a href="https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d">How to create a Vagrant Box running Red Hat Enterprise Linux</a></p>
+<h3 id="troubleshooting-on-hosts-with-secure-mode-enabled">Troubleshooting on hosts with secure mode enabled<a class="headerlink" href="#troubleshooting-on-hosts-with-secure-mode-enabled" title="Permanent link">&para;</a></h3>
+<p>UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that code launched by a computer's UEFI firmware is trusted. Unsigned drivers are therefor not allowed to load.</p>
+<p>2 kernels modules are compiled at installation time and must be loaded. If the host provides the proper kernel headers and gcc, these two modules will be built silently. The progress is logged into /tmp/vmware-root/vmware-PID.log [^3].</p>
+<p>On error type like:</p>
+<blockquote>
+<p>Cannot open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon' is loaded```</p>
+</blockquote>
+<p>The modules must be signed and the keys added to a database recognised by the first stage of the bootloader, the <strong>Machine Owner Key</strong></p>
+<div class="highlight"><pre><span></span><code><span class="gp">#</span> Modules must be signed by a CA <span class="o">(</span>Certificate Authority<span class="o">)</span>, here self-signed  
+<span class="go">openssl req -new -x509 -newkey rsa:2048 -keyout &lt;MOK.priv&gt; -outform DER -out &lt;MOK.der&gt; -nodes -days 36500 -subj &quot;/CN=VMware/&quot;</span>
+<span class="go">sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 &lt;MOK.priv&gt; &lt;MOK.der&gt; $(modinfo -n vmmon)</span>
+<span class="go">sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 &lt;MOK.priv&gt; &lt;MOK.der&gt; $(modinfo -n vmnet)</span>
+
+<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;    </span>
+<span class="gp">#</span> cert should not be currently enrolled
+
+<span class="go">sudo mokutil --import &lt;MOK.der&gt;</span>
+<span class="gp">#</span> mokutil should request <span class="nb">pwd</span> 
+
+<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;    </span>
+<span class="gp">#</span> cert should be enrolled now 
+
+<span class="go">sudo mokutil --list-new    </span>
+<span class="gp">#</span> your cert should be displayed
+
+<span class="go">reboot</span>
+</code></pre></div>
+
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
+<p>[^1] Unified Extensible Firmware Interface - https://wiki.debian.org/UEFI
+[^2] <a href="https://wiki.debian.org/SecureBoot">Debian secure boot documentation page</a>
+[^3] <a href="https://kb.vmware.com/s/article/2146460">VMware knowledge base</a></p>
                 
               
               
