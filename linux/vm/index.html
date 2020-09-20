@@ -1891,11 +1891,15 @@ sudo apt install ./vagrant_2.2.9_x86_64.deb
 <p><a href="https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html">Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters</a></p>
 <p><a href="https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d">How to create a Vagrant Box running Red Hat Enterprise Linux</a></p>
 <h3 id="troubleshooting-on-hosts-with-secure-mode-enabled">Troubleshooting on hosts with secure mode enabled<a class="headerlink" href="#troubleshooting-on-hosts-with-secure-mode-enabled" title="Permanent link">&para;</a></h3>
-<p>UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that code launched by a computer's UEFI firmware is trusted. Unsigned drivers are therefor not allowed to load.</p>
-<p>2 kernels modules are compiled at installation time and must be loaded. If the host provides the proper kernel headers and gcc, these two modules will be built silently. The progress is logged into /tmp/vmware-root/vmware-PID.log [^3].</p>
+<p>UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that
+code launched by a computer's UEFI firmware is trusted. Unsigned drivers are
+therefor not allowed to load.</p>
+<p>2 kernels modules are compiled at installation time and must be loaded. If the
+host provides the proper kernel headers and gcc, these two modules will be
+built silently. The progress is logged into /tmp/vmware-root/vmware-PID.log[^3].</p>
 <p>On error type like:</p>
 <blockquote>
-<p>Cannot open /dev/vmmon: No such file or directory. Please make sure that the kernel module `vmmon' is loaded```</p>
+<p>Cannot open <code>/dev/vmmon</code>: No such file or directory. Please make sure that the kernel module <code>vmmon</code> is loaded</p>
 </blockquote>
 <p>The modules must be signed and the keys added to a database recognised by the first stage of the bootloader, the <strong>Machine Owner Key</strong></p>
 <div class="highlight"><pre><span></span><code><span class="gp">#</span> Modules must be signed by a CA <span class="o">(</span>Certificate Authority<span class="o">)</span>, here self-signed  
