@@ -124,7 +124,7 @@
      <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/Viz/matplotlib/</loc>
+     <loc>https://github.com/fesaille/data/viz/matplotlib/</loc>
      <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -157,6 +157,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/fesaille/ml/data/</loc>
+     <lastmod>2020-09-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/ml/ndarray/intro/</loc>
      <lastmod>2020-09-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
