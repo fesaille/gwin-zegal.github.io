@@ -668,8 +668,7 @@
     Commands
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#remove-a-submodule" class="md-nav__link">
@@ -678,8 +677,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
+    Updating submodule url and branch
+  </a>
   
 </li>
         
@@ -1890,8 +1891,7 @@
     Commands
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#remove-a-submodule" class="md-nav__link">
@@ -1900,8 +1900,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
+    Updating submodule url and branch
+  </a>
   
 </li>
         
@@ -1992,7 +1994,7 @@ z--z--z   (master, upstream/master, origin/master)
 <li><strong>+</strong> in case of conflicts between current subdmodule and the index of the containing directory</li>
 <li><strong>U</strong> in case of merge conflicts </li>
 </ul>
-<h4 id="remove-a-submodule">Remove a submodule<a class="headerlink" href="#remove-a-submodule" title="Permanent link">&para;</a></h4>
+<h3 id="remove-a-submodule">Remove a submodule<a class="headerlink" href="#remove-a-submodule" title="Permanent link">&para;</a></h3>
 <p>A submodule can be deleted by running <code>git rm &lt;submodule path&gt; &amp;&amp; git commit</code>. <code>$GIT_DIR/modules/&lt;name&gt;</code> delete the submodule completly. Util then, deletion can be undone using <code>git revert</code>.</p>
 <p>Alternative method:</p>
 <p>Remove the submodule entry from .git/config
@@ -2006,6 +2008,21 @@ z--z--z   (master, upstream/master, origin/master)
 </code></pre></div></p>
 <p>Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
 <div class="highlight"><pre><span></span><code>git rm -f path/to/submodule
+</code></pre></div></p>
+<h3 id="updating-submodule-url-and-branch">Updating submodule url and branch<a class="headerlink" href="#updating-submodule-url-and-branch" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">submodule configuration</a> can be displayed with <code>git config</code>:
+<div class="highlight"><pre><span></span><code>git config -l
+</code></pre></div>
+A specific config file can be given to <code>git config</code> with the <code>--file</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file">flag</a>:
+<div class="highlight"><pre><span></span><code>git config -l --file=.gitmodules
+</code></pre></div>
+Url, branch and <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">other parameters</a> can be configured via <code>git config</code>
+<div class="highlight"><pre><span></span><code>git config --file=.gitmodules submodule.&lt;submodule_name&gt;.url &lt;git@github.com:username/repository.git&gt;
+git config --file=.gitmodules submodule.&lt;submodule_name&gt;.branch &lt;branch_name&gt;
+</code></pre></div>
+Synchronization adn update of the submodules are done with:
+<div class="highlight"><pre><span></span><code>git submodule sync
+git submodule update --init --recursive --remote
 </code></pre></div></p>
 <h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
 <p>First the other repository source must be added to the remote list
