@@ -1996,8 +1996,7 @@
 <p><strong>History Expansion</strong> is performed only in interactive shells.</p>
 </li>
 <li>
-<p><strong>Alias Expansion</strong> Aliases are expanded immediately before the command line
-  is parsed as explained in Aliasing.</p>
+<p><strong>Alias Expansion</strong> Aliases are expanded immediately.</p>
 </li>
 <li>
 <p><strong>Process Substitution</strong>, <strong>Parameter Expansion</strong>, <strong>Command Substitution</strong>, <strong>Arithmetic Expansion</strong>, <strong>Brace Expansion</strong></p>
@@ -2010,9 +2009,8 @@ the characters ‘\’,‘’’ and ‘"’ are removed.</p>
 <li>
 <p><strong>Filename Expansion</strong></p>
 <p>If the <code>SH_FILE_EXPANSION</code> option is set, the order of expansion is
-modified for compatibility with sh and ksh. In that case filename expansion
-is performed immediately after alias expansion, preceding the set of five
-expansions mentioned above.</p>
+modified for compatibility with sh and ksh: filename expansion
+is performed immediately after alias expansion.</p>
 </li>
 <li>
 <p><strong>Filename Generation</strong>, commonly referred to as globbing, always done last.</p>
