@@ -1,6 +1,6 @@
 [submodule "notebook"]
-	path = src/docs/_nb
-	url = git@github.com:fesaille/ipy_all.git
+	path = docs/_nb
+	url = https://github.com/fesaille/ipy_all.git
 [submodule "md-guide"]
 	path = docs/extern/md-guide
 	url = https://github.com/mattcone/markdown-guide.git
