@@ -52,8 +52,6 @@
     
       <link rel="stylesheet" href="../../css/ansi-colours.css">
     
-      <link rel="stylesheet" href="../../css/jupyter-cells.css">
-    
       <link rel="stylesheet" href="../../css/pandas-dataframe.css">
     
     
@@ -209,19 +207,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../data/pipelines/luigi/" class="md-tabs__link">
+        <a href="../../Catalogize/" class="md-tabs__link">
           Data
         </a>
       
     </li>
-  
-
   
 
       
@@ -243,7 +235,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" class="md-tabs__link">
+        <a href="../../Python/asyncio/" class="md-tabs__link">
           Python
         </a>
       
@@ -547,6 +539,59 @@
   <a href="#basics" class="md-nav__link">
     Basics
   </a>
+  
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saslgssapi" class="md-nav__link">
+    SASL/GSSAPI
+  </a>
+  
+    <nav class="md-nav" aria-label="SASL/GSSAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sasl-simple-authentification-and-security-layer" class="md-nav__link">
+    SASL: Simple Authentification and Security Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gssapi-generic-secutrity-services-application-program-interface" class="md-nav__link">
+    GSSAPI: Generic Secutrity Services Application Program Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos" class="md-nav__link">
+    Kerberos
+  </a>
+  
+    <nav class="md-nav" aria-label="Kerberos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kinit-and-klist" class="md-nav__link">
+    kinit and klist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1034,16 +1079,40 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../Catalogize/" title="intake" class="md-nav__link">
+      intake
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/Covid/" title="intake2" class="md-nav__link">
+      intake2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-5-1">
+    <label class="md-nav__link" for="nav-5-3">
       Pipelines
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Pipelines" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-1">
+      <label class="md-nav__title" for="nav-5-3">
         <span class="md-nav__icon md-icon"></span>
         Pipelines
       </label>
@@ -1086,14 +1155,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-5-4">
       Visualization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Visualization" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+      <label class="md-nav__title" for="nav-5-4">
         <span class="md-nav__icon md-icon"></span>
         Visualization
       </label>
@@ -1136,14 +1205,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-5-6">
       SQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="SQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-5-6">
         <span class="md-nav__icon md-icon"></span>
         SQL
       </label>
@@ -1186,14 +1255,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7">
     
-    <label class="md-nav__link" for="nav-5-5">
+    <label class="md-nav__link" for="nav-5-7">
       Object store
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Object store" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-5">
+      <label class="md-nav__title" for="nav-5-7">
         <span class="md-nav__icon md-icon"></span>
         Object store
       </label>
@@ -1224,14 +1293,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8">
     
-    <label class="md-nav__link" for="nav-5-6">
+    <label class="md-nav__link" for="nav-5-8">
       MongoDB
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-6">
+      <label class="md-nav__title" for="nav-5-8">
         <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
@@ -1521,18 +1590,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" title="Intro" class="md-nav__link">
-      Intro
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
       ASyncio
     </a>
@@ -1806,6 +1863,59 @@
     Basics
   </a>
   
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saslgssapi" class="md-nav__link">
+    SASL/GSSAPI
+  </a>
+  
+    <nav class="md-nav" aria-label="SASL/GSSAPI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sasl-simple-authentification-and-security-layer" class="md-nav__link">
+    SASL: Simple Authentification and Security Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gssapi-generic-secutrity-services-application-program-interface" class="md-nav__link">
+    GSSAPI: Generic Secutrity Services Application Program Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos" class="md-nav__link">
+    Kerberos
+  </a>
+  
+    <nav class="md-nav" aria-label="Kerberos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kinit-and-klist" class="md-nav__link">
+    kinit and klist
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1851,6 +1961,46 @@
 - network layer (layer 3)
 - transport layer (layer 4)
 - application layer (layer 7)</p>
+<h3 id="saslgssapi">SASL/GSSAPI<a class="headerlink" href="#saslgssapi" title="Permanent link">&para;</a></h3>
+<h4 id="sasl-simple-authentification-and-security-layer">SASL: <em>Simple Authentification and Security Layer</em><a class="headerlink" href="#sasl-simple-authentification-and-security-layer" title="Permanent link">&para;</a></h4>
+<p>Framework  authentication and data security in Internet protocols. It decouples authentication mechanisms from application protocols:</p>
+<ul>
+<li>developpers can implement different authentication mechanisms</li>
+<li>clients and servers can negociate a mutulaly acceptable exchange mechanism</li>
+</ul>
+<h4 id="gssapi-generic-secutrity-services-application-program-interface">GSSAPI: <em>Generic Secutrity Services Application Program Interface</em><a class="headerlink" href="#gssapi-generic-secutrity-services-application-program-interface" title="Permanent link">&para;</a></h4>
+<h3 id="kerberos">Kerberos<a class="headerlink" href="#kerberos" title="Permanent link">&para;</a></h3>
+<p>From <a href="https://en.wikipedia.org/wiki/Kerberos_(protocol)">Wikipedia</a> and <a href="http://python-notes.curiousefficiency.org/en/latest/python_kerberos.html">some python notes</a>:</p>
+<ul>
+<li>
+<p>After login on the client machine, the client transform the password into the key of a symmetric cipher
+The AS becomes the request and uses the password to decrypt the request: the user is <strong>verified</strong>.</p>
+</li>
+<li>
+<p><strong>User Client-based Login</strong></p>
+<p>The client authenticates itself to the <strong>Authentication Server (AS)</strong>:</p>
+<ul>
+<li>Client sends an unauthenticated request to the server</li>
+<li>Server sends back a 401 response with a <code>WWW-Authenticate: Negotiate</code> header with no authentication details</li>
+</ul>
+</li>
+<li>
+<p><strong>Client Authentication</strong> 
+        which forwards the username to a <strong>key distribution center (KDC)</strong>. The KDC
+issues a <strong>ticket-granting ticket (TGT)</strong>, which is time stamped and encrypts
+it using the <strong>ticket-granting service's (TGS)</strong> secret key and returns the
+encrypted result to the user's workstation. </p>
+</li>
+</ul>
+<p>The Ticket Granting Ticket (TGT) encrypted with another secret key
+- <strong>Client Authentication</strong></p>
+<ul>
+<li>Client sends a new request with an <code>Authorization: Negotiate</code> header</li>
+<li>Server checks the <code>Authorization</code> header against the Kerberos infrastructure and either allows or denies access accordingly. If access is allowed, it should include a <code>WWW-Authenticate: Negotiate</code> header with authentication details in the reply.</li>
+<li>Client checks the authentication details in the reply to ensure that the request came from the server</li>
+</ul>
+<p><img alt="Kerberos" src="https://access.redhat.com/webassets/avalon/d/Red_Hat_Enterprise_Linux-6-Managing_Smart_Cards-en-US/images/d314590391f06f79ad4bc8433ab5480a/kerberos.png" /></p>
+<h4 id="kinit-and-klist"><code>kinit</code> and <code>klist</code><a class="headerlink" href="#kinit-and-klist" title="Permanent link">&para;</a></h4>
 <h2 id="utils">Utils<a class="headerlink" href="#utils" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>mtr</strong> <badge-stars repo="traviscross/mtr"></badge-stars> determines the address of each network hop between the machines, it sends a sequence of ICMP ECHO requests to each one to determine the quality of the link to each machine.</li>

@@ -52,8 +52,6 @@
     
       <link rel="stylesheet" href="../../css/ansi-colours.css">
     
-      <link rel="stylesheet" href="../../css/jupyter-cells.css">
-    
       <link rel="stylesheet" href="../../css/pandas-dataframe.css">
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#work-at-scale" class="md-skip">
+        <a href="#cloud-native" class="md-skip">
           Skip to content
         </a>
       
@@ -209,19 +207,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../data/pipelines/luigi/" class="md-tabs__link">
+        <a href="../../Catalogize/" class="md-tabs__link">
           Data
         </a>
       
     </li>
-  
-
   
 
       
@@ -243,7 +235,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" class="md-tabs__link">
+        <a href="../../Python/asyncio/" class="md-tabs__link">
           Python
         </a>
       
@@ -954,6 +946,73 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cloud-native" class="md-nav__link">
+    Cloud native
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud native">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microservices" class="md-nav__link">
+    Microservices
+  </a>
+  
+    <nav class="md-nav" aria-label="Microservices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serverless-vs-containers" class="md-nav__link">
+    Serverless vs containers:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    Pattern
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retry-pattern" class="md-nav__link">
+    Retry Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    Circuit Breaker Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pub-sub" class="md-nav__link">
+    Pub &amp; Sub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#work-at-scale" class="md-nav__link">
     Work at scale
   </a>
@@ -1010,16 +1069,40 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../Catalogize/" title="intake" class="md-nav__link">
+      intake
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/Covid/" title="intake2" class="md-nav__link">
+      intake2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-5-1">
+    <label class="md-nav__link" for="nav-5-3">
       Pipelines
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Pipelines" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-1">
+      <label class="md-nav__title" for="nav-5-3">
         <span class="md-nav__icon md-icon"></span>
         Pipelines
       </label>
@@ -1062,14 +1145,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-5-4">
       Visualization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Visualization" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+      <label class="md-nav__title" for="nav-5-4">
         <span class="md-nav__icon md-icon"></span>
         Visualization
       </label>
@@ -1112,14 +1195,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-5-6">
       SQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="SQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-5-6">
         <span class="md-nav__icon md-icon"></span>
         SQL
       </label>
@@ -1162,14 +1245,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7">
     
-    <label class="md-nav__link" for="nav-5-5">
+    <label class="md-nav__link" for="nav-5-7">
       Object store
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Object store" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-5">
+      <label class="md-nav__title" for="nav-5-7">
         <span class="md-nav__icon md-icon"></span>
         Object store
       </label>
@@ -1200,14 +1283,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8">
     
-    <label class="md-nav__link" for="nav-5-6">
+    <label class="md-nav__link" for="nav-5-8">
       MongoDB
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-6">
+      <label class="md-nav__title" for="nav-5-8">
         <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
@@ -1497,18 +1580,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" title="Intro" class="md-nav__link">
-      Intro
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
       ASyncio
     </a>
@@ -1776,6 +1847,73 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#cloud-native" class="md-nav__link">
+    Cloud native
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud native">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microservices" class="md-nav__link">
+    Microservices
+  </a>
+  
+    <nav class="md-nav" aria-label="Microservices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serverless-vs-containers" class="md-nav__link">
+    Serverless vs containers:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern" class="md-nav__link">
+    Pattern
+  </a>
+  
+    <nav class="md-nav" aria-label="Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retry-pattern" class="md-nav__link">
+    Retry Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    Circuit Breaker Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pub-sub" class="md-nav__link">
+    Pub &amp; Sub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#work-at-scale" class="md-nav__link">
     Work at scale
   </a>
@@ -1821,6 +1959,33 @@ Die Cloud Native Computing Foundation fördert die Akzeptanz dieser Paradigmen d
 </code></pre>
 <p>```</p>
 </div>
+<h2 id="cloud-native">Cloud native<a class="headerlink" href="#cloud-native" title="Permanent link">&para;</a></h2>
+<p>Brendan Burns</p>
+<h3 id="microservices">Microservices<a class="headerlink" href="#microservices" title="Permanent link">&para;</a></h3>
+<p>Status: Application where all configuration, and config run on a guest OS in a VM. For scaling, a new VM must be set up.</p>
+<p>Containers: Application run in containers with config, binarires and libraries. Abstraction over operating system.</p>
+<p>Elements of orchestration: Kubernetes </p>
+<h4 id="serverless-vs-containers">Serverless vs containers:<a class="headerlink" href="#serverless-vs-containers" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Abstraction of servers</li>
+<li>Event driven/event scale</li>
+<li>Micro-billing</li>
+</ul>
+<p>Cloud native uses DevOps</p>
+<p>Develop, Deliver, Operate, Security</p>
+<h3 id="pattern">Pattern<a class="headerlink" href="#pattern" title="Permanent link">&para;</a></h3>
+<h4 id="retry-pattern">Retry Pattern<a class="headerlink" href="#retry-pattern" title="Permanent link">&para;</a></h4>
+<p>On failure, an application retries to connect the server</p>
+<h4 id="circuit-breaker-pattern">Circuit Breaker Pattern<a class="headerlink" href="#circuit-breaker-pattern" title="Permanent link">&para;</a></h4>
+<p>If a service is not available, the user can become quicker information on the failure. Kind of proxy. Made through a State machine:</p>
+<ul>
+<li>Open</li>
+<li>Closed: a timer will be increased. Over a threshold, no requests any more</li>
+<li>Half-Open: an amount of requests are satisfied; Over a threshold, goes in closed</li>
+</ul>
+<h4 id="pub-sub">Pub &amp; Sub<a class="headerlink" href="#pub-sub" title="Permanent link">&para;</a></h4>
+<p>A sender can reach several consumer without to know which part is interesting for the consumer</p>
+<p>Message Broker: from an input channel, fills output channels that can be consummed by consumers.</p>
 <h2 id="work-at-scale">Work at scale<a class="headerlink" href="#work-at-scale" title="Permanent link">&para;</a></h2>
 <p><strong>vertical scaling</strong> k
 horizontal scaling involves service instances, e.g. load balancer in K8s</p>

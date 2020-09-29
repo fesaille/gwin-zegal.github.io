@@ -27,6 +27,10 @@ to = "/book/"
 from = "/assets/book/markdown-guide.mobi"
 to = "/book/"
 
+[[redirects]]
+from = "/tools/modako/"
+to = "/tools/madoko/"
+
 [[headers]]
   for = "/*"
 
@@ -34,3 +38,4 @@ to = "/book/"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

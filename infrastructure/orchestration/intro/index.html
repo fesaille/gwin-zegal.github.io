@@ -52,8 +52,6 @@
     
       <link rel="stylesheet" href="../../../css/ansi-colours.css">
     
-      <link rel="stylesheet" href="../../../css/jupyter-cells.css">
-    
       <link rel="stylesheet" href="../../../css/pandas-dataframe.css">
     
     
@@ -209,19 +207,13 @@
         
   
   
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../data/pipelines/luigi/" class="md-tabs__link">
+        <a href="../../../Catalogize/" class="md-tabs__link">
           Data
         </a>
       
     </li>
-  
-
   
 
       
@@ -243,7 +235,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" class="md-tabs__link">
+        <a href="../../../Python/asyncio/" class="md-tabs__link">
           Python
         </a>
       
@@ -867,6 +859,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Intro
@@ -881,6 +875,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -889,23 +885,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#k8s-components" class="md-nav__link">
-    K8S components
+  <a href="#elements-of-orchestration" class="md-nav__link">
+    Elements of orchestration
   </a>
   
-    <nav class="md-nav" aria-label="K8S components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#control-plane-components" class="md-nav__link">
     Control Plane Components
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#node-components" class="md-nav__link">
     Node Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pods" class="md-nav__link">
+    Pods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployments-and-replicasets" class="md-nav__link">
+    Deployments and ReplicaSets
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployments and ReplicaSets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategies" class="md-nav__link">
+    Strategies
   </a>
   
 </li>
@@ -1032,16 +1062,40 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../Catalogize/" title="intake" class="md-nav__link">
+      intake
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../data/Covid/" title="intake2" class="md-nav__link">
+      intake2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
     
-    <label class="md-nav__link" for="nav-5-1">
+    <label class="md-nav__link" for="nav-5-3">
       Pipelines
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Pipelines" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-1">
+      <label class="md-nav__title" for="nav-5-3">
         <span class="md-nav__icon md-icon"></span>
         Pipelines
       </label>
@@ -1084,14 +1138,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
     
-    <label class="md-nav__link" for="nav-5-2">
+    <label class="md-nav__link" for="nav-5-4">
       Visualization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Visualization" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
+      <label class="md-nav__title" for="nav-5-4">
         <span class="md-nav__icon md-icon"></span>
         Visualization
       </label>
@@ -1134,14 +1188,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-5-6">
       SQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="SQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-5-6">
         <span class="md-nav__icon md-icon"></span>
         SQL
       </label>
@@ -1184,14 +1238,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7">
     
-    <label class="md-nav__link" for="nav-5-5">
+    <label class="md-nav__link" for="nav-5-7">
       Object store
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Object store" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-5">
+      <label class="md-nav__title" for="nav-5-7">
         <span class="md-nav__icon md-icon"></span>
         Object store
       </label>
@@ -1222,14 +1276,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8">
     
-    <label class="md-nav__link" for="nav-5-6">
+    <label class="md-nav__link" for="nav-5-8">
       MongoDB
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-6">
+      <label class="md-nav__title" for="nav-5-8">
         <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
@@ -1519,18 +1573,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../_nb/=Py/01_Python/01 - Python - CPython design.ipynb" title="Intro" class="md-nav__link">
-      Intro
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../Python/asyncio/" title="ASyncio" class="md-nav__link">
       ASyncio
     </a>
@@ -1790,6 +1832,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1798,23 +1842,57 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#k8s-components" class="md-nav__link">
-    K8S components
+  <a href="#elements-of-orchestration" class="md-nav__link">
+    Elements of orchestration
   </a>
   
-    <nav class="md-nav" aria-label="K8S components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#control-plane-components" class="md-nav__link">
     Control Plane Components
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#node-components" class="md-nav__link">
     Node Components
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pods" class="md-nav__link">
+    Pods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployments-and-replicasets" class="md-nav__link">
+    Deployments and ReplicaSets
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployments and ReplicaSets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strategies" class="md-nav__link">
+    Strategies
   </a>
   
 </li>
@@ -1840,10 +1918,10 @@
                   
                 
                 
-                  <h1>Intro</h1>
-                
                 <h2 id="k8s-components">K8S components<a class="headerlink" href="#k8s-components" title="Permanent link">&para;</a></h2>
+<h3 id="elements-of-orchestration">Elements of orchestration<a class="headerlink" href="#elements-of-orchestration" title="Permanent link">&para;</a></h3>
 <p><img alt="Node components" src="https://d33wubrfki0l68.cloudfront.net/7016517375d10c702489167e704dcb99e570df85/7bb53/images/docs/components-of-kubernetes.png" /></p>
+<p>Orchestrator role: get a status defined declarativly by the prgrammer.</p>
 <h3 id="control-plane-components">Control Plane Components<a class="headerlink" href="#control-plane-components" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>kube-apiserver</strong> exposes K8S API.</li>
@@ -1869,6 +1947,164 @@
 <li><strong>kube-proxy</strong> routes inter-pod and internet requests.</li>
 <li><strong>Container runtime</strong> is responsible for running containers (usually Docker).</li>
 </ul>
+<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h3>
+<h4 id="pods">Pods<a class="headerlink" href="#pods" title="Permanent link">&para;</a></h4>
+<p>Set of containers, all containers inside a port share a port-space. An appliciation-specfic "logical host". A pod is started on a node: containers in the pod can communicate over localhost.</p>
+<h3 id="deployments-and-replicasets">Deployments and ReplicaSets<a class="headerlink" href="#deployments-and-replicasets" title="Permanent link">&para;</a></h3>
+<p>Desired state definition for pods. Deployment strategies on Kubernetes</p>
+<h4 id="strategies">Strategies<a class="headerlink" href="#strategies" title="Permanent link">&para;</a></h4>
+<div class="table_initial"></div>
+
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th align="center">ZERO DOWNTIME</th>
+<th align="center">REAL TRAFFIC  TESTING</th>
+<th align="center">TARGETED USER</th>
+<th align="center">CLOUD COST</th>
+<th align="center">ROLLBACK DURATION</th>
+<th align="center">NEGATIVE IMPACT ON USER</th>
+<th align="center">COMPLEXITY OF SETUP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RECREATE</strong></br/>Version A is terminated then version B is rolled out</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬛⬛</td>
+<td align="center">⬛⬛⬛</td>
+<td align="center">⬜⬜⬜</td>
+</tr>
+<tr>
+<td><strong>RAMPED</strong></br/>Version B is slowly rolled out and replacing version A</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬛⬛</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬜⬜</td>
+</tr>
+<tr>
+<td><strong>BLUE/GREEN</strong></br/>version A and B are released alongside, then traffic switched to B</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">✗</td>
+<td align="center">⬛⬛⬛</td>
+<td align="center">⬜⬜⬜</td>
+<td align="center">⬛⬛⬜</td>
+<td align="center">⬛⬛⬜</td>
+</tr>
+<tr>
+<td><strong>CANARY</strong></br/>version B is released to a subset of users before full rollout</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬛⬜</td>
+</tr>
+<tr>
+<td><strong>A/B TESTING</strong></br/>version B is released to a subset of users under specific conditions</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬜⬜</td>
+<td align="center">⬛⬛⬛</td>
+</tr>
+<tr>
+<td><strong>SHADOW</strong></br/>version B receives seal world traffic alongside version A and doesn't impact the responce</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✗</td>
+<td align="center">⬛⬛⬛</td>
+<td align="center">⬜⬜⬜</td>
+<td align="center">⬜⬜⬜</td>
+<td align="center">⬛⬛⬛</td>
+</tr>
+<tr>
+<td><a href="https://www.cncf.io/wp-content/uploads/2020/08/CNCF-Presentation-Template-K8s-Deployment.pdf"><em>Source</em></a></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bridge-to-kubernetes">Bridge to Kubernetes<a class="headerlink" href="#bridge-to-kubernetes" title="Permanent link">&para;</a></h2>
+<p>On Azure Dev Spaces tooling <a href="https://code.visualstudio.com/docs/containers/bridge-to-kubernetes">AZDS Connect</a>, <a href="https://github.com/Microsoft/mindaro">repo to extension</a></p>
+<p>Outer loop</p>
+<h2 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h2>
+<h3 id="ingress-and-egress-flows">Ingress and Egress flows<a class="headerlink" href="#ingress-and-egress-flows" title="Permanent link">&para;</a></h3>
+<p>Ingress enables traffic from outside the cluster. A LoadBalancer service provides the routing to the pod.</p>
+<p>CNI: Container Network Interface</p>
+<p>2 options:
+- in cluster Ingress Controller
+- External Ingress Controller</p>
+<ul>
+<li>Nginx</li>
+<li>Kong</li>
+<li>Azure AppGW</li>
+<li>..</li>
+</ul>
+<p>Azure: AGIC (Application Gateway Ingress Controller)</p>
+<p>DNS operator
+allow for dynamic configuraiton of DNS records</p>
+<h3 id="kubernetes-network-policy">Kubernetes network policy<a class="headerlink" href="#kubernetes-network-policy" title="Permanent link">&para;</a></h3>
+<p>kind: NetworkPolicy (networking.k8s.io/v1)</p>
+<ul>
+<li>Only ingress controlle is public</li>
+<li>namespaces for different workloads</li>
+<li>DMS names automatically maintained by opertaurs</li>
+<li>network policies for isolatind workloards against each other</li>
+</ul>
+<h3 id="securing-your-identities-and-secrets">Securing  your identities and secrets<a class="headerlink" href="#securing-your-identities-and-secrets" title="Permanent link">&para;</a></h3>
+<ul>
+<li>identities on Azure: aad-pod-identiy</li>
+<li>secrets on Azure: kubernetes-keyvault-flextool (today) -&gt; secrets-store-csi-driver (soon)</li>
+</ul>
+<p>Azure Securtiy Center on AKS:
+- continuoous discovery of managed AKS instances
+- actionable recommendations...
+- ...</p>
+<h3 id="policies">Policies<a class="headerlink" href="#policies" title="Permanent link">&para;</a></h3>
+<ul>
+<li>prevent any publics ips on the load balancer</li>
+<li>no image from repo xyz</li>
+<li>...</li>
+</ul>
+<p>No native kubernetes solution for this. </p>
+<h3 id="tracing">Tracing<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>applicaton Insights (Azure)</li>
+<li>OpenCensus / OpenTelmetry</li>
+<li>Zipkin (java)</li>
+<li>Jaeger (go)</li>
+</ul>
+<h3 id="daprio">dapr.io<a class="headerlink" href="#daprio" title="Permanent link">&para;</a></h3>
+<p><a href="https://dapr.io/">dapr.io</a></p>
+<p><img alt="Overview" src="https://raw.githubusercontent.com/dapr/docs/master/images/overview.png" /></p>
+<p>Service invocation over API 
+State management: key/value
+Publish and subscribe <code>v1.0/publish/</code></p>
+<h1 id="giant-swarm">Giant swarm<a class="headerlink" href="#giant-swarm" title="Permanent link">&para;</a></h1>
+<p>Cloud native for entreprise</p>
+<h2 id="day-2-operation">Day 2 operation<a class="headerlink" href="#day-2-operation" title="Permanent link">&para;</a></h2>
+<p>try to ensure everything is:
+- immutable
+- automated
+- declarative
+- operated</p>
                 
               
               

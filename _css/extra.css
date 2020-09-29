@@ -168,6 +168,9 @@ div.highlight:before {
   margin: 0;
 }
 
+.md-grid {
+      max-width: 80%;
+    }
 
 @counter-style thumbs {
   system: cyclic;
@@ -184,3 +187,12 @@ div.highlight:before {
 .md-typeset li ul {
   list-style-type: '- ';
 }
+
+.table_initial + div tr { 
+  line-height: initial;
+}
+
+/* .md-typeset__table tr { */
+/*     line-height: initial; */
+/* } */
+
