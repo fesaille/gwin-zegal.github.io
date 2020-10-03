@@ -7,18 +7,22 @@
 <!--   qsdsqsdqsd -->
 <!-- </div> -->
 
+## LS_COLORS
+
+**vivid** <badge-stars repo='sharkdp/vivid'></badge-stars> is a generator for the `LS_COLORS` environment variable
+
+    export LS_COLORS="$(vivid generate molokai)"
+
+
 ## Finding files 
 
-## Ranger <badge-stars repo='ranger/ranger'></badge-stars> <badge-doc href="https://ranger.github.io"></badge-doc>
+**Ranger** <badge-stars repo='ranger/ranger'></badge-stars> <badge-doc href="https://ranger.github.io"></badge-doc>, vim-inspired filemanager for the console, written in python.
 
-  A VIM-inspired filemanager for the console
-  <!-- ![Cheatsheet](https://ranger.github.io/cheatsheet.png) -->
+**nnn** <badge-stars repo='jarun/nnn'></badge-stars> <badge-doc href="https://github.com/jarun/nnn/wiki"></badge-doc> is another vi-inspired filemanager for the console, lightweight, written in C.
+
+**exa** <badge-stars repo='ogham/exa'></badge-stars> <badge-doc href="https://the.exa.website/"></badge-doc> is a replacement for ls written in Rust.
 
 [JQ](https://stedolan.github.io/jq/manual/)
-
-### exa <badge-stars repo='ogham/exa'></badge-stars> <badge-doc href="https://the.exa.website/"></badge-doc> 
-
-    exa is a replacement for ls written in Rust.
 
 # Makefile
 

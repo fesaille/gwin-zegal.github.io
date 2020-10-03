@@ -1,4 +1,13 @@
 
+# SQL - Structured Query Language
+
+## Command types
+
+| Name                             | Description                                             | sample                                      |
+|----------------------------------|---------------------------------------------------------|---------------------------------------------|
+| DML - Data Manipulation Language | used to retrieve and manipulate data in a relational DB | `SELECT...INTO`, `INSERT INTO... VALUES...` |
+
+
 ## SQL within Python
 
 

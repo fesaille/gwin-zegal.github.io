@@ -68,7 +68,7 @@ z--z--z   (master, upstream/master, origin/master)
 
 
 
-#### Remove a submodule
+### Remove a submodule
 
 A submodule can be deleted by running `git rm <submodule path> && git commit`. `$GIT_DIR/modules/<name>` delete the submodule completly. Util then, deletion can be undone using `git revert`.
 
@@ -96,6 +96,26 @@ Remove the entry in .gitmodules and remove the submodule directory located at pa
 git rm -f path/to/submodule
 ```
 
+### Updating submodule url and branch
+
+The [submodule configuration](https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl) can be displayed with `git config`:
+```terminal
+git config -l
+```
+A specific config file can be given to `git config` with the `--file` [flag](https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file):
+```terminal
+git config -l --file=.gitmodules
+```
+Url, branch and [other parameters](https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl) can be configured via `git config`
+```terminal
+git config --file=.gitmodules submodule.<submodule_name>.url <git@github.com:username/repository.git>
+git config --file=.gitmodules submodule.<submodule_name>.branch <branch_name>
+```
+Synchronization adn update of the submodules are done with:
+```terminal
+git submodule sync
+git submodule update --init --recursive --remote
+```
 ## Cherry pick from another repository
 
 First the other repository source must be added to the remote list
@@ -105,3 +125,14 @@ git fetch other
 ```
 
 Then use [`git cherry-pick`](https://git-scm.com/docs/git-cherry-pick)
+
+## Git flow
+
+From [Scott Chacon blog](http://scottchacon.com/2011/08/31/github-flow.html):
+
+> - To work on something new, create a descriptively named branch off of master
+> - Commit to that branch locally and regularly push your work to the same named branch on the server
+> - When you need feedback or help, or you think the branch is ready for merging, open a pull request
+> - After someone else has reviewed and signed off on the feature, you can merge it into master
+
+

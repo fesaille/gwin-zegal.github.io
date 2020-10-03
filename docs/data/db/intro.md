@@ -1,6 +1,14 @@
 
 # Database
 
+## Data types
+
+Large objects, generaly up to 4Gb, and not supported universaly, e.g. not in Impala:
+
+- `BLOB`: binary large objects
+- `CLOB` character large object
+
+
 
 ## Entity Relationship Diagram (ERD)
 

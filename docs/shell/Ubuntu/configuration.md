@@ -1,5 +1,10 @@
 # Configuration
 
+
+# Environment variables
+
+https://help.ubuntu.com/community/EnvironmentVariables
+
 ## LVM
 
 https://doc.ubuntu-fr.org/lvm

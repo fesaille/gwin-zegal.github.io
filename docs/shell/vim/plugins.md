@@ -1,6 +1,7 @@
-
-
 [comment]: <> (- <b>Ale</b> <badge-stars repo='dense-analysis/ale'></badge-stars> <badge-doc href="https://vimawesome.com/plugin/ale"></badge-doc> is a providing asynchronous linting)
+
+
+- **echodoc.vim** <badge-stars repo='Shougo/echodoc.vim'></badge-stars> displays function signatures from completions in the command line.
 
 
 ### File editing

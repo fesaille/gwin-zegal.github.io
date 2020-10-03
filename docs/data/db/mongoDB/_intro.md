@@ -10,13 +10,6 @@ Notation:
 - user variable: `$$foo`
 
 
-## Docker image
-
-<a href="https://hub.docker.com/_/mongo" alt="Docker hub repository" target="_blank">
-	<img alt="Docker Stars" src="https://img.shields.io/docker/stars/_/mongo">
-</a>
-
-
 ## Jupyter kernel imongo
 
 [imongo](https://github.com/fesaille/imongo)
