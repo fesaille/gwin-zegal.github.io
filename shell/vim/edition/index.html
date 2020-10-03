@@ -500,6 +500,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+    <nav class="md-nav" aria-label="Macros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-a-macro" class="md-nav__link">
+    Editing a macro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1564,7 +1584,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Python/envs/" title="Envs" class="md-nav__link">
+    <a href="../../../Python/envs.md" title="Envs" class="md-nav__link">
       Envs
     </a>
   </li>
@@ -1848,6 +1868,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+    <nav class="md-nav" aria-label="Macros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editing-a-macro" class="md-nav__link">
+    Editing a macro
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1967,6 +2007,18 @@ endfunction</p>
 <li>folds at defined per level: <code>:set foldlevel=&lt;LEVEL&gt;</code> and adjacent lines are fold grouped by level value</li>
 <li>to fold level at start <code>:set foldlevelstart=&lt;LEVEL&gt;</code></li>
 </ul>
+<h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h2>
+<h3 id="editing-a-macro">Editing a macro<a class="headerlink" href="#editing-a-macro" title="Permanent link">&para;</a></h3>
+<p>From <a href="https://vim.fandom.com/wiki/Macros#Editing_a_macro">vim.fandom.com</a>:</p>
+<ul>
+<li>Type <code>:let @a='i</code></li>
+<li>Press <code>Ctrl-R Ctrl-R</code> a to insert the current contents of register a (type Ctrl-R twice to insert the register exactly).</li>
+<li>Edit the text as required.</li>
+<li>Append an apostrophe <code>'</code> to finish the command, and press Enter.</li>
+<li>Enter <code>:reg</code> a to view the new value in the register.</li>
+<li>Type <code>@a</code> to execute the contents of register <code>a</code>.</li>
+</ul>
+<p>Note the caveat above about macros which end in <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>. </p>
                 
               
               
