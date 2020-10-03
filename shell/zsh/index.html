@@ -402,6 +402,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-functions" class="md-nav__link">
+    Hook functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     Prompt
   </a>
@@ -1658,6 +1678,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Python/env/" title="Environments" class="md-nav__link">
+      Environments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Ubuntu/python/" title="Ubuntu" class="md-nav__link">
       Ubuntu
     </a>
@@ -1867,6 +1899,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hook-functions" class="md-nav__link">
+    Hook functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#prompt" class="md-nav__link">
     Prompt
   </a>
@@ -1972,6 +2024,43 @@
                 
                 <h1 id="zsh">Zsh <badge-doc href="http://www.zsh.org/"></badge-doc> <a href="https://github.com/topics/zsh" target="_blank"> <img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/> </a><a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h1>
 <p>The Z-shell</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="hook-functions">Hook functions<a class="headerlink" href="#hook-functions" title="Permanent link">&para;</a></h3>
+<p><badge-doc href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions"></badge-doc></p>
+<p>It is possible to define an array that has the same name as the function with <code>_functions</code> appended. Any element in such an array is taken as the name of a function to execute; it is executed in the same context and with the same arguments as the basic function.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>❯ <span class="nb">echo</span> <span class="nv">$precmd_functions</span>
+_zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
+
+<span class="c1"># Show the definition of a function:</span>
+<span class="c1"># it is possible to use `which` or nearly identical to bash `type -f` </span>
+❯ whence -f _zsh_autosuggest_start
+</code></pre></div>
+
+</div>
+<ul>
+<li>
+<p><strong>chpwd</strong>: executed whenever the current working directory is changed. </p>
+</li>
+<li>
+<p><strong>periodic</strong>: if the parameter PERIOD is set, this function is executed every $PERIOD seconds, just before a prompt.</p>
+</li>
+<li>
+<p><strong>precmd</strong>: executed before each prompt.</p>
+</li>
+<li>
+<p><strong>preexec</strong>: executed just after a command has been read and is about to be executed.</p>
+</li>
+<li>
+<p><strong>zshaddhistory</strong>: executed when a history line has been read interactively, but before it is executed. </p>
+</li>
+<li>
+<p><strong>zshexit</strong>: executed at the point where the main shell is about to exit normally. </p>
+</li>
+</ul>
+<details class="info"><summary>Display user configuration of hooks functions</summary><p><script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script></p>
+</details>
 <h2 id="prompt">Prompt<a class="headerlink" href="#prompt" title="Permanent link">&para;</a></h2>
 <p>Prompt sequences undergo a <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">special form of expansion</a>. Some modules make it easier to personalize the prompt.</p>
 <p>The prompt system must be loaded (performed by extensions): <code>autoload -U promptinit; promptinit</code>.</p>
@@ -2040,16 +2129,16 @@ is performed immediately after alias expansion.</p>
 </ul>
 <p>The precedence of the operators given above is (highest) ‘^’, ‘/’, ‘~’, ‘|’ (lowest)</p>
 <div class="highlight"><pre><span></span><code># list text files that end in a number from 1 to 10
-ls -l zsh_demo/**/*&lt;1-10&gt;.txt
+❯ ls -l zsh_demo/**/*&lt;1-10&gt;.txt
 
 # list text files that start with the letter a
-ls -l zsh_demo/**/[a]*.txt
+❯ ls -l zsh_demo/**/[a]*.txt
 
 # list text files that start with either ab or bc
-ls -l zsh_demo/**/(ab|bc)*.txt
+❯ ls -l zsh_demo/**/(ab|bc)*.txt
 
 # list text files that don&#39;t start with a lower or uppercase c
-ls -l zsh_demo/**/[^cC]*.txt
+❯ ls -l zsh_demo/**/[^cC]*.txt
 </code></pre></div>
 
 <h4 id="glob-flag"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Flags">glob flag</a><a class="headerlink" href="#glob-flag" title="Permanent link">&para;</a></h4>
@@ -2239,28 +2328,28 @@ ls -l zsh_demo/**/[^cC]*.txt
 </tbody>
 </table>
 </details>
-<div class="highlight"><pre><span></span><code># show only directories
-print -l zsh_demo/**/*(/)
+<div class="highlight"><pre><span></span><code><span class="c1"># show only directories</span>
+❯ print -l zsh_demo/**/*<span class="o">(</span>/<span class="o">)</span>
 
-# because the expression is expanded, 
-# can be used with editors, e.g. vim
-# will open a lot of files (36)
-vim zsh_demo/**/*(.)
+<span class="c1"># because the expression is expanded, </span>
+<span class="c1"># can be used with editors, e.g. vim</span>
+<span class="c1"># will open a lot of files (36)</span>
+❯ vim zsh_demo/**/*<span class="o">(</span>.<span class="o">)</span>
 
-# show empty files
-ls -l zsh_demo/**/*(L0)
+<span class="c1"># show empty files</span>
+❯ ls -l zsh_demo/**/*<span class="o">(</span>L0<span class="o">)</span>
 
-# show files greater than 3 KB
-ls -l zsh_demo/**/*(Lk+3)
+<span class="c1"># show files greater than 3 KB</span>
+❯ ls -l zsh_demo/**/*<span class="o">(</span>Lk+3<span class="o">)</span>
 
-# show files modified in the last hour
-print -l zsh_demo/**/*(mh-1)
+<span class="c1"># show files modified in the last hour</span>
+❯ print -l zsh_demo/**/*<span class="o">(</span>mh-1<span class="o">)</span>
 
-# sort files from most to least recently modified and show the last 3
-ls -l zsh_demo/**/*(om[1,3])
+<span class="c1"># sort files from most to least recently modified and show the last 3</span>
+❯ ls -l zsh_demo/**/*<span class="o">(</span>om<span class="o">[</span><span class="m">1</span>,3<span class="o">])</span>
 
-# keep it simple
-ls -l zsh_demo/**/*(.Lm-2mh-1om[1,3])
+<span class="c1"># keep it simple</span>
+❯ ls -l zsh_demo/**/*<span class="o">(</span>.Lm-2mh-1om<span class="o">[</span><span class="m">1</span>,3<span class="o">])</span>
 </code></pre></div>
 
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
