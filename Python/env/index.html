@@ -548,7 +548,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../shell/Ubuntu/python/" title="Python" class="md-nav__link">
+    <a href="../../shell/Ubuntu/python.md" title="Python" class="md-nav__link">
       Python
     </a>
   </li>
@@ -1566,6 +1566,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    Pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wheel" class="md-nav__link">
     Wheel
   </a>
@@ -1618,9 +1625,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#python-distribution" class="md-nav__link">
+    Python distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Python distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    Conda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pipenv" class="md-nav__link">
     Pipenv
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1631,6 +1658,13 @@
   
     <nav class="md-nav" aria-label="Dependency manager">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda_1" class="md-nav__link">
+    Conda
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#pipenv_1" class="md-nav__link">
@@ -1652,16 +1686,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-distribution" class="md-nav__link">
-    Python distribution
+  <a href="#application-manager" class="md-nav__link">
+    Application manager
   </a>
   
-    <nav class="md-nav" aria-label="Python distribution">
+    <nav class="md-nav" aria-label="Application manager">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#conda" class="md-nav__link">
-    Conda
+  <a href="#pipx" class="md-nav__link">
+    Pipx
   </a>
   
 </li>
@@ -1675,18 +1709,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../shell/Ubuntu/python/" title="Ubuntu" class="md-nav__link">
-      Ubuntu
-    </a>
   </li>
 
         
@@ -1901,6 +1923,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    Pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wheel" class="md-nav__link">
     Wheel
   </a>
@@ -1953,9 +1982,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#python-distribution" class="md-nav__link">
+    Python distribution
+  </a>
+  
+    <nav class="md-nav" aria-label="Python distribution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda" class="md-nav__link">
+    Conda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pipenv" class="md-nav__link">
     Pipenv
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1966,6 +2015,13 @@
   
     <nav class="md-nav" aria-label="Dependency manager">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda_1" class="md-nav__link">
+    Conda
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#pipenv_1" class="md-nav__link">
@@ -1987,16 +2043,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-distribution" class="md-nav__link">
-    Python distribution
+  <a href="#application-manager" class="md-nav__link">
+    Application manager
   </a>
   
-    <nav class="md-nav" aria-label="Python distribution">
+    <nav class="md-nav" aria-label="Application manager">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#conda" class="md-nav__link">
-    Conda
+  <a href="#pipx" class="md-nav__link">
+    Pipx
   </a>
   
 </li>
@@ -2024,16 +2080,17 @@
                 
                 <h1 id="virtual-environements">Virtual environements<a class="headerlink" href="#virtual-environements" title="Permanent link">&para;</a></h1>
 <h2 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h2>
+<h3 id="pip">Pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<p>Pip <badge-stars repo='pypa/pip'></badge-stars> <badge-doc href="https://pip.pypa.io/en/stable"></badge-doc> is the package installer for Python.</p>
 <h3 id="wheel">Wheel<a class="headerlink" href="#wheel" title="Permanent link">&para;</a></h3>
-<p><badge-stars repo='pypa/wheel'></badge-stars> <badge-doc href="https://wheel.readthedocs.io/"></badge-doc> <badge-pep nr='427'></badge-pep></p>
-<p>This library is the reference implementation of the Python wheel packaging standard, as defined in PEP 427. It has two different roles:</p>
+<p>This library <badge-stars repo='pypa/wheel'></badge-stars> <badge-doc href="https://wheel.readthedocs.io/"></badge-doc> <badge-pep nr='427'></badge-pep> <badge-pep nr='425'></badge-pep> is the reference implementation of the Python wheel packaging standard, as defined in PEP 427. It has two different roles:</p>
 <ul>
 <li>A setuptools extension for building wheels that provides the bdist_wheel setuptools command</li>
 <li>A command line tool for working with wheel files</li>
 </ul>
 <h2 id="pyprojecttoml"><code>pyproject.toml</code><a class="headerlink" href="#pyprojecttoml" title="Permanent link">&para;</a></h2>
-<details class="cite"><summary>About PEP 0518</summary><p><badge-pep nr='518'></badge-pep></p>
-<p><a href="https://docs.python.org/3/library/distutils.html#module-distutils">distutils</a>
+<p>This file lists the minimal dependencies of the build system of a project in a declarative fashion.  <badge-pep nr='518'></badge-pep> <badge-pep nr='517'></badge-pep></p>
+<details class="cite"><summary>About PEP 0518</summary><p><a href="https://docs.python.org/3/library/distutils.html#module-distutils">distutils</a>
 When Python first developed its tooling for building distributions of
 software for projects, was the chosen solution. As time went on,
 <a href="https://pypi.python.org/pypi/setuptools">setuptools</a> gained popularity to
@@ -2052,7 +2109,9 @@ file.</p>
 <p>Tools should not require the existence of the <code>[build-system]</code> table. A pyproject.toml file may be used to store configuration details other than build-related data and thus lack a <code>[build-system]</code> table legitimately.</p>
 <h4 id="tool"><code>tool</code><a class="headerlink" href="#tool" title="Permanent link">&para;</a></h4>
 <p>The <code>[tool]</code> table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within <code>[tool]</code>, e.g. the flit tool would store its configuration in <code>[tool.flit]</code>.</p>
-<h2 id="pipenv">Pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h2>
+<h2 id="python-distribution">Python distribution<a class="headerlink" href="#python-distribution" title="Permanent link">&para;</a></h2>
+<h3 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
+<h3 id="pipenv">Pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h3>
 <p><a href="https://pipenv-fork.readthedocs.io" target="_blank">
     <img src="https://readthedocs.org/projects/pipenv-fork/badge/?version=latest" alt="Pipenv documentation"/>
 </a></p>
@@ -2061,6 +2120,7 @@ file.</p>
 </code></pre></div>
 
 <h2 id="dependency-manager">Dependency manager<a class="headerlink" href="#dependency-manager" title="Permanent link">&para;</a></h2>
+<h3 id="conda_1">Conda<a class="headerlink" href="#conda_1" title="Permanent link">&para;</a></h3>
 <h3 id="pipenv_1">Pipenv<a class="headerlink" href="#pipenv_1" title="Permanent link">&para;</a></h3>
 <h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
 <p><badge-stars repo='python-poetry/poetry'></badge-stars> <badge-doc href="https://python-poetry.org/docs/"></badge-doc></p>
@@ -2068,8 +2128,9 @@ file.</p>
 <div class="highlight"><pre><span></span><code>poetry completions zsh &gt; ~/.zfunc/_poetry
 </code></pre></div>
 
-<h2 id="python-distribution">Python distribution<a class="headerlink" href="#python-distribution" title="Permanent link">&para;</a></h2>
-<h3 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
+<h2 id="application-manager">Application manager<a class="headerlink" href="#application-manager" title="Permanent link">&para;</a></h2>
+<h3 id="pipx">Pipx<a class="headerlink" href="#pipx" title="Permanent link">&para;</a></h3>
+<p><strong>pipx</strong> <badge-stars repo='pipxproject/pipx'></badge-stars> <badge-doc href="https://pipxproject.github.io/pipx"></badge-doc> installs and run python applications in isolated environments.</p>
                 
               
               
@@ -2103,13 +2164,13 @@ file.</p>
           </a>
         
         
-          <a href="../../shell/Ubuntu/python/" title="Ubuntu" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../go/concurency/" title="Concurency" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Ubuntu
+                Concurency
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
