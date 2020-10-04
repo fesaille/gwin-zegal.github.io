@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux" class="md-skip">
+        <a href="#shell" class="md-skip">
           Skip to content
         </a>
       
@@ -171,10 +171,29 @@
     <li class="md-tabs__item">
       
         <a href="./" class="md-tabs__link md-tabs__link--active">
+          Linux
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../sw_dvpt/git/" class="md-tabs__link">
           SW dvpt
         </a>
       
     </li>
+  
+
   
 
       
@@ -330,13 +349,13 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
-      SW dvpt
+      Linux
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="SW dvpt" data-md-level="1">
+    <nav class="md-nav" aria-label="Linux" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon"></span>
-        SW dvpt
+        Linux
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -378,8 +397,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ls_colors" class="md-nav__link">
     LS_COLORS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnu-stow" class="md-nav__link">
+    GNU Stow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autojump" class="md-nav__link">
+    Autojump
   </a>
   
 </li>
@@ -391,22 +437,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fuzzy-finder" class="md-nav__link">
+    fuzzy finder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-structured-data" class="md-nav__link">
+    Working with structured data
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with structured data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    Makefile
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../tmux/" title="tmux" class="md-nav__link">
-      tmux
-    </a>
   </li>
 
         
@@ -428,8 +503,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../fzf/" title="fzf" class="md-nav__link">
-      fzf
+    <a href="../tmux/" title="tmux" class="md-nav__link">
+      tmux
     </a>
   </li>
 
@@ -441,14 +516,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
-    <label class="md-nav__link" for="nav-2-5">
+    <label class="md-nav__link" for="nav-2-4">
       vim
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="vim" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-5">
+      <label class="md-nav__title" for="nav-2-4">
         <span class="md-nav__icon md-icon"></span>
         vim
       </label>
@@ -550,6 +625,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../linux/freedesktop/" title="freedesktop" class="md-nav__link">
+      freedesktop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../linux/network/" title="network" class="md-nav__link">
       network
     </a>
@@ -606,6 +693,32 @@
   </li>
 
         
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      SW dvpt
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="SW dvpt" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        SW dvpt
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
           
           
@@ -613,14 +726,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-8" type="checkbox" id="nav-2-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
     
-    <label class="md-nav__link" for="nav-2-8">
+    <label class="md-nav__link" for="nav-3-1">
       VCS
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="VCS" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-8">
+      <label class="md-nav__title" for="nav-3-1">
         <span class="md-nav__icon md-icon"></span>
         VCS
       </label>
@@ -651,14 +764,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-9" type="checkbox" id="nav-2-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
     
-    <label class="md-nav__link" for="nav-2-9">
+    <label class="md-nav__link" for="nav-3-2">
       CI/CD
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="CI/CD" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-9">
+      <label class="md-nav__title" for="nav-3-2">
         <span class="md-nav__icon md-icon"></span>
         CI/CD
       </label>
@@ -706,14 +819,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Infrastructure
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Infrastructure" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon"></span>
         Infrastructure
       </label>
@@ -739,14 +852,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
-    <label class="md-nav__link" for="nav-3-2">
+    <label class="md-nav__link" for="nav-4-2">
       DevOps
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="DevOps" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-2">
+      <label class="md-nav__title" for="nav-4-2">
         <span class="md-nav__icon md-icon"></span>
         DevOps
       </label>
@@ -777,14 +890,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
     
-    <label class="md-nav__link" for="nav-3-3">
+    <label class="md-nav__link" for="nav-4-3">
       Containerization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Containerization" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
+      <label class="md-nav__title" for="nav-4-3">
         <span class="md-nav__icon md-icon"></span>
         Containerization
       </label>
@@ -834,14 +947,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3-4" type="checkbox" id="nav-3-3-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3-4" type="checkbox" id="nav-4-3-4">
     
-    <label class="md-nav__link" for="nav-3-3-4">
+    <label class="md-nav__link" for="nav-4-3-4">
       Images
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Images" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-3-4">
+      <label class="md-nav__title" for="nav-4-3-4">
         <span class="md-nav__icon md-icon"></span>
         Images
       </label>
@@ -877,14 +990,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
     
-    <label class="md-nav__link" for="nav-3-4">
+    <label class="md-nav__link" for="nav-4-4">
       Orchestration
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Orchestration" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
+      <label class="md-nav__title" for="nav-4-4">
         <span class="md-nav__icon md-icon"></span>
         Orchestration
       </label>
@@ -944,14 +1057,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Cloud
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Cloud" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         <span class="md-nav__icon md-icon"></span>
         Cloud
       </label>
@@ -994,14 +1107,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Data
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Data" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon"></span>
         Data
       </label>
@@ -1039,14 +1152,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
     
-    <label class="md-nav__link" for="nav-5-3">
+    <label class="md-nav__link" for="nav-6-3">
       Pipelines
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Pipelines" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
+      <label class="md-nav__title" for="nav-6-3">
         <span class="md-nav__icon md-icon"></span>
         Pipelines
       </label>
@@ -1089,14 +1202,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
     
-    <label class="md-nav__link" for="nav-5-4">
+    <label class="md-nav__link" for="nav-6-4">
       Visualization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Visualization" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
+      <label class="md-nav__title" for="nav-6-4">
         <span class="md-nav__icon md-icon"></span>
         Visualization
       </label>
@@ -1139,14 +1252,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
     
-    <label class="md-nav__link" for="nav-5-6">
+    <label class="md-nav__link" for="nav-6-6">
       SQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="SQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-6">
+      <label class="md-nav__title" for="nav-6-6">
         <span class="md-nav__icon md-icon"></span>
         SQL
       </label>
@@ -1189,14 +1302,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
     
-    <label class="md-nav__link" for="nav-5-7">
+    <label class="md-nav__link" for="nav-6-7">
       Object store
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Object store" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-7">
+      <label class="md-nav__title" for="nav-6-7">
         <span class="md-nav__icon md-icon"></span>
         Object store
       </label>
@@ -1227,14 +1340,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-8" type="checkbox" id="nav-6-8">
     
-    <label class="md-nav__link" for="nav-5-8">
+    <label class="md-nav__link" for="nav-6-8">
       MongoDB
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-8">
+      <label class="md-nav__title" for="nav-6-8">
         <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
@@ -1294,14 +1407,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-7">
       AI/ML
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="AI/ML" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-7">
         <span class="md-nav__icon md-icon"></span>
         AI/ML
       </label>
@@ -1327,14 +1440,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
-    <label class="md-nav__link" for="nav-6-2">
+    <label class="md-nav__link" for="nav-7-2">
       ndarray
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="ndarray" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-2">
+      <label class="md-nav__title" for="nav-7-2">
         <span class="md-nav__icon md-icon"></span>
         ndarray
       </label>
@@ -1365,14 +1478,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
     
-    <label class="md-nav__link" for="nav-6-3">
+    <label class="md-nav__link" for="nav-7-3">
       Time series
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Time series" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-3">
+      <label class="md-nav__title" for="nav-7-3">
         <span class="md-nav__icon md-icon"></span>
         Time series
       </label>
@@ -1504,14 +1617,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-7">
+    <label class="md-nav__link" for="nav-8">
       Python
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Python" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
+      <label class="md-nav__title" for="nav-8">
         <span class="md-nav__icon md-icon"></span>
         Python
       </label>
@@ -1590,14 +1703,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
-    <label class="md-nav__link" for="nav-8">
+    <label class="md-nav__link" for="nav-9">
       Go
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Go" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
+      <label class="md-nav__title" for="nav-9">
         <span class="md-nav__icon md-icon"></span>
         Go
       </label>
@@ -1628,14 +1741,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
-    <label class="md-nav__link" for="nav-9">
+    <label class="md-nav__link" for="nav-10">
       WebDev
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="WebDev" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
+      <label class="md-nav__title" for="nav-10">
         <span class="md-nav__icon md-icon"></span>
         WebDev
       </label>
@@ -1702,14 +1815,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
     
-    <label class="md-nav__link" for="nav-10">
+    <label class="md-nav__link" for="nav-11">
       ?
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="?" data-md-level="1">
-      <label class="md-nav__title" for="nav-10">
+      <label class="md-nav__title" for="nav-11">
         <span class="md-nav__icon md-icon"></span>
         ?
       </label>
@@ -1781,8 +1894,35 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ls_colors" class="md-nav__link">
     LS_COLORS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnu-stow" class="md-nav__link">
+    GNU Stow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autojump" class="md-nav__link">
+    Autojump
   </a>
   
 </li>
@@ -1790,6 +1930,47 @@
         <li class="md-nav__item">
   <a href="#finding-files" class="md-nav__link">
     Finding files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuzzy-finder" class="md-nav__link">
+    fuzzy finder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-structured-data" class="md-nav__link">
+    Working with structured data
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with structured data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    Makefile
   </a>
   
 </li>
@@ -1810,7 +1991,7 @@
                   
                 
                 
-                <h1 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+                <h1 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
 <!-- <div class="mdc-card"> -->
 
 <!--   <div class="mdc-card__primary-action" tabindex="0"> -->
@@ -1821,16 +2002,90 @@
 
 <!-- </div> -->
 
-<h2 id="ls_colors">LS_COLORS<a class="headerlink" href="#ls_colors" title="Permanent link">&para;</a></h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="ls_colors"><code>LS_COLORS</code><a class="headerlink" href="#ls_colors" title="Permanent link">&para;</a></h3>
 <p><strong>vivid</strong> <badge-stars repo='sharkdp/vivid'></badge-stars> is a generator for the <code>LS_COLORS</code> environment variable</p>
-<pre><code>export LS_COLORS="$(vivid generate molokai)"
-</code></pre>
+<div class="highlight"><pre><span></span><code>    <span class="nb">export</span> <span class="nv">LS_COLORS</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>vivid generate molokai<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+
+<h3 id="gnu-stow">GNU Stow<a class="headerlink" href="#gnu-stow" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.gnu.org/software/stow/">GNU Stow</a> is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.</p>
+<p>The software can be used to manage dotfiles.</p>
+<h2 id="autojump">Autojump<a class="headerlink" href="#autojump" title="Permanent link">&para;</a></h2>
+<p>These utilities give the most visited directory for the shortest search term typed.</p>
+<ul>
+<li><strong>jump</strong> <badge-stars repo='gsamokovarov/jump'></badge-stars> is written in go. </li>
+<li><strong>autojump</strong> <badge-stars repo='wting/autojump'></badge-stars> is written in python.</li>
+<li><strong>zoxide</strong> <badge-stars repo='ajeetdsouza/zoxide'></badge-stars> is written in rust.</li>
+<li><strong>zsh-z</strong> <badge-stars repo='agkozak/zsh-z'></badge-stars> is a native zsh port of z.sh</li>
+</ul>
 <h2 id="finding-files">Finding files<a class="headerlink" href="#finding-files" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>nnn</strong> <badge-stars repo='jarun/nnn'></badge-stars> <badge-doc href="https://github.com/jarun/nnn/wiki"></badge-doc> is another vi-inspired filemanager for the console, lightweight, written in C.</li>
+<li>
 <p><strong>Ranger</strong> <badge-stars repo='ranger/ranger'></badge-stars> <badge-doc href="https://ranger.github.io"></badge-doc>, vim-inspired filemanager for the console, written in python.</p>
-<p><strong>nnn</strong> <badge-stars repo='jarun/nnn'></badge-stars> <badge-doc href="https://github.com/jarun/nnn/wiki"></badge-doc> is another vi-inspired filemanager for the console, lightweight, written in C.</p>
+<p>Install with <code>pipx install ranger-fm</code></p>
+</li>
+<li>
 <p><strong>exa</strong> <badge-stars repo='ogham/exa'></badge-stars> <badge-doc href="https://the.exa.website/"></badge-doc> is a replacement for ls written in Rust.</p>
-<p><a href="https://stedolan.github.io/jq/manual/">JQ</a></p>
-<h1 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h1>
+</li>
+</ul>
+<h2 id="fuzzy-finder">fuzzy finder<a class="headerlink" href="#fuzzy-finder" title="Permanent link">&para;</a></h2>
+<p><strong>fzf</strong> <badge-stars repo='junegunn/fzf'></badge-stars> <badge-doc href="https://github.com/junegunn/fzf#table-of-contents"></badge-doc> is a go fuzzy finder</p>
+<details class="help"><summary>Search syntax</summary><table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Match type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sbtrkt</code></td>
+<td>fuzzy-match</td>
+<td>Items that match <code>sbtrkt</code></td>
+</tr>
+<tr>
+<td><code>'wild</code></td>
+<td>exact-match (quoted)</td>
+<td>Items that include <code>wild</code></td>
+</tr>
+<tr>
+<td><code>^music</code></td>
+<td>prefix-exact-match</td>
+<td>Items that start with <code>music</code></td>
+</tr>
+<tr>
+<td><code>.mp3$</code></td>
+<td>suffix-exact-match</td>
+<td>Items that end with <code>.mp3</code></td>
+</tr>
+<tr>
+<td><code>!fire</code></td>
+<td>inverse-exact-match</td>
+<td>Items that do not include <code>fire</code></td>
+</tr>
+<tr>
+<td><code>!^music</code></td>
+<td>inverse-prefix-exact-match</td>
+<td>Items that do not start with <code>music</code></td>
+</tr>
+<tr>
+<td><code>!.mp3$</code></td>
+<td>inverse-suffix-exact-match</td>
+<td>Items that do not end with <code>.mp3</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><strong>fzy</strong> <badge-stars repo='jhawthorn/fzy'></badge-stars> is written in C</p>
+<h2 id="working-with-structured-data">Working with structured data<a class="headerlink" href="#working-with-structured-data" title="Permanent link">&para;</a></h2>
+<h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
+<p><strong>jq</strong> <badge-stars repo='stedolan/jq'></badge-stars> <badge-doc href="https://stedolan.github.io/jq/"></badge-doc></p>
+<h3 id="yaml">YAML<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
+<p><strong>yq</strong> <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc href="https://mikefarah.gitbook.io/yq/"></badge-doc></p>
+<h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
 <p>Splitting Recipe Lines</p>
 <p>https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html</p>
 <p>Makefile tutorial</p>
@@ -1870,13 +2125,13 @@
           </a>
         
         
-          <a href="../tmux/" title="tmux" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../zsh/" title="zsh" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                tmux
+                zsh
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
