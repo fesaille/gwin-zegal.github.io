@@ -204,7 +204,7 @@
      <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/Python/asyncio/</loc>
+     <loc>https://github.com/fesaille/Python/env/</loc>
      <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -216,11 +216,15 @@
      <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://github.com/fesaille/Python/asyncio/</loc>
+     <lastmod>2020-10-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://github.com/fesaille/Python/test/</loc>
      <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/Python/env/</loc>
+     <loc>https://github.com/fesaille/Python/click/</loc>
      <lastmod>2020-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
