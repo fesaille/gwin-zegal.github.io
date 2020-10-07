@@ -228,7 +228,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../Catalogize/" class="md-tabs__link">
+        <a href="../../data/crisp-dm/" class="md-tabs__link">
           Data
         </a>
       
@@ -1106,6 +1106,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../data/crisp-dm/" title="CRISP-DM" class="md-nav__link">
+      CRISP-DM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Catalogize/" title="intake" class="md-nav__link">
       intake
     </a>
@@ -1131,14 +1143,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
     
-    <label class="md-nav__link" for="nav-6-3">
+    <label class="md-nav__link" for="nav-6-4">
       Pipelines
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Pipelines" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-3">
+      <label class="md-nav__title" for="nav-6-4">
         <span class="md-nav__icon md-icon"></span>
         Pipelines
       </label>
@@ -1181,14 +1193,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
     
-    <label class="md-nav__link" for="nav-6-4">
+    <label class="md-nav__link" for="nav-6-5">
       Visualization
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Visualization" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-4">
+      <label class="md-nav__title" for="nav-6-5">
         <span class="md-nav__icon md-icon"></span>
         Visualization
       </label>
@@ -1231,14 +1243,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-6" type="checkbox" id="nav-6-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
     
-    <label class="md-nav__link" for="nav-6-6">
+    <label class="md-nav__link" for="nav-6-7">
       SQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="SQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-6">
+      <label class="md-nav__title" for="nav-6-7">
         <span class="md-nav__icon md-icon"></span>
         SQL
       </label>
@@ -1281,14 +1293,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-7" type="checkbox" id="nav-6-7">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-8" type="checkbox" id="nav-6-8">
     
-    <label class="md-nav__link" for="nav-6-7">
+    <label class="md-nav__link" for="nav-6-8">
       Object store
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Object store" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-7">
+      <label class="md-nav__title" for="nav-6-8">
         <span class="md-nav__icon md-icon"></span>
         Object store
       </label>
@@ -1319,14 +1331,14 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-8" type="checkbox" id="nav-6-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-9" type="checkbox" id="nav-6-9">
     
-    <label class="md-nav__link" for="nav-6-8">
+    <label class="md-nav__link" for="nav-6-9">
       MongoDB
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="MongoDB" data-md-level="2">
-      <label class="md-nav__title" for="nav-6-8">
+      <label class="md-nav__title" for="nav-6-9">
         <span class="md-nav__icon md-icon"></span>
         MongoDB
       </label>
@@ -1720,6 +1732,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../go/distributed/" title="Distributed" class="md-nav__link">
+      Distributed
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1969,24 +1993,27 @@
 <p>Binaries, extension and source code can be installed from the <a href="https://www.virtualbox.org/wiki/Downloads">wiki</a>.</p>
 <p>A handy feature is the ability to run common commands for managing VM from the cli after installing the <a href="https://www.virtualbox.org/wiki/Downloads">extension pack</a></p>
 <h3 id="basic-command-for-running-vm">Basic command for running VM<a class="headerlink" href="#basic-command-for-running-vm" title="Permanent link">&para;</a></h3>
+<p>The extension pack cli entry point <code>VBoxManage</code> can be aliased as:
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">vbm</span><span class="o">=</span>VBoxManage
+</code></pre></div></p>
 <p>List VM's:
-<div class="highlight"><pre><span></span><code>VBoxManage list vms
-# List running vms
-VBoxManage list runningvms
+<div class="highlight"><pre><span></span><code>vbm list vms
+<span class="c1"># List running vms</span>
+vbm list runningvms
 </code></pre></div></p>
 <p>Change the name of a VM:
-<div class="highlight"><pre><span></span><code>VBoxManage modifyvm &quot;VirtualMachine provided for test purpose&quot; --name &quot;MyVM&quot;
+<div class="highlight"><pre><span></span><code>vbm modifyvm <span class="s2">&quot;VirtualMachine provided for test purpose&quot;</span> --name <span class="s2">&quot;MyVM&quot;</span>
 </code></pre></div></p>
 <p>Start a VM in headless mode:
-<div class="highlight"><pre><span></span><code>VBoxManage startvm &quot;MyVM&quot; --type headless
+<div class="highlight"><pre><span></span><code>vbm startvm <span class="s2">&quot;MyVM&quot;</span> --type headless
 </code></pre></div></p>
 <p>Once started, a VM in headless mode can be controlled (pause/resume/poweroff):
-<div class="highlight"><pre><span></span><code>VBoxManage controlvm &quot;MyVM&quot; pause --type headless
-VBoxManage controlvm &quot;MyVM&quot; resume --type headless
-VBoxManage controlvm &quot;MyVM&quot; poweroff --type headless
+<div class="highlight"><pre><span></span><code>vbm controlvm <span class="s2">&quot;MyVM&quot;</span> pause --type headless
+vbm controlvm <span class="s2">&quot;MyVM&quot;</span> resume --type headless
+vbm controlvm <span class="s2">&quot;MyVM&quot;</span> poweroff --type headless
 </code></pre></div></p>
 <p>View VM properties 
-<div class="highlight"><pre><span></span><code>VBoxManage guestproperty enumerate &quot;MyVM&quot;
+<div class="highlight"><pre><span></span><code>vbm guestproperty enumerate <span class="s2">&quot;MyVM&quot;</span>
 </code></pre></div></p>
 <h2 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h2>
 <h3 id="installation-on-debian-based-systems">Installation on Debian based systems<a class="headerlink" href="#installation-on-debian-based-systems" title="Permanent link">&para;</a></h3>
