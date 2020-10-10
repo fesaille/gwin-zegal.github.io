@@ -445,6 +445,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-content-search" class="md-nav__link">
+    File content search
+  </a>
+  
+    <nav class="md-nav" aria-label="File content search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-with-substitution" class="md-nav__link">
+    Search with substitution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-structured-data" class="md-nav__link">
     Working with structured data
   </a>
@@ -562,6 +582,18 @@
   <li class="md-nav__item">
     <a href="../vim/edition/" title="Edition" class="md-nav__link">
       Edition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../vim/search/" title="Search" class="md-nav__link">
+      Search
     </a>
   </li>
 
@@ -804,6 +836,18 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sw_dvpt/patterns/" title="Design patterns" class="md-nav__link">
+      Design patterns
+    </a>
   </li>
 
         
@@ -1990,6 +2034,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-content-search" class="md-nav__link">
+    File content search
+  </a>
+  
+    <nav class="md-nav" aria-label="File content search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-with-substitution" class="md-nav__link">
+    Search with substitution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#working-with-structured-data" class="md-nav__link">
     Working with structured data
   </a>
@@ -2129,6 +2193,14 @@
 </table>
 </details>
 <p><strong>fzy</strong> <badge-stars repo='jhawthorn/fzy'></badge-stars> is written in C</p>
+<h2 id="file-content-search">File content search<a class="headerlink" href="#file-content-search" title="Permanent link">&para;</a></h2>
+<p>Search can be efficiently performed by <strong>the silver search (<code>ag</code>)</strong> <badge-stars repo='ggreer/the_silver_searcher'></badge-stars> <badge-doc href='https://geoff.greer.fm/ag/'></badge-doc> and <strong>ripgrep (<code>rg</code>)</strong> <badge-stars repo='BurntSushi/ripgrep'></badge-stars> <badge-doc logo='Markdown' href='https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md'></badge-doc>, written resp. in C and rust. <code>rg</code> tends to be one of the quickest.</p>
+<h3 id="search-with-substitution">Search with substitution<a class="headerlink" href="#search-with-substitution" title="Permanent link">&para;</a></h3>
+<p>In respect of <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well">DOTADIW</a>, <code>rg</code> does <a href="https://github.com/BurntSushi/ripgrep/issues/74">not support</a> natively search and replacement. This can be achieved with a pipe, e.g. in the case of preparing cookiecutter templates from <code>molecule init</code> outputs:</p>
+<div class="highlight"><pre><span></span><code> rg ROLE --files-with-matches <span class="p">|</span> xargs sed -e <span class="s2">&quot;s/ROLE/\{\{ cookiecutter.role_name \}\}/g&quot;</span>
+</code></pre></div>
+
+<p>Link: https://learnbyexample.github.io/substitution-with-ripgrep/</p>
 <h2 id="working-with-structured-data">Working with structured data<a class="headerlink" href="#working-with-structured-data" title="Permanent link">&para;</a></h2>
 <h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
 <p><strong>jq</strong> <badge-stars repo='stedolan/jq'></badge-stars> <badge-doc href="https://stedolan.github.io/jq/"></badge-doc></p>
