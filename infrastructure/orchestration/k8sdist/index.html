@@ -935,18 +935,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../minikube/" title="Minikube" class="md-nav__link">
-      Minikube
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../cli/" title="CLI usage" class="md-nav__link">
       CLI usage
     </a>
@@ -993,6 +981,26 @@
   <a href="#minikube" class="md-nav__link">
     Minikube
   </a>
+  
+    <nav class="md-nav" aria-label="Minikube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver" class="md-nav__link">
+    Driver:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1916,6 +1924,26 @@
     Minikube
   </a>
   
+    <nav class="md-nav" aria-label="Minikube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver" class="md-nav__link">
+    Driver:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1943,8 +1971,33 @@
                 
                 <h1 id="kubernetes-distribution">Kubernetes distribution<a class="headerlink" href="#kubernetes-distribution" title="Permanent link">&para;</a></h1>
 <h2 id="minikube">Minikube<a class="headerlink" href="#minikube" title="Permanent link">&para;</a></h2>
+<p><strong>Minikube</strong> <badge-stars repo='kubernetes/minikube'></badge-stars> <badge-doc href="https://minikube.sigs.k8s.io"></badge-doc> installs a local kubernetes cluster. </p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<p>Direct download via:</p>
+<div class="highlight"><pre><span></span><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  &amp;&amp; chmod +x minikube
+</code></pre></div>
+
+<h3 id="driver">Driver:<a class="headerlink" href="#driver" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://minikube.sigs.k8s.io/docs/drivers/vmware/">vmware driver</a>
+ supports virtualization across all VMware based hypervisors.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">r</span><span class="o">=</span>https://api.github.com/repos/machine-drivers/docker-machine-driver-vmware
+curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/latest <span class="p">|</span> grep -o <span class="s1">&#39;http.*darwin_amd64&#39;</span> <span class="p">|</span> head -n1<span class="k">)</span> <span class="se">\</span>
+ <span class="o">&amp;&amp;</span> install docker-machine-driver-vmware_darwin_amd64 <span class="se">\</span>
+   /usr/local/bin/docker-machine-driver-vmware
+</code></pre></div>
+
 <h2 id="minishift">Minishift<a class="headerlink" href="#minishift" title="Permanent link">&para;</a></h2>
-<p><strong>minishift</strong> <badge-stars repo='minishift/minishift'></badge-stars> <badge-doc href='https://docs.okd.io'></badge-doc> is a tool that helps run OpenShift locally by running a single-node OpenShift cluster inside a VM.</p>
+<p><strong>Minishift</strong> <badge-stars repo='minishift/minishift'></badge-stars> <badge-doc href='https://docs.okd.io'></badge-doc> is a tool that helps run OpenShift locally by running a single-node OpenShift cluster inside a VM.</p>
+<p>Note:</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-minikube/">Install minikube</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
