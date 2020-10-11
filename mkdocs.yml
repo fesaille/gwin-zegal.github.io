@@ -66,8 +66,6 @@ nav:
       - "Cloud landscape": cloud/cloudlandscape.md
   - Data:
       - "CRISP-DM": data/crisp-dm.md 
-      - intake: Catalogize.ipynb
-      - intake2: data/Covid.ipynb
       - Pipelines:
           - Luigi: data/pipelines/luigi.md
           - prefect: data/pipelines/prefect.md
