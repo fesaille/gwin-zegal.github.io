@@ -35,3 +35,6 @@ Package providing:
 
 - <b>pydantic</b> <badge-stars repo='samuelcolvin/pydantic'></badge-stars> <badge-doc
 href="https://pydantic-docs.helpmanual.io/"></badge-doc>
+
+Link: https://www.pythonsheets.com/notes/python-typing.html
+

@@ -70,3 +70,18 @@ Folding principel:
 - folds at defined per level: ```:set foldlevel=<LEVEL>``` and adjacent lines are fold grouped by level value
 - to fold level at start ``` :set foldlevelstart=<LEVEL>```
 
+## Macros
+
+### Editing a macro
+
+From [vim.fandom.com](https://vim.fandom.com/wiki/Macros#Editing_a_macro):
+
+- Type `:let @a='i`
+- Press `Ctrl-R Ctrl-R` a to insert the current contents of register a (type Ctrl-R twice to insert the register exactly).
+- Edit the text as required.
+- Append an apostrophe `'` to finish the command, and press Enter.
+- Enter `:reg` a to view the new value in the register.
+- Type `@a` to execute the contents of register `a`.
+
+Note the caveat above about macros which end in `<CR>` or `<NL>`. 
+

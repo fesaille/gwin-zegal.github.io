@@ -1,6 +1,18 @@
 
 # Database
 
+
+## Language statements
+
+### DDL - Data Definition Language
+
+- in [impala](http://impala.apache.org/docs/build/html/topics/impala_ddl.html)
+
+### DML - Data Manipulation Language
+
+- in [impala](http://impala.apache.org/docs/build/html/topics/impala_dml.html)
+
+
 ## Data types
 
 Large objects, generaly up to 4Gb, and not supported universaly, e.g. not in Impala:

@@ -26,6 +26,8 @@ class Badge extends HTMLElement {
     var logo = this.hasAttribute('logo')?this.getAttribute('logo'):'Read-the-docs';
 
     var src = `https://img.shields.io/badge/${label}-${message}-${color}?style=flat&logo=${logo}`;
+    var src = `https://img.shields.io/badge/-${label}-fcfcfc?logo=${logo}&logoColor=gray`;
+    // var src = `https://img.shields.io/badge/-f5f5f5?style=flat&labelColor=f5f5f5&logoColor=black&logo=${logo}&label=${label}`;
 
     const link = document.createElement('a');
     link.setAttribute('target','_blank');
@@ -49,7 +51,7 @@ class StarsBadge extends Badge {
     var repo = this.hasAttribute('repo')?this.getAttribute('repo'):'';
 
     var img = this.shadowRoot.children[0].getElementsByTagName('img')[0];
-    img.setAttribute('src', `https://img.shields.io/github/stars/${repo}?style=social`);
+    img.setAttribute('src', `https://img.shields.io/github/stars/${repo}?style=social&label=☆`);
 
     var link = this.shadowRoot.children[0].getElementsByTagName('a')[0];
     link.setAttribute('href', `https://github.com/${repo}`);

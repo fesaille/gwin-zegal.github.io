@@ -15,33 +15,38 @@ A handy feature is the ability to run common commands for managing VM from the c
 
 ### Basic command for running VM
 
+The extension pack cli entry point `VBoxManage` can be aliased as:
+```bash
+alias vbm=VBoxManage
+```
+
 List VM's:
-```terminal
-VBoxManage list vms
+```bash
+vbm list vms
 # List running vms
-VBoxManage list runningvms
+vbm list runningvms
 ```
 
 Change the name of a VM:
-```terminal
-VBoxManage modifyvm "VirtualMachine provided for test purpose" --name "MyVM"
+```bash
+vbm modifyvm "VirtualMachine provided for test purpose" --name "MyVM"
 ```
 
 Start a VM in headless mode:
-```terminal
-VBoxManage startvm "MyVM" --type headless
+```bash
+vbm startvm "MyVM" --type headless
 ```
 
 Once started, a VM in headless mode can be controlled (pause/resume/poweroff):
-```terminal
-VBoxManage controlvm "MyVM" pause --type headless
-VBoxManage controlvm "MyVM" resume --type headless
-VBoxManage controlvm "MyVM" poweroff --type headless
+```bash
+vbm controlvm "MyVM" pause --type headless
+vbm controlvm "MyVM" resume --type headless
+vbm controlvm "MyVM" poweroff --type headless
 ```
 
 View VM properties 
-```terminal
-VBoxManage guestproperty enumerate "MyVM"
+```bash
+vbm guestproperty enumerate "MyVM"
 ```
 
 ## Vagrant 

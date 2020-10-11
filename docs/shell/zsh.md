@@ -1,6 +1,67 @@
-# Zsh <badge-doc href="http://www.zsh.org/"></badge-doc> <a href="https://github.com/topics/zsh" target="_blank"> <img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/> </a>
+# Zsh
 
-The Z-shell
+The Z-shell <span><badge-doc href="http://www.zsh.org/"></badge-doc> <a href="https://github.com/topics/zsh" target="_blank"> <img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/> </a></span>
+
+## Initialisation
+
+Shell initilization performs operations depending on the execution context, these operations can be mainly separated on *login* and *interactive* property. An short summary can be found at [pyenv wiki](https://github.com/pyenv/pyenv/wiki/Unix-shell-initialization).
+
+Basically:
+
+- *login*: e.g. when user logs in to a system with non-graphical interface or via SSH;
+- *interactive*: shell that has a prompt and whose standard input and error are both connected to terminals.
+
+Zsh performs initialiation in the following order:
+
+- `/etc/zshenv`
+- `~/.zshenv`
+- login mode:
+	- `/etc/zprofile`
+	- `~/.zprofile`
+- interactive:
+	- `/etc/zshrc`
+	- `~/.zshrc`
+- login mode:
+	- `/etc/zlogin`
+	- `~/.zlogin`
+
+`.zlogout` is called when exiting, not when opening.
+
+## Functions
+
+### Hook functions <badge-doc href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions"></badge-doc>
+
+It is possible to define an array that has the same name as the function with `_functions` appended. Any element in such an array is taken as the name of a function to execute; it is executed in the same context and with the same arguments as the basic function.
+
+!!! example 
+
+    ```bash
+    ❯ echo $precmd_functions
+    _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
+
+    # Show the definition of a function:
+    # it is possible to use `which` or nearly identical to bash `type -f` 
+    ❯ whence -f _zsh_autosuggest_start
+    ```
+
+
+- **chpwd**: executed whenever the current working directory is changed. 
+     
+- **periodic**: if the parameter PERIOD is set, this function is executed every $PERIOD seconds, just before a prompt.
+
+- **precmd**: executed before each prompt.
+
+- **preexec**: executed just after a command has been read and is about to be executed.
+
+- **zshaddhistory**: executed when a history line has been read interactively, but before it is executed. 
+
+- **zshexit**: executed at the point where the main shell is about to exit normally. 
+
+
+??? Info "Display user configuration of hooks functions"
+
+    <script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script>
+
 
 ## Prompt
 
@@ -10,7 +71,7 @@ The prompt system must be loaded (performed by extensions): `autoload -U prompti
 
 A theme can be applied with the `prompt` cmd.
 
-```terminal
+```bash
 ❯ prompt <TAB>
  -- prompt theme --
  adam1    bigfade  elite    fire     pure     restore  zefram
@@ -79,16 +140,16 @@ The precedence of the operators given above is (highest) ‘^’, ‘/’, ‘~�
 
 ```
 # list text files that end in a number from 1 to 10
-ls -l zsh_demo/**/*<1-10>.txt
+❯ ls -l zsh_demo/**/*<1-10>.txt
 
 # list text files that start with the letter a
-ls -l zsh_demo/**/[a]*.txt
+❯ ls -l zsh_demo/**/[a]*.txt
 
 # list text files that start with either ab or bc
-ls -l zsh_demo/**/(ab|bc)*.txt
+❯ ls -l zsh_demo/**/(ab|bc)*.txt
 
 # list text files that don't start with a lower or uppercase c
-ls -l zsh_demo/**/[^cC]*.txt
+❯ ls -l zsh_demo/**/[^cC]*.txt
 ```
 
 #### [glob flag](http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Flags)
@@ -149,29 +210,29 @@ ls -l zsh_demo/**/[^cC]*.txt
 	 | Yn              | enables short-circuit mode: the pattern will expand to at most n filenames.                                                   |
 
 
-```
+```bash
 # show only directories
-print -l zsh_demo/**/*(/)
+❯ print -l zsh_demo/**/*(/)
 
 # because the expression is expanded, 
 # can be used with editors, e.g. vim
 # will open a lot of files (36)
-vim zsh_demo/**/*(.)
+❯ vim zsh_demo/**/*(.)
 
 # show empty files
-ls -l zsh_demo/**/*(L0)
+❯ ls -l zsh_demo/**/*(L0)
 
 # show files greater than 3 KB
-ls -l zsh_demo/**/*(Lk+3)
+❯ ls -l zsh_demo/**/*(Lk+3)
 
 # show files modified in the last hour
-print -l zsh_demo/**/*(mh-1)
+❯ print -l zsh_demo/**/*(mh-1)
 
 # sort files from most to least recently modified and show the last 3
-ls -l zsh_demo/**/*(om[1,3])
+❯ ls -l zsh_demo/**/*(om[1,3])
 
 # keep it simple
-ls -l zsh_demo/**/*(.Lm-2mh-1om[1,3])
+❯ ls -l zsh_demo/**/*(.Lm-2mh-1om[1,3])
 ```
 
 
@@ -196,4 +257,5 @@ The zsh/zutil module adds some builtins:
 
 ## Other links
 
-[Adding Vi to your Zsh](https://dougblack.io/words/zsh-vi-mode.html)
+- [Adding Vi to your Zsh](https://dougblack.io/words/zsh-vi-mode.html)
+- [Moving to Zsh](https://scriptingosx.com/zsh/)

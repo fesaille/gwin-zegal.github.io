@@ -1,19 +1,10 @@
-
-# Time series
-
+# Features
 
 
+**Featuretools** <badge-stars repo='FeatureLabs/featuretools'></badge-stars> <badge-doc href="https://docs.featuretools.com/en/stable/"></badge-doc> is a python library for automated feature engineering
 
 
-## tsfresh
-
-<a href="https://tsfresh.readthedocs.io" target="_blank">
-	<img src="https://readthedocs.org/projects/tsfresh/badge/?version=latest" alt="tsfresh documentation"/>
-</a>
-
-
-!!! quote
-	tsfresh is a python package. It automatically calculates a large number of time series characteristics, the so called features. Further the package contains methods to evaluate the explaining power and importance of such characteristics for regression or classification tasks.
+**tsfresh** <badge-stars repo='FeatureLabs/featuretools'></badge-stars> <badge-doc href='https://tsfresh.readthedocs.io'></badge-doc> automatically calculates a large number of time series characteristics, the so called features. 
 
 
 ## 1D convolutional neural network

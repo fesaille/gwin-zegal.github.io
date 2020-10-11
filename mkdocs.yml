@@ -22,28 +22,31 @@ theme:
 
 nav:
   - Home: index.md
-  - "SW dvpt":
+  - Linux: 
       - shell: shell/intro.md
-      - tmux: shell/tmux.md
       - zsh: shell/zsh.md
-      - fzf: shell/fzf.md
+      - tmux: shell/tmux.md
       - vim:
           - Intro: shell/vim.md
           - Panes: shell/vim/panes.md
           - Edition: shell/vim/edition.md
+          - Search: shell/vim/search.md
           - Motion: shell/vim/motion.md
           - Plugins: shell/vim/plugins.md
           - Script: shell/vim/script.md
           - "Language support": shell/vim/languages.md
+      - freedesktop: linux/freedesktop.md
       - network: linux/network.md
       - Ubuntu:
           - Configuration: shell/Ubuntu/configuration.md
           - Python: shell/Ubuntu/python.md
+  - "SW dvpt":
       - VCS:
           - git: sw_dvpt/git.md
       - "CI/CD":
           - Intro: sw_dvpt/ci_cd/cicd.md
           - "Code coverage": sw_dvpt/ci_cd/codecov.md
+      - "Design patterns": sw_dvpt/patterns.md
   - Infrastructure:
       - VM: infrastructure/vm.md
       - DevOps:
@@ -56,12 +59,13 @@ nav:
               - MongoDB: data/db/mongoDB/docker.md
       - Orchestration:
           - Intro: infrastructure/orchestration/intro.md
-          - Minikube: infrastructure/orchestration/minikube.md
           - CLI usage: infrastructure/orchestration/cli.md
+          - "K8S distributions": infrastructure/orchestration/k8sdist.md
   - Cloud:
       - "Cloud native": cloud/cloudnative.md
       - "Cloud landscape": cloud/cloudlandscape.md
   - Data:
+      - "CRISP-DM": data/crisp-dm.md 
       - intake: Catalogize.ipynb
       - intake2: data/Covid.ipynb
       - Pipelines:
@@ -83,27 +87,27 @@ nav:
       - Intro: ml/data.md
       - ndarray:
           - Intro: ml/ndarray/intro.md
+      - Features: ml/features.md
       - "Time series":
           - "Intro": ml/timeseries/_intro.md
-          - "Features selection": ml/timeseries/features.md
           - "Matrix profile": ml/timeseries/matrixprofile.md
           - "Windowing": ml/windowing.md
       - Descriptive statistics: ml/descriptivestatistics.md
       - Bayesian inference: ml/bayesianinference.md
       - Regression: ml/regression.md
-      - Time series: ml/dl.md
       - Pipelining: ml/pipelines.md
   - Python:
       # - Intro: "_nb/=Py/01_Python/01 - Python - CPython design.ipynb"
-      - ASyncio: Python/asyncio.md
-      - Typing: Python/typing.md
-      - Envs: Python/envs.md
-      - "Iterators, generators and coroutines": Python/IterGen.md
-      - Tests: Python/test.md
       - Environments: Python/env.md
-      - Ubuntu: shell/Ubuntu/python.md
+      - Typing: Python/typing.md
+      - "Iterators, generators and coroutines": Python/IterGen.md
+      - ASyncio: Python/asyncio.md
+      - Tests: Python/test.md
+      - Click: Python/click.md
+      - Profiling: Python/profiling.md
   - Go:
       - Concurency: go/concurency.md
+      - Distributed: go/distributed.md
   - WebDev:
       - Intro: WebDev/Intro.md
       - CSS: WebDev/css.md

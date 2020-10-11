@@ -50,6 +50,17 @@ Develop, Deliver, Operate, Security
 
 ## Pattern
 
+[**Fallacies of distributed computing**](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing) are a set of assertions made by L Peter Deutsch and others at Sun Microsystems describing false assumptions that programmers new to distributed applications invariably make:
+
+- The network is reliable;
+- Latency is zero;
+- Bandwidth is infinite;
+- The network is secure;
+- Topology doesn't change;
+- There is one administrator;
+- Transport cost is zero;
+- The network is homogeneous.
+
 ### Retry Pattern
 
 On failure, an application retries to connect the server
