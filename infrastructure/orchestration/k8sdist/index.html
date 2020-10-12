@@ -935,8 +935,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../cli/" title="CLI usage" class="md-nav__link">
-      CLI usage
+    <a href="../cli/" title="kubectl" class="md-nav__link">
+      kubectl
     </a>
   </li>
 
@@ -995,6 +995,33 @@
           <li class="md-nav__item">
   <a href="#driver" class="md-nav__link">
     Driver:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openshift" class="md-nav__link">
+    OpenShift
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
   </a>
   
 </li>
@@ -1911,6 +1938,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#openshift" class="md-nav__link">
+    OpenShift
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#minishift" class="md-nav__link">
     Minishift
   </a>
@@ -1951,6 +2005,20 @@ curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/la
    /usr/local/bin/docker-machine-driver-vmware
 </code></pre></div>
 
+<h2 id="openshift">OpenShift<a class="headerlink" href="#openshift" title="Permanent link">&para;</a></h2>
+<h3 id="service-accounts">Service accounts<a class="headerlink" href="#service-accounts" title="Permanent link">&para;</a></h3>
+<p>List service accounts:</p>
+<div class="highlight"><pre><span></span><code>oc get serviceaccounts
+</code></pre></div>
+
+<p>Service accounts can be created with <code>oc create sa &lt;ACCOUNTNAME&gt;</code>, the informations relative to this account can be displayed with <code>oc describe sa &lt;ACCOUNTNAME&gt;</code>.</p>
+<p>Namespace, labels, annotations, secrets, tokens and events can de parsed, e.g. for a secret cert:</p>
+<div class="highlight"><pre><span></span><code>oc get secret &lt;ACCOUNTNAME&gt;-token-&lt;RANDOM&gt; -o <span class="s2">&quot;jsonpath={.data[&#39;service-ca\.crt&#39;]}&quot;</span> <span class="p">|</span> base64 -d
+</code></pre></div>
+
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
+<p><strong>Quota</strong> can be visualized per namespace with <code>oc describe quota</code></p>
+<p><strong>Usage</strong> can be visualized for resources <code>images</code>, <code>imagestreams</code>, <code>node</code> and <code>pods</code> with <code>oc adm top &lt;RESOURCE&gt;</code>. This one is a built on <code>kubectl top &lt;RESOURCE&gt;</code>.</p>
 <h2 id="minishift">Minishift<a class="headerlink" href="#minishift" title="Permanent link">&para;</a></h2>
 <p><strong>Minishift</strong> <badge-stars repo='minishift/minishift'></badge-stars> <badge-doc href='https://docs.okd.io'></badge-doc> is a tool that helps run OpenShift locally by running a single-node OpenShift cluster inside a VM.</p>
 <p>Note:</p>
@@ -1980,7 +2048,7 @@ curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/la
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../cli/" title="CLI usage" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cli/" title="kubectl" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1989,7 +2057,7 @@ curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/la
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                CLI usage
+                kubectl
               </span>
             </div>
           </a>
