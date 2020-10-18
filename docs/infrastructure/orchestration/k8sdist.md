@@ -25,6 +25,33 @@ curl -LO $(curl -s $r/releases/latest | grep -o 'http.*darwin_amd64' | head -n1)
    /usr/local/bin/docker-machine-driver-vmware
 ```
 
+## OpenShift
+
+
+### Service accounts
+
+List service accounts:
+
+```bash
+oc get serviceaccounts
+```
+
+Service accounts can be created with `oc create sa <ACCOUNTNAME>`, the informations relative to this account can be displayed with `oc describe sa <ACCOUNTNAME>`.
+
+Namespace, labels, annotations, secrets, tokens and events can de parsed, e.g. for a secret cert:
+
+```bash
+oc get secret <ACCOUNTNAME>-token-<RANDOM> -o "jsonpath={.data['service-ca\.crt']}" | base64 -d
+```
+
+
+### Resources
+
+**Quota** can be visualized per namespace with `oc describe quota`
+
+**Usage** can be visualized for resources `images`, `imagestreams`, `node` and `pods` with `oc adm top <RESOURCE>`. This one is a built on `kubectl top <RESOURCE>`.
+
+
 ## Minishift
 
 **Minishift** <badge-stars repo='minishift/minishift'></badge-stars> <badge-doc href='https://docs.okd.io'></badge-doc> is a tool that helps run OpenShift locally by running a single-node OpenShift cluster inside a VM.

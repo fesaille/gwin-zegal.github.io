@@ -1,6 +1,6 @@
 # Typing
 
-## Sous-titre
+## History
 
 PEPS:
 
@@ -29,6 +29,13 @@ PEPS:
     TypedDict
     TYPE_CHECKING
 
+
+## Static type checker
+
+### pytype
+
+Pytype <badge-stars repo='google/pytype'></badge-stars> <badge-doc
+href='https://google.github.io/pytype'></badge-doc>, not an official google project, checks and infers types for your Python code - without requiring type annotations
 
 
 Package providing:

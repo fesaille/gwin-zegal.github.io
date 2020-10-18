@@ -28,6 +28,7 @@ nav:
       - tmux: shell/tmux.md
       - vim:
           - Intro: shell/vim.md
+          - "Status line": shell/vim/statusline.md
           - Panes: shell/vim/panes.md
           - Edition: shell/vim/edition.md
           - Search: shell/vim/search.md
@@ -59,7 +60,7 @@ nav:
               - MongoDB: data/db/mongoDB/docker.md
       - Orchestration:
           - Intro: infrastructure/orchestration/intro.md
-          - CLI usage: infrastructure/orchestration/cli.md
+          - kubectl: infrastructure/orchestration/cli.md
           - "K8S distributions": infrastructure/orchestration/k8sdist.md
   - Cloud:
       - "Cloud native": cloud/cloudnative.md
