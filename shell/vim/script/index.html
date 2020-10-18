@@ -437,6 +437,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../statusline/" title="Status line" class="md-nav__link">
+      Status line
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../panes/" title="Panes" class="md-nav__link">
       Panes
     </a>
@@ -526,6 +538,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#variables" class="md-nav__link">
@@ -1857,6 +1876,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variables" class="md-nav__link">
     Variables
   </a>
@@ -1880,6 +1906,35 @@
                 
                 
                 <h1 id="vim-script">Vim script<a class="headerlink" href="#vim-script" title="Permanent link">&para;</a></h1>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<p><strong>Set options</strong>: <code>set</code> or <code>se</code></p>
+<p><badge-doc href="https://vimhelp.org/options.html#set-option" message="options" logo="vim"></badge-doc></p>
+<table>
+<thead>
+<tr>
+<th>Cmd</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:se[t][!]</code></td>
+<td>show all options that differ from the default value, <code>!</code> forces printing to new line</td>
+</tr>
+<tr>
+<td><code>:se[t][!] all</code></td>
+<td>show all but terminal options, if <code>!</code>: every option is on a separate line.</td>
+</tr>
+<tr>
+<td><code>:se[t] {option}?</code></td>
+<td>show value of option</td>
+</tr>
+<tr>
+<td><code>:se[t] {option}</code></td>
+<td>Toggle option: set, switch it on.<br/> Number option: show value. <br/> String option: show value.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Scope:</p>
 <table>
