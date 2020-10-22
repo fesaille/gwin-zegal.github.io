@@ -254,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../packaging/" class="md-tabs__link md-tabs__link--active">
           Python
         </a>
       
@@ -1534,6 +1534,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -1662,13 +1674,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pipenv" class="md-nav__link">
-    Pipenv
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1690,7 +1695,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv_1" class="md-nav__link">
+  <a href="#pipenv" class="md-nav__link">
     Pipenv
   </a>
   
@@ -1753,20 +1758,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
-      Iterators, generators and coroutines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../asyncio/" title="ASyncio" class="md-nav__link">
-      ASyncio
+    <a href="../profiling/" title="Profiling" class="md-nav__link">
+      Profiling
     </a>
   </li>
 
@@ -1801,8 +1794,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../asyncio/" title="ASyncio" class="md-nav__link">
+      ASyncio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -2117,13 +2134,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#pipenv" class="md-nav__link">
-    Pipenv
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2145,7 +2155,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pipenv_1" class="md-nav__link">
+  <a href="#pipenv" class="md-nav__link">
     Pipenv
   </a>
   
@@ -2237,21 +2247,42 @@ file.</p>
 <p>The <code>[tool]</code> table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within <code>[tool]</code>, e.g. the flit tool would store its configuration in <code>[tool.flit]</code>.</p>
 <h2 id="python-distribution">Python distribution<a class="headerlink" href="#python-distribution" title="Permanent link">&para;</a></h2>
 <h3 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">&para;</a></h3>
+<h2 id="dependency-manager">Dependency manager<a class="headerlink" href="#dependency-manager" title="Permanent link">&para;</a></h2>
+<h3 id="conda_1">Conda<a class="headerlink" href="#conda_1" title="Permanent link">&para;</a></h3>
 <h3 id="pipenv">Pipenv<a class="headerlink" href="#pipenv" title="Permanent link">&para;</a></h3>
-<p><a href="https://pipenv-fork.readthedocs.io" target="_blank">
-    <img src="https://readthedocs.org/projects/pipenv-fork/badge/?version=latest" alt="Pipenv documentation"/>
-</a></p>
+<p><badge-stars repo='pypa/pipenv'></badge-stars> <badge-doc href="https://pipenv-fork.readthedocs.io"></badge-doc></p>
 <p><a href="https://pipenv-fork.readthedocs.io/en/latest/basics.html#editable-dependencies-e-g-e">editable-dependencies</a></p>
 <div class="highlight"><pre><span></span><code>pipenv install --dev -e .
 </code></pre></div>
 
-<h2 id="dependency-manager">Dependency manager<a class="headerlink" href="#dependency-manager" title="Permanent link">&para;</a></h2>
-<h3 id="conda_1">Conda<a class="headerlink" href="#conda_1" title="Permanent link">&para;</a></h3>
-<h3 id="pipenv_1">Pipenv<a class="headerlink" href="#pipenv_1" title="Permanent link">&para;</a></h3>
 <h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
-<p><badge-stars repo='python-poetry/poetry'></badge-stars> <badge-doc href="https://python-poetry.org/docs/"></badge-doc></p>
-<p><strong>Tab completion</strong></p>
-<div class="highlight"><pre><span></span><code>poetry completions zsh &gt; ~/.zfunc/_poetry
+<p><badge-stars repo='python-poetry/poetry'></badge-stars> <badge-doc href="https://python-poetry.org/docs/"></badge-doc> is a tool for dependency management and packaging. </p>
+<p><strong>basic usage</strong> <badge-doc href='https://python-poetry.org/docs/basic-usage/'></badge-doc> :</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a new project</span>
+poetry new &lt;PROJECT_NAME&gt;
+
+<span class="c1"># Or init from an existing project</span>
+poetry init
+
+<span class="c1"># Add dependencies</span>
+poetry add &lt;DEP&gt;
+
+<span class="c1"># Install the dependencies</span>
+poetry install
+
+<span class="c1"># Run a command inside the env</span>
+poetry run &lt;COMMAND&gt; &lt;PARAMETERS&gt;
+</code></pre></div>
+
+</div>
+<div class="admonition important">
+<p>If already in a virtualenv, poetry will reuse it and will not create a new
+env. Linked environments can be displayed with <code>poetry env list</code>.</p>
+</div>
+<p><strong>Shell completion (zsh)</strong></p>
+<div class="highlight"><pre><span></span><code>poetry completions zsh &gt; ~/.zsh/completion/_poetry
 </code></pre></div>
 
 <h2 id="application-manager">Application manager<a class="headerlink" href="#application-manager" title="Permanent link">&para;</a></h2>
@@ -2275,7 +2306,7 @@ file.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../ml/pipelines/" title="Pipelining" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../packaging/" title="Packaging" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2284,7 +2315,7 @@ file.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Pipelining
+                Packaging
               </span>
             </div>
           </a>

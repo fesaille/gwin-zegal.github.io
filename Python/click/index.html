@@ -254,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../env/" class="md-tabs__link md-tabs__link--active">
+        <a href="../packaging/" class="md-tabs__link md-tabs__link--active">
           Python
         </a>
       
@@ -1536,6 +1536,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../env/" title="Environments" class="md-nav__link">
       Environments
     </a>
@@ -1551,6 +1563,121 @@
     <a href="../typing/" title="Typing" class="md-nav__link">
       Typing
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../profiling/" title="Profiling" class="md-nav__link">
+      Profiling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../test/" title="Tests" class="md-nav__link">
+      Tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Click
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Click" class="md-nav__link md-nav__link--active">
+      Click
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decorator-based-functionality" class="md-nav__link">
+    Decorator based functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-and-groups" class="md-nav__link">
+    Commands and groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decorators" class="md-nav__link">
+    Decorators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    Utilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1584,41 +1711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../test/" title="Tests" class="md-nav__link">
-      Tests
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Click" class="md-nav__link md-nav__link--active">
-      Click
-    </a>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -1831,6 +1925,62 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decorator-based-functionality" class="md-nav__link">
+    Decorator based functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-and-groups" class="md-nav__link">
+    Commands and groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decorators" class="md-nav__link">
+    Decorators
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilities" class="md-nav__link">
+    Utilities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1846,9 +1996,40 @@
                 
                 
                 <h1 id="click">Click<a class="headerlink" href="#click" title="Permanent link">&para;</a></h1>
-<p>Click <badge-stars repo='pallets/click'></badge-stars> <badge-doc href='https://click.palletsprojects.com/en/7.x/#documentation'></badge-doc> is a Python package for creating beautiful command line interfaces in a composable way with as little code as necessary.</p>
-<h1 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
-<h2 id="decorators">Decorators<a class="headerlink" href="#decorators" title="Permanent link">&para;</a></h2>
+<p>Click <badge-stars repo='pallets/click'></badge-stars> <badge-doc href='https://click.palletsprojects.com/en/7.x/#documentation'></badge-doc> is a Python package for creating command line interfaces in a composable way with as little code as necessary.</p>
+<h2 id="decorator-based-functionality">Decorator based functionality<a class="headerlink" href="#decorator-based-functionality" title="Permanent link">&para;</a></h2>
+<h2 id="commands-and-groups">Commands and groups<a class="headerlink" href="#commands-and-groups" title="Permanent link">&para;</a></h2>
+<p>A hierarchy of command and subcommands can be achieved with <code>@click.command</code> and <code>@click.group</code>. Both decorates a function and use it as callback. When using a function as group and latter on an other as command, the last one will be decorated with the first one that inherits from <code>click</code>. </p>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">acl</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Asam Command Line.&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+
+<span class="nd">@acl</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">mdf</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Manages mdf and is called with `acl mdf`&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+
+
+<span class="nd">@mdf</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">create</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Create mdf and is called with `acl mdf create`&quot;&quot;&quot;</span>
+    <span class="o">...</span>
+</code></pre></div>
+
+</details>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<p><a href="https://click.palletsprojects.com/en/7.x/api/#parameters"><strong>parameters</strong></a> are of two types:</p>
+<ul>
+<li><strong>options</strong>, usually optional passed with or without value as flags, e.g. <em>--debug</em>: <code>@click.option('--debug/--no-debug', default=False)</code><br/></li>
+<li><strong>arguments</strong>: are positional parameters to a command, generally provide fewer features than options but can have infinite nargs and are required by default. Ex: <code>@click.argument("x", type=float)</code></li>
+</ul>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h3 id="decorators">Decorators<a class="headerlink" href="#decorators" title="Permanent link">&para;</a></h3>
 <p><code>click</code>.command(<em>name=None, cls=None, **attrs</em>)<br/>
  <code>click</code>.group(<em>name=None, **attrs</em>)<br/>
 <code>click</code>.argument(<em>*param_decls, **attrs</em>)<br/>
@@ -1860,7 +2041,7 @@
 <code>click</code>.pass_context(<em>f</em>)<br/>
 <code>click</code>.pass_obj(<em>f</em>)<br/>
 <code>click</code>.make_pass_decorator(<em>object_type, ensure=False</em>)<br/></p>
-<h2 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">&para;</a></h2>
+<h3 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">&para;</a></h3>
 <p><code>click</code>.echo(<em>message=None, file=None, nl=True, err=False, color=None</em>)<br/>
 <code>click</code>.echo_via_pager(<em>text_or_generator, color=None</em>)<br/>
 <code>click</code>.prompt(<em>text, default=None, hide_input=False, confirmation_prompt=False, type=None, value_proc=None, prompt_suffix=': ', show_default=True, err=False, show_choices=True</em>)<br/>
@@ -1913,13 +2094,13 @@
           </a>
         
         
-          <a href="../profiling/" title="Profiling" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../IterGen/" title="Iterators, generators and coroutines" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Profiling
+                Iterators, generators and coroutines
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

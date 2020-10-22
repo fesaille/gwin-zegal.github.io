@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cicd" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -249,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../Python/env/" class="md-tabs__link">
+        <a href="../../../Python/packaging/" class="md-tabs__link">
           Python
         </a>
       
@@ -697,10 +702,122 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Intro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
     
     <a href="./" title="Intro" class="md-nav__link md-nav__link--active">
       Intro
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#with-pre-commmit" class="md-nav__link">
+    with pre-commmit
+  </a>
+  
+    <nav class="md-nav" aria-label="with pre-commmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    Code style
+  </a>
+  
+    <nav class="md-nav" aria-label="Code style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isort" class="md-nav__link">
+    Isort
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black" class="md-nav__link">
+    Black
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    Lint
+  </a>
+  
+    <nav class="md-nav" aria-label="Lint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yamllint" class="md-nav__link">
+    yamllint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flake8" class="md-nav__link">
+    flake8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-checker" class="md-nav__link">
+    Code checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    MyPy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1540,6 +1657,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../Python/packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../Python/env/" title="Environments" class="md-nav__link">
       Environments
     </a>
@@ -1564,20 +1693,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
-      Iterators, generators and coroutines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../Python/asyncio/" title="ASyncio" class="md-nav__link">
-      ASyncio
+    <a href="../../../Python/profiling/" title="Profiling" class="md-nav__link">
+      Profiling
     </a>
   </li>
 
@@ -1612,8 +1729,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../Python/profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/asyncio/" title="ASyncio" class="md-nav__link">
+      ASyncio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Python/jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -1816,6 +1957,117 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#with-pre-commmit" class="md-nav__link">
+    with pre-commmit
+  </a>
+  
+    <nav class="md-nav" aria-label="with pre-commmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    Code style
+  </a>
+  
+    <nav class="md-nav" aria-label="Code style">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isort" class="md-nav__link">
+    Isort
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black" class="md-nav__link">
+    Black
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    Lint
+  </a>
+  
+    <nav class="md-nav" aria-label="Lint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yamllint" class="md-nav__link">
+    yamllint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flake8" class="md-nav__link">
+    flake8
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-checker" class="md-nav__link">
+    Code checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    MyPy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1825,9 +2077,81 @@
                   
                 
                 
-                  <h1>Intro</h1>
-                
-                <p><img alt="whatis" src="https://about.gitlab.com/images/blogimages/cicd_pipeline_infograph.png" /></p>
+                <h1 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
+<p>Continuous Integration/Delivery</p>
+<p><img alt="whatis" src="https://about.gitlab.com/images/blogimages/cicd_pipeline_infograph.png" /></p>
+<h2 id="with-pre-commmit">with <code>pre-commmit</code><a class="headerlink" href="#with-pre-commmit" title="Permanent link">&para;</a></h2>
+<p><badge-stars repo='pre-commit/pre-commit'></badge-stars> <badge-doc href='https://pre-commit.com/'></badge-doc> is a command line utility - <code>pre-commit</code> aliased <code>pc</code> - that can be used for automation of the creation of <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">git pre-commit hook</a>. </p>
+<div class="admonition quote">
+<p class="admonition-title">What is a git pre-commit hook?</p>
+<p>It's used to inspect the snapshot that’s about to be committed, to see if
+you’ve forgotten something, to make sure tests run, or to examine whatever you
+need to inspect in the code. Exiting non-zero from this hook aborts the commit.</p>
+</div>
+<p><code>pre-commmit</code> stores its config in a yaml file <code>.pre-commit-config.yaml</code> whose root key is <code>repos</code>. A template can be generated with:</p>
+<div class="highlight"><pre><span></span><code>pre-commit sample-config &gt; .pre-commit-config.yaml
+</code></pre></div>
+
+<p>and the script is installed with:</p>
+<div class="highlight"><pre><span></span><code>pre-commit install
+</code></pre></div>
+
+<p>Some <a href="">hooks</a> are available for various purpose:</p>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<p>Some <a href="https://github.com/pre-commit/pre-commit-hooks#hooks-available">"built-in" hooks</a> are provided with pre-commit.</p>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2.4.0</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">end-of-file-fixer</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
+</code></pre></div>
+
+</details>
+<h3 id="code-style">Code style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
+<h4 id="isort">Isort<a class="headerlink" href="#isort" title="Permanent link">&para;</a></h4>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.3.0</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">isort</span>
+</code></pre></div>
+
+</details>
+<h4 id="black">Black<a class="headerlink" href="#black" title="Permanent link">&para;</a></h4>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.3.0</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
+</code></pre></div>
+
+</details>
+<h3 id="lint">Lint<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h3>
+<h4 id="yamllint">yamllint<a class="headerlink" href="#yamllint" title="Permanent link">&para;</a></h4>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/adrienverge/yamllint</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.25.0</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yamllint</span>
+</code></pre></div>
+
+</details>
+<h4 id="flake8">flake8<a class="headerlink" href="#flake8" title="Permanent link">&para;</a></h4>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://gitlab.com/pycqa/flake8</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.8.1</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flake8</span>
+      <span class="nt">additional_dependencies</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">flake8-bugbear</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+
+</details>
+<h3 id="code-checker">Code checker<a class="headerlink" href="#code-checker" title="Permanent link">&para;</a></h3>
+<h3 id="mypy">MyPy<a class="headerlink" href="#mypy" title="Permanent link">&para;</a></h3>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-mypy</span>
+  <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.770</span>
+  <span class="nt">hooks</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypy</span>
+      <span class="nt">exclude</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^docs/conf.py</span>
+</code></pre></div>
+
+</details>
                 
               
               

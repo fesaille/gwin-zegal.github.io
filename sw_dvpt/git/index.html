@@ -254,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../Python/env/" class="md-tabs__link">
+        <a href="../../Python/packaging/" class="md-tabs__link">
           Python
         </a>
       
@@ -761,6 +761,39 @@
   <a href="#git-flow" class="md-nav__link">
     Git flow
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-specific" class="md-nav__link">
+    Platform specific
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform specific">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+    <nav class="md-nav" aria-label="Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-repository-language-detection" class="md-nav__link">
+    Change the repository language detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1644,6 +1677,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Python/packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Python/env/" title="Environments" class="md-nav__link">
       Environments
     </a>
@@ -1668,20 +1713,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
-      Iterators, generators and coroutines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
-      ASyncio
+    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
+      Profiling
     </a>
   </li>
 
@@ -1716,8 +1749,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
+      ASyncio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -2011,6 +2068,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#platform-specific" class="md-nav__link">
+    Platform specific
+  </a>
+  
+    <nav class="md-nav" aria-label="Platform specific">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+    <nav class="md-nav" aria-label="Github">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-repository-language-detection" class="md-nav__link">
+    Change the repository language detection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2125,6 +2215,13 @@ git fetch other
 <li>After someone else has reviewed and signed off on the feature, you can merge it into master</li>
 </ul>
 </blockquote>
+<h2 id="platform-specific">Platform specific<a class="headerlink" href="#platform-specific" title="Permanent link">&para;</a></h2>
+<h3 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<h4 id="change-the-repository-language-detection">Change the repository language detection<a class="headerlink" href="#change-the-repository-language-detection" title="Permanent link">&para;</a></h4>
+<p><code>.gitattributes</code> file to your project and use standard git-style path matchers for the files you want to override using the <code>linguist-documentation</code>, <code>linguist-language</code>, <code>linguist-vendored</code>, <code>linguist-generated</code> and <code>linguist-detectable</code> attributes. </p>
+<p>Installation <badge-doc href='https://github.com/github/linguist#installation', logo='github'></badge-doc> is performed with gem:
+<div class="highlight"><pre><span></span><code>gem install github-linguist
+</code></pre></div></p>
                 
               
               

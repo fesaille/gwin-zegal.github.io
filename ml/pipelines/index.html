@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#imputation" class="md-skip">
+        <a href="#pipelines" class="md-skip">
           Skip to content
         </a>
       
@@ -254,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../Python/env/" class="md-tabs__link">
+        <a href="../../Python/packaging/" class="md-tabs__link">
           Python
         </a>
       
@@ -1503,6 +1503,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Pipelining
@@ -1517,12 +1519,21 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-stages" class="md-nav__link">
+    Pipeline stages
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#imputation" class="md-nav__link">
@@ -1590,6 +1601,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Python/packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Python/env/" title="Environments" class="md-nav__link">
       Environments
     </a>
@@ -1614,20 +1637,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
-      Iterators, generators and coroutines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
-      ASyncio
+    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
+      Profiling
     </a>
   </li>
 
@@ -1662,8 +1673,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
+      ASyncio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -1873,12 +1908,21 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-stages" class="md-nav__link">
+    Pipeline stages
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#imputation" class="md-nav__link">
@@ -1923,9 +1967,22 @@
                   
                 
                 
-                  <h1>Pipelining</h1>
-                
-                <h2 id="imputation">Imputation<a class="headerlink" href="#imputation" title="Permanent link">&para;</a></h2>
+                <h1 id="pipelines">Pipelines<a class="headerlink" href="#pipelines" title="Permanent link">&para;</a></h1>
+<h2 id="pipeline-stages">Pipeline stages<a class="headerlink" href="#pipeline-stages" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Scikit-learn</label><div class="tabbed-content">
+<p>A</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Spark-ml</label><div class="tabbed-content">
+<p>A</p>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">DVC</label><div class="tabbed-content">
+<p>A</p>
+</div>
+</div>
+</div>
+<h2 id="imputation">Imputation<a class="headerlink" href="#imputation" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute"><code>impute</code></a> module provides classes for completing missing values.</p>
 <p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html"><code>SimpleInputer</code></a> performs imputation based on <code>missing_values</code> (number, string, np.nan (default) or None), and a <code>strategy</code> (mean, median, most_frequent, constant).
 Further parameters <code>fill_value</code> for constant strategy  and <code>add_indicator</code>  that add a <code>MissingIndicator</code> </p>
@@ -1967,13 +2024,13 @@ Further parameters <code>fill_value</code> for constant strategy  and <code>add_
           </a>
         
         
-          <a href="../../Python/env/" title="Environments" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../Python/packaging/" title="Packaging" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Environments
+                Packaging
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

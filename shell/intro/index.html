@@ -254,7 +254,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../Python/env/" class="md-tabs__link">
+        <a href="../../Python/packaging/" class="md-tabs__link">
           Python
         </a>
       
@@ -1669,6 +1669,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../Python/packaging/" title="Packaging" class="md-nav__link">
+      Packaging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../Python/env/" title="Environments" class="md-nav__link">
       Environments
     </a>
@@ -1693,20 +1705,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
-      Iterators, generators and coroutines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
-      ASyncio
+    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
+      Profiling
     </a>
   </li>
 
@@ -1741,8 +1741,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Python/profiling/" title="Profiling" class="md-nav__link">
-      Profiling
+    <a href="../../Python/IterGen/" title="Iterators, generators and coroutines" class="md-nav__link">
+      Iterators, generators and coroutines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/asyncio/" title="ASyncio" class="md-nav__link">
+      ASyncio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Python/jupyter/" title="Jupyter" class="md-nav__link">
+      Jupyter
     </a>
   </li>
 
@@ -2171,6 +2195,20 @@
 <p><strong>fzy</strong> <badge-stars repo='jhawthorn/fzy'></badge-stars> is written in C</p>
 <h2 id="file-content-search">File content search<a class="headerlink" href="#file-content-search" title="Permanent link">&para;</a></h2>
 <p>Search can be efficiently performed by <strong>the silver search (<code>ag</code>)</strong> <badge-stars repo='ggreer/the_silver_searcher'></badge-stars> <badge-doc href='https://geoff.greer.fm/ag/'></badge-doc> and <strong>ripgrep (<code>rg</code>)</strong> <badge-stars repo='BurntSushi/ripgrep'></badge-stars> <badge-doc logo='Markdown' href='https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md'></badge-doc>, written resp. in C and rust. <code>rg</code> tends to be one of the quickest.</p>
+<p><strong>Ripgrep</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Usage</p>
+<div class="highlight"><pre><span></span><code>rg <span class="o">[</span>OPTIONS<span class="o">]</span> PATTERN <span class="o">[</span>PATH ...<span class="o">]</span>
+rg <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>-e PATTERN ...<span class="o">]</span> <span class="o">[</span>-f PATTERNFILE ...<span class="o">]</span> <span class="o">[</span>PATH ...<span class="o">]</span>
+rg <span class="o">[</span>OPTIONS<span class="o">]</span> --files <span class="o">[</span>PATH ...<span class="o">]</span>
+rg <span class="o">[</span>OPTIONS<span class="o">]</span> --type-list
+<span class="nb">command</span> <span class="p">|</span> rg <span class="o">[</span>OPTIONS<span class="o">]</span> PATTERN
+</code></pre></div>
+
+</div>
+<ul>
+<li><code>--type &lt;TYPE&gt;</code> where <code>&lt;TYPE&gt;</code> is part of the registered types, can be displayed with <code>rg --list-types</code></li>
+</ul>
 <h3 id="search-with-substitution">Search with substitution<a class="headerlink" href="#search-with-substitution" title="Permanent link">&para;</a></h3>
 <p>In respect of <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well">DOTADIW</a>, <code>rg</code> does <a href="https://github.com/BurntSushi/ripgrep/issues/74">not support</a> natively search and replacement. This can be achieved with a pipe.</p>
 <div class="admonition example">
