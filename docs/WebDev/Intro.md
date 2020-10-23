@@ -28,13 +28,9 @@ Heading content
 <object id="koc" data="https://html.spec.whatwg.org/images/content-venn.svg" ></object>
 
 
-
-
 ## Web components
 
-
 <badge-doc href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" message="MDN" color="lightgrey"></badge-doc>
-
 
 JavaScript file defines a class called `PopUpInfo`, which extends `HTMLElement`. Inside the constructor, all the functionality the element will have when an instance of it is instantiated.
 
@@ -84,8 +80,6 @@ JavaScript file defines a class called `PopUpInfo`, which extends `HTMLElement`.
 	```html
 	<badge-doc href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" message="MDN" color="lightgrey"></badge-doc>
 	```
-
-
 
 ## Resources
 

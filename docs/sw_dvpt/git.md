@@ -136,3 +136,15 @@ From [Scott Chacon blog](http://scottchacon.com/2011/08/31/github-flow.html):
 > - After someone else has reviewed and signed off on the feature, you can merge it into master
 
 
+## Platform specific 
+
+### Github
+
+#### Change the repository language detection
+
+[`.gitattributes`](https://git-scm.com/docs/gitattributes/2.9.5) s used for the files you want to override using the `linguist-documentation`, `linguist-language`, `linguist-vendored`, `linguist-generated` and `linguist-detectable` attributes. 
+
+Installation <badge-doc href='https://github.com/github/linguist#installation', logo='github'></badge-doc> is performed with gem:
+```bash
+gem install github-linguist
+```

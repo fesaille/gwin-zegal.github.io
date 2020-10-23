@@ -71,6 +71,20 @@ These utilities give the most visited directory for the shortest search term typ
 
 Search can be efficiently performed by **the silver search (`ag`)** <badge-stars repo='ggreer/the_silver_searcher'></badge-stars> <badge-doc href='https://geoff.greer.fm/ag/'></badge-doc> and **ripgrep (`rg`)** <badge-stars repo='BurntSushi/ripgrep'></badge-stars> <badge-doc logo='Markdown' href='https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md'></badge-doc>, written resp. in C and rust. `rg` tends to be one of the quickest.
 
+**Ripgrep**
+
+!!! info "Usage"
+
+	```bash
+	rg [OPTIONS] PATTERN [PATH ...]
+	rg [OPTIONS] [-e PATTERN ...] [-f PATTERNFILE ...] [PATH ...]
+	rg [OPTIONS] --files [PATH ...]
+	rg [OPTIONS] --type-list
+	command | rg [OPTIONS] PATTERN
+	```
+
+- `--type <TYPE>` where `<TYPE>` is part of the registered types, can be displayed with `rg --list-types`
+
 ### Search with substitution
 
 In respect of [DOTADIW](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well), `rg` does [not support](https://github.com/BurntSushi/ripgrep/issues/74) natively search and replacement. This can be achieved with a pipe.

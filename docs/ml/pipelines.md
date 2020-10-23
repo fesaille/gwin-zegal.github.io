@@ -1,3 +1,21 @@
+# Pipelines
+
+## Pipeline stages
+
+!!! note
+  
+    === "Scikit-learn"
+
+        A
+
+    === "Spark-ml"
+
+        A
+
+    === "DVC"
+
+        A
+
 
 ## Imputation
 

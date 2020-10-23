@@ -76,6 +76,7 @@ nav:
       - SQL:
           - Intro: data/db/SQL/_intro.md
           - PostgreSQL: data/db/SQL/postgres.md
+          - Impala: data/db/SQL/impala.md
       - "Object store":
           - Intro: data/db/S3/_intro.md
       - MongoDB:
@@ -96,20 +97,22 @@ nav:
       - Regression: ml/regression.md
       - Pipelining: ml/pipelines.md
   - Python:
-      # - Intro: "_nb/=Py/01_Python/01 - Python - CPython design.ipynb"
+      - Packaging: Python/packaging.md
       - Environments: Python/env.md
       - Typing: Python/typing.md
-      - "Iterators, generators and coroutines": Python/IterGen.md
-      - ASyncio: Python/asyncio.md
+      - Profiling: Python/profiling.md
       - Tests: Python/test.md
       - Click: Python/click.md
-      - Profiling: Python/profiling.md
+      - "Iterators, generators and coroutines": Python/IterGen.md
+      - ASyncio: Python/asyncio.md
+      - Jupyter: Python/jupyter.md
   - Go:
       - Concurency: go/concurency.md
       - Distributed: go/distributed.md
   - WebDev:
       - Intro: WebDev/Intro.md
       - CSS: WebDev/css.md
+      - CORS: WebDev/cors.md
       - node: WebDev/node.md
       - REACT: WebDev/REACT.md
   - "?":

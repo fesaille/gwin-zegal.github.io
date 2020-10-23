@@ -1,6 +1,5 @@
 # Virtual environements 
 
-
 ## Packaging
 
 ### Pip
@@ -8,7 +7,6 @@
 Pip <badge-stars repo='pypa/pip'></badge-stars> <badge-doc href="https://pip.pypa.io/en/stable"></badge-doc> is the package installer for Python.
 
 ### Wheel
-
 
 This library <badge-stars repo='pypa/wheel'></badge-stars> <badge-doc href="https://wheel.readthedocs.io/"></badge-doc> <badge-pep nr='427'></badge-pep> <badge-pep nr='425'></badge-pep> is the reference implementation of the Python wheel packaging standard, as defined in PEP 427. It has two different roles:
 
@@ -31,7 +29,6 @@ This file lists the minimal dependencies of the build system of a project in a d
 
 ??? Cite "About PEP 0518" 
     
-
     [distutils](https://docs.python.org/3/library/distutils.html#module-distutils)
     When Python first developed its tooling for building distributions of
     software for projects, was the chosen solution. As time went on,
@@ -64,35 +61,55 @@ The `[tool]` table is where any tool related to your Python project, not just bu
 
 ### Conda
 
-### Pipenv
-
-
-
-<a href="https://pipenv-fork.readthedocs.io" target="_blank">
-	<img src="https://readthedocs.org/projects/pipenv-fork/badge/?version=latest" alt="Pipenv documentation"/>
-</a>
-
-[editable-dependencies](https://pipenv-fork.readthedocs.io/en/latest/basics.html#editable-dependencies-e-g-e)
-
-
-```bash
-pipenv install --dev -e .
-```
-
 ## Dependency manager
 
 ### Conda
 
 ### Pipenv
 
-### Poetry
+<badge-stars repo='pypa/pipenv'></badge-stars> <badge-doc href="https://pipenv-fork.readthedocs.io"></badge-doc>
 
-<badge-stars repo='python-poetry/poetry'></badge-stars> <badge-doc href="https://python-poetry.org/docs/"></badge-doc>
-
-**Tab completion**
+[editable-dependencies](https://pipenv-fork.readthedocs.io/en/latest/basics.html#editable-dependencies-e-g-e)
 
 ```bash
-poetry completions zsh > ~/.zfunc/_poetry
+pipenv install --dev -e .
+```
+
+### Poetry
+
+<badge-stars repo='python-poetry/poetry'></badge-stars> <badge-doc href="https://python-poetry.org/docs/"></badge-doc> is a tool for dependency management and packaging. 
+
+**basic usage** <badge-doc href='https://python-poetry.org/docs/basic-usage/'></badge-doc> :
+
+!!! Example 
+
+    ```bash
+    # Create a new project
+    poetry new <PROJECT_NAME>
+
+    # Or init from an existing project
+    poetry init
+
+    # Add dependencies
+    poetry add <DEP>
+
+    # Install the dependencies
+    poetry install
+
+    # Run a command inside the env
+    poetry run <COMMAND> <PARAMETERS>
+    ```
+
+!!! Important ""
+
+    If already in a virtualenv, poetry will reuse it and will not create a new
+    env. Linked environments can be displayed with `poetry env list`.
+ 
+
+**Shell completion (zsh)**
+
+```bash
+poetry completions zsh > ~/.zsh/completion/_poetry
 ```
 
 ## Application manager

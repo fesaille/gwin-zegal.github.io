@@ -1,10 +1,49 @@
 # Click
 
-Click <badge-stars repo='pallets/click'></badge-stars> <badge-doc href='https://click.palletsprojects.com/en/7.x/#documentation'></badge-doc> is a Python package for creating beautiful command line interfaces in a composable way with as little code as necessary.
+Click <badge-stars repo='pallets/click'></badge-stars> <badge-doc href='https://click.palletsprojects.com/en/7.x/#documentation'></badge-doc> is a Python package for creating command line interfaces in a composable way with as little code as necessary.
 
-# API
+## Decorator based functionality
 
-## Decorators
+## Commands and groups
+
+A hierarchy of command and subcommands can be achieved with `@click.command` and `@click.group`. Both decorates a function and use it as callback. When using a function as group and latter on an other as command, the last one will be decorated with the first one that inherits from `click`. 
+
+??? Example
+
+	```python
+	import click
+
+	@click.group()
+	@click.version_option()
+	def acl():
+		"""Asam Command Line."""
+		...
+
+
+	@acl.group()
+	def mdf():
+		"""Manages mdf and is called with `acl mdf`"""
+		...
+
+
+	@mdf.group()
+	def create():
+		"""Create mdf and is called with `acl mdf create`"""
+		...
+	```
+
+
+
+## Parameters
+
+[**parameters**](https://click.palletsprojects.com/en/7.x/api/#parameters) are of two types:
+
+- **options**, usually optional passed with or without value as flags, e.g. *--debug*: `@click.option('--debug/--no-debug', default=False)`<br/>
+- **arguments**: are positional parameters to a command, generally provide fewer features than options but can have infinite nargs and are required by default. Ex: `@click.argument("x", type=float)`
+
+## API
+
+### Decorators
 
 `click`.command(*name=None, cls=None, \*\*attrs*)<br/>
  `click`.group(*name=None, \*\*attrs*)<br/>
@@ -18,7 +57,7 @@ Click <badge-stars repo='pallets/click'></badge-stars> <badge-doc href='https://
 `click`.pass_obj(*f*)<br/>
 `click`.make_pass_decorator(*object_type, ensure=False*)<br/>
 
-## Utilities
+### Utilities
 
 `click`.echo(*message=None, file=None, nl=True, err=False, color=None*)<br/>
 `click`.echo_via_pager(*text_or_generator, color=None*)<br/>

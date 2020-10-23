@@ -44,10 +44,15 @@ vbm controlvm "MyVM" resume --type headless
 vbm controlvm "MyVM" poweroff --type headless
 ```
 
-View VM properties 
+View VM properties with `vboxmanage guestproperty` <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc> 
 ```bash
-vbm guestproperty enumerate "MyVM"
+# Enumerate all properties of the VM named MyVM
+vbm guestproperty enumerate MyVM
+
+# Get the IP address of the VM named Cloudera
+vbm guestproperty get Cloudera /VirtualBox/GuestInfo/Net/0/V4/IP
 ```
+
 
 ## Vagrant 
 
