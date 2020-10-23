@@ -18,12 +18,12 @@ class Badge extends HTMLElement {
     wrapper.setAttribute('class','myBadge');
 
     // badge attributes
-    var href = this.hasAttribute('href')?this.getAttribute('href'):'img/default.png';
     var alt = this.hasAttribute('alt')?this.getAttribute('alt'):'Documentation';
-    var label = this.hasAttribute('label')?this.getAttribute('label'):'docs';
-    var message = this.hasAttribute('message')?this.getAttribute('message'):'stable';
     var color = this.hasAttribute('color')?this.getAttribute('color'):'brightgreen';
+    var href = this.hasAttribute('href')?this.getAttribute('href'):'img/default.png';
+    var label = this.hasAttribute('label')?this.getAttribute('label'):'docs';
     var logo = this.hasAttribute('logo')?this.getAttribute('logo'):'Read-the-docs';
+    var message = this.hasAttribute('message')?this.getAttribute('message'):'stable';
 
     var src = `https://img.shields.io/badge/${label}-${message}-${color}?style=flat&logo=${logo}`;
     var src = `https://img.shields.io/badge/-${label}-fcfcfc?logo=${logo}&logoColor=gray`;
@@ -79,12 +79,55 @@ class PEPBadge extends Badge {
 class DocBadge extends Badge {
   constructor() {
     super();
+
   }
 }
+
+
+class WikiBadge extends Badge {
+  constructor() {
+    super();
+
+    var url = `https://img.shields.io/badge/--fcfcfc?logo=Wikipedia&logoColor=gray`;
+
+    const img = this.shadowRoot.children[0].getElementsByTagName('img')[0];
+
+
+		// Need CORS for that
+		// https://developer.mozilla.org/fr/docs/Web/HTTP/CORS
+
+		var myHeaders = new Headers({
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Method': 'GET',
+		});
+		var fetchCfg = {
+			method: 'GET',
+			headers: myHeaders,
+			mode: 'cors',
+			cache: 'default' 
+		};
+
+    fetch(url, fetchCfg)
+    .then(r => r.text())
+		.then(function(resp) {
+			// const objectURL = URL.createObjectURL(myBlob);
+			// img.src = k;
+			console.log("yo");
+			console.log(resp);
+			
+		})
+    .catch(console.error.bind(console));
+
+
+    // img.setAttribute('src', src);
+  }
+}
+
 
 customElements.define('badge-doc', DocBadge);
 customElements.define('badge-stars', StarsBadge);
 customElements.define('badge-pep', PEPBadge);
+customElements.define('badge-wiki', WikiBadge);
 
 
 const uml = (converter, className, settings) => {

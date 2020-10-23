@@ -1229,6 +1229,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sort-order" class="md-nav__link">
+    Sort order
+  </a>
+  
+    <nav class="md-nav" aria-label="Sort order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collation" class="md-nav__link">
+    Collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-values" class="md-nav__link">
+    Missing values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines-limitations" class="md-nav__link">
+    Engines limitations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcut" class="md-nav__link">
+    Shortcut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1803,6 +1844,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../WebDev/cors/" title="CORS" class="md-nav__link">
+      CORS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../WebDev/node/" title="node" class="md-nav__link">
       node
     </a>
@@ -1925,6 +1978,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sort-order" class="md-nav__link">
+    Sort order
+  </a>
+  
+    <nav class="md-nav" aria-label="Sort order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collation" class="md-nav__link">
+    Collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-values" class="md-nav__link">
+    Missing values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines-limitations" class="md-nav__link">
+    Engines limitations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortcut" class="md-nav__link">
+    Shortcut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1963,10 +2057,10 @@
 <p>For sql like data access, <a href="https://docs.sqlalchemy.org/en/13/index.html">SQLAlchemy</a> consists of two distinct components, known as the <strong>Core</strong> (abstraction toolkit) and an optional but convenient <strong>ORM</strong> (Object Relational Mapper).</p>
 <p>For analytics, <a href="https://pandas.pydata.org/docs/index.html">Pandas</a> provides facili tes and loads the data into the memory of the local host, <a href="https://docs.ibis-project.org/">Ibis</a> leaves the data in its storage, and performs the computations there</p>
 <p>For SQL command in jupyter, see the <a href="https://github.com/catherinedevlin/ipython-sql">SQL jupyter magic</a> and a <a href="https://github.com/satybald/ipython-notebooks/blob/master/MagicsSQL.ipynb">notebook example</a></p>
-<h1 id="sort-order">Sort order<a class="headerlink" href="#sort-order" title="Permanent link">&para;</a></h1>
+<h2 id="sort-order">Sort order<a class="headerlink" href="#sort-order" title="Permanent link">&para;</a></h2>
+<h3 id="collation">Collation<a class="headerlink" href="#collation" title="Permanent link">&para;</a></h3>
 <p>String sorting is done on a character-by-character basis but custom alphanumeric values is <a href="https://www.essentialsql.com/use-sql-server-to-sort-alphanumeric-values/">possible</a>.</p>
 <div class="admonition info">
-<p class="admonition-title">Sort order: collation</p>
 <p>A DBMS uses a collating sequence, or collation, to determine the order in
 which characters are sorted. The collation defines the order of precedence
 for every character in your character set. Your character set depends on the
@@ -1979,6 +2073,42 @@ standard doesn’t define particular collations and character sets, so each
 DBMS uses its own sorting strategy and default collation… Search your DBMS
 documentation for collation or sort order.</p>
 <p>Source: Fehily, Chris - <a href="http://www.peachpit.com/articles/article.aspx?p=1276352&amp;seqNum=4"> SQL VIsual QuickStart Guide, 3<sup>rd</sup> Edition </a>.</p>
+</div>
+<h3 id="missing-values">Missing values<a class="headerlink" href="#missing-values" title="Permanent link">&para;</a></h3>
+<p><code>NULL</code> values are handled differently on SQL engine, e.g.:</p>
+<ul>
+<li>Impala handles <code>NULL</code> as top values</li>
+<li>Hive and MySQL handles <code>NULL</code> as lower values.</li>
+</ul>
+<p>To override such a behavior, <code>NULLS FIST</code> or <code>NULL LAST</code> can be specified. This is not supported by all engines. Impala, Hive and PostgreSQL does when MySQL does not. Another possibility to achieve this is to double the sort operation:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- SQL will fist sort by &#39;col2 IS NULL&#39; which is a boolean, then by &#39;col2&#39;</span>
+<span class="k">SELECT</span> <span class="n">col</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col2</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">col2</span>
+</code></pre></div>
+
+<h3 id="engines-limitations">Engines limitations<a class="headerlink" href="#engines-limitations" title="Permanent link">&para;</a></h3>
+<p>Selection must sometimes include the column on which the is done.</p>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="c1">-- This will not work in Hive </span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span>
+
+<span class="c1">-- Nor this</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span>
+
+<span class="c1">-- This will be ok</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">,</span> <span class="n">col4</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span>
+
+<span class="c1">-- and this</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span> <span class="k">AS</span> <span class="n">muliplication</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">multiplication</span> 
+</code></pre></div>
+
+</details>
+<h3 id="shortcut">Shortcut<a class="headerlink" href="#shortcut" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">Order by position</p>
+<p>It is possible in some engine to specify the position or the column to apply the order on. This is not supported by every engine and will not raise an error.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- This will order by the 3rd column</span>
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="mi">3</span>
+</code></pre></div>
+
 </div>
                 
               
