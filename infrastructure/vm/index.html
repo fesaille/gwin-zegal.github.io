@@ -2061,7 +2061,11 @@ vbm controlvm <span class="s2">&quot;MyVM&quot;</span> resume --type headless
 vbm controlvm <span class="s2">&quot;MyVM&quot;</span> poweroff --type headless
 </code></pre></div></p>
 <p>View VM properties with <code>vboxmanage guestproperty</code> <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc> 
-<div class="highlight"><pre><span></span><code>vbm guestproperty enumerate <span class="s2">&quot;MyVM&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enumerate all properties of the VM named MyVM</span>
+vbm guestproperty enumerate MyVM
+
+<span class="c1"># Get the IP address of the VM named Cloudera</span>
+vbm guestproperty get Cloudera /VirtualBox/GuestInfo/Net/0/V4/IP
 </code></pre></div></p>
 <h2 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h2>
 <h3 id="installation-on-debian-based-systems">Installation on Debian based systems<a class="headerlink" href="#installation-on-debian-based-systems" title="Permanent link">&para;</a></h3>

@@ -1963,6 +1963,23 @@
 <p>For sql like data access, <a href="https://docs.sqlalchemy.org/en/13/index.html">SQLAlchemy</a> consists of two distinct components, known as the <strong>Core</strong> (abstraction toolkit) and an optional but convenient <strong>ORM</strong> (Object Relational Mapper).</p>
 <p>For analytics, <a href="https://pandas.pydata.org/docs/index.html">Pandas</a> provides facili tes and loads the data into the memory of the local host, <a href="https://docs.ibis-project.org/">Ibis</a> leaves the data in its storage, and performs the computations there</p>
 <p>For SQL command in jupyter, see the <a href="https://github.com/catherinedevlin/ipython-sql">SQL jupyter magic</a> and a <a href="https://github.com/satybald/ipython-notebooks/blob/master/MagicsSQL.ipynb">notebook example</a></p>
+<h1 id="sort-order">Sort order<a class="headerlink" href="#sort-order" title="Permanent link">&para;</a></h1>
+<p>String sorting is done on a character-by-character basis but custom alphanumeric values is <a href="https://www.essentialsql.com/use-sql-server-to-sort-alphanumeric-values/">possible</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Sort order: collation</p>
+<p>A DBMS uses a collating sequence, or collation, to determine the order in
+which characters are sorted. The collation defines the order of precedence
+for every character in your character set. Your character set depends on the
+language that you’re using—European languages (a Latin character set),
+Hebrew (the Hebrew alphabet), or Chinese (ideographs), for example. The
+collation also determines case sensitivity (is ‘A’ &lt; ‘a’?), accent
+sensitivity (is ‘A’ &lt; ‘À’ ?), width sensitivity (for multibyte or Unicode
+characters), and other factors such as linguistic practices. The SQL
+standard doesn’t define particular collations and character sets, so each
+DBMS uses its own sorting strategy and default collation… Search your DBMS
+documentation for collation or sort order.</p>
+<p>Source: Fehily, Chris - <a href="http://www.peachpit.com/articles/article.aspx?p=1276352&amp;seqNum=4"> SQL VIsual QuickStart Guide, 3<sup>rd</sup> Edition </a>.</p>
+</div>
                 
               
               
