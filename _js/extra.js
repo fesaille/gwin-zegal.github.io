@@ -98,14 +98,22 @@ class WikiBadge extends Badge {
 
 		var myHeaders = new Headers({
 			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Method': 'GET',
+			'Access-Control-Allow-Method': 'GET'
 		});
+
+		console.log(myHeaders.get('Access-Control-Allow-Origin')); // doit retourner 'text/xml'
+
+		console.log(myHeaders);
+
+
 		var fetchCfg = {
 			method: 'GET',
 			headers: myHeaders,
 			mode: 'cors',
 			cache: 'default' 
 		};
+
+		console.log(fetchCfg.headers);
 
     fetch(url, fetchCfg)
     .then(r => r.text())

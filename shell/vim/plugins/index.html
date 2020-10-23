@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#file-editing" class="md-skip">
+        <a href="#plugins" class="md-skip">
           Skip to content
         </a>
       
@@ -502,6 +502,8 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Plugins
@@ -516,6 +518,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -524,23 +528,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vim-interface" class="md-nav__link">
+    Vim interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Vim interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airline" class="md-nav__link">
+    Airline
+  </a>
+  
+    <nav class="md-nav" aria-label="Airline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-section" class="md-nav__link">
+    Default section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file-editing" class="md-nav__link">
     File editing
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#browse-files-buffers-search" class="md-nav__link">
     Browse files, buffers, search
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DB
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1917,6 +1961,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1925,23 +1971,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#vim-interface" class="md-nav__link">
+    Vim interface
+  </a>
+  
+    <nav class="md-nav" aria-label="Vim interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#airline" class="md-nav__link">
+    Airline
+  </a>
+  
+    <nav class="md-nav" aria-label="Airline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default-section" class="md-nav__link">
+    Default section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file-editing" class="md-nav__link">
     File editing
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#browse-files-buffers-search" class="md-nav__link">
     Browse files, buffers, search
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#db" class="md-nav__link">
     DB
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1961,9 +2047,177 @@
                   
                 
                 
-                  <h1>Plugins</h1>
-                
-                <ul>
+                <h1 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h1>
+<h2 id="vim-interface">Vim interface<a class="headerlink" href="#vim-interface" title="Permanent link">&para;</a></h2>
+<h3 id="airline">Airline<a class="headerlink" href="#airline" title="Permanent link">&para;</a></h3>
+<p><badge-stars repo='vim-airline/vim-airline'></badge-stars> <badge-doc href='https://github.com/vim-airline/vim-airline/blob/master/doc/airline.txt'></badge-doc> provides a status/tabline for vim.</p>
+<p>Airline integrates with a lot of utilities and therefor has a lot of configuration variables, see doc.</p>
+<details class="quote"><summary>Github project README</summary><div class="highlight"><pre><span></span><code>+-----------------------------------------------------------------------------+
+|~                                                                            |
+|~                                                                            |
+|~                     VIM - Vi IMproved                                      |
+|~                                                                            |
+|~                       version 8.2                                          |
+|~                    by Bram Moolenaar et al.                                |
+|~           Vim is open source and freely distributable                      |
+|~                                                                            |
+|~           type :h :q&lt;Enter&gt;          to exit                               |
+|~           type :help&lt;Enter&gt; or &lt;F1&gt;  for on-line help                      |
+|~           type :help version8&lt;Enter&gt; for version info                      |
+|~                                                                            |
+|~                                                                            |
++-----------------------------------------------------------------------------+
+| A | B |                     C                            X | Y | Z |  [...] |
++-----------------------------------------------------------------------------+
+</code></pre></div>
+
+<p>The statusline is the colored line at the bottom, which contains the sections
+(possibly in different colors):</p>
+<table>
+<thead>
+<tr>
+<th>section</th>
+<th>meaning (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>displays the mode + additional flags like crypt/spell/paste (INSERT)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Environment status (VCS information - branch, hunk summary (master), [battery][61] level)</td>
+</tr>
+<tr>
+<td>C</td>
+<td>filename + read-only flag (~/.vim/vimrc RO)</td>
+</tr>
+<tr>
+<td>X</td>
+<td>filetype  (vim)</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>file encoding[fileformat] (utf-8[unix])</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>current position in the file</td>
+</tr>
+<tr>
+<td>[...]</td>
+<td>additional sections (warning/errors/statistics) from external plugins (e.g. YCM, syntastic, ...)</td>
+</tr>
+</tbody>
+</table>
+<p>The information in Section Z looks like this:</p>
+<p><code>10% ☰ 10/100 ln : 20</code></p>
+<p>This means:
+<div class="highlight"><pre><span></span><code>10%     - 10 percent down the top of the file
+☰ 10    - current line 10
+/100 ln - of 100 lines
+: 20    - current column 20
+</code></pre></div></p>
+</details>
+<h4 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Descrption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>:AirlineTheme {theme-name}</code></td>
+<td>Displays or changes the current theme. <code>random</code> will switch to a random theme.</td>
+</tr>
+<tr>
+<td><code>:AirlineToggleWhitespace</code></td>
+<td>Toggles whitespace detection.</td>
+</tr>
+<tr>
+<td><code>:AirlineToggle</code></td>
+<td>between the standard 'statusline' and airline.</td>
+</tr>
+<tr>
+<td><code>:AirlineRefresh[!]</code></td>
+<td>Refreshes all highlight groups and redraws the statusline. With the '!' attribute, skips refreshing the highlighting groups.</td>
+</tr>
+<tr>
+<td><code>:AirlineExtensions</code></td>
+<td>Shows the status of all available airline extensions.  Extern means, the extensions does not come bundled with Airline.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="default-section">Default section<a class="headerlink" href="#default-section" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>variable names</th>
+<th>default content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>let g:airline_section_a</code></td>
+<td>(mode, crypt, paste, spell, iminsert)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_b</code></td>
+<td>(hunks, branch)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_c</code></td>
+<td>(bufferline or filename, readonly)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_gutter</code></td>
+<td>(csv)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_x</code></td>
+<td>(tagbar, filetype, virtualenv)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_y</code></td>
+<td>(fileencoding, fileformat)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_z</code></td>
+<td>(percentage, line number, column number)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_error</code></td>
+<td>(ycm_error_count, syntastic-err, eclim, languageclient_error_count)</td>
+</tr>
+<tr>
+<td><code>let g:airline_section_warning</code></td>
+<td>(ycm_warning_count, syntastic-warn, languageclient_warning_count, whitespace)</td>
+</tr>
+</tbody>
+</table>
+<p>Section b needs the <a href="https://github.com/tpope/vim-fugitive">fugitive</a> plugin-in.</p>
+<div class="admonition info">
+<p class="admonition-title">Configuration</p>
+<div class="highlight"><pre><span></span><code><span class="c">&quot; the separator used on the left and right side</span>
+<span class="k">let</span> <span class="k">g</span>:airline_left_sep<span class="p">=</span><span class="s1">&#39;&#39;</span>
+<span class="k">let</span> <span class="k">g</span>:airline_right_sep<span class="p">=</span><span class="s1">&#39;&#39;</span>
+
+<span class="c">&quot; enable fzf integration</span>
+<span class="k">let</span> <span class="k">g</span>:airline#extensions#fzf#enabled <span class="p">=</span> <span class="m">1</span>
+<span class="c">&quot; tabline activated in airline</span>
+<span class="k">let</span> <span class="k">g</span>:airline#extensions#<span class="nb">tabline</span>#enabled <span class="p">=</span> <span class="m">1</span>
+<span class="k">let</span> <span class="k">g</span>:airline#extensions#<span class="nb">tabline</span>#left_sep <span class="p">=</span> <span class="s1">&#39; &#39;</span>
+<span class="k">let</span> <span class="k">g</span>:airline#extensions#<span class="nb">tabline</span>#left_alt_sep <span class="p">=</span> <span class="s1">&#39;|&#39;</span>
+<span class="k">let</span> <span class="k">g</span>:airline#extensions#<span class="nb">tabline</span>#formatter <span class="p">=</span> <span class="s1">&#39;unique_tail_improved&#39;</span>
+<span class="c">&quot; let g:airline_theme = &#39;sonokai&#39;</span>
+<span class="k">let</span> <span class="k">g</span>:airline_powerline_fonts <span class="p">=</span> <span class="m">1</span>
+</code></pre></div>
+
+</div>
+<ul>
 <li><strong>echodoc.vim</strong> <badge-stars repo='Shougo/echodoc.vim'></badge-stars> displays function signatures from completions in the command line.</li>
 </ul>
 <h3 id="file-editing">File editing<a class="headerlink" href="#file-editing" title="Permanent link">&para;</a></h3>
