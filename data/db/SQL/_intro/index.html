@@ -1270,6 +1270,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit" class="md-nav__link">
+    Limit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    Select
+  </a>
+  
+    <nav class="md-nav" aria-label="Select">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#shortcut" class="md-nav__link">
     Shortcut
@@ -2019,6 +2039,26 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit" class="md-nav__link">
+    Limit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    Select
+  </a>
+  
+    <nav class="md-nav" aria-label="Select">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#shortcut" class="md-nav__link">
     Shortcut
@@ -2113,6 +2153,31 @@ documentation for collation or sort order.</p>
 </code></pre></div>
 
 </details>
+<h2 id="limit">Limit<a class="headerlink" href="#limit" title="Permanent link">&para;</a></h2>
+<p>For pagination, sql specific implementations:</p>
+<div class="admonition example">
+<div class="highlight"><pre><span></span><code><span class="c1">-- For Impala and PostgreSQL</span>
+<span class="k">LIMIT</span> <span class="o">&lt;</span><span class="k">limit</span><span class="o">&gt;</span> <span class="k">OFFSET</span> <span class="o">&lt;</span><span class="k">offset</span><span class="o">&gt;</span>
+
+<span class="c1">-- For Hive</span>
+<span class="k">Limit</span> <span class="o">&lt;</span><span class="k">offset</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="k">limit</span><span class="o">&gt;</span>
+
+<span class="c1">-- MySQL supports both</span>
+<span class="c1">-- some use SKIP</span>
+</code></pre></div>
+
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Without <code>ORDER BY</code>, order is not deterministic: some row could be displayed
+multiple times or missing as selection is arbitrary. Impala require <code>ORDER BY</code>
+when using <code>OFFSET</code></p>
+</div>
+<h2 id="select">Select<a class="headerlink" href="#select" title="Permanent link">&para;</a></h2>
+<p>Syntaxic order</p>
+<p>SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT</p>
+<p>Execution order (in general)</p>
+<p>FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT</p>
 <h3 id="shortcut">Shortcut<a class="headerlink" href="#shortcut" title="Permanent link">&para;</a></h3>
 <div class="admonition danger">
 <p class="admonition-title">Order by position</p>
