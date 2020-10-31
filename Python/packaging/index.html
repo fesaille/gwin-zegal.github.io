@@ -1591,6 +1591,74 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    Pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wheel" class="md-nav__link">
+    Wheel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyoxyder" class="md-nav__link">
+    PyOxyder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyinstaller" class="md-nav__link">
+    PyInstaller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyprojecttoml" class="md-nav__link">
+    pyproject.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="pyproject.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    build-system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool" class="md-nav__link">
+    tool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#distutils" class="md-nav__link">
     distutils
   </a>
@@ -1934,6 +2002,74 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pip" class="md-nav__link">
+    Pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wheel" class="md-nav__link">
+    Wheel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyoxyder" class="md-nav__link">
+    PyOxyder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyinstaller" class="md-nav__link">
+    PyInstaller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pyprojecttoml" class="md-nav__link">
+    pyproject.toml
+  </a>
+  
+    <nav class="md-nav" aria-label="pyproject.toml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+    <nav class="md-nav" aria-label="Tables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    build-system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool" class="md-nav__link">
+    tool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#distutils" class="md-nav__link">
     distutils
   </a>
@@ -1964,7 +2100,54 @@
                 
                 
                 <h1 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h1>
+<h3 id="pip">Pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<p>Pip <badge-stars repo='pypa/pip'></badge-stars> <badge-doc href="https://pip.pypa.io/en/stable"></badge-doc> is the package installer for Python.</p>
+<h3 id="wheel">Wheel<a class="headerlink" href="#wheel" title="Permanent link">&para;</a></h3>
+<p>This library <badge-stars repo='pypa/wheel'></badge-stars> <badge-doc href="https://wheel.readthedocs.io/"></badge-doc> <badge-pep nr='427'></badge-pep> <badge-pep nr='425'></badge-pep> is the reference implementation of the Python wheel packaging standard, as defined in PEP 427. It has two different roles:</p>
+<ul>
+<li>A setuptools extension for building wheels that provides the bdist_wheel setuptools command</li>
+<li>A command line tool for working with wheel files</li>
+</ul>
+<h3 id="pyoxyder">PyOxyder<a class="headerlink" href="#pyoxyder" title="Permanent link">&para;</a></h3>
+<p>PyOwyder <badge-stars repo='indygreg/PyOxidizer'></badge-stars> <badge-doc href='https://pyoxidizer.readthedocs.io'></badge-doc> is a utility for producing binaries that embed Python.</p>
+<p>It can be used in case of virtualenv with symlink to the python interpreter (e.g. in the case of pipx)</p>
+<h3 id="pyinstaller">PyInstaller<a class="headerlink" href="#pyinstaller" title="Permanent link">&para;</a></h3>
+<p>PyInstaller <badge-stars repo='pyinstaller/pyinstaller'></badge-stars> <badge-doc href='https://pyoxidizer.readthedocs.io'></badge-doc> bundles a Python application and all its dependencies into a single package.</p>
+<h2 id="pyprojecttoml"><code>pyproject.toml</code><a class="headerlink" href="#pyprojecttoml" title="Permanent link">&para;</a></h2>
+<p>This file, topic of <badge-pep nr='518'></badge-pep> lists the minimal dependencies of the build system of a project in a declarative fashion. </p>
+<p><badge-pep nr='517'></badge-pep> add precisions on the build system interface, by default <code>setuptools</code> <badge-doc href='https://pip.pypa.io/en/stable/reference/pip/#build-system-interface'></badge-doc>. In this case, and if <code>setup.py</code> is missing <badge-doc href='https://setuptools.readthedocs.io/en/latest/setuptools.html#setup-cfg-only-projects'></badge-doc>, setuptools emulates a dummy <code>setup.py</code> file containing only a <code>setuptools.setup()</code> call. </p>
+<details class="cite"><summary>About PEP 0518</summary><p><a href="https://docs.python.org/3/library/distutils.html#module-distutils">distutils</a>
+When Python first developed its tooling for building distributions of
+software for projects, was the chosen solution. As time went on,
+<a href="https://pypi.python.org/pypi/setuptools">setuptools</a> gained popularity to
+add some features on top of distutils. Both used the concept of a setup.py
+file.</p>
+</details>
+<h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
+<h4 id="build-system"><code>build-system</code><a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h4>
+<p><code>[build-system]</code> table is used to store build-related data. Initially only one key of the table will be valid and is mandatory for the table: <code>requires</code>.</p>
+<p>A <em>build frontend</em> is a tool that users might run that takes arbitrary source trees or source distributions and builds wheels from them. The actual building is done by each source tree's <em>build backend</em>. In a command like pip wheel some-directory/, pip is acting as a build frontend.</p>
+<details class="example"><summary>Example</summary><p>Usage with <code>setuptools</code>
+<div class="highlight"><pre><span></span><code><span class="k">[build-system]</span>
+<span class="c1"># Minimum requirements for the build system to execute.</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;setuptools&quot;</span><span class="p">,</span> <span class="s">&quot;wheel&quot;</span><span class="p">]</span>  <span class="c1"># PEP 508 specifications.</span>
+<span class="c1"># This key is not mandatory as setuptools is default</span>
+<span class="n">build-backend</span> <span class="o">=</span> <span class="s">&quot;setuptools.build_meta&quot;</span>
+</code></pre></div></p>
+<p>Usage with <code>poetry</code>
+<div class="highlight"><pre><span></span><code><span class="k">[build-system]</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="k">[&quot;poetry_core&gt;=1.0.0&quot;]</span>
+<span class="n">build-backend</span> <span class="o">=</span> <span class="s">&quot;poetry.core.masonry.api&quot;</span>
+</code></pre></div></p>
+</details>
+<p>Tools should not require the existence of the <code>[build-system]</code> table. A <code>pyproject.toml</code> file may be used to store configuration details other than build-related data and thus lack a <code>[build-system]</code> table legitimately.</p>
+<p><strong>Build backend interface</strong></p>
+<p>In case a custom build backend interface is specified, <a href="https://www.python.org/dev/peps/pep-0517/#mandatory-hooks">mandatory hooks</a> - <code>build_wheel</code> and <code>build_sdist</code> - must be specified. <a href="https://www.python.org/dev/peps/pep-0517/#optional-hooks">Optional hooks</a> </p>
+<h4 id="tool"><code>tool</code><a class="headerlink" href="#tool" title="Permanent link">&para;</a></h4>
+<p>The <code>[tool]</code> table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within <code>[tool]</code>, e.g. the flit tool would store its configuration in <code>[tool.flit]</code>.</p>
+<p>Packaging</p>
 <p><badge-doc href='https://packaging.python.org/overview/' logo='python'></badge-doc></p>
+<p><a href="https://snarky.ca/what-the-heck-is-pyproject-toml/">Blog post</a></p>
 <h2 id="distutils">distutils<a class="headerlink" href="#distutils" title="Permanent link">&para;</a></h2>
 <h2 id="setuptools">Setuptools<a class="headerlink" href="#setuptools" title="Permanent link">&para;</a></h2>
 <p><code>Setuptools</code> <badge-stars repo='pypa/setuptools'></badge-stars> <badge-doc href='https://setuptools.readthedocs.io/en/latest/'></badge-doc> is a collection of enhancements to the Python <code>distutils</code>.</p>

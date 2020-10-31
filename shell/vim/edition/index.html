@@ -504,6 +504,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    Registers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#selection" class="md-nav__link">
     Selection
   </a>
@@ -1970,6 +1977,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#registers" class="md-nav__link">
+    Registers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#selection" class="md-nav__link">
     Selection
   </a>
@@ -2050,7 +2064,7 @@
 <td>Change</td>
 <td><code>cc</code></td>
 <td><code>C</code> ( or <code>c$</code>)</td>
-<td><code>ciw</code></td>
+<td><code>ciw</code>/<code>caw</code></td>
 <td><code>cw</code> (or <code>ce</code>)</td>
 <td></td>
 </tr>
@@ -2058,12 +2072,44 @@
 <td>Delete</td>
 <td><code>dd</code></td>
 <td><code>D</code> ( or <code>d$</code>)</td>
-<td><code>diw</code></td>
+<td><code>diw</code>/<code>daw</code></td>
 <td><code>de</code></td>
 <td><code>dw</code></td>
 </tr>
 </tbody>
 </table>
+<h2 id="registers">Registers<a class="headerlink" href="#registers" title="Permanent link">&para;</a></h2>
+<p>There are 10 types of <code>:h registers</code>:</p>
+<ol>
+<li>The unnamed register <code>""</code></li>
+<li>10 numbered registers <code>"0</code> to <code>"9</code> filled with text from the last 10 yank and delete commands.</li>
+<li>The small delete register <code>"-</code> from commands that delete less than a line.</li>
+<li>26 named registers <code>"a</code> to <code>"z</code> or <code>"A</code> to <code>"Z</code></li>
+<li>
+<p>Three read-only registers:</p>
+<ul>
+<li><code>":</code>, most recent command,</li>
+<li><code>".</code>, </li>
+<li><code>"%</code>, name of the current file) </li>
+</ul>
+</li>
+<li>
+<p>Alternate buffer register <code>"#</code></p>
+</li>
+<li>The expression register <code>"=</code>: </li>
+<li>
+<p>The selection and drop registers (:</p>
+<ul>
+<li><code>"*</code>, contains the <code>PRIMARY</code> selection which is available on Linux when users select some data.</li>
+<li><code>"+</code>, contains the <code>CLIPBOARD</code> select, available on active requests of copy.  To use the <code>PRIMARY</code> selection too, <code>set clipboard^=unnamed,unnamedplus</code> </li>
+<li><code>"~</code> registers the dropped text from the last drag'n'drop operation. </li>
+</ul>
+</li>
+<li>
+<p>The black hole register <code>"_</code></p>
+</li>
+<li>Last search pattern register <code>"/</code></li>
+</ol>
 <h2 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h2>
 <p><code>:h text-objects</code> or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection. </p>
 <h2 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h2>
