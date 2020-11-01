@@ -2324,8 +2324,12 @@
 <li><code>~/.gitconfig</code></li>
 <li><code>$GIT_DIR/config</code></li>
 </ul>
-<p>Add credential cache when not using ssh authentication:</p>
+<p>Add credential cache (timed out daemon) when not using ssh authentication:</p>
 <div class="highlight"><pre><span></span><code>git config --global credential.helper cache
+<span class="c1"># Set the timeout to 300s instead 900s (defaut)</span>
+git config --global credential.helper <span class="s1">&#39;cache --timeout=300&#39;</span>
+<span class="c1"># To explicitly exits the daemon</span>
+git credential-cache <span class="nb">exit</span>
 </code></pre></div>
 
 <h2 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h2>
