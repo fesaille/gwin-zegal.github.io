@@ -2324,6 +2324,10 @@
 <li><code>~/.gitconfig</code></li>
 <li><code>$GIT_DIR/config</code></li>
 </ul>
+<p>Add credential cache when not using ssh authentication:</p>
+<div class="highlight"><pre><span></span><code>git config --global credential.helper cache
+</code></pre></div>
+
 <h2 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h2>
 <h3 id="write-a-pull-request">Write a pull request<a class="headerlink" href="#write-a-pull-request" title="Permanent link">&para;</a></h3>
 <p>https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/</p>
@@ -2395,7 +2399,8 @@ git config --file=.gitmodules submodule.&lt;submodule_name&gt;.branch &lt;branch
 </code></pre></div>
 Synchronization adn update of the submodules are done with:
 <div class="highlight"><pre><span></span><code>git submodule sync
-git submodule update --init --recursive --remote
+git submodule update --init --recursive --remote --merge
+# ! If --merge option is missing, HEAD will be detached
 </code></pre></div></p>
 <h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
 <p>First the other repository source must be added to the remote list
