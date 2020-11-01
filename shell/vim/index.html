@@ -468,6 +468,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#initialisation" class="md-nav__link">
+    Initialisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -1943,6 +1950,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#initialisation" class="md-nav__link">
+    Initialisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -1981,6 +1995,16 @@
                 
                 <h1 id="vim">Vim<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h1>
 <p><code>:h terminal</code> or <badge-doc href="https://vimhelp.org/terminal.html" message="terminal" logo="vim"></badge-doc></p>
+<h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h2>
+<p>At startup, Vim checks environment variables and files and sets values
+in this order: <badge-doc href='https://vimhelp.org/starting.txt.html#initialization' logo='vim'></badge-doc>
+1. Set the 'shell' and 'term' option 
+2. Process the arguments
+3. Execute Ex commands, from environment variables and/or files
+4. Load the plugin scripts.
+5. Set 'shellpipe' and 'shellredir'
+6. Set various less used initialization until windows open (see doc)
+12. Execute startup commands</p>
 <p>https://vim.rtorr.com/</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Vim has a number of internal variables and switches:</p>
