@@ -1098,13 +1098,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#tracing" class="md-nav__link">
-    Tracing
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1142,6 +1135,13 @@
           <li class="md-nav__item">
   <a href="#gitops" class="md-nav__link">
     GitOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    Tracing
   </a>
   
 </li>
@@ -2281,13 +2281,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#tracing" class="md-nav__link">
-    Tracing
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2325,6 +2318,13 @@
           <li class="md-nav__item">
   <a href="#gitops" class="md-nav__link">
     GitOps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    Tracing
   </a>
   
 </li>
@@ -2524,13 +2524,6 @@ allow for dynamic configuraiton of DNS records</p>
 <li>...</li>
 </ul>
 <p>No native kubernetes solution for this.</p>
-<h3 id="tracing">Tracing<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h3>
-<ul>
-<li>applicaton Insights (Azure)</li>
-<li>OpenCensus / OpenTelmetry</li>
-<li>Zipkin (java)</li>
-<li>Jaeger (go)</li>
-</ul>
 <h2 id="giant-swarm">Giant swarm<a class="headerlink" href="#giant-swarm" title="Permanent link">&para;</a></h2>
 <p>Cloud native for entreprise</p>
 <h2 id="day-2-operation">Day 2 operation<a class="headerlink" href="#day-2-operation" title="Permanent link">&para;</a></h2>
@@ -2547,9 +2540,17 @@ allow for dynamic configuraiton of DNS records</p>
 with the GitOps Toolkit and is a tool for keeping Kubernetes clusters in sync
 with sources of configuration (like Git repositories), and automating updates to
 configuration when there is new code to deploy.</p>
+<h3 id="tracing">Tracing<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>applicaton Insights (Azure)</li>
+<li><a href="https://github.com/census-instrumentation">OpenCensus</a> /
+  <a href="https://github.com/open-telemetry">OpenTelemetry</a></li>
+<li><strong>Zipkin</strong> (java) <badge-stars repo='openzipkin/zipkin'></badge-stars></li>
+<li><strong>Jaeger</strong> (go) <badge-stars repo='jaegertracing/jaeger'></badge-stars></li>
+</ul>
 <h3 id="daprio">dapr.io<a class="headerlink" href="#daprio" title="Permanent link">&para;</a></h3>
 <p><a href="https://dapr.io/">dapr.io</a></p>
-<p><img alt="Overview" src="https://raw.githubusercontent.com/dapr/docs/master/images/overview.png" /></p>
+<p><img alt="Overview" src="https://raw.githubusercontent.com/dapr/dapr/master/img/overview.png" /></p>
 <p>Service invocation over API
 State management: key/value
 Publish and subscribe <code>v1.0/publish/</code></p>
