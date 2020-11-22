@@ -439,6 +439,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    Prompt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -455,13 +462,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
-    Prompt
-  </a>
   
 </li>
       
@@ -2122,6 +2122,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#prompt" class="md-nav__link">
+    Prompt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     Functions
   </a>
@@ -2138,13 +2145,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prompt" class="md-nav__link">
-    Prompt
-  </a>
   
 </li>
       
@@ -2243,13 +2243,21 @@
                 
                 
                 <h1 id="zsh">Zsh<a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h1>
-<p>The Z-shell <span><badge-doc href="http://www.zsh.org/"></badge-doc> <a href="https://github.com/topics/zsh" target="_blank"> <img src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github" alt="Github topic"/> </a></span></p>
+<p>The Z-shell <span><badge-doc href="http://www.zsh.org/"></badge-doc> <a
+href="https://github.com/topics/zsh" target="_blank"> <img
+src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github"
+alt="Github topic"/> </a></span></p>
 <h2 id="initialisation">Initialisation<a class="headerlink" href="#initialisation" title="Permanent link">&para;</a></h2>
-<p>Shell initilization performs operations depending on the execution context, these operations can be mainly separated on <em>login</em> and <em>interactive</em> property. An short summary can be found at <a href="https://github.com/pyenv/pyenv/wiki/Unix-shell-initialization">pyenv wiki</a>.</p>
+<p>Shell initilization performs operations depending on the execution context,
+these operations can be mainly separated on <em>login</em> and <em>interactive</em> property.
+An short summary can be found at <a href="https://github.com/pyenv/pyenv/wiki/Unix-shell-initialization">pyenv
+wiki</a>.</p>
 <p>Basically:</p>
 <ul>
-<li><em>login</em>: e.g. when user logs in to a system with non-graphical interface or via SSH;</li>
-<li><em>interactive</em>: shell that has a prompt and whose standard input and error are both connected to terminals.</li>
+<li><em>login</em>: e.g. when user logs in to a system with non-graphical interface or
+  via SSH;</li>
+<li><em>interactive</em>: shell that has a prompt and whose standard input and error are
+  both connected to terminals.</li>
 </ul>
 <p>Zsh performs initialiation in the following order:</p>
 <ul>
@@ -2273,52 +2281,24 @@
 </ul>
 <p><code>.zlogout</code> is called when exiting, not when opening.</p>
 <h2 id="readline-capability-zle">Readline capability: <code>ZLE</code><a class="headerlink" href="#readline-capability-zle" title="Permanent link">&para;</a></h2>
-<p>Zsh does not use readline, instead uses an own development <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html">Zsh Line Editor (ZLE)</a>. Keybindings in <code>inputrc</code> are not read, rely instead on an internal command <a href="terminfo"><code>bindkey</code></a> that can be coupled to <code>terminfo</code>.</p>
-<p>All actions in the editor are performed by <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Widgets">widgets</a>.</p>
+<p>Zsh does not use readline, instead uses an own development <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html">Zsh Line Editor
+(ZLE)</a>. Keybindings
+in <code>inputrc</code> are not read, rely instead on an internal command
+<a href="terminfo"><code>bindkey</code></a> that can be coupled to <code>terminfo</code>.</p>
+<p>All actions in the editor are performed by
+<a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Widgets">widgets</a>.</p>
 <p>zle -la</p>
 <p><a href=""><code>bindkey</code></a> followed by a key string repl</p>
 <p><strong>Links</strong></p>
 <ul>
 <li>an <a href="https://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/">intro on widgets</a></li>
 </ul>
-<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
-<h3 id="hook-functions">Hook functions <badge-doc href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions"></badge-doc><a class="headerlink" href="#hook-functions" title="Permanent link">&para;</a></h3>
-<p>It is possible to define an array that has the same name as the function with <code>_functions</code> appended. Any element in such an array is taken as the name of a function to execute; it is executed in the same context and with the same arguments as the basic function.</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>❯ <span class="nb">echo</span> <span class="nv">$precmd_functions</span>
-_zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
-
-<span class="c1"># Show the definition of a function:</span>
-<span class="c1"># it is possible to use `which` or nearly identical to bash `type -f` </span>
-❯ whence -f _zsh_autosuggest_start
-</code></pre></div>
-</div>
-<ul>
-<li>
-<p><strong>chpwd</strong>: executed whenever the current working directory is changed. </p>
-</li>
-<li>
-<p><strong>periodic</strong>: if the parameter PERIOD is set, this function is executed every $PERIOD seconds, just before a prompt.</p>
-</li>
-<li>
-<p><strong>precmd</strong>: executed before each prompt.</p>
-</li>
-<li>
-<p><strong>preexec</strong>: executed just after a command has been read and is about to be executed.</p>
-</li>
-<li>
-<p><strong>zshaddhistory</strong>: executed when a history line has been read interactively, but before it is executed. </p>
-</li>
-<li>
-<p><strong>zshexit</strong>: executed at the point where the main shell is about to exit normally. </p>
-</li>
-</ul>
-<details class="info"><summary>Display user configuration of hooks functions</summary><p><script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script></p>
-</details>
 <h2 id="prompt">Prompt<a class="headerlink" href="#prompt" title="Permanent link">&para;</a></h2>
-<p>Prompt sequences undergo a <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">special form of expansion</a>. Some modules make it easier to personalize the prompt.</p>
-<p>The prompt system must be loaded (performed by extensions): <code>autoload -U promptinit; promptinit</code>.</p>
+<p>Prompt sequences undergo a <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">special form of
+expansion</a>. Some
+modules make it easier to personalize the prompt.</p>
+<p>The prompt system must be loaded (performed by extensions): <code>autoload -U
+promptinit; promptinit</code>.</p>
 <p>A theme can be applied with the <code>prompt</code> cmd.</p>
 <div class="highlight"><pre><span></span><code>❯ prompt &lt;TAB&gt;
  -- prompt theme --
@@ -2328,16 +2308,62 @@ _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure
 </code></pre></div>
 <p>Third party modules:</p>
 <ul>
-<li><b>spaceshift</b> <badge-stars repo='denysdovhan/spaceship-prompt'></badge-stars> is a pure zsh prompt providing VCS integration, language version, job indicator and more. </li>
+<li><b>spaceshift</b> <badge-stars repo='denysdovhan/spaceship-prompt'></badge-stars> is a pure zsh prompt providing VCS integration, language version, job indicator and more.</li>
 <li><b>starshift</b> <badge-stars repo='starship/starship'></badge-stars> is a port of spaceshift in rust.</li>
 <li><b>pure</b> <badge-stars repo='sindresorhus/pure'></badge-stars> is a lighweight prompt in pure zsh.</li>
 </ul>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="hook-functions">Hook functions <badge-doc href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions"></badge-doc><a class="headerlink" href="#hook-functions" title="Permanent link">&para;</a></h3>
+<p>It is possible to define an array that has the same name as the function with
+<code>_functions</code> appended. Any element in such an array is taken as the name of a
+function to execute; it is executed in the same context and with the same
+arguments as the basic function.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>❯ <span class="nb">echo</span> <span class="nv">$precmd_functions</span>
+_zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
+
+<span class="c1"># Show the definition of a function:</span>
+<span class="c1"># it is possible to use `which` or nearly identical to bash `type -f`</span>
+❯ whence -f _zsh_autosuggest_start
+</code></pre></div>
+</div>
+<ul>
+<li>
+<p><strong>chpwd</strong>: executed whenever the current working directory is changed.</p>
+</li>
+<li>
+<p><strong>periodic</strong>: if the parameter PERIOD is set, this function is executed every
+  $PERIOD seconds, just before a prompt.</p>
+</li>
+<li>
+<p><strong>precmd</strong>: executed before each prompt.</p>
+</li>
+<li>
+<p><strong>preexec</strong>: executed just after a command has been read and is about to be
+  executed.</p>
+</li>
+<li>
+<p><strong>zshaddhistory</strong>: executed when a history line has been read interactively,
+  but before it is executed.</p>
+</li>
+<li>
+<p><strong>zshexit</strong>: executed at the point where the main shell is about to exit
+  normally.</p>
+</li>
+</ul>
+<details class="info"><summary>Display user configuration of hooks functions</summary><p><script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script></p>
+</details>
 <h2 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">&para;</a></h2>
-<p>This section is a cheatsheet on expansion, based on the manual and reads, especially this <a href="https://reasoniamhere.com/2014/01/11/outrageously-useful-tips-to-master-your-z-shell/">blog post</a>.</p>
-<p>The examples hereunder are taken from the latest and to be run, interactive comments must be enabled in zsh (<code>setopt interactive_comments</code>).</p>
+<p>This section is a cheatsheet on expansion, based on the manual and reads,
+especially this <a href="https://reasoniamhere.com/2014/01/11/outrageously-useful-tips-to-master-your-z-shell/">blog
+post</a>.</p>
+<p>The examples hereunder are taken from the latest and to be run, interactive
+comments must be enabled in zsh (<code>setopt interactive_comments</code>).</p>
 <script src="https://gist.github.com/fesaille/a3ec9617ef2e6e22d86382c08d46dcb3.js"></script>
 
-<p>The following types of expansions are performed in the indicated order in five steps:</p>
+<p>The following types of expansions are performed in the indicated order in five
+steps:</p>
 <ul>
 <li>
 <p><strong>History Expansion</strong> is performed only in interactive shells.</p>
@@ -2346,9 +2372,10 @@ _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure
 <p><strong>Alias Expansion</strong> Aliases are expanded immediately.</p>
 </li>
 <li>
-<p><strong>Process Substitution</strong>, <strong>Parameter Expansion</strong>, <strong>Command Substitution</strong>, <strong>Arithmetic Expansion</strong>, <strong>Brace Expansion</strong></p>
-<p>These five are performed in left-to-right fashion. On each argument, any of the
-five steps that are needed are performed one after the other. Hence, for
+<p><strong>Process Substitution</strong>, <strong>Parameter Expansion</strong>, <strong>Command Substitution</strong>,
+  <strong>Arithmetic Expansion</strong>, <strong>Brace Expansion</strong></p>
+<p>These five are performed in left-to-right fashion. On each argument, any of
+the five steps that are needed are performed one after the other. Hence, for
 example, all the parts of parameter expansion are completed before command
 substitution is started. After these expansions, all unquoted occurrences of
 the characters ‘\’,‘’’ and ‘"’ are removed.</p>
@@ -2374,7 +2401,7 @@ is performed immediately after alias expansion.</p>
 </ul>
 </li>
 <li><code>&lt;[x]-[y]&gt;</code> matches any number in the range x to y, inclusive.</li>
-<li><code>(...)</code> matches the enclosed pattern. </li>
+<li><code>(...)</code> matches the enclosed pattern.</li>
 <li><code>x|y</code> matches either x or y.</li>
 <li><code>^x</code> matches anything except the pattern x. Requires <code>EXTENDED_GLOB</code> to be set.</li>
 <li><code>x~y</code> match anything that matches the pattern x but does not match y. Requires <code>EXTENDED_GLOB</code> to be set.</li>
@@ -2584,7 +2611,7 @@ is performed immediately after alias expansion.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># show only directories</span>
 ❯ print -l zsh_demo/**/*<span class="o">(</span>/<span class="o">)</span>
 
-<span class="c1"># because the expression is expanded, </span>
+<span class="c1"># because the expression is expanded,</span>
 <span class="c1"># can be used with editors, e.g. vim</span>
 <span class="c1"># will open a lot of files (36)</span>
 ❯ vim zsh_demo/**/*<span class="o">(</span>.<span class="o">)</span>
@@ -2605,19 +2632,23 @@ is performed immediately after alias expansion.</p>
 ❯ ls -l zsh_demo/**/*<span class="o">(</span>.Lm-2mh-1om<span class="o">[</span><span class="m">1</span>,3<span class="o">])</span>
 </code></pre></div>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
-<p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded with <code>zmodload</code></p>
+<p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded
+with <code>zmodload</code></p>
 <h3 id="zshzutil">zsh/zutil<a class="headerlink" href="#zshzutil" title="Permanent link">&para;</a></h3>
 <p>The zsh/zutil module adds some builtins:</p>
 <ul>
 <li><code>zstyle</code> is used to define and lookup styles.</li>
-<li><code>zformat</code> provides two different forms of formatting. </li>
-<li><code>zregexparse</code> implements some internals of the <code>_regex_arguments</code> function </li>
+<li><code>zformat</code> provides two different forms of formatting.</li>
+<li><code>zregexparse</code> implements some internals of the <code>_regex_arguments</code> function</li>
 <li><code>zparseopts</code> simplifies the parsing of options in positional parameters</li>
 </ul>
 <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
 <ul>
-<li><b>zsh-z</b> <badge-stars repo='agkozak/zsh-z'></badge-stars> Jump quickly to directories that you have visited "frecently."</li>
-<li><b>zsh-autosuggestions</b> <badge-stars repo='zsh-users/zsh-autosuggestions'></badge-stars> Fish-like autosuggestions for zsh</li>
+<li><b>zsh-z</b> <badge-stars repo='agkozak/zsh-z'></badge-stars> Jump quickly to
+  directories that you have visited "frecently."</li>
+<li><b>zsh-autosuggestions</b> <badge-stars
+  repo='zsh-users/zsh-autosuggestions'></badge-stars> Fish-like autosuggestions
+  for zsh</li>
 </ul>
 <h2 id="other-links">Other links<a class="headerlink" href="#other-links" title="Permanent link">&para;</a></h2>
 <ul>

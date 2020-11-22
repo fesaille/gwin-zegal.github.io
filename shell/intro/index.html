@@ -482,6 +482,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#manual-filtering-globs" class="md-nav__link">
+    Manual filtering: globs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -517,6 +524,13 @@
         <li class="md-nav__item">
   <a href="#makefile" class="md-nav__link">
     Makefile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    Workflows
   </a>
   
 </li>
@@ -2164,6 +2178,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#manual-filtering-globs" class="md-nav__link">
+    Manual filtering: globs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2203,6 +2224,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#workflows" class="md-nav__link">
+    Workflows
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2218,6 +2246,8 @@
                 
                 <h1 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
 <p><strong>nutshell</strong> <badge-stars repo='nushell/nushell'></badge-stars></p>
+<p><strong>dust</strong> <badge-stars repo='bootandy/dust'></badge-stars> =
+du + rust.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <h3 id="line-edition-and-keybindings">Line edition and keybindings<a class="headerlink" href="#line-edition-and-keybindings" title="Permanent link">&para;</a></h3>
 <p>GNU Readline <badge-wiki href='https://en.wikipedia.org/wiki/GNU_Readline'></badge-wiki> is a software library that provides line-editing and history capabilities for interactive programs with a command-line interface. Bash typically uses this library (same <a href="https://en.wikipedia.org/wiki/Brian_Fox_(computer_programmer)"> original author </a>). Emacs-like keybindings are <a href="https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html"> default </a> but readline enables configuration files at <code>/etc/inputrc</code> or <code>~/.inputrc</code>.</p>
@@ -2233,7 +2263,7 @@
 <h2 id="autojump">Autojump<a class="headerlink" href="#autojump" title="Permanent link">&para;</a></h2>
 <p>These utilities give the most visited directory for the shortest search term typed.</p>
 <ul>
-<li><strong>jump</strong> <badge-stars repo='gsamokovarov/jump'></badge-stars> is written in go. </li>
+<li><strong>jump</strong> <badge-stars repo='gsamokovarov/jump'></badge-stars> is written in go.</li>
 <li><strong>autojump</strong> <badge-stars repo='wting/autojump'></badge-stars> is written in python.</li>
 <li><strong>zoxide</strong> <badge-stars repo='ajeetdsouza/zoxide'></badge-stars> is written in rust.</li>
 <li><strong>zsh-z</strong> <badge-stars repo='agkozak/zsh-z'></badge-stars> is a native zsh port of z.sh</li>
@@ -2302,6 +2332,7 @@
 <h2 id="file-content-search">File content search<a class="headerlink" href="#file-content-search" title="Permanent link">&para;</a></h2>
 <p>Search can be efficiently performed by <strong>the silver search (<code>ag</code>)</strong> <badge-stars repo='ggreer/the_silver_searcher'></badge-stars> <badge-doc href='https://geoff.greer.fm/ag/'></badge-doc> and <strong>ripgrep (<code>rg</code>)</strong> <badge-stars repo='BurntSushi/ripgrep'></badge-stars> <badge-doc logo='Markdown' href='https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md'></badge-doc>, written resp. in C and rust. <code>rg</code> tends to be one of the quickest.</p>
 <p><strong>Ripgrep</strong></p>
+<p><badge-doc href='https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md' logo='github'></badge-doc></p>
 <div class="admonition info">
 <p class="admonition-title">Usage</p>
 <div class="highlight"><pre><span></span><code>rg <span class="o">[</span>OPTIONS<span class="o">]</span> PATTERN <span class="o">[</span>PATH ...<span class="o">]</span>
@@ -2322,25 +2353,51 @@ rg <span class="o">[</span>OPTIONS<span class="o">]</span> --type-list
 </code></pre></div>
 </div>
 <p>Link: https://learnbyexample.github.io/substitution-with-ripgrep/</p>
+<h3 id="manual-filtering-globs">Manual filtering: globs<a class="headerlink" href="#manual-filtering-globs" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Exclude path 'pack' from search</p>
+<div class="highlight"><pre><span></span><code>rg -g <span class="s1">&#39;!/pack/**&#39;</span> g:ale
+</code></pre></div>
+</div>
 <h2 id="working-with-structured-data">Working with structured data<a class="headerlink" href="#working-with-structured-data" title="Permanent link">&para;</a></h2>
 <h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
-<p><strong>jq</strong> <badge-stars repo='stedolan/jq'></badge-stars> <badge-doc href="https://stedolan.github.io/jq/"></badge-doc></p>
-<details class="question"><summary>JQ cheatsheet</summary><p><script src="https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4.js"></script></p>
+<p><strong>jq</strong> <badge-stars repo='stedolan/jq'></badge-stars> <badge-doc
+href="https://stedolan.github.io/jq/"></badge-doc></p>
+<details class="question"><summary>JQ cheatsheet</summary><p><script
+src="https://gist.github.com/olih/f7437fb6962fb3ee9fe95bda8d2c8fa4.js"></script></p>
 </details>
 <div class="admonition example">
 <p class="admonition-title">Prepare cookiecutter templates from <code>molecule init</code> outputs</p>
-<div class="highlight"><pre><span></span><code><span class="nv">URL</span><span class="o">=</span><span class="k">$(</span>you-get --json <span class="s2">&quot;https://www.youtube.com/watch?v=ZzfHjytDceU&quot;</span> <span class="p">|</span> jq  -s <span class="s1">&#39;sort_by(.streams.__default__.size) | reverse | .[0].streams.__default__.src[0]&#39;</span> <span class="p">|</span> sed -e s/<span class="se">\&quot;</span>//g<span class="k">)</span>
-</code></pre></div>
+<p><code>bash URL=$(you-get --json "https://www.youtube.com/watch?v=ZzfHjytDceU" |
+jq  -s 'sort_by(.streams.__default__.size) | reverse |
+.[0].streams.__default__.src[0]' | sed -e s/\"//g)</code></p>
 </div>
 <h3 id="yaml">YAML<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
-<p><strong>yq</strong> <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc href="https://mikefarah.gitbook.io/yq/"></badge-doc></p>
+<p><strong>yq</strong> <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc
+href="https://mikefarah.gitbook.io/yq/"></badge-doc></p>
 <h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
 <p>Splitting Recipe Lines</p>
 <p>https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html</p>
 <p>Makefile tutorial</p>
 <p>https://makefiletutorial.com/</p>
-<p>Introduction à Makefile </p>
+<p>Introduction à Makefile</p>
 <p>https://gl.developpez.com/tutoriel/outil/makefile/</p>
+<h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
+<p><strong>desk</strong> <badge-stars repo='jamesob/desk'></badge-stars> makes it easy
+to flip back and forth between different project contexts in your favorite
+shell. Change directory, activate a virtualenv or rvm, load in domain-specific
+aliases, environment variables, functions, arbitrary shell files, all in a
+single command.</p>
+<p><strong>direnv</strong> <badge-stars repo='direnv/direnv'></badge-stars> augments existing shells with a new feature that can load and unload environment variables depending on the current directory.</p>
+<p><strong>Modules</strong> <badge-stars repo='cea-hpc/modules'></badge-stars>  is a tool that simplify shell initialization and lets users easily modify their environment during the session with modulefiles.</p>
+<p><strong>zsh-autoenv</strong> <badge-stars repo='Tarrasch/zsh-autoenv'></badge-stars>
+automatically sources (known/whitelisted) <code>.autoenv.zsh</code> files, handles "enter"
+and leave" events, nesting, and stashing of variables (overwriting and
+restoring).</p>
+<p><strong>asdf</strong> <badge-stars repo='asdf-vm/asdf'></badge-stars> manage multiple runtime
+versions with a single CLI tool, extendable via plugins.</p>
+<!-- shadowenv - uses an s-expression format to define -->
+<!-- environment changes that should be executed -->
                 
               
               
