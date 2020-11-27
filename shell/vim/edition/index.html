@@ -533,6 +533,40 @@
     Completion
   </a>
   
+    <nav class="md-nav" aria-label="Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete" class="md-nav__link">
+    complete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completeopt" class="md-nav__link">
+    completeopt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ins-completion" class="md-nav__link">
+    ins-completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#omnifunc" class="md-nav__link">
+    omnifunc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2075,6 +2109,40 @@
     Completion
   </a>
   
+    <nav class="md-nav" aria-label="Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complete" class="md-nav__link">
+    complete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completeopt" class="md-nav__link">
+    completeopt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ins-completion" class="md-nav__link">
+    ins-completion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#omnifunc" class="md-nav__link">
+    omnifunc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2195,31 +2263,31 @@
 <kbd>gc</kbd> in visual mode</p>
 <p>Surroung element while editing</p>
 <h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
+<h3 id="complete"><code>complete</code><a class="headerlink" href="#complete" title="Permanent link">&para;</a></h3>
 <p>Completion is set up by the <code>complete</code> options, a list of location used for
 completion lookup.</p>
-<pre><code>The default is ".,w,b,u,t,i", which means to scan:
-   1. the current buffer
-   2. buffers in other windows
-   3. other loaded buffers
-   4. unloaded buffers
-   5. tags
-   6. included files
-</code></pre>
+<p>The default is ".,w,b,u,t,i", which means to scan:
+    1. the current buffer
+    2. buffers in other windows
+    3. other loaded buffers
+    4. unloaded buffers
+    5. tags
+    6. included files</p>
 <p>See <code>h: 535</code></p>
+<h3 id="completeopt"><code>completeopt</code><a class="headerlink" href="#completeopt" title="Permanent link">&para;</a></h3>
 <p>The completion menu appearance is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
 <p>In insert mode, the completion is activated with <kbd>C-x</kbd> and triggers a
 sub-mode <code>h: i_CTRL-X</code>.</p>
-<p>Completion <code>h: ins-completion</code> can be done for:</p>
+<h3 id="ins-completion"><code>ins-completion</code><a class="headerlink" href="#ins-completion" title="Permanent link">&para;</a></h3>
+<p>Completion in insert mode <code>h: ins-completion</code> can be done for:</p>
 <p>|-----|--------------------------------------------|-------------------------------------------|
-| -   | Desc                                       | Key                                       |
+|     | Desc                                       | Key                                       |
 |-----|--------------------------------------------|-------------------------------------------|
 | 1.  | Whole lines                                | <kbd>CTRL-X</kbd><kbd>CTRL-L</kbd>        |
 | 2.  | keywords in the current file               | <kbd>CTRL-X</kbd><kbd>CTRL-N</kbd>        |
 | 3.  | keywords in 'dictionary'                   | <kbd>CTRL-X</kbd><kbd>CTRL-K</kbd>        |
-| 4.  | keywords in 'thesaurus', thesaurus-style
-|     |                                            | <kbd>CTRL-X</kbd><kbd>CTRL-T</kbd>        |
-| 5.  | keywords in the current and included files
-|     |                                            | <kbd>CTRL-X</kbd><kbd>CTRL-I</kbd>        |
+| 4.  | keywords in 'thesaurus', thesaurus-style   | <kbd>CTRL-X</kbd><kbd>CTRL-T</kbd>        |
+| 5.  | keywords in the current and included files | <kbd>CTRL-X</kbd><kbd>CTRL-I</kbd>        |
 | 6.  | tags                                       | <kbd>CTRL-X</kbd><kbd>CTRL-]</kbd>        |
 | 7.  | file names                                 | <kbd>CTRL-X</kbd><kbd>CTRL-F</kbd>        |
 | 8.  | definitions or macros                      | <kbd>CTRL-X</kbd><kbd>CTRL-D</kbd>        |
@@ -2228,6 +2296,7 @@ sub-mode <code>h: i_CTRL-X</code>.</p>
 | 11. | omni completion                            | <kbd>CTRL-X</kbd><kbd>CTRL-O</kbd>        |
 | 12. | Spelling suggestions                       | <kbd>CTRL-X</kbd><kbd>s</kbd>             |
 | 13. | keywords in 'complete'                     | CTRL-N                             CTRL-P |</p>
+<h3 id="omnifunc"><code>omnifunc</code><a class="headerlink" href="#omnifunc" title="Permanent link">&para;</a></h3>
 <p>Omni completion supports filetype-specific completion. Ex:</p>
 <p><code>omnifunc=htmlcomplete#CompleteTags</code></p>
 <p>function! InputTarget()
