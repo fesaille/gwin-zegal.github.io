@@ -2276,26 +2276,25 @@ completion lookup.</p>
 <p>See <code>h: 535</code></p>
 <h3 id="completeopt"><code>completeopt</code><a class="headerlink" href="#completeopt" title="Permanent link">&para;</a></h3>
 <p>The completion menu appearance is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
-<p>In insert mode, the completion is activated with <kbd>C-x</kbd> and triggers a
-sub-mode <code>h: i_CTRL-X</code>.</p>
 <h3 id="ins-completion"><code>ins-completion</code><a class="headerlink" href="#ins-completion" title="Permanent link">&para;</a></h3>
-<p>Completion in insert mode <code>h: ins-completion</code> can be done for:</p>
-<p>|-----|--------------------------------------------|-------------------------------------------|
-|     | Desc                                       | Key                                       |
-|-----|--------------------------------------------|-------------------------------------------|
-| 1.  | Whole lines                                | <kbd>CTRL-X</kbd><kbd>CTRL-L</kbd>        |
-| 2.  | keywords in the current file               | <kbd>CTRL-X</kbd><kbd>CTRL-N</kbd>        |
-| 3.  | keywords in 'dictionary'                   | <kbd>CTRL-X</kbd><kbd>CTRL-K</kbd>        |
-| 4.  | keywords in 'thesaurus', thesaurus-style   | <kbd>CTRL-X</kbd><kbd>CTRL-T</kbd>        |
-| 5.  | keywords in the current and included files | <kbd>CTRL-X</kbd><kbd>CTRL-I</kbd>        |
-| 6.  | tags                                       | <kbd>CTRL-X</kbd><kbd>CTRL-]</kbd>        |
-| 7.  | file names                                 | <kbd>CTRL-X</kbd><kbd>CTRL-F</kbd>        |
-| 8.  | definitions or macros                      | <kbd>CTRL-X</kbd><kbd>CTRL-D</kbd>        |
-| 9.  | Vim command-line                           | <kbd>CTRL-X</kbd><kbd>CTRL-V</kbd>        |
-| 10. | User defined completion                    | <kbd>CTRL-X</kbd><kbd>CTRL-U</kbd>        |
-| 11. | omni completion                            | <kbd>CTRL-X</kbd><kbd>CTRL-O</kbd>        |
-| 12. | Spelling suggestions                       | <kbd>CTRL-X</kbd><kbd>s</kbd>             |
-| 13. | keywords in 'complete'                     | CTRL-N                             CTRL-P |</p>
+<p>Completion in insert mode <code>h: ins-completion</code> is activated with <kbd>C-x</kbd> and triggers a
+sub-mode <code>h: i_CTRL-X</code>.</p>
+<p>|-----|--------------------------------------------|-------------------|
+|     | Desc                                       | Key               |
+|-----|--------------------------------------------|-------------------|
+| 1.  | Whole lines                                | <kbd>CTRL-L</kbd> |
+| 2.  | keywords in the current file               | <kbd>CTRL-N</kbd> |
+| 3.  | keywords in 'dictionary'                   | <kbd>CTRL-K</kbd> |
+| 4.  | keywords in 'thesaurus', thesaurus-style   | <kbd>CTRL-T</kbd> |
+| 5.  | keywords in the current and included files | <kbd>CTRL-I</kbd> |
+| 6.  | tags                                       | <kbd>CTRL-]</kbd> |
+| 7.  | file names                                 | <kbd>CTRL-F</kbd> |
+| 8.  | definitions or macros                      | <kbd>CTRL-D</kbd> |
+| 9.  | Vim command-line                           | <kbd>CTRL-V</kbd> |
+| 10. | User defined completion                    | <kbd>CTRL-U</kbd> |
+| 11. | omni completion                            | <kbd>CTRL-O</kbd> |
+| 12. | Spelling suggestions                       | <kbd>s</kbd>      |
+| 13. | keywords in 'complete'                     | CTRL-N / CTRL-P   |</p>
 <h3 id="omnifunc"><code>omnifunc</code><a class="headerlink" href="#omnifunc" title="Permanent link">&para;</a></h3>
 <p>Omni completion supports filetype-specific completion. Ex:</p>
 <p><code>omnifunc=htmlcomplete#CompleteTags</code></p>
