@@ -526,6 +526,26 @@
     Makefile
   </a>
   
+    <nav class="md-nav" aria-label="Makefile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-characters" class="md-nav__link">
+    Wildcard characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-variables" class="md-nav__link">
+    Automatic variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2222,6 +2242,26 @@
     Makefile
   </a>
   
+    <nav class="md-nav" aria-label="Makefile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wildcard-characters" class="md-nav__link">
+    Wildcard characters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatic-variables" class="md-nav__link">
+    Automatic variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2376,6 +2416,14 @@ jq  -s 'sort_by(.streams.__default__.size) | reverse |
 <p><strong>yq</strong> <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc
 href="https://mikefarah.gitbook.io/yq/"></badge-doc></p>
 <h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
+<p><badge-doc href='https://www.gnu.org/software/make/manual'></badge-doc></p>
+<h3 id="wildcard-characters">Wildcard characters<a class="headerlink" href="#wildcard-characters" title="Permanent link">&para;</a></h3>
+<p><code>*</code>, <code>?</code> and <code>[...]</code></p>
+<h3 id="automatic-variables">Automatic variables<a class="headerlink" href="#automatic-variables" title="Permanent link">&para;</a></h3>
+<p><code>$^</code> list all the prerequisites of the rule
+<code>$&lt;</code> list the first prerequisite
+<code>$?</code> list all the prerequisites newer than the target</p>
+<p><code>$@</code> is the target</p>
 <p>Splitting Recipe Lines</p>
 <p>https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html</p>
 <p>Makefile tutorial</p>
