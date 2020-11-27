@@ -2152,20 +2152,20 @@
 <p>Three read-only registers:</p>
 <ul>
 <li><code>":</code>, most recent command,</li>
-<li><code>".</code>, </li>
-<li><code>"%</code>, name of the current file) </li>
+<li><code>".</code>,</li>
+<li><code>"%</code>, name of the current file)</li>
 </ul>
 </li>
 <li>
 <p>Alternate buffer register <code>"#</code></p>
 </li>
-<li>The expression register <code>"=</code>: </li>
+<li>The expression register <code>"=</code>:</li>
 <li>
 <p>The selection and drop registers (:</p>
 <ul>
 <li><code>"*</code>, contains the <code>PRIMARY</code> selection which is available on Linux when users select some data.</li>
-<li><code>"+</code>, contains the <code>CLIPBOARD</code> select, available on active requests of copy.  To use the <code>PRIMARY</code> selection too, <code>set clipboard^=unnamed,unnamedplus</code> </li>
-<li><code>"~</code> registers the dropped text from the last drag'n'drop operation. </li>
+<li><code>"+</code>, contains the <code>CLIPBOARD</code> select, available on active requests of copy.  To use the <code>PRIMARY</code> selection too, <code>set clipboard^=unnamed,unnamedplus</code></li>
+<li><code>"~</code> registers the dropped text from the last drag'n'drop operation.</li>
 </ul>
 </li>
 <li>
@@ -2173,15 +2173,48 @@
 </li>
 <li>Last search pattern register <code>"/</code></li>
 </ol>
+<p>Insertion of register in command mode in triggerd by <kbd>C-r</kbd>.</p>
 <h2 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h2>
-<p><code>:h text-objects</code> or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection. </p>
+<p><code>:h text-objects</code> or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection.</p>
 <h2 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h2>
 <p>Comment line (via plugin vim-commentary): <kbd>gcc</kbd> in normal mode,
 <kbd>gc</kbd> in visual mode</p>
 <p>Surroung element while editing</p>
 <h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
-<p>The completion menu is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
-<p>File completion is activated with <kbd>C-x</kbd><kbd>C-f</kbd></p>
+<p>Completion is set up by the <code>complete</code> options, a list of location used for
+completion lookup.</p>
+<pre><code>The default is ".,w,b,u,t,i", which means to scan:
+   1. the current buffer
+   2. buffers in other windows
+   3. other loaded buffers
+   4. unloaded buffers
+   5. tags
+   6. included files
+</code></pre>
+<p>See <code>h: 535</code></p>
+<p>The completion menu appearance is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
+<p>In insert mode, the completion is activated with <kbd>C-x</kbd> and triggers a
+sub-mode <code>h: i_CTRL-X</code>.</p>
+<p>Completion can be done for:</p>
+<p>|-----|--------------------------------------------|-------------------------------------------|
+| -   | Desc                                       | Key                                       |
+|-----|--------------------------------------------|-------------------------------------------|
+| 1.  | Whole lines                                | <kbd>CTRL-X</kbd><kbd>CTRL-L</kbd>        |
+| 2.  | keywords in the current file               | <kbd>CTRL-X</kbd><kbd>CTRL-N</kbd>        |
+| 3.  | keywords in 'dictionary'                   | <kbd>CTRL-X</kbd><kbd>CTRL-K</kbd>        |
+| 4.  | keywords in 'thesaurus', thesaurus-style
+|     |                                            | <kbd>CTRL-X</kbd><kbd>CTRL-T</kbd>        |
+| 5.  | keywords in the current and included files
+|     |                                            | <kbd>CTRL-X</kbd><kbd>CTRL-I</kbd>        |
+| 6.  | tags                                       | <kbd>CTRL-X</kbd><kbd>CTRL-]</kbd>        |
+| 7.  | file names                                 | <kbd>CTRL-X</kbd><kbd>CTRL-F</kbd>        |
+| 8.  | definitions or macros                      | <kbd>CTRL-X</kbd><kbd>CTRL-D</kbd>        |
+| 9.  | Vim command-line                           | <kbd>CTRL-X</kbd><kbd>CTRL-V</kbd>        |
+| 10. | User defined completion                    | <kbd>CTRL-X</kbd><kbd>CTRL-U</kbd>        |
+| 11. | omni completion                            | <kbd>CTRL-X</kbd><kbd>CTRL-O</kbd>        |
+| 12. | Spelling suggestions                       | <kbd>CTRL-X</kbd><kbd>s</kbd>             |
+| 13. | keywords in 'complete'                     | CTRL-N                             CTRL-P |</p>
+<p><kbd>C-f</kbd></p>
 <ul>
 <li><strong>ale</strong> <badge-stars repo="dense-analysis/ale"></badge-stars></li>
 </ul>
@@ -2238,7 +2271,7 @@ endfunction</p>
 <p>The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It's easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).</p>
 <p>The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).</p>
 <p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
-<p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds. </p>
+<p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds.</p>
 <p>Source: https://vim.fandom.com/wiki/Folding</p>
 <p>Folding principel:</p>
 <ul>
@@ -2256,7 +2289,7 @@ endfunction</p>
 <li>Enter <code>:reg</code> a to view the new value in the register.</li>
 <li>Type <code>@a</code> to execute the contents of register <code>a</code>.</li>
 </ul>
-<p>Note the caveat above about macros which end in <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>. </p>
+<p>Note the caveat above about macros which end in <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>.</p>
                 
               
               
