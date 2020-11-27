@@ -562,6 +562,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    Linting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2097,6 +2104,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    Linting
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2195,7 +2209,7 @@ completion lookup.</p>
 <p>The completion menu appearance is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
 <p>In insert mode, the completion is activated with <kbd>C-x</kbd> and triggers a
 sub-mode <code>h: i_CTRL-X</code>.</p>
-<p>Completion can be done for:</p>
+<p>Completion <code>h: ins-completion</code> can be done for:</p>
 <p>|-----|--------------------------------------------|-------------------------------------------|
 | -   | Desc                                       | Key                                       |
 |-----|--------------------------------------------|-------------------------------------------|
@@ -2214,10 +2228,8 @@ sub-mode <code>h: i_CTRL-X</code>.</p>
 | 11. | omni completion                            | <kbd>CTRL-X</kbd><kbd>CTRL-O</kbd>        |
 | 12. | Spelling suggestions                       | <kbd>CTRL-X</kbd><kbd>s</kbd>             |
 | 13. | keywords in 'complete'                     | CTRL-N                             CTRL-P |</p>
-<p><kbd>C-f</kbd></p>
-<ul>
-<li><strong>ale</strong> <badge-stars repo="dense-analysis/ale"></badge-stars></li>
-</ul>
+<p>Omni completion supports filetype-specific completion. Ex:</p>
+<p><code>omnifunc=htmlcomplete#CompleteTags</code></p>
 <p>function! InputTarget()
   let c = getchar()
   echo c
@@ -2290,6 +2302,10 @@ endfunction</p>
 <li>Type <code>@a</code> to execute the contents of register <code>a</code>.</li>
 </ul>
 <p>Note the caveat above about macros which end in <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>.</p>
+<h2 id="linting">Linting<a class="headerlink" href="#linting" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ale</strong> <badge-stars repo="dense-analysis/ale"></badge-stars></li>
+</ul>
                 
               
               
