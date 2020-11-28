@@ -2243,7 +2243,8 @@
                 
                 
                 <h1 id="zsh">Zsh<a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h1>
-<p>The Z-shell <span><badge-doc href="http://www.zsh.org/"></badge-doc> <a
+<p>The Z-shell <span><badge-doc href="http://www.zsh.org/"> <badge-doc
+href='http://zsh.sourceforge.net/Doc/Release/'></badge-doc></badge-doc> <a
 href="https://github.com/topics/zsh" target="_blank"> <img
 src="https://img.shields.io/badge/git-topics-blue?style=flat&logo=Github"
 alt="Github topic"/> </a></span></p>
@@ -2287,8 +2288,27 @@ in <code>inputrc</code> are not read, rely instead on an internal command
 <a href="terminfo"><code>bindkey</code></a> that can be coupled to <code>terminfo</code>.</p>
 <p>All actions in the editor are performed by
 <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Widgets">widgets</a>.</p>
-<p>zle -la</p>
-<p><a href=""><code>bindkey</code></a> followed by a key string repl</p>
+<p>Bindings are affected to <strong>keymaps</strong>. The current used keymap is <code>main</code>.</p>
+<p>Initially, there are eight keymaps:</p>
+<ul>
+<li><code>emacs</code>  EMACS emulation</li>
+<li><code>viins</code>  vi emulation - insert mode</li>
+<li><code>vicmd</code>  vi emulation - command mode</li>
+<li><code>viopp</code>  vi emulation - operator pending</li>
+<li><code>visual</code> vi emulation - selection active</li>
+<li><code>isearch</code> incremental search mode</li>
+<li><code>command</code> read a command name</li>
+<li><code>.safe</code>  fallback keymap</li>
+</ul>
+<p>Keymap can be created and must be affected to <code>main</code> to be in use:
+<div class="highlight"><pre><span></span><code>bindkey -N mymap viins
+bindkey -A mymap main
+</code></pre></div></p>
+<p>New bindings are affected to the current (<code>main</code>) <strong>keymap</strong>.</p>
+<ul>
+<li><code>bindkey -lL</code> shows  which  keymap is linked to `main'.</li>
+<li><code>zle -la</code> list all existing keymap names in the form of bindkey commands to create or link the keymaps.</li>
+</ul>
 <p><strong>Links</strong></p>
 <ul>
 <li>an <a href="https://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/">intro on widgets</a></li>
@@ -2301,10 +2321,10 @@ modules make it easier to personalize the prompt.</p>
 promptinit; promptinit</code>.</p>
 <p>A theme can be applied with the <code>prompt</code> cmd.</p>
 <div class="highlight"><pre><span></span><code>❯ prompt &lt;TAB&gt;
- -- prompt theme --
- adam1    bigfade  elite    fire     pure     restore  zefram
- adam2    clint    elite2   off      pws      suse
- bart     default  fade     oliver   redhat   walters
+-- prompt theme --
+adam1    bigfade  elite    fire     pure     restore  zefram
+adam2    clint    elite2   off      pws      suse
+bart     default  fade     oliver   redhat   walters
 </code></pre></div>
 <p>Third party modules:</p>
 <ul>
@@ -2320,6 +2340,7 @@ function to execute; it is executed in the same context and with the same
 arguments as the basic function.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
+</div>
 <div class="highlight"><pre><span></span><code>❯ <span class="nb">echo</span> <span class="nv">$precmd_functions</span>
 _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
 
@@ -2327,33 +2348,33 @@ _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure
 <span class="c1"># it is possible to use `which` or nearly identical to bash `type -f`</span>
 ❯ whence -f _zsh_autosuggest_start
 </code></pre></div>
-</div>
 <ul>
 <li>
 <p><strong>chpwd</strong>: executed whenever the current working directory is changed.</p>
 </li>
 <li>
 <p><strong>periodic</strong>: if the parameter PERIOD is set, this function is executed every
-  $PERIOD seconds, just before a prompt.</p>
+$PERIOD seconds, just before a prompt.</p>
 </li>
 <li>
 <p><strong>precmd</strong>: executed before each prompt.</p>
 </li>
 <li>
 <p><strong>preexec</strong>: executed just after a command has been read and is about to be
-  executed.</p>
+executed.</p>
 </li>
 <li>
 <p><strong>zshaddhistory</strong>: executed when a history line has been read interactively,
-  but before it is executed.</p>
+but before it is executed.</p>
 </li>
 <li>
 <p><strong>zshexit</strong>: executed at the point where the main shell is about to exit
-  normally.</p>
+normally.</p>
 </li>
 </ul>
-<details class="info"><summary>Display user configuration of hooks functions</summary><p><script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script></p>
-</details>
+<details class="info"><summary>Display user configuration of hooks functions</summary></details>
+<script src="https://gist.github.com/fesaille/e85f7d44fc3d9bbd453157da2e24fa55.js"></script>
+
 <h2 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">&para;</a></h2>
 <p>This section is a cheatsheet on expansion, based on the manual and reads,
 especially this <a href="https://reasoniamhere.com/2014/01/11/outrageously-useful-tips-to-master-your-z-shell/">blog
@@ -2373,33 +2394,31 @@ steps:</p>
 </li>
 <li>
 <p><strong>Process Substitution</strong>, <strong>Parameter Expansion</strong>, <strong>Command Substitution</strong>,
-  <strong>Arithmetic Expansion</strong>, <strong>Brace Expansion</strong></p>
+<strong>Arithmetic Expansion</strong>, <strong>Brace Expansion</strong></p>
+</li>
+</ul>
 <p>These five are performed in left-to-right fashion. On each argument, any of
 the five steps that are needed are performed one after the other. Hence, for
 example, all the parts of parameter expansion are completed before command
 substitution is started. After these expansions, all unquoted occurrences of
 the characters ‘\’,‘’’ and ‘"’ are removed.</p>
-</li>
-<li>
-<p><strong>Filename Expansion</strong></p>
+<ul>
+<li><strong>Filename Expansion</strong></li>
+</ul>
 <p>If the <code>SH_FILE_EXPANSION</code> option is set, the order of expansion is
 modified for compatibility with sh and ksh: filename expansion
 is performed immediately after alias expansion.</p>
-</li>
-<li>
-<p><strong>Filename Generation</strong>, commonly referred to as globbing, always done last.</p>
-</li>
+<ul>
+<li><strong>Filename Generation</strong>, commonly referred to as globbing, always done last.</li>
 </ul>
 <h3 id="filename-generation-globbing">Filename generation (globbing)<a class="headerlink" href="#filename-generation-globbing" title="Permanent link">&para;</a></h3>
 <h4 id="glob-operators"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Operators">glob operators</a><a class="headerlink" href="#glob-operators" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>*</code> matches any string, including the null string.</li>
 <li><code>?</code> matches any character.</li>
-<li><code>[...]</code> matches any of the enclosed characters:<ul>
+<li><code>[...]</code> matches any of the enclosed characters:</li>
 <li>ranges of characters can be specified by separating two characters by a <code>-</code> or classes as <code>[:alnum:]</code>, <code>[:alpha:]</code>, <code>[:ascii:]</code>, ..., <code>[:xdigit:]</code></li>
 <li><code>!</code> or <code>^</code> negates the class</li>
-</ul>
-</li>
 <li><code>&lt;[x]-[y]&gt;</code> matches any number in the range x to y, inclusive.</li>
 <li><code>(...)</code> matches the enclosed pattern.</li>
 <li><code>x|y</code> matches either x or y.</li>
@@ -2420,6 +2439,10 @@ is performed immediately after alias expansion.</p>
 
 # list text files that don&#39;t start with a lower or uppercase c
 ❯ ls -l zsh_demo/**/[^cC]*.txt
+
+# Remove all but go.mod
+❯ setopt extended_glob
+❯ rm -Rf -- ^go.mod
 </code></pre></div>
 <h4 id="glob-flag"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Flags">glob flag</a><a class="headerlink" href="#glob-flag" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2429,7 +2452,8 @@ is performed immediately after alias expansion.</p>
 <li>...</li>
 </ul>
 <h4 id="glob-qualifiers"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Qualifiers">glob qualifiers</a><a class="headerlink" href="#glob-qualifiers" title="Permanent link">&para;</a></h4>
-<details class="abstract"><summary>Furthers qualifiers</summary><table>
+<details class="abstract"><summary>Furthers qualifiers</summary></details>
+<table>
 <thead>
 <tr>
 <th>Qualifiers</th>
@@ -2607,7 +2631,6 @@ is performed immediately after alias expansion.</p>
 </tr>
 </tbody>
 </table>
-</details>
 <div class="highlight"><pre><span></span><code><span class="c1"># show only directories</span>
 ❯ print -l zsh_demo/**/*<span class="o">(</span>/<span class="o">)</span>
 
@@ -2645,10 +2668,10 @@ with <code>zmodload</code></p>
 <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
 <ul>
 <li><b>zsh-z</b> <badge-stars repo='agkozak/zsh-z'></badge-stars> Jump quickly to
-  directories that you have visited "frecently."</li>
+directories that you have visited "frecently."</li>
 <li><b>zsh-autosuggestions</b> <badge-stars
-  repo='zsh-users/zsh-autosuggestions'></badge-stars> Fish-like autosuggestions
-  for zsh</li>
+repo='zsh-users/zsh-autosuggestions'></badge-stars> Fish-like autosuggestions
+for zsh</li>
 </ul>
 <h2 id="other-links">Other links<a class="headerlink" href="#other-links" title="Permanent link">&para;</a></h2>
 <ul>
