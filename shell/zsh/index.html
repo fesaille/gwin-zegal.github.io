@@ -2783,7 +2783,10 @@ is performed immediately after alias expansion.</p>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded
 with <code>zmodload</code></p>
-<details class="note"><summary>ZSH modules</summary><table>
+<details class="note"><summary>ZSH modules</summary><p>ZSH modules are loaded with the prefix <code>zsh/</code>, e.g. for <code>net/tcl</code></p>
+<div class="highlight"><pre><span></span><code>❯ zmodload zsh/net/tcp
+</code></pre></div>
+<table>
 <thead>
 <tr>
 <th>Modules</th>
@@ -2792,131 +2795,131 @@ with <code>zmodload</code></p>
 </thead>
 <tbody>
 <tr>
-<td><strong>zsh/attr</strong></td>
+<td><strong>attr</strong></td>
 <td>Builtins for manipulating extended attributes (xattr).</td>
 </tr>
 <tr>
-<td><strong>zsh/cap</strong></td>
+<td><strong>cap</strong></td>
 <td>Builtins for manipulating POSIX.1e (POSIX.6) capability (privilege) sets.</td>
 </tr>
 <tr>
-<td><strong>zsh/clone</strong></td>
+<td><strong>clone</strong></td>
 <td>A builtin that can clone a running shell onto another terminal.</td>
 </tr>
 <tr>
-<td><strong>zsh/compctl</strong></td>
+<td><strong>compctl</strong></td>
 <td>The compctl builtin for controlling completion.</td>
 </tr>
 <tr>
-<td><strong>zsh/complete</strong></td>
+<td><strong>complete</strong></td>
 <td>The basic completion code.</td>
 </tr>
 <tr>
-<td><strong>zsh/complist</strong></td>
+<td><strong>complist</strong></td>
 <td>Completion listing extensions.</td>
 </tr>
 <tr>
-<td><strong>zsh/computil</strong></td>
+<td><strong>computil</strong></td>
 <td>A module with utility builtins needed for the shell function based completion system.</td>
 </tr>
 <tr>
-<td><strong>zsh/curses</strong></td>
+<td><strong>curses</strong></td>
 <td>curses windowing commands</td>
 </tr>
 <tr>
-<td><strong>zsh/datetime</strong></td>
+<td><strong>datetime</strong></td>
 <td>Some date/time commands and parameters.</td>
 </tr>
 <tr>
-<td><strong>zsh/deltochar</strong></td>
+<td><strong>deltochar</strong></td>
 <td>A ZLE function duplicating EMACS' zap-to-char.</td>
 </tr>
 <tr>
-<td><strong>zsh/example</strong></td>
+<td><strong>example</strong></td>
 <td>An example of how to write a module.</td>
 </tr>
 <tr>
-<td><strong>zsh/files</strong></td>
+<td><strong>files</strong></td>
 <td>Some basic file manipulation commands as builtins.</td>
 </tr>
 <tr>
-<td><strong>zsh/mapfile</strong></td>
+<td><strong>mapfile</strong></td>
 <td>Access to external files via a special associative array.</td>
 </tr>
 <tr>
-<td><strong>zsh/mathfunc</strong></td>
+<td><strong>mathfunc</strong></td>
 <td>Standard scientific functions for use in mathematical evaluations.</td>
 </tr>
 <tr>
-<td><strong>zsh/newuser</strong></td>
-<td>Arrange for files for new users to be installed.</td>
-</tr>
-<tr>
-<td><strong>zsh/parameter</strong></td>
-<td>Access to internal hash tables via special associative arrays.</td>
-</tr>
-<tr>
-<td><strong>zsh/pcre</strong></td>
-<td>Interface to the PCRE library.</td>
-</tr>
-<tr>
-<td><strong>zsh/regex</strong></td>
-<td>Interface to the POSIX regex library.</td>
-</tr>
-<tr>
-<td><strong>zsh/sched</strong></td>
-<td>A builtin that provides a timed execution facility within the shell.</td>
-</tr>
-<tr>
-<td><strong>zsh/net/socket</strong></td>
+<td><strong>net/socket</strong></td>
 <td>Manipulation of Unix domain sockets</td>
 </tr>
 <tr>
-<td><strong>zsh/stat</strong></td>
-<td>A builtin command interface to the stat system call.</td>
-</tr>
-<tr>
-<td><strong>zsh/system</strong></td>
-<td>A builtin interface to various low-level system features.</td>
-</tr>
-<tr>
-<td><strong>zsh/net/tcp</strong></td>
+<td><strong>net/tcp</strong></td>
 <td>Manipulation of TCP sockets</td>
 </tr>
 <tr>
-<td><strong>zsh/termcap</strong></td>
+<td><strong>newuser</strong></td>
+<td>Arrange for files for new users to be installed.</td>
+</tr>
+<tr>
+<td><strong>parameter</strong></td>
+<td>Access to internal hash tables via special associative arrays.</td>
+</tr>
+<tr>
+<td><strong>pcre</strong></td>
+<td>Interface to the PCRE library.</td>
+</tr>
+<tr>
+<td><strong>regex</strong></td>
+<td>Interface to the POSIX regex library.</td>
+</tr>
+<tr>
+<td><strong>sched</strong></td>
+<td>A builtin that provides a timed execution facility within the shell.</td>
+</tr>
+<tr>
+<td><strong>stat</strong></td>
+<td>A builtin command interface to the stat system call.</td>
+</tr>
+<tr>
+<td><strong>system</strong></td>
+<td>A builtin interface to various low-level system features.</td>
+</tr>
+<tr>
+<td><strong>termcap</strong></td>
 <td>Interface to the termcap database.</td>
 </tr>
 <tr>
-<td><strong>zsh/terminfo</strong></td>
+<td><strong>terminfo</strong></td>
 <td>Interface to the terminfo database.</td>
 </tr>
 <tr>
-<td><strong>zsh/zftp</strong></td>
+<td><strong>zftp</strong></td>
 <td>A builtin FTP client.</td>
 </tr>
 <tr>
-<td><strong>zsh/zle</strong></td>
+<td><strong>zle</strong></td>
 <td>The Zsh Line Editor, including the bindkey and vared builtins.</td>
 </tr>
 <tr>
-<td><strong>zsh/zleparameter</strong></td>
+<td><strong>zleparameter</strong></td>
 <td>Access to internals of the Zsh Line Editor via parameters.</td>
 </tr>
 <tr>
-<td><strong>zsh/zprof</strong></td>
+<td><strong>zprof</strong></td>
 <td>A module allowing profiling for shell functions.</td>
 </tr>
 <tr>
-<td><strong>zsh/zpty</strong></td>
+<td><strong>zpty</strong></td>
 <td>A builtin for starting a command in a pseudo-terminal.</td>
 </tr>
 <tr>
-<td><strong>zsh/zselect</strong></td>
+<td><strong>zselect</strong></td>
 <td>Block and return when file descriptors are ready.</td>
 </tr>
 <tr>
-<td><strong>zsh/zutil</strong></td>
+<td><strong>zutil</strong></td>
 <td>Some utility builtins, e.g. the one for supporting configuration via styles.</td>
 </tr>
 </tbody>
