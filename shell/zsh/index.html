@@ -2490,19 +2490,19 @@ is performed immediately after alias expansion.</p>
 <li><code>x##</code> Matches one or more occurrences of the pattern x. Requires <code>EXTENDED_GLOB</code> to be set.</li>
 </ul>
 <p>The precedence of the operators given above is (highest) ‘^’, ‘/’, ‘~’, ‘|’ (lowest)</p>
-<div class="highlight"><pre><span></span><code># list text files that end in a number from 1 to 10
-❯ ls -l zsh_demo/**/*&lt;1-10&gt;.txt
+<div class="highlight"><pre><span></span><code><span class="c1"># list text files that end in a number from 1 to 10</span>
+❯ ls -l zsh_demo/**/*&lt;<span class="m">1</span>-10&gt;.txt
 
-# list text files that start with the letter a
-❯ ls -l zsh_demo/**/[a]*.txt
+<span class="c1"># list text files that start with the letter a</span>
+❯ ls -l zsh_demo/**/<span class="o">[</span>a<span class="o">]</span>*.txt
 
-# list text files that start with either ab or bc
-❯ ls -l zsh_demo/**/(ab|bc)*.txt
+<span class="c1"># list text files that start with either ab or bc</span>
+❯ ls -l zsh_demo/**/<span class="o">(</span>ab<span class="p">|</span>bc<span class="o">)</span>*.txt
 
-# list text files that don&#39;t start with a lower or uppercase c
-❯ ls -l zsh_demo/**/[^cC]*.txt
+<span class="c1"># list text files that don&#39;t start with a lower or uppercase c</span>
+❯ ls -l zsh_demo/**/<span class="o">[</span>^cC<span class="o">]</span>*.txt
 
-# Remove all but go.mod
+<span class="c1"># Remove all but go.mod</span>
 ❯ setopt extended_glob
 ❯ rm -Rf -- ^go.mod
 </code></pre></div>
