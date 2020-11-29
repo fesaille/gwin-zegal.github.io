@@ -537,6 +537,26 @@
     Completion
   </a>
   
+    <nav class="md-nav" aria-label="Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behind-the-hood" class="md-nav__link">
+    Behind the hood
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2254,6 +2274,26 @@
     Completion
   </a>
   
+    <nav class="md-nav" aria-label="Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    Initialization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behind-the-hood" class="md-nav__link">
+    Behind the hood
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2734,7 +2774,7 @@ is performed immediately after alias expansion.</p>
 <h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
 <p><badge-doc
  href='http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System' logo="zsh"></badge-doc></p>
-<p>zsh-completion how to: <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">🔗</a></p>
+<h3 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># menu-select widget, part of the zsh/complist module</span>
 <span class="c1"># must be loaded before the call to compinit</span>
 zmodload -i zsh/complist
@@ -2742,6 +2782,17 @@ zmodload -i zsh/complist
 autoload -U compinit
 compinit
 </code></pre></div>
+<h3 id="behind-the-hood">Behind the hood<a class="headerlink" href="#behind-the-hood" title="Permanent link">&para;</a></h3>
+<p>Completion is provided by files named as the command name prefix by an
+underscore. The location of this file must be listed in <code>$fpath</code>. Add the path
+with <code>fpath+=&lt;PATH TO COMPLETION FILE&gt;</code>.</p>
+<p>When <code>compinit</code> is run, it reads the first line of accessible files in <code>$fpath</code> and retains thos containing one of the <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files">tags <code>#compdef</code> or <code>#autoload</code></a>.</p>
+<p>As an alternative, <code>compdef</code> <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Functions-4">may be called
+directly</a>.</p>
+<p>Sources:</p>
+<ul>
+<li>zsh-completion how to: <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">🔗</a></li>
+</ul>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded
 with <code>zmodload</code></p>
