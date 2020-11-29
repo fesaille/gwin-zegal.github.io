@@ -2314,27 +2314,30 @@ wiki</a>.</p>
 <li><em>interactive</em>: shell that has a prompt and whose standard input and error are
   both connected to terminals.</li>
 </ul>
-<p>Zsh performs initialiation in the following order:</p>
+<p>If <code>$ZDOTDIR</code>, <code>$RCS</code> or <code>$GLOABL_RCS</code> are not set, Zsh performs initialiation
+in the following order:</p>
 <ul>
-<li><code>/etc/zshenv</code></li>
+<li><code>/etc/zsh/zshenv</code></li>
 <li><code>~/.zshenv</code></li>
 <li>login mode:<ul>
-<li><code>/etc/zprofile</code></li>
+<li><code>/etc/zsh/zprofile</code></li>
 <li><code>~/.zprofile</code></li>
 </ul>
 </li>
 <li>interactive:<ul>
-<li><code>/etc/zshrc</code></li>
+<li><code>/etc/zsh/zshrc</code></li>
 <li><code>~/.zshrc</code></li>
 </ul>
 </li>
 <li>login mode:<ul>
-<li><code>/etc/zlogin</code></li>
+<li><code>/etc/zsh/login</code></li>
 <li><code>~/.zlogin</code></li>
 </ul>
 </li>
 </ul>
-<p><code>.zlogout</code> is called when exiting, not when opening.</p>
+<p><code>.zlogout</code> and <code>/etc/zsh/zshlogout</code> are called when exiting, not when opening.</p>
+<p>See <a href="https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html">this post</a>
+for a complementary information.</p>
 <h2 id="readline-capability-zle">Readline capability: <code>ZLE</code><a class="headerlink" href="#readline-capability-zle" title="Permanent link">&para;</a></h2>
 <p>Zsh does not use readline, instead uses an own development <a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html">Zsh Line Editor
 (ZLE)</a>. Keybindings
@@ -2871,6 +2874,13 @@ with <code>zmodload</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># list all open file descriptors ($$ refers to the current process)</span>
 ❯ ls -la /proc/<span class="nv">$$</span>/fd
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>❯ ztcp
+</code></pre></div>
+<details class="note"><summary>File descriptors</summary><p>Wikipedia: <a href="https://en.wikipedia.org/wiki/File_descriptor">🔗</a></p>
+<p>Send to  stdout of the current terminal
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;hello&quot;</span> &gt;&gt; /proc/<span class="nv">$$</span>/fd/2
+</code></pre></div></p>
+</details>
 <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
 <ul>
 <li><b>zsh-z</b> <badge-stars repo='agkozak/zsh-z'></badge-stars> Jump quickly to
