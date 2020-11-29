@@ -533,6 +533,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#completion" class="md-nav__link">
+    Completion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules" class="md-nav__link">
     Modules
   </a>
@@ -2243,6 +2250,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#completion" class="md-nav__link">
+    Completion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modules" class="md-nav__link">
     Modules
   </a>
@@ -2393,8 +2407,9 @@ bart     default  fade     oliver   redhat   walters
 <h2 id="data-structures">Data structures<a class="headerlink" href="#data-structures" title="Permanent link">&para;</a></h2>
 <h3 id="associative-arrays">Associative arrays<a class="headerlink" href="#associative-arrays" title="Permanent link">&para;</a></h3>
 <p>Declared with <code>declare -A &lt;ARRAY&gt;</code> or <code>typeset -A &lt;ARRAY&gt;</code></p>
-<p>!!! danger ''
-    Associative arrays can not be nested</p>
+<div class="admonition danger">
+<p>Associative arrays can not be nested</p>
+</div>
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <h3 id="hook-functions">Hook functions <badge-doc href="http://zsh.sourceforge.net/Doc/Release/Functions.html#Hook-Functions"></badge-doc><a class="headerlink" href="#hook-functions" title="Permanent link">&para;</a></h3>
 <p>It is possible to define an array that has the same name as the function with
@@ -2716,6 +2731,7 @@ is performed immediately after alias expansion.</p>
 <span class="c1"># keep it simple</span>
 ❯ ls -l zsh_demo/**/*<span class="o">(</span>.Lm-2mh-1om<span class="o">[</span><span class="m">1</span>,3<span class="o">])</span>
 </code></pre></div>
+<h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded
 with <code>zmodload</code></p>
