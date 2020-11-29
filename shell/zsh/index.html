@@ -2732,6 +2732,15 @@ is performed immediately after alias expansion.</p>
 ❯ ls -l zsh_demo/**/*<span class="o">(</span>.Lm-2mh-1om<span class="o">[</span><span class="m">1</span>,3<span class="o">])</span>
 </code></pre></div>
 <h2 id="completion">Completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h2>
+<p><badge-doc
+ href='http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System' logo="zsh"></badge-doc></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># menu-select widget, part of the zsh/complist module</span>
+<span class="c1"># must be loaded before the call to compinit</span>
+zmodload -i zsh/complist
+<span class="c1"># Use modern completion system</span>
+autoload -U compinit
+compinit
+</code></pre></div>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <p><a href="http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html">Modules</a> are loaded
 with <code>zmodload</code></p>
