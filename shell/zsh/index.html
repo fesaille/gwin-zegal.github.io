@@ -545,11 +545,24 @@
     Initialization
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Initialization">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#behind-the-hood" class="md-nav__link">
     Behind the hood
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
@@ -2282,11 +2295,24 @@
     Initialization
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Initialization">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#behind-the-hood" class="md-nav__link">
     Behind the hood
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
   </a>
   
 </li>
@@ -2782,13 +2808,19 @@ zmodload -i zsh/complist
 autoload -U compinit
 compinit
 </code></pre></div>
-<h3 id="behind-the-hood">Behind the hood<a class="headerlink" href="#behind-the-hood" title="Permanent link">&para;</a></h3>
-<p>Completion is provided by files named as the command name prefix by an
-underscore. The location of this file must be listed in <code>$fpath</code>. Add the path
-with <code>fpath+=&lt;PATH TO COMPLETION FILE&gt;</code>.</p>
-<p>When <code>compinit</code> is run, it reads the first line of accessible files in <code>$fpath</code> and retains thos containing one of the <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files">tags <code>#compdef</code> or <code>#autoload</code></a>.</p>
+<h4 id="behind-the-hood">Behind the hood<a class="headerlink" href="#behind-the-hood" title="Permanent link">&para;</a></h4>
+<p>Completion is provided by files named as the command name prefixed by an
+underscore: <code>_cmd</code> contains the completion logic for <code>cmd</code>. The location of this
+file must be in <code>$fpath</code>. Addition of a path can be done with <code>fpath+=&lt;PATH TO
+COMPLETION FILE&gt;</code>.</p>
+<p>When <code>compinit</code> is run, the first line of accessible files in <code>$fpath</code> is read. Those containing one of the tags <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files"><code>#compdef</code> or <code>#autoload</code></a> will be autoloaded.
+The declaration can be done for multiple commands, function aliases can be referenced too, e.g. <code>slogin</code> to <code>ssh</code> hereunder:</p>
+<div class="highlight"><pre><span></span><code>#compdef ssh slogin=ssh scp ssh-add ssh-agent ssh-copy-id ssh-keygen ssh-keyscan sftp
+</code></pre></div>
 <p>As an alternative, <code>compdef</code> <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Functions-4">may be called
-directly</a>.</p>
+directly</a></p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<p><a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System-Configuration">🔗</a></p>
 <p>Sources:</p>
 <ul>
 <li>zsh-completion how to: <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">🔗</a></li>
