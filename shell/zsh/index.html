@@ -2403,7 +2403,6 @@ function to execute; it is executed in the same context and with the same
 arguments as the basic function.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-</div>
 <div class="highlight"><pre><span></span><code>❯ <span class="nb">echo</span> <span class="nv">$precmd_functions</span>
 _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure_precmd
 
@@ -2411,6 +2410,7 @@ _zsh_autosuggest_start _zsh_highlight_main__precmd_hook _zshz_precmd prompt_pure
 <span class="c1"># it is possible to use `which` or nearly identical to bash `type -f`</span>
 ❯ whence -f _zsh_autosuggest_start
 </code></pre></div>
+</div>
 <ul>
 <li>
 <p><strong>chpwd</strong>: executed whenever the current working directory is changed.</p>
@@ -2514,8 +2514,7 @@ is performed immediately after alias expansion.</p>
 <li>...</li>
 </ul>
 <h4 id="glob-qualifiers"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Qualifiers">glob qualifiers</a><a class="headerlink" href="#glob-qualifiers" title="Permanent link">&para;</a></h4>
-<details class="abstract"><summary>Furthers qualifiers</summary></details>
-<table>
+<details class="abstract"><summary>Furthers qualifiers</summary><table>
 <thead>
 <tr>
 <th>Qualifiers</th>
@@ -2693,6 +2692,7 @@ is performed immediately after alias expansion.</p>
 </tr>
 </tbody>
 </table>
+</details>
 <div class="highlight"><pre><span></span><code><span class="c1"># show only directories</span>
 ❯ print -l zsh_demo/**/*<span class="o">(</span>/<span class="o">)</span>
 
