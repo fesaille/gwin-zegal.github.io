@@ -199,3 +199,7 @@ div.highlight:before {
 div.input {
         border-left: 4px blueviolet solid;
       }
+
+.md-typeset__table tr {
+    line-height: 2.5ex;
+}

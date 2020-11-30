@@ -446,6 +446,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-structures" class="md-nav__link">
     Data structures
   </a>
@@ -2216,6 +2223,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-structures" class="md-nav__link">
     Data structures
   </a>
@@ -2510,6 +2524,218 @@ bart     default  fade     oliver   redhat   walters
 <li><b>starshift</b> <badge-stars repo='starship/starship'></badge-stars> is a port of spaceshift in rust.</li>
 <li><b>pure</b> <badge-stars repo='sindresorhus/pure'></badge-stars> is a lighweight prompt in pure zsh.</li>
 </ul>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<details class="info"><summary>Parameters set by the shell</summary><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>!</code> <S></td>
+<td>The process ID of the last command started in the background with &amp;, put into the background with the bg builtin, or spawned with coproc.</td>
+</tr>
+<tr>
+<td><code>#</code> <S></td>
+<td>The number of positional parameters in decimal. Note that some confusion may occur with the syntax <code>$#param</code> which substitutes the length of param. Use <code>${#}</code> to resolve ambiguities. In particular, the sequence ‘$#-...’ in an arithmetic expression is interpreted as the length of the parameter -, q.v.</td>
+</tr>
+<tr>
+<td><code>ARGC</code> <S> <Z></td>
+<td>Same as #.</td>
+</tr>
+<tr>
+<td><code>$</code> <S></td>
+<td>The process ID of this shell. Note that this indicates the original shell started by invoking zsh; all processes forked from the shells without executing a new program, such as subshells started by (...), substitute the same value.</td>
+</tr>
+<tr>
+<td><code>-</code> <S></td>
+<td>Flags supplied to the shell on invocation or by the set or setopt commands.</td>
+</tr>
+<tr>
+<td><code>*</code> <S></td>
+<td>An array containing the positional parameters.</td>
+</tr>
+<tr>
+<td><code>argv</code> <S> <Z></td>
+<td>Same as *. Assigning to argv changes the local positional parameters, but argv is not itself a local parameter. Deleting argv with unset in any function deletes it everywhere, although only the innermost positional parameter array is deleted (so * and @ in other scopes are not affected).</td>
+</tr>
+<tr>
+<td><code>@</code> <S></td>
+<td>Same as argv[@], even when argv is not set.</td>
+</tr>
+<tr>
+<td><code>?</code> <S></td>
+<td>The exit status returned by the last command.</td>
+</tr>
+<tr>
+<td><code>0</code> <S></td>
+<td>The name used to invoke the current shell, or as set by the -c command line option upon invocation. If the FUNCTION_ARGZERO option is set, $0 is set upon entry to a shell function to the name of the function, and upon entry to a sourced script to the name of the script, and reset to its previous value when the function or script returns.</td>
+</tr>
+<tr>
+<td><code>status</code> <S> <Z></td>
+<td>Same as ?.</td>
+</tr>
+<tr>
+<td><code>pipestatus</code> <S> <Z></td>
+<td>An array containing the exit statuses returned by all commands in the last pipeline.</td>
+</tr>
+<tr>
+<td><code>_</code> <S></td>
+<td>The last argument of the previous command. Also, this parameter is set in the environment of every command executed to the full pathname of the command.</td>
+</tr>
+<tr>
+<td><code>CPUTYPE</code></td>
+<td>The machine type (microprocessor class or machine model), as determined at run time.</td>
+</tr>
+<tr>
+<td><code>EGID</code> <S></td>
+<td>The effective group ID of the shell process. If you have sufficient privileges, you may change the effective group ID of the shell process by assigning to this parameter. Also (assuming sufficient privileges), you may start a single command with a different effective group ID by ‘(EGID=gid; command)’</td>
+</tr>
+<tr>
+<td><code>EUID</code> <S></td>
+<td>The effective user ID of the shell process. If you have sufficient privileges, you may change the effective user ID of the shell process by assigning to this parameter. Also (assuming sufficient privileges), you may start a single command with a different effective user ID by ‘(EUID=uid; command)’</td>
+</tr>
+<tr>
+<td><code>ERRNO</code> <S></td>
+<td>The value of errno (see man page errno(3)) as set by the most recently failed system call. This value is system dependent and is intended for debugging purposes. It is also useful with the zsh/system module which allows the number to be turned into a name or message.</td>
+</tr>
+<tr>
+<td><code>FUNCNEST</code> <S></td>
+<td>Integer. If greater than or equal to zero, the maximum nesting depth of shell functions. When it is exceeded, an error is raised at the point where a function is called. The default value is determined when the shell is configured, but is typically 500. Increasing the value increases the danger of a runaway function recursion causing the shell to crash. Setting a negative value turns off the check.</td>
+</tr>
+<tr>
+<td><code>GID</code> <S></td>
+<td>The real group ID of the shell process. If you have sufficient privileges, you may change the group ID of the shell process by assigning to this parameter. Also (assuming sufficient privileges), you may start a single command under a different group ID by ‘(GID=gid; command)’</td>
+</tr>
+<tr>
+<td><code>HISTCMD</code></td>
+<td>The current history event number in an interactive shell, in other words the event number for the command that caused $HISTCMD to be read. If the current history event modifies the history, HISTCMD changes to the new maximum history event number.</td>
+</tr>
+<tr>
+<td><code>HOST</code></td>
+<td>The current hostname.</td>
+</tr>
+<tr>
+<td><code>LINENO</code> <S></td>
+<td>The line number of the current line within the current script, sourced file, or shell function being executed, whichever was started most recently. Note that in the case of shell functions the line number refers to the function as it appeared in the original definition, not necessarily as displayed by the functions builtin.</td>
+</tr>
+<tr>
+<td><code>LOGNAME</code></td>
+<td>If the corresponding variable is not set in the environment of the shell, it is initialized to the login name corresponding to the current login session. This parameter is exported by default but this can be disabled using the typeset builtin. The value is set to the string returned by the man page getlogin(3) system call if that is available.</td>
+</tr>
+<tr>
+<td><code>MACHTYPE</code></td>
+<td>The machine type (microprocessor class or machine model), as determined at compile time.</td>
+</tr>
+<tr>
+<td><code>OLDPWD</code></td>
+<td>The previous working directory. This is set when the shell initializes and whenever the directory changes.</td>
+</tr>
+<tr>
+<td><code>OPTARG</code> <S></td>
+<td>The value of the last option argument processed by the getopts command.</td>
+</tr>
+<tr>
+<td><code>OPTIND</code> <S></td>
+<td>The index of the last option argument processed by the getopts command.</td>
+</tr>
+<tr>
+<td><code>OSTYPE</code></td>
+<td>The operating system, as determined at compile time.</td>
+</tr>
+<tr>
+<td><code>PPID</code> <S></td>
+<td>The process ID of the parent of the shell.</td>
+</tr>
+<tr>
+<td><code>PWD</code></td>
+<td>The present working directory. This is set when the shell initializes and whenever the directory changes.</td>
+</tr>
+<tr>
+<td><code>RANDOM</code> <S></td>
+<td>A pseudo-random integer from 0 to 32767.</td>
+</tr>
+<tr>
+<td><code>SECONDS</code> <S></td>
+<td>The number of seconds since shell invocation.</td>
+</tr>
+<tr>
+<td><code>SHLVL</code> <S></td>
+<td>Incremented by one each time a new shell is started.</td>
+</tr>
+<tr>
+<td><code>signals</code></td>
+<td>An array containing the names of the signals.</td>
+</tr>
+<tr>
+<td><code>TRY_BLOCK_ERROR</code> <S></td>
+<td>In an always block, indicates whether the preceding list of code caused an error. The value is 1 to indicate an error, 0 otherwise. It may be reset, clearing the error condition. See Complex Commands</td>
+</tr>
+<tr>
+<td><code>TRY_BLOCK_INTERRUPT</code> <S></td>
+<td>This variable works in a similar way to <code>TRY_BLOCK_ERROR</code>, but represents the status of an interrupt from the signal SIGINT, which typically comes from the keyboard when the user types ^C. If set to 0, any such interrupt will be reset; otherwise, the interrupt is propagated after the always block.</td>
+</tr>
+<tr>
+<td><code>TTY</code></td>
+<td>The name of the tty associated with the shell, if any.</td>
+</tr>
+<tr>
+<td><code>TTYIDLE</code> <S></td>
+<td>The idle time of the tty associated with the shell in seconds or -1 if there is no such tty.</td>
+</tr>
+<tr>
+<td><code>UID &lt;S&gt;</code></td>
+<td>The real user ID of the shell process.</td>
+</tr>
+<tr>
+<td><code>USERNAME</code> <S></td>
+<td>The username corresponding to the real user ID of the shell process. If you have sufficient privileges, you may change the username (and also the user ID and group ID) of the shell by assigning to this parameter. Also (assuming sufficient privileges), you may start a single command under a different username (and user ID and group ID) by ‘(USERNAME=username; command)’</td>
+</tr>
+<tr>
+<td><code>VENDOR</code></td>
+<td>The vendor, as determined at compile time.</td>
+</tr>
+<tr>
+<td><code>zsh_eval_context</code> <S> <Z> (<code>ZSH_EVAL_CONTEXT</code> <S>)</td>
+<td>An array (colon-separated list) indicating the context of shell code that is being run. See <a href="http://zsh.sourceforge.net/Doc/Release/Parameters.html">documentation</a> for details.</td>
+</tr>
+<tr>
+<td><code>ZSH_ARGZERO</code></td>
+<td>If zsh was invoked to run a script, this is the name of the script. Otherwise, it is the name used to invoke the current shell. This is the same as the value of $0 when the POSIX_ARGZERO option is set, but is always available.</td>
+</tr>
+<tr>
+<td><code>ZSH_EXECUTION_STRING</code></td>
+<td>If the shell was started with the option -c, this contains the argument passed to the option. Otherwise it is not set.</td>
+</tr>
+<tr>
+<td><code>ZSH_NAME</code></td>
+<td>Expands to the basename of the command used to invoke this instance of zsh.</td>
+</tr>
+<tr>
+<td><code>ZSH_PATCHLEVEL</code></td>
+<td>The output of ‘git describe –tags –long’ for the zsh repository used to build the shell. This is most useful in order to keep track of versions of the shell during development between releases; hence most users should not use it and should instead rely on $ZSH_VERSION.</td>
+</tr>
+<tr>
+<td><code>zsh_scheduled_events</code></td>
+<td>See The zsh/sched Module.</td>
+</tr>
+<tr>
+<td><code>ZSH_SCRIPT</code></td>
+<td>If zsh was invoked to run a script, this is the name of the script, otherwise it is unset.</td>
+</tr>
+<tr>
+<td><code>ZSH_SUBSHELL</code></td>
+<td>Readonly integer. Initially zero, incremented each time the shell forks to create a subshell for executing code. Hence ‘(print $ZSH_SUBSHELL)’ and ‘print $(print $ZSH_SUBSHELL)’ output 1, while ‘( (print $ZSH_SUBSHELL) )’ outputs 2.</td>
+</tr>
+<tr>
+<td><code>ZSH_VERSION</code></td>
+<td>The version number of the release of zsh.</td>
+</tr>
+</tbody>
+</table>
+</details>
 <h2 id="data-structures">Data structures<a class="headerlink" href="#data-structures" title="Permanent link">&para;</a></h2>
 <h3 id="associative-arrays">Associative arrays<a class="headerlink" href="#associative-arrays" title="Permanent link">&para;</a></h3>
 <p>Declared with <code>declare -A &lt;ARRAY&gt;</code> or <code>typeset -A &lt;ARRAY&gt;</code></p>
