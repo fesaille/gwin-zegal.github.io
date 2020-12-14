@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://github.com/fesaille/shell/vim/">
+        <link rel="canonical" href="https://github.com/fesaille/vim/intro/">
       
       
         <meta name="author" content="Emmmanuel Roux">
@@ -18,7 +18,7 @@
     
     
       
-        <title>Vim - My Docs</title>
+        <title>Intro - My Docs</title>
       
     
     
@@ -104,7 +104,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Vim
+              Intro
             
           </span>
         </div>
@@ -151,14 +151,16 @@
         
           
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -183,7 +185,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../vim.md" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           vim
         </a>
       
@@ -391,7 +393,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../intro/" class="md-nav__link">
+    <a href="../../shell/intro/" class="md-nav__link">
       shell
     </a>
   </li>
@@ -403,7 +405,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../zsh/" class="md-nav__link">
+    <a href="../../shell/zsh/" class="md-nav__link">
       zsh
     </a>
   </li>
@@ -415,7 +417,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tmux/" class="md-nav__link">
+    <a href="../../shell/tmux/" class="md-nav__link">
       tmux
     </a>
   </li>
@@ -472,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ubuntu/configuration/" class="md-nav__link">
+    <a href="../../shell/Ubuntu/configuration/" class="md-nav__link">
       Configuration
     </a>
   </li>
@@ -484,7 +486,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ubuntu/python.md" class="md-nav__link">
+    <a href="../../shell/Ubuntu/python.md" class="md-nav__link">
       Python
     </a>
   </li>
@@ -504,10 +506,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       vim
@@ -525,11 +529,70 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../vim.md" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Intro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Intro
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initialisation" class="md-nav__link">
+    Initialisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-plugins" class="md-nav__link">
+    Packages (Plugins)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -539,7 +602,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/statusline/" class="md-nav__link">
+    <a href="../statusline/" class="md-nav__link">
       Status line
     </a>
   </li>
@@ -551,7 +614,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/panes/" class="md-nav__link">
+    <a href="../panes/" class="md-nav__link">
       Panes
     </a>
   </li>
@@ -563,7 +626,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/edition/" class="md-nav__link">
+    <a href="../edition/" class="md-nav__link">
       Edition
     </a>
   </li>
@@ -575,7 +638,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/search/" class="md-nav__link">
+    <a href="../search/" class="md-nav__link">
       Search
     </a>
   </li>
@@ -587,7 +650,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/motion/" class="md-nav__link">
+    <a href="../motion/" class="md-nav__link">
       Motion
     </a>
   </li>
@@ -599,7 +662,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/plugins/" class="md-nav__link">
+    <a href="../plugins/" class="md-nav__link">
       Plugins
     </a>
   </li>
@@ -611,7 +674,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/script/" class="md-nav__link">
+    <a href="../script/" class="md-nav__link">
       Script
     </a>
   </li>
@@ -623,7 +686,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../vim/languages/" class="md-nav__link">
+    <a href="../languages/" class="md-nav__link">
       Language support
     </a>
   </li>
@@ -2116,7 +2179,42 @@ in this order:</p>
       
         
 <footer class="md-footer">
-  <!--  -->
+  <!-- 
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../shell/Ubuntu/configuration/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuration
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../statusline/" title="Status line" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Status line
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+   -->
   <!-- <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
