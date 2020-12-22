@@ -726,13 +726,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#submodules" class="md-nav__link">
     Submodules
   </a>
@@ -2071,13 +2064,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#submodules" class="md-nav__link">
     Submodules
   </a>
@@ -2155,40 +2141,6 @@ git config --global credential.helper <span class="s1">&#39;cache --timeout=300&
 <span class="c1"># To explicitly exits the daemon</span>
 git credential-cache <span class="nb">exit</span>
 </code></pre></div>
-<h2 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h2>
-<h3>Write a pull request</h3>
-<p>https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/</p>
-<p>https://stackoverflow.com/questions/14680711</p>
-<p>https://stackoverflow.com/questions/29049650</p>
-<p>Switch branches or restore working tree files</p>
-<div class="highlight"><pre><span></span><code>git checkout master
-git checkout -b mybranch
-</code></pre></div>
-<p><code>git remote</code> manage the set of repositories ("remotes") whose branches you track.
-<div class="highlight"><pre><span></span><code>git remote -v
-# If upstream is not configured, add the upstream route
-git remote add upstream /url/original/repo
-
-git fetch upstream
-
-# reset master to upstream/master
-git checkout master
-git reset --hard upstream/master
-git push --force
-
-  y--y--y (mybranch)
- /
-z--z--z   (master, upstream/master, origin/master)
-
-# replay the patches (even they are rejected for now) on top of master
-git checkout mybranch
-git rebase master
-git push -u origin mybranch
-
-        y&#39;--y&#39;--y&#39; (mybranch, origin/mybranch)
-       /
-z--z--z   (master, upstream/master, origin/master)
-</code></pre></div></p>
 <h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permanent link">&para;</a></h2>
 <h3>Commands</h3>
 <p><code>status</code> prints the SHA1 status of checked submodules. Prefixed with:</p>
@@ -2338,6 +2290,39 @@ git log rebB --not revA
 <li>After someone else has reviewed and signed off on the feature, you can merge it into master</li>
 </ul>
 </blockquote>
+<h3>Pull request</h3>
+<p>https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/
+https://stackoverflow.com/questions/14680711</p>
+<p>https://stackoverflow.com/questions/29049650</p>
+<p>Switch branches or restore working tree files</p>
+<div class="highlight"><pre><span></span><code>git checkout master
+git checkout -b mybranch
+</code></pre></div>
+<p><code>git remote</code> manage the set of repositories ("remotes") whose branches you track.
+<div class="highlight"><pre><span></span><code>git remote -v
+# If upstream is not configured, add the upstream route
+git remote add upstream /url/original/repo
+
+git fetch upstream
+
+# reset master to upstream/master
+git checkout master
+git reset --hard upstream/master
+git push --force
+
+  y--y--y (mybranch)
+ /
+z--z--z   (master, upstream/master, origin/master)
+
+# replay the patches (even they are rejected for now) on top of master
+git checkout mybranch
+git rebase master
+git push -u origin mybranch
+
+        y&#39;--y&#39;--y&#39; (mybranch, origin/mybranch)
+       /
+z--z--z   (master, upstream/master, origin/master)
+</code></pre></div></p>
 <h2 id="platform-specific">Platform specific<a class="headerlink" href="#platform-specific" title="Permanent link">&para;</a></h2>
 <h3>Github</h3>
 <p><strong>cli</strong> <badge-stars repo='cli/cli'></badge-stars> is github official cli tool.</p>
