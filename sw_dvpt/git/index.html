@@ -930,8 +930,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pre-commits" class="md-nav__link">
-    Pre-commits
+  <a href="#pre-commit" class="md-nav__link">
+    Pre-commit
   </a>
   
 </li>
@@ -2442,8 +2442,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pre-commits" class="md-nav__link">
-    Pre-commits
+  <a href="#pre-commit" class="md-nav__link">
+    Pre-commit
   </a>
   
 </li>
@@ -2720,19 +2720,11 @@ devided into two groups:</p>
 </tr>
 <tr>
 <td><code>pre-push</code></td>
-<td>during <code>git push</code>, after the remote refs have been</td>
-</tr>
-<tr>
-<td>updated but before any objects have been transferred</td>
-<td></td>
+<td>during <code>git push</code>, after the remote refs have been updated but before any objects have been transferred</td>
 </tr>
 <tr>
 <td><code>post-rewrite</code></td>
-<td>triggered by commands that replace commits, such as</td>
-</tr>
-<tr>
-<td><code>git commit --amend</code> and <code>git rebase</code></td>
-<td></td>
+<td>triggered by commands that replace commits, such as <code>git commit --amend</code> and <code>git rebase</code></td>
 </tr>
 <tr>
 <td><code>post-merge</code></td>
@@ -2750,7 +2742,7 @@ devided into two groups:</p>
 <li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
   am</code> for an email-based workflow.</li>
 </ul>
-<h3 id="pre-commits">Pre-commits<a class="headerlink" href="#pre-commits" title="Permanent link">&para;</a></h3>
+<h3 id="pre-commit">Pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>conform</strong> <badge-stars repo='talos-systems/conform'></badge-stars> is a tool
 for enforcing policies on your build pipelines.</p>
