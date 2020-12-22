@@ -2694,28 +2694,62 @@ devided into two groups:</p>
 <thead>
 <tr>
 <th>Hook</th>
-<th>Description</th>
+<th>Run description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><code>post-checkout</code></td>
+<td>after a successful git checkout</td>
+</tr>
+<tr>
 <td><code>pre-commit</code></td>
-<td>run first before commiting message, general checks like linting</td>
+<td>before commiting message, general checks like linting</td>
 </tr>
 <tr>
 <td><code>prepare-commit-msg</code></td>
-<td>run before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated</td>
+<td>before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated</td>
 </tr>
 <tr>
 <td><code>commit-msg</code></td>
-<td>takes one parameter: the path to a temporary file that contains the commit message</td>
+<td>validate project state or commit message</td>
+</tr>
+<tr>
+<td><code>pre-rebase</code></td>
+<td>before you rebase anything</td>
+</tr>
+<tr>
+<td><code>pre-push</code></td>
+<td>during <code>git push</code>, after the remote refs have been</td>
+</tr>
+<tr>
+<td>updated but before any objects have been transferred</td>
+<td></td>
+</tr>
+<tr>
+<td><code>post-rewrite</code></td>
+<td>triggered by commands that replace commits, such as</td>
+</tr>
+<tr>
+<td><code>git commit --amend</code> and <code>git rebase</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>post-merge</code></td>
+<td>after a successful <code>merge</code> command</td>
 </tr>
 <tr>
 <td><code>post-commit</code></td>
-<td>runs once eveything coompleted.</td>
+<td>once eveything coompleted.</td>
 </tr>
 </tbody>
 </table>
+<p>There are other hooks, invoked by specific commands:</p>
+<ul>
+<li><code>pre-auto-gc</code> by invoking garbage collection <code>git gc --auto</code></li>
+<li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
+  am</code> for an email-based workflow.</li>
+</ul>
 <h3 id="pre-commits">Pre-commits<a class="headerlink" href="#pre-commits" title="Permanent link">&para;</a></h3>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>conform</strong> <badge-stars repo='talos-systems/conform'></badge-stars> is a tool
