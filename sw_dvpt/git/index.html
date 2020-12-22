@@ -923,6 +923,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#client-side" class="md-nav__link">
+    Client side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pre-commits" class="md-nav__link">
     Pre-commits
   </a>
@@ -2428,6 +2435,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#client-side" class="md-nav__link">
+    Client side
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pre-commits" class="md-nav__link">
     Pre-commits
   </a>
@@ -2669,6 +2683,39 @@ git log rebB --not revA
 <h4 id="github-action">Github action<a class="headerlink" href="#github-action" title="Permanent link">&para;</a></h4>
 <p><strong>act</strong> <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.</p>
 <h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
+<p>Hooks are executable scripts, generaly located in <code>.git/hooks</code>. They can be
+devided into two groups:</p>
+<ul>
+<li>client-side</li>
+<li>server-side</li>
+</ul>
+<h3 id="client-side">Client side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pre-commit</code></td>
+<td>run first before commiting message, general checks like linting</td>
+</tr>
+<tr>
+<td><code>prepare-commit-msg</code></td>
+<td>run before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated</td>
+</tr>
+<tr>
+<td><code>commit-msg</code></td>
+<td>takes one parameter: the path to a temporary file that contains the commit message</td>
+</tr>
+<tr>
+<td><code>post-commit</code></td>
+<td>runs once eveything coompleted.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="pre-commits">Pre-commits<a class="headerlink" href="#pre-commits" title="Permanent link">&para;</a></h3>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>conform</strong> <badge-stars repo='talos-systems/conform'></badge-stars> is a tool
