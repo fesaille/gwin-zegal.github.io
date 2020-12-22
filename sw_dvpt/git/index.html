@@ -930,8 +930,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pre-commit" class="md-nav__link">
-    Pre-commit
+  <a href="#server-side" class="md-nav__link">
+    Server side
   </a>
   
 </li>
@@ -2442,8 +2442,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pre-commit" class="md-nav__link">
-    Pre-commit
+  <a href="#server-side" class="md-nav__link">
+    Server side
   </a>
   
 </li>
@@ -2742,7 +2742,31 @@ devided into two groups:</p>
 <li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
   am</code> for an email-based workflow.</li>
 </ul>
-<h3 id="pre-commit">Pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
+<h3 id="server-side">Server side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
+<p>Installation on
+<a href="https://docs.gitlab.com/ee/administration/server_hooks.html">gitlab</a></p>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Run description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pre-receive</code></td>
+<td>first script to run when handling a push from a client. Runs only once.</td>
+</tr>
+<tr>
+<td><code>post-receive</code></td>
+<td>run once for each branch the pusher is trying to update</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>after the entire process is completed and can be used to update other services or notify users</td>
+</tr>
+</tbody>
+</table>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>conform</strong> <badge-stars repo='talos-systems/conform'></badge-stars> is a tool
 for enforcing policies on your build pipelines.</p>
