@@ -1622,26 +1622,6 @@
     Code structure
   </a>
   
-    <nav class="md-nav" aria-label="Code structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ast" class="md-nav__link">
-    AST
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bytecode" class="md-nav__link">
-    Bytecode
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2087,26 +2067,6 @@
     Code structure
   </a>
   
-    <nav class="md-nav" aria-label="Code structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ast" class="md-nav__link">
-    AST
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bytecode" class="md-nav__link">
-    Bytecode
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -2311,7 +2271,7 @@ cpython/
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="ast">AST<a class="headerlink" href="#ast" title="Permanent link">&para;</a></h3>
+<h3>AST</h3>
 <p><a href="https://docs.python.org/3/library/ast.html">Doc</a></p>
 <p>The code is parsed, i.e. split up into a list of pieces called tokens. These tokens are based on a set of rules for things that should be treated differently. For instance, the keyword <em>if</em> is a different token than a numeric value like <em>42</em>.</p>
 <p>The list of tokens is transformed to build an <strong>Abstract Syntax Tree, AST</strong>, collection of nodes which are linked together based on the Python language <a href="https://docs.python.org/3/reference/grammar.html">grammar</a>.</p>
@@ -2526,7 +2486,7 @@ cpython/
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="bytecode">Bytecode<a class="headerlink" href="#bytecode" title="Permanent link">&para;</a></h3>
+<h3>Bytecode</h3>
 <p>From an abstract syntax tree, the interpreter can produce a lower level form of instructions called <strong>bytecode</strong>. These instructions are things like <code>BINARY_ADD</code> and are meant to be very generic so that a computer can run them.</p>
 </div>
 </div>

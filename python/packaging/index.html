@@ -1694,50 +1694,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
-    Pip
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wheel" class="md-nav__link">
-    Wheel
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyoxyder" class="md-nav__link">
-    PyOxyder
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyinstaller" class="md-nav__link">
-    PyInstaller
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pyprojecttoml" class="md-nav__link">
     pyproject.toml
   </a>
-  
-    <nav class="md-nav" aria-label="pyproject.toml">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tables" class="md-nav__link">
-    Tables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2061,50 +2020,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
-    Pip
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wheel" class="md-nav__link">
-    Wheel
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyoxyder" class="md-nav__link">
-    PyOxyder
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pyinstaller" class="md-nav__link">
-    PyInstaller
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#pyprojecttoml" class="md-nav__link">
     pyproject.toml
   </a>
-  
-    <nav class="md-nav" aria-label="pyproject.toml">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tables" class="md-nav__link">
-    Tables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2136,18 +2054,18 @@
                 
                 
                 <h1 id="packaging">Packaging<a class="headerlink" href="#packaging" title="Permanent link">&para;</a></h1>
-<h3 id="pip">Pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<h3>Pip</h3>
 <p>Pip <badge-stars repo='pypa/pip'></badge-stars> <badge-doc href="https://pip.pypa.io/en/stable"></badge-doc> is the package installer for Python.</p>
-<h3 id="wheel">Wheel<a class="headerlink" href="#wheel" title="Permanent link">&para;</a></h3>
+<h3>Wheel</h3>
 <p>This library <badge-stars repo='pypa/wheel'></badge-stars> <badge-doc href="https://wheel.readthedocs.io/"></badge-doc> <badge-pep nr='427'></badge-pep> <badge-pep nr='425'></badge-pep> is the reference implementation of the Python wheel packaging standard, as defined in PEP 427. It has two different roles:</p>
 <ul>
 <li>A setuptools extension for building wheels that provides the bdist_wheel setuptools command</li>
 <li>A command line tool for working with wheel files</li>
 </ul>
-<h3 id="pyoxyder">PyOxyder<a class="headerlink" href="#pyoxyder" title="Permanent link">&para;</a></h3>
+<h3>PyOxyder</h3>
 <p>PyOwyder <badge-stars repo='indygreg/PyOxidizer'></badge-stars> <badge-doc href='https://pyoxidizer.readthedocs.io'></badge-doc> is a utility for producing binaries that embed Python.</p>
 <p>It can be used in case of virtualenv with symlink to the python interpreter (e.g. in the case of pipx)</p>
-<h3 id="pyinstaller">PyInstaller<a class="headerlink" href="#pyinstaller" title="Permanent link">&para;</a></h3>
+<h3>PyInstaller</h3>
 <p>PyInstaller <badge-stars repo='pyinstaller/pyinstaller'></badge-stars> <badge-doc href='https://pyoxidizer.readthedocs.io'></badge-doc> bundles a Python application and all its dependencies into a single package.</p>
 <h2 id="pyprojecttoml"><code>pyproject.toml</code><a class="headerlink" href="#pyprojecttoml" title="Permanent link">&para;</a></h2>
 <p>This file, topic of <badge-pep nr='518'></badge-pep> lists the minimal dependencies of the build system of a project in a declarative fashion. </p>
@@ -2159,7 +2077,7 @@ software for projects, was the chosen solution. As time went on,
 add some features on top of distutils. Both used the concept of a setup.py
 file.</p>
 </details>
-<h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
+<h3>Tables</h3>
 <h4><code>build-system</code></h4>
 <p><code>[build-system]</code> table is used to store build-related data. Initially only one key of the table will be valid and is mandatory for the table: <code>requires</code>.</p>
 <p>A <em>build frontend</em> is a tool that users might run that takes arbitrary source trees or source distributions and builds wheels from them. The actual building is done by each source tree's <em>build backend</em>. In a command like pip wheel some-directory/, pip is acting as a build frontend.</p>
