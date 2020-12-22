@@ -726,47 +726,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#submodules" class="md-nav__link">
-    Submodules
-  </a>
-  
-    <nav class="md-nav" aria-label="Submodules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove-a-submodule" class="md-nav__link">
-    Remove a submodule
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
-    Updating submodule url and branch
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cherry-pick-from-another-repository" class="md-nav__link">
-    Cherry pick from another repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#revision-selection" class="md-nav__link">
     Revision selection
   </a>
@@ -811,6 +770,47 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submodules" class="md-nav__link">
+    Submodules
+  </a>
+  
+    <nav class="md-nav" aria-label="Submodules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-submodule" class="md-nav__link">
+    Remove a submodule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
+    Updating submodule url and branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cherry-pick-from-another-repository" class="md-nav__link">
+    Cherry pick from another repository
+  </a>
   
 </li>
       
@@ -2178,47 +2178,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#submodules" class="md-nav__link">
-    Submodules
-  </a>
-  
-    <nav class="md-nav" aria-label="Submodules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove-a-submodule" class="md-nav__link">
-    Remove a submodule
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
-    Updating submodule url and branch
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cherry-pick-from-another-repository" class="md-nav__link">
-    Cherry pick from another repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#revision-selection" class="md-nav__link">
     Revision selection
   </a>
@@ -2263,6 +2222,47 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submodules" class="md-nav__link">
+    Submodules
+  </a>
+  
+    <nav class="md-nav" aria-label="Submodules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-a-submodule" class="md-nav__link">
+    Remove a submodule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-submodule-url-and-branch" class="md-nav__link">
+    Updating submodule url and branch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cherry-pick-from-another-repository" class="md-nav__link">
+    Cherry pick from another repository
+  </a>
   
 </li>
       
@@ -2369,51 +2369,6 @@ git config --global credential.helper <span class="s1">&#39;cache --timeout=300&
 <span class="c1"># To explicitly exits the daemon</span>
 git credential-cache <span class="nb">exit</span>
 </code></pre></div>
-<h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permanent link">&para;</a></h2>
-<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
-<p><code>status</code> prints the SHA1 status of checked submodules. Prefixed with:</p>
-<ul>
-<li><strong>-</strong> if the submodule is not initialized</li>
-<li><strong>+</strong> in case of conflicts between current subdmodule and the index of the containing directory</li>
-<li><strong>U</strong> in case of merge conflicts</li>
-</ul>
-<h3 id="remove-a-submodule">Remove a submodule<a class="headerlink" href="#remove-a-submodule" title="Permanent link">&para;</a></h3>
-<p>A submodule can be deleted by running <code>git rm &lt;submodule path&gt; &amp;&amp; git commit</code>. <code>$GIT_DIR/modules/&lt;name&gt;</code> delete the submodule completly. Util then, deletion can be undone using <code>git revert</code>.</p>
-<p>Alternative method:</p>
-<p>Remove the submodule entry from .git/config
-<div class="highlight"><pre><span></span><code>git submodule deinit -f path/to/submodule
-</code></pre></div></p>
-<p>Remove the submodule directory from the superproject's .git/modules directory
-<div class="highlight"><pre><span></span><code>rm -rf .git/modules/path/to/submodule
-</code></pre></div></p>
-<p>Commit the changes
-<div class="highlight"><pre><span></span><code> git commit-m &quot;Removed submodule &quot;
-</code></pre></div></p>
-<p>Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
-<div class="highlight"><pre><span></span><code>git rm -f path/to/submodule
-</code></pre></div></p>
-<h3 id="updating-submodule-url-and-branch">Updating submodule url and branch<a class="headerlink" href="#updating-submodule-url-and-branch" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">submodule configuration</a> can be displayed with <code>git config</code>:
-<div class="highlight"><pre><span></span><code>git config -l
-</code></pre></div>
-A specific config file can be given to <code>git config</code> with the <code>--file</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file">flag</a>:
-<div class="highlight"><pre><span></span><code>git config -l --file=.gitmodules
-</code></pre></div>
-Url, branch and <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">other parameters</a> can be configured via <code>git config</code>
-<div class="highlight"><pre><span></span><code>git config --file=.gitmodules submodule.&lt;submodule_name&gt;.url &lt;git@github.com:username/repository.git&gt;
-git config --file=.gitmodules submodule.&lt;submodule_name&gt;.branch &lt;branch_name&gt;
-</code></pre></div>
-Synchronization adn update of the submodules are done with:
-<div class="highlight"><pre><span></span><code>git submodule sync
-git submodule update --init --recursive --remote --merge
-# ! If --merge option is missing, HEAD will be detached
-</code></pre></div></p>
-<h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
-<p>First the other repository source must be added to the remote list
-<div class="highlight"><pre><span></span><code>git remote add other https://other.url/repository.git
-git fetch other
-</code></pre></div></p>
-<p>Then use <a href="https://git-scm.com/docs/git-cherry-pick"><code>git cherry-pick</code></a></p>
 <h2 id="revision-selection">Revision selection<a class="headerlink" href="#revision-selection" title="Permanent link">&para;</a></h2>
 <h3 id="individual-commit-selection">Individual commit selection<a class="headerlink" href="#individual-commit-selection" title="Permanent link">&para;</a></h3>
 <h4>SHA1 selection</h4>
@@ -2508,6 +2463,51 @@ git log rebB --not revA
 </div>
 </div>
 </div>
+<h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permanent link">&para;</a></h2>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<p><code>status</code> prints the SHA1 status of checked submodules. Prefixed with:</p>
+<ul>
+<li><strong>-</strong> if the submodule is not initialized</li>
+<li><strong>+</strong> in case of conflicts between current subdmodule and the index of the containing directory</li>
+<li><strong>U</strong> in case of merge conflicts</li>
+</ul>
+<h3 id="remove-a-submodule">Remove a submodule<a class="headerlink" href="#remove-a-submodule" title="Permanent link">&para;</a></h3>
+<p>A submodule can be deleted by running <code>git rm &lt;submodule path&gt; &amp;&amp; git commit</code>. <code>$GIT_DIR/modules/&lt;name&gt;</code> delete the submodule completly. Util then, deletion can be undone using <code>git revert</code>.</p>
+<p>Alternative method:</p>
+<p>Remove the submodule entry from .git/config
+<div class="highlight"><pre><span></span><code>git submodule deinit -f path/to/submodule
+</code></pre></div></p>
+<p>Remove the submodule directory from the superproject's .git/modules directory
+<div class="highlight"><pre><span></span><code>rm -rf .git/modules/path/to/submodule
+</code></pre></div></p>
+<p>Commit the changes
+<div class="highlight"><pre><span></span><code> git commit-m &quot;Removed submodule &quot;
+</code></pre></div></p>
+<p>Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+<div class="highlight"><pre><span></span><code>git rm -f path/to/submodule
+</code></pre></div></p>
+<h3 id="updating-submodule-url-and-branch">Updating submodule url and branch<a class="headerlink" href="#updating-submodule-url-and-branch" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">submodule configuration</a> can be displayed with <code>git config</code>:
+<div class="highlight"><pre><span></span><code>git config -l
+</code></pre></div>
+A specific config file can be given to <code>git config</code> with the <code>--file</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file">flag</a>:
+<div class="highlight"><pre><span></span><code>git config -l --file=.gitmodules
+</code></pre></div>
+Url, branch and <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">other parameters</a> can be configured via <code>git config</code>
+<div class="highlight"><pre><span></span><code>git config --file=.gitmodules submodule.&lt;submodule_name&gt;.url &lt;git@github.com:username/repository.git&gt;
+git config --file=.gitmodules submodule.&lt;submodule_name&gt;.branch &lt;branch_name&gt;
+</code></pre></div>
+Synchronization adn update of the submodules are done with:
+<div class="highlight"><pre><span></span><code>git submodule sync
+git submodule update --init --recursive --remote --merge
+# ! If --merge option is missing, HEAD will be detached
+</code></pre></div></p>
+<h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
+<p>First the other repository source must be added to the remote list
+<div class="highlight"><pre><span></span><code>git remote add other https://other.url/repository.git
+git fetch other
+</code></pre></div></p>
+<p>Then use <a href="https://git-scm.com/docs/git-cherry-pick"><code>git cherry-pick</code></a></p>
 <h2 id="git-flow">Git flow<a class="headerlink" href="#git-flow" title="Permanent link">&para;</a></h2>
 <p>From <a href="http://scottchacon.com/2011/08/31/github-flow.html">Scott Chacon blog</a>:</p>
 <blockquote>
