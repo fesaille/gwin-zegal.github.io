@@ -518,33 +518,6 @@
     Filename generation (globbing)
   </a>
   
-    <nav class="md-nav" aria-label="Filename generation (globbing)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#glob-operators" class="md-nav__link">
-    glob operators
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#glob-flag" class="md-nav__link">
-    glob flag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#glob-qualifiers" class="md-nav__link">
-    glob qualifiers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -565,19 +538,6 @@
     Initialization
   </a>
   
-    <nav class="md-nav" aria-label="Initialization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#behind-the-hood" class="md-nav__link">
-    Behind the hood
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -591,19 +551,6 @@
   <a href="#user-defined-completion" class="md-nav__link">
     User defined completion
   </a>
-  
-    <nav class="md-nav" aria-label="User defined completion">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2295,33 +2242,6 @@
     Filename generation (globbing)
   </a>
   
-    <nav class="md-nav" aria-label="Filename generation (globbing)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#glob-operators" class="md-nav__link">
-    glob operators
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#glob-flag" class="md-nav__link">
-    glob flag
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#glob-qualifiers" class="md-nav__link">
-    glob qualifiers
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2342,19 +2262,6 @@
     Initialization
   </a>
   
-    <nav class="md-nav" aria-label="Initialization">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#behind-the-hood" class="md-nav__link">
-    Behind the hood
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -2368,19 +2275,6 @@
   <a href="#user-defined-completion" class="md-nav__link">
     User defined completion
   </a>
-  
-    <nav class="md-nav" aria-label="User defined completion">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2834,7 +2728,7 @@ is performed immediately after alias expansion.</p>
 <li><strong>Filename Generation</strong>, commonly referred to as globbing, always done last.</li>
 </ul>
 <h3 id="filename-generation-globbing">Filename generation (globbing)<a class="headerlink" href="#filename-generation-globbing" title="Permanent link">&para;</a></h3>
-<h4 id="glob-operators"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Operators">glob operators</a><a class="headerlink" href="#glob-operators" title="Permanent link">&para;</a></h4>
+<h4><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Operators">glob operators</a></h4>
 <ul>
 <li><code>*</code> matches any string, including the null string.</li>
 <li><code>?</code> matches any character.</li>
@@ -2866,14 +2760,14 @@ is performed immediately after alias expansion.</p>
 ❯ setopt extended_glob
 ❯ rm -Rf -- ^go.mod
 </code></pre></div>
-<h4 id="glob-flag"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Flags">glob flag</a><a class="headerlink" href="#glob-flag" title="Permanent link">&para;</a></h4>
+<h4><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Flags">glob flag</a></h4>
 <ul>
 <li><code>i</code> case insensitive.</li>
 <li><code>l</code> lower case characters in the pattern match upper or lower case characters. Upper case characters behvior unchanged.</li>
 <li><code>I</code> case sensitive: locally negates the effect of i or l from that point on.</li>
 <li>...</li>
 </ul>
-<h4 id="glob-qualifiers"><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Qualifiers">glob qualifiers</a><a class="headerlink" href="#glob-qualifiers" title="Permanent link">&para;</a></h4>
+<h4><a href="http://zsh.sourceforge.net/Doc/Release/Expansion.html#Glob-Qualifiers">glob qualifiers</a></h4>
 <details class="abstract"><summary>Furthers qualifiers</summary><table>
 <thead>
 <tr>
@@ -3087,7 +2981,7 @@ zmodload -i zsh/complist
 autoload -U compinit
 compinit
 </code></pre></div>
-<h4 id="behind-the-hood">Behind the hood<a class="headerlink" href="#behind-the-hood" title="Permanent link">&para;</a></h4>
+<h4>Behind the hood</h4>
 <p>Completion is provided by files named as the command name prefixed by an
 underscore: <code>_cmd</code> contains the completion logic for <code>cmd</code>. The location of this
 file must be in <code>$fpath</code>. Addition of a path can be done with <code>fpath+=&lt;PATH TO
@@ -3102,7 +2996,7 @@ directly</a></p>
 <p><a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System-Configuration">🔗</a></p>
 <h3 id="user-defined-completion">User defined completion<a class="headerlink" href="#user-defined-completion" title="Permanent link">&para;</a></h3>
 <p>Some <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Completion-System-Configuration">utility functions</a></p>
-<h4 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<h4></h4>
 <p>Sources:</p>
 <ul>
 <li>zsh-completion how to: <a href="https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org">🔗</a></li>

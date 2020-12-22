@@ -799,45 +799,12 @@
     Individual commit selection
   </a>
   
-    <nav class="md-nav" aria-label="Individual commit selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sha1-selection" class="md-nav__link">
-    SHA1 selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ancestry-selection" class="md-nav__link">
-    Ancestry selection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#range-selection" class="md-nav__link">
     Range selection
   </a>
-  
-    <nav class="md-nav" aria-label="Range selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#double-dot" class="md-nav__link">
-    Double dot
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -886,26 +853,6 @@
   <a href="#github" class="md-nav__link">
     Github
   </a>
-  
-    <nav class="md-nav" aria-label="Github">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#change-the-repository-language-detection" class="md-nav__link">
-    Change the repository language detection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-action" class="md-nav__link">
-    Github action
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2311,45 +2258,12 @@
     Individual commit selection
   </a>
   
-    <nav class="md-nav" aria-label="Individual commit selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sha1-selection" class="md-nav__link">
-    SHA1 selection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ancestry-selection" class="md-nav__link">
-    Ancestry selection
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
   <a href="#range-selection" class="md-nav__link">
     Range selection
   </a>
-  
-    <nav class="md-nav" aria-label="Range selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#double-dot" class="md-nav__link">
-    Double dot
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2398,26 +2312,6 @@
   <a href="#github" class="md-nav__link">
     Github
   </a>
-  
-    <nav class="md-nav" aria-label="Github">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#change-the-repository-language-detection" class="md-nav__link">
-    Change the repository language detection
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-action" class="md-nav__link">
-    Github action
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -2570,7 +2464,7 @@ git fetch other
 <p>Then use <a href="https://git-scm.com/docs/git-cherry-pick"><code>git cherry-pick</code></a></p>
 <h2 id="revision-selection">Revision selection<a class="headerlink" href="#revision-selection" title="Permanent link">&para;</a></h2>
 <h3 id="individual-commit-selection">Individual commit selection<a class="headerlink" href="#individual-commit-selection" title="Permanent link">&para;</a></h3>
-<h4 id="sha1-selection">SHA1 selection<a class="headerlink" href="#sha1-selection" title="Permanent link">&para;</a></h4>
+<h4>SHA1 selection</h4>
 <p>Git allows selection of a single commit by its full 40 char. SHA1-hash.</p>
 <ul>
 <li><code>git log &lt;OPTIONS&gt;</code> to display and locate commits. Ouptut format can be heavily customized.</li>
@@ -2578,10 +2472,10 @@ git fetch other
 <li><code>git show &lt;COMMIT&gt;</code> to inspect a specific commit, for reflog specific entries, <code>@{&lt;n&gt;}</code> can be used to display history, e.g. <code>git show HEAD@{5}</code> will show the fifth entry of your reflog</li>
 <li><code>git rev-parse &lt;OPTIONS&gt;</code>, belonging to <em>plumbing</em> tools can be used to investigate revisons at a lower lever</li>
 </ul>
-<h4 id="ancestry-selection">Ancestry selection<a class="headerlink" href="#ancestry-selection" title="Permanent link">&para;</a></h4>
+<h4>Ancestry selection</h4>
 <p>An ancestry can be selected by adding a <code>^</code> (caret) at the end of a reference, e.g. <code>HEAD^</code> to select the element's parent. Several carets can be used to select the parent in direct line or <code>~</code> (tilde). A parent sibling branch is selected by using a number next to the caret.</p>
 <h3 id="range-selection">Range selection<a class="headerlink" href="#range-selection" title="Permanent link">&para;</a></h3>
-<h4 id="double-dot">Double dot<a class="headerlink" href="#double-dot" title="Permanent link">&para;</a></h4>
+<h4>Double dot</h4>
 <p>Enable to see commits between two history points that can be on different branches, e.g.:</p>
 <div class="admonition examples">
 <div class="highlight"><pre><span></span><code><span class="c1"># Show what is beeing pulled (what&#39;s between HEAD and origin/master)</span>
@@ -2675,12 +2569,12 @@ git log rebB --not revA
 <h2 id="platform-specific">Platform specific<a class="headerlink" href="#platform-specific" title="Permanent link">&para;</a></h2>
 <h3 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
 <p><strong>cli</strong> <badge-stars repo='cli/cli'></badge-stars> is github official cli tool.</p>
-<h4 id="change-the-repository-language-detection">Change the repository language detection<a class="headerlink" href="#change-the-repository-language-detection" title="Permanent link">&para;</a></h4>
+<h4>Change the repository language detection</h4>
 <p><a href="https://git-scm.com/docs/gitattributes/2.9.5"><code>.gitattributes</code></a> s used for the files you want to override using the <code>linguist-documentation</code>, <code>linguist-language</code>, <code>linguist-vendored</code>, <code>linguist-generated</code> and <code>linguist-detectable</code> attributes.</p>
 <p>Installation <badge-doc href='https://github.com/github/linguist#installation', logo='github'></badge-doc> is performed with gem:
 <div class="highlight"><pre><span></span><code>gem install github-linguist
 </code></pre></div></p>
-<h4 id="github-action">Github action<a class="headerlink" href="#github-action" title="Permanent link">&para;</a></h4>
+<h4>Github action</h4>
 <p><strong>act</strong> <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.</p>
 <h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
 <p>Hooks <badge-doc
@@ -2745,8 +2639,6 @@ two groups:</p>
   am</code> for an email-based workflow.</li>
 </ul>
 <h3 id="server-side">Server side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
-<p>Installation on
-<a href="https://docs.gitlab.com/ee/administration/server_hooks.html">gitlab</a></p>
 <table>
 <thead>
 <tr>
@@ -2769,6 +2661,17 @@ two groups:</p>
 </tr>
 </tbody>
 </table>
+<p>Installation must be performed on the server, see e.g. for
+<a href="https://docs.gitlab.com/ee/administration/server_hooks.html">gitlab</a>. If no
+admin rights are available, some alternatives:</p>
+<ul>
+<li>webhooks
+  <a href="https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhooks">github</a>/<a href="https://docs.gitlab.com/ee/user/project/integrations/webhooks.html">gitlab</a></li>
+<li>CI/CD pipeline
+  <a href="https://docs.github.com/en/free-pro-team@latest/actions">github</a>
+  <a href="https://docs.gitlab.com/ee/ci/README.html">gitlab</a></li>
+<li>push rules <a href="https://docs.gitlab.com/ee/push_rules/push_rules.html">gitlab</a></li>
+</ul>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>conform</strong> <badge-stars repo='talos-systems/conform'></badge-stars> is a tool
 for enforcing policies on your build pipelines.</p>

@@ -1734,26 +1734,6 @@
     Tables
   </a>
   
-    <nav class="md-nav" aria-label="Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-system" class="md-nav__link">
-    build-system
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tool" class="md-nav__link">
-    tool
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2121,26 +2101,6 @@
     Tables
   </a>
   
-    <nav class="md-nav" aria-label="Tables">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-system" class="md-nav__link">
-    build-system
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tool" class="md-nav__link">
-    tool
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -2200,7 +2160,7 @@ add some features on top of distutils. Both used the concept of a setup.py
 file.</p>
 </details>
 <h3 id="tables">Tables<a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
-<h4 id="build-system"><code>build-system</code><a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h4>
+<h4><code>build-system</code></h4>
 <p><code>[build-system]</code> table is used to store build-related data. Initially only one key of the table will be valid and is mandatory for the table: <code>requires</code>.</p>
 <p>A <em>build frontend</em> is a tool that users might run that takes arbitrary source trees or source distributions and builds wheels from them. The actual building is done by each source tree's <em>build backend</em>. In a command like pip wheel some-directory/, pip is acting as a build frontend.</p>
 <details class="example"><summary>Example</summary><p>Usage with <code>setuptools</code>
@@ -2219,7 +2179,7 @@ file.</p>
 <p>Tools should not require the existence of the <code>[build-system]</code> table. A <code>pyproject.toml</code> file may be used to store configuration details other than build-related data and thus lack a <code>[build-system]</code> table legitimately.</p>
 <p><strong>Build backend interface</strong></p>
 <p>In case a custom build backend interface is specified, <a href="https://www.python.org/dev/peps/pep-0517/#mandatory-hooks">mandatory hooks</a> - <code>build_wheel</code> and <code>build_sdist</code> - must be specified. <a href="https://www.python.org/dev/peps/pep-0517/#optional-hooks">Optional hooks</a> </p>
-<h4 id="tool"><code>tool</code><a class="headerlink" href="#tool" title="Permanent link">&para;</a></h4>
+<h4><code>tool</code></h4>
 <p>The <code>[tool]</code> table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within <code>[tool]</code>, e.g. the flit tool would store its configuration in <code>[tool.flit]</code>.</p>
 <p>Packaging</p>
 <p><badge-doc href='https://packaging.python.org/overview/' logo='python'></badge-doc></p>
