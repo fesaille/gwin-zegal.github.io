@@ -1263,6 +1263,33 @@
     Sort order
   </a>
   
+    <nav class="md-nav" aria-label="Sort order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collation" class="md-nav__link">
+    Collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-values" class="md-nav__link">
+    Missing values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines-limitations" class="md-nav__link">
+    Engines limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1276,6 +1303,19 @@
   <a href="#select" class="md-nav__link">
     Select
   </a>
+  
+    <nav class="md-nav" aria-label="Select">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcut" class="md-nav__link">
+    Shortcut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2054,6 +2094,33 @@
     Sort order
   </a>
   
+    <nav class="md-nav" aria-label="Sort order">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collation" class="md-nav__link">
+    Collation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-values" class="md-nav__link">
+    Missing values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engines-limitations" class="md-nav__link">
+    Engines limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2067,6 +2134,19 @@
   <a href="#select" class="md-nav__link">
     Select
   </a>
+  
+    <nav class="md-nav" aria-label="Select">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortcut" class="md-nav__link">
+    Shortcut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2106,7 +2186,7 @@
 <p>For analytics, <a href="https://pandas.pydata.org/docs/index.html">Pandas</a> provides facili tes and loads the data into the memory of the local host, <a href="https://docs.ibis-project.org/">Ibis</a> leaves the data in its storage, and performs the computations there</p>
 <p>For SQL command in jupyter, see the <a href="https://github.com/catherinedevlin/ipython-sql">SQL jupyter magic</a> and a <a href="https://github.com/satybald/ipython-notebooks/blob/master/MagicsSQL.ipynb">notebook example</a></p>
 <h2 id="sort-order">Sort order<a class="headerlink" href="#sort-order" title="Permanent link">&para;</a></h2>
-<h3>Collation</h3>
+<h3 id="collation">Collation<a class="headerlink" href="#collation" title="Permanent link">&para;</a></h3>
 <p>String sorting is done on a character-by-character basis but custom alphanumeric values is <a href="https://www.essentialsql.com/use-sql-server-to-sort-alphanumeric-values/">possible</a>.</p>
 <div class="admonition info">
 <p>A DBMS uses a collating sequence, or collation, to determine the order in
@@ -2122,7 +2202,7 @@ DBMS uses its own sorting strategy and default collation… Search your DBMS
 documentation for collation or sort order.</p>
 <p>Source: Fehily, Chris - <a href="http://www.peachpit.com/articles/article.aspx?p=1276352&amp;seqNum=4"> SQL VIsual QuickStart Guide, 3<sup>rd</sup> Edition </a>.</p>
 </div>
-<h3>Missing values</h3>
+<h3 id="missing-values">Missing values<a class="headerlink" href="#missing-values" title="Permanent link">&para;</a></h3>
 <p><code>NULL</code> values are handled differently on SQL engine, e.g.:</p>
 <ul>
 <li>Impala handles <code>NULL</code> as top values</li>
@@ -2132,7 +2212,7 @@ documentation for collation or sort order.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- SQL will fist sort by &#39;col2 IS NULL&#39; which is a boolean, then by &#39;col2&#39;</span>
 <span class="k">SELECT</span> <span class="n">col</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col2</span> <span class="k">IS</span> <span class="k">NULL</span> <span class="k">ASC</span><span class="p">,</span> <span class="n">col2</span>
 </code></pre></div>
-<h3>Engines limitations</h3>
+<h3 id="engines-limitations">Engines limitations<a class="headerlink" href="#engines-limitations" title="Permanent link">&para;</a></h3>
 <p>Selection must sometimes include the column on which the is done.</p>
 <details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="c1">-- This will not work in Hive </span>
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span>
@@ -2171,7 +2251,7 @@ when using <code>OFFSET</code></p>
 <p>SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT</p>
 <p>Execution order (in general)</p>
 <p>FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT</p>
-<h3>Shortcut</h3>
+<h3 id="shortcut">Shortcut<a class="headerlink" href="#shortcut" title="Permanent link">&para;</a></h3>
 <div class="admonition danger">
 <p class="admonition-title">Order by position</p>
 <p>It is possible in some engine to specify the position or the column to apply the order on. This is not supported by every engine and will not raise an error.</p>

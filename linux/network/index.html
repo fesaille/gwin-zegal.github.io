@@ -478,12 +478,45 @@
     Basics
   </a>
   
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saslgssapi" class="md-nav__link">
+    SASL/GSSAPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos" class="md-nav__link">
+    Kerberos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#utils" class="md-nav__link">
     Utils
   </a>
+  
+    <nav class="md-nav" aria-label="Utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2017,12 +2050,45 @@
     Basics
   </a>
   
+    <nav class="md-nav" aria-label="Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saslgssapi" class="md-nav__link">
+    SASL/GSSAPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos" class="md-nav__link">
+    Kerberos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#utils" class="md-nav__link">
     Utils
   </a>
+  
+    <nav class="md-nav" aria-label="Utils">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2046,7 +2112,7 @@
 - network layer (layer 3)
 - transport layer (layer 4)
 - application layer (layer 7)</p>
-<h3>SASL/GSSAPI</h3>
+<h3 id="saslgssapi">SASL/GSSAPI<a class="headerlink" href="#saslgssapi" title="Permanent link">&para;</a></h3>
 <h4>SASL: <em>Simple Authentification and Security Layer</em></h4>
 <p>Framework  authentication and data security in Internet protocols. It decouples authentication mechanisms from application protocols:</p>
 <ul>
@@ -2054,7 +2120,7 @@
 <li>clients and servers can negociate a mutulaly acceptable exchange mechanism</li>
 </ul>
 <h4>GSSAPI: <em>Generic Secutrity Services Application Program Interface</em></h4>
-<h3>Kerberos</h3>
+<h3 id="kerberos">Kerberos<a class="headerlink" href="#kerberos" title="Permanent link">&para;</a></h3>
 <p>From <a href="https://en.wikipedia.org/wiki/Kerberos_(protocol)">Wikipedia</a> and <a href="http://python-notes.curiousefficiency.org/en/latest/python_kerberos.html">some python notes</a>:</p>
 <ul>
 <li>
@@ -2090,7 +2156,7 @@ encrypted result to the user's workstation.</p>
 <ul>
 <li><strong>mtr</strong> <badge-stars repo="traviscross/mtr"></badge-stars> determines the address of each network hop between the machines, it sends a sequence of ICMP ECHO requests to each one to determine the quality of the link to each machine.</li>
 </ul>
-<h3>Resources</h3>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
 <p><strong>Displaying IP address on eth0 interface</strong>
 <div class="highlight"><pre><span></span><code>ifconfig eth0 | grep &quot;inet ad&quot; | cut -d &#39;:&#39; -f 2 | cut -d &#39; &#39; -f 1
 </code></pre></div></p>

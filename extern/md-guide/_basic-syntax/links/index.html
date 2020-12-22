@@ -76,6 +76,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adding-titles" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1944,6 +1949,62 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-titles" class="md-nav__link">
+    Adding Titles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#urls-and-email-addresses" class="md-nav__link">
+    URLs and Email Addresses
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formatting-links" class="md-nav__link">
+    Formatting Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-style-links" class="md-nav__link">
+    Reference-style Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-best-practices" class="md-nav__link">
+    Link Best Practices
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1957,13 +2018,13 @@
 </code></pre></div>
 <p>The rendered output looks like this:</p>
 <p>My favorite search engine is <a href="https://duckduckgo.com">Duck Duck Go</a>.</p>
-<h3>Adding Titles</h3>
+<h3 id="adding-titles">Adding Titles<a class="headerlink" href="#adding-titles" title="Permanent link">&para;</a></h3>
 <p>You can optionally add a title for a link. This will appear as a tooltip when the user hovers over the link. To add a title, enclose it in parentheses after the URL.</p>
 <div class="highlight"><pre><span></span><code>My favorite search engine is [Duck Duck Go](https://duckduckgo.com &quot;The best search engine for privacy&quot;).
 </code></pre></div>
 <p>The rendered output looks like this:</p>
 <p>My favorite search engine is <a href="https://duckduckgo.com" title="The best search engine for privacy">Duck Duck Go</a>.</p>
-<h3>URLs and Email Addresses</h3>
+<h3 id="urls-and-email-addresses">URLs and Email Addresses<a class="headerlink" href="#urls-and-email-addresses" title="Permanent link">&para;</a></h3>
 <p>To quickly turn a URL or email address into a link, enclose it in angle brackets.</p>
 <div class="highlight"><pre><span></span><code>&lt;https://www.markdownguide.org&gt;
 &lt;fake@example.com&gt;
@@ -1971,7 +2032,7 @@
 <p>The rendered output looks like this:</p>
 <p><a href="https://www.markdownguide.org">https://www.markdownguide.org</a><br/>
 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#97;&#107;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#102;&#97;&#107;&#101;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
-<h3>Formatting Links</h3>
+<h3 id="formatting-links">Formatting Links<a class="headerlink" href="#formatting-links" title="Permanent link">&para;</a></h3>
 <p>To <a href="#emphasis">emphasize</a> links, add asterisks before and after the brackets and parentheses. To denote links as <a href="#code">code</a>, add backticks in the brackets.</p>
 <div class="highlight"><pre><span></span><code>I love supporting the **[EFF](https://eff.org)**.
 This is the *[Markdown Guide](https://www.markdownguide.org)*.
@@ -1981,7 +2042,7 @@ See the section on [`code`](#code).
 <p>I love supporting the <strong><a href="https://eff.org">EFF</a></strong>.<br/>
 This is the <em><a href="https://www.markdownguide.org">Markdown Guide</a></em>.<br/>
 See the section on <a href="#code"><code>code</code></a>.</p>
-<h3>Reference-style Links</h3>
+<h3 id="reference-style-links">Reference-style Links<a class="headerlink" href="#reference-style-links" title="Permanent link">&para;</a></h3>
 <p>Reference-style links are a special kind of link that make URLs easier to display and read in Markdown. Reference-style links are constructed in two parts: the part you keep inline with your text and the part you store somewhere else in the file to keep the text easy to read.</p>
 <h4>Formatting the First Part of the Link</h4>
 <p>The first part of a reference-style link is formatted with two sets of brackets. The first set of brackets surrounds the text that should appear linked. The second set of brackets displays a label used to point to the link you're storing elsewhere in your document.</p>
@@ -2029,7 +2090,7 @@ eat: it was a [hobbit-hole][1], and that means comfort.
 <p>and the HTML for the link would be:</p>
 <div class="highlight"><pre><span></span><code>&lt;a href=&quot;https://en.wikipedia.org/wiki/Hobbit#Lifestyle&quot; title=&quot;Hobbit lifestyles&quot;&gt;hobbit-hole&lt;/a&gt;
 </code></pre></div>
-<h3>Link Best Practices</h3>
+<h3 id="link-best-practices">Link Best Practices<a class="headerlink" href="#link-best-practices" title="Permanent link">&para;</a></h3>
 <p>Markdown applications don't agree on how to handle spaces in the middle of a URL. For compatibility, try to URL encode any spaces with <code>%20</code>.</p>
 <table class="table table-bordered">
   <thead class="thead-light">

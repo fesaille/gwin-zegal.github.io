@@ -1023,12 +1023,52 @@
     Minikube
   </a>
   
+    <nav class="md-nav" aria-label="Minikube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver" class="md-nav__link">
+    Driver:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#openshift" class="md-nav__link">
     OpenShift
   </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2026,12 +2066,52 @@
     Minikube
   </a>
   
+    <nav class="md-nav" aria-label="Minikube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driver" class="md-nav__link">
+    Driver:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#openshift" class="md-nav__link">
     OpenShift
   </a>
+  
+    <nav class="md-nav" aria-label="OpenShift">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2058,12 +2138,12 @@
                 <h1 id="kubernetes-distribution">Kubernetes distribution<a class="headerlink" href="#kubernetes-distribution" title="Permanent link">&para;</a></h1>
 <h2 id="minikube">Minikube<a class="headerlink" href="#minikube" title="Permanent link">&para;</a></h2>
 <p><strong>Minikube</strong> <badge-stars repo='kubernetes/minikube'></badge-stars> <badge-doc href="https://minikube.sigs.k8s.io"></badge-doc> installs a local kubernetes cluster. </p>
-<h3>Installation</h3>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>Direct download via:</p>
 <div class="highlight"><pre><span></span><code>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   &amp;&amp; chmod +x minikube
 </code></pre></div>
-<h3>Driver:</h3>
+<h3 id="driver">Driver:<a class="headerlink" href="#driver" title="Permanent link">&para;</a></h3>
 <p>The <a href="https://minikube.sigs.k8s.io/docs/drivers/vmware/">vmware driver</a>
  supports virtualization across all VMware based hypervisors.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">r</span><span class="o">=</span>https://api.github.com/repos/machine-drivers/docker-machine-driver-vmware
@@ -2072,7 +2152,7 @@ curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/la
    /usr/local/bin/docker-machine-driver-vmware
 </code></pre></div>
 <h2 id="openshift">OpenShift<a class="headerlink" href="#openshift" title="Permanent link">&para;</a></h2>
-<h3>Service accounts</h3>
+<h3 id="service-accounts">Service accounts<a class="headerlink" href="#service-accounts" title="Permanent link">&para;</a></h3>
 <p>List service accounts:</p>
 <div class="highlight"><pre><span></span><code>oc get serviceaccounts
 </code></pre></div>
@@ -2080,7 +2160,7 @@ curl -LO <span class="k">$(</span>curl -s <span class="nv">$r</span>/releases/la
 <p>Namespace, labels, annotations, secrets, tokens and events can de parsed, e.g. for a secret cert:</p>
 <div class="highlight"><pre><span></span><code>oc get secret &lt;ACCOUNTNAME&gt;-token-&lt;RANDOM&gt; -o <span class="s2">&quot;jsonpath={.data[&#39;service-ca\.crt&#39;]}&quot;</span> <span class="p">|</span> base64 -d
 </code></pre></div>
-<h3>Resources</h3>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
 <p><strong>Quota</strong> can be visualized per namespace with <code>oc describe quota</code></p>
 <p><strong>Usage</strong> can be visualized for resources <code>images</code>, <code>imagestreams</code>, <code>node</code> and <code>pods</code> with <code>oc adm top &lt;RESOURCE&gt;</code>. This one is a built on <code>kubectl top &lt;RESOURCE&gt;</code>.</p>
 <h2 id="minishift">Minishift<a class="headerlink" href="#minishift" title="Permanent link">&para;</a></h2>

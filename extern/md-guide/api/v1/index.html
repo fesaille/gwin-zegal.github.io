@@ -1968,6 +1968,26 @@
     Introduction
   </a>
   
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    Why?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    Limitations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1975,12 +1995,52 @@
     Basic Syntax Endpoint
   </a>
   
+    <nav class="md-nav" aria-label="Basic Syntax Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#cheat-sheet-endpoint" class="md-nav__link">
     Cheat Sheet Endpoint
   </a>
+  
+    <nav class="md-nav" aria-label="Cheat Sheet Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request_1" class="md-nav__link">
+    Request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1999,11 +2059,11 @@
                 
                 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The Markdown Guide API provides a subset of documentation from the <em>Markdown Guide</em> in JSON format. We hope that software developers and organizations use this API to programmatically consume our documentation and display it in applications and on websites.</p>
-<h3>Why?</h3>
+<h3 id="why">Why?<a class="headerlink" href="#why" title="Permanent link">&para;</a></h3>
 <p>Why create an API for Markdown documentation? Because there's so much duplicated Markdown documentation on the web! It seems like everybody has their own version of Markdown documentation for their application or website. That's a shame since most of it is exactly the same.</p>
 <p>Then came the epiphany. 💡 We realized we could create a JSON API using documentation from the <em>Markdown Guide</em>. That way, software developers could start using the API to include our documentation in their applications, and organizations like universities and libraries could use the API to include our documentation on their websites.</p>
 <p>We'd love to see the <em>Markdown Guide</em> become the central documentation repository for the thousands of Markdown instructions sprinkled around the internet. Will it work? Who knows! One thing's for sure though: We can't wait to see what you do with it. 🤘</p>
-<h3>Limitations</h3>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
 <p>The Markdown Guide API is designed to provide only essential Markdown documentation. As a result, the API doesn't include all of the documentation available on the <em>Markdown Guide</em> website. For example, the <a href="/basic-syntax/#adding-elements-in-lists">Adding Elements in Lists</a> section is not available through the basic syntax endpoint.</p>
 <h2 id="basic-syntax-endpoint">Basic Syntax Endpoint<a class="headerlink" href="#basic-syntax-endpoint" title="Permanent link">&para;</a></h2>
 <p>The basic syntax endpoint contains documentation about the Markdown elements outlined in John Gruber's design document and described on the <a href="/basic-syntax/">Basic Syntax page</a>.</p>
@@ -2012,9 +2072,9 @@
   <div class="card-body"><a href="/api/v1/basic-syntax.json">/api/v1/basic-syntax.json</a></div>
 </div>
 
-<h3>Request</h3>
+<h3 id="request">Request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
 <p><code>curl https://www.markdownguide.org/api/v1/basic-syntax.json</code></p>
-<h3>Response</h3>
+<h3 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
 <script src="https://gist.github.com/mattcone/a0103c47bdac8bf81a54b29f650e5cb2.js"></script>
 
 <h2 id="cheat-sheet-endpoint">Cheat Sheet Endpoint<a class="headerlink" href="#cheat-sheet-endpoint" title="Permanent link">&para;</a></h2>
@@ -2024,9 +2084,9 @@
   <div class="card-body"><a href="/api/v1/cheat-sheet.json">/api/v1/cheat-sheet.json</a></div>
 </div>
 
-<h3>Request</h3>
+<h3 id="request_1">Request<a class="headerlink" href="#request_1" title="Permanent link">&para;</a></h3>
 <p><code>curl https://www.markdownguide.org/api/v1/cheat-sheet.json</code></p>
-<h3>Response</h3>
+<h3 id="response_1">Response<a class="headerlink" href="#response_1" title="Permanent link">&para;</a></h3>
 <script src="https://gist.github.com/mattcone/ec8057127a0ff2e0b45d2cde14355b2a.js"></script>
 
 <h1 class="page-header">Changelog</h1>

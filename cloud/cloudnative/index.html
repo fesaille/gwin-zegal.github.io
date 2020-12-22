@@ -1085,6 +1085,33 @@
     Pattern
   </a>
   
+    <nav class="md-nav" aria-label="Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retry-pattern" class="md-nav__link">
+    Retry Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    Circuit Breaker Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pub-sub" class="md-nav__link">
+    Pub &amp; Sub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2059,6 +2086,33 @@
     Pattern
   </a>
   
+    <nav class="md-nav" aria-label="Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#retry-pattern" class="md-nav__link">
+    Retry Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-breaker-pattern" class="md-nav__link">
+    Circuit Breaker Pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pub-sub" class="md-nav__link">
+    Pub &amp; Sub
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2126,16 +2180,16 @@
 <li>Transport cost is zero;</li>
 <li>The network is homogeneous.</li>
 </ul>
-<h3>Retry Pattern</h3>
+<h3 id="retry-pattern">Retry Pattern<a class="headerlink" href="#retry-pattern" title="Permanent link">&para;</a></h3>
 <p>On failure, an application retries to connect the server</p>
-<h3>Circuit Breaker Pattern</h3>
+<h3 id="circuit-breaker-pattern">Circuit Breaker Pattern<a class="headerlink" href="#circuit-breaker-pattern" title="Permanent link">&para;</a></h3>
 <p>If a service is not available, the user can become quicker information on the failure. Kind of proxy. Made through a State machine:</p>
 <ul>
 <li>Open</li>
 <li>Closed: a timer will be increased. Over a threshold, no requests any more</li>
 <li>Half-Open: an amount of requests are satisfied; Over a threshold, goes in closed</li>
 </ul>
-<h3>Pub &amp; Sub</h3>
+<h3 id="pub-sub">Pub &amp; Sub<a class="headerlink" href="#pub-sub" title="Permanent link">&para;</a></h3>
 <p>A sender can reach several consumer without to know which part is interesting for the consumer</p>
 <p>Message Broker: from an input channel, fills output channels that can be consummed by consumers.</p>
 <h2 id="work-at-scale">Work at scale<a class="headerlink" href="#work-at-scale" title="Permanent link">&para;</a></h2>

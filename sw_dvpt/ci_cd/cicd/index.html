@@ -761,6 +761,47 @@
     with pre-commmit
   </a>
   
+    <nav class="md-nav" aria-label="with pre-commmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    Code style
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    Lint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-checker" class="md-nav__link">
+    Code checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    MyPy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2012,6 +2053,47 @@
     with pre-commmit
   </a>
   
+    <nav class="md-nav" aria-label="with pre-commmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    Code style
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lint" class="md-nav__link">
+    Lint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-checker" class="md-nav__link">
+    Code checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mypy" class="md-nav__link">
+    MyPy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2045,7 +2127,7 @@ need to inspect in the code. Exiting non-zero from this hook aborts the commit.<
 <div class="highlight"><pre><span></span><code>pre-commit install
 </code></pre></div>
 <p>Some <a href="">hooks</a> are available for various purpose:</p>
-<h3>General</h3>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
 <p>Some <a href="https://github.com/pre-commit/pre-commit-hooks#hooks-available">"built-in" hooks</a> are provided with pre-commit.</p>
 <details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/pre-commit-hooks</span>
   <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2.4.0</span>
@@ -2054,7 +2136,7 @@ need to inspect in the code. Exiting non-zero from this hook aborts the commit.<
     <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trailing-whitespace</span>
 </code></pre></div>
 </details>
-<h3>Code style</h3>
+<h3 id="code-style">Code style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <h4>Isort</h4>
 <details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/psf/black</span>
   <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v3.3.0</span>
@@ -2069,7 +2151,7 @@ need to inspect in the code. Exiting non-zero from this hook aborts the commit.<
     <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">black</span>
 </code></pre></div>
 </details>
-<h3>Lint</h3>
+<h3 id="lint">Lint<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h3>
 <h4>yamllint</h4>
 <details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/adrienverge/yamllint</span>
   <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.25.0</span>
@@ -2085,8 +2167,8 @@ need to inspect in the code. Exiting non-zero from this hook aborts the commit.<
       <span class="nt">additional_dependencies</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">flake8-bugbear</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 </details>
-<h3>Code checker</h3>
-<h3>MyPy</h3>
+<h3 id="code-checker">Code checker<a class="headerlink" href="#code-checker" title="Permanent link">&para;</a></h3>
+<h3 id="mypy">MyPy<a class="headerlink" href="#mypy" title="Permanent link">&para;</a></h3>
 <details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">repo</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/pre-commit/mirrors-mypy</span>
   <span class="nt">rev</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.770</span>
   <span class="nt">hooks</span><span class="p">:</span>

@@ -826,12 +826,52 @@
     VirtualBox
   </a>
   
+    <nav class="md-nav" aria-label="VirtualBox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-command-for-running-vm" class="md-nav__link">
+    Basic command for running VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#vagrant" class="md-nav__link">
     Vagrant
   </a>
+  
+    <nav class="md-nav" aria-label="Vagrant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-debian-based-systems" class="md-nav__link">
+    Installation on Debian based systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-on-hosts-with-secure-mode-enabled" class="md-nav__link">
+    Troubleshooting on hosts with secure mode enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2024,12 +2064,52 @@
     VirtualBox
   </a>
   
+    <nav class="md-nav" aria-label="VirtualBox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-command-for-running-vm" class="md-nav__link">
+    Basic command for running VM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#vagrant" class="md-nav__link">
     Vagrant
   </a>
+  
+    <nav class="md-nav" aria-label="Vagrant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-debian-based-systems" class="md-nav__link">
+    Installation on Debian based systems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-on-hosts-with-secure-mode-enabled" class="md-nav__link">
+    Troubleshooting on hosts with secure mode enabled
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2057,10 +2137,10 @@
 <p><a href="https://fr.wikipedia.org/wiki/Virtualisation">Wikipedia</a></p>
 <h2 id="virtualbox">VirtualBox<a class="headerlink" href="#virtualbox" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a> is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use. </p>
-<h3>Installation</h3>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>Binaries, extension and source code can be installed from the <a href="https://www.virtualbox.org/wiki/Downloads">wiki</a>.</p>
 <p>A handy feature is the ability to run common commands for managing VM from the cli after installing the <a href="https://www.virtualbox.org/wiki/Downloads">extension pack</a></p>
-<h3>Basic command for running VM</h3>
+<h3 id="basic-command-for-running-vm">Basic command for running VM<a class="headerlink" href="#basic-command-for-running-vm" title="Permanent link">&para;</a></h3>
 <p>The extension pack cli entry point <code>VBoxManage</code> can be aliased as:
 <div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">vbm</span><span class="o">=</span>VBoxManage
 </code></pre></div></p>
@@ -2088,7 +2168,7 @@ vbm guestproperty enumerate MyVM
 vbm guestproperty get Cloudera /VirtualBox/GuestInfo/Net/0/V4/IP
 </code></pre></div></p>
 <h2 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h2>
-<h3>Installation on Debian based systems</h3>
+<h3 id="installation-on-debian-based-systems">Installation on Debian based systems<a class="headerlink" href="#installation-on-debian-based-systems" title="Permanent link">&para;</a></h3>
 <p>deb package can be found at <a href="https://www.vagrantup.com/downloads.html">download</a></p>
 <div class="highlight"><pre><span></span><code>curl -LO https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
 sudo apt install ./vagrant_2.2.9_x86_64.deb
@@ -2096,7 +2176,7 @@ sudo apt install ./vagrant_2.2.9_x86_64.deb
 </code></pre></div>
 <p><a href="https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html">Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters</a></p>
 <p><a href="https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d">How to create a Vagrant Box running Red Hat Enterprise Linux</a></p>
-<h3>Troubleshooting on hosts with secure mode enabled</h3>
+<h3 id="troubleshooting-on-hosts-with-secure-mode-enabled">Troubleshooting on hosts with secure mode enabled<a class="headerlink" href="#troubleshooting-on-hosts-with-secure-mode-enabled" title="Permanent link">&para;</a></h3>
 <p>UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that
 code launched by a computer's UEFI firmware is trusted. Unsigned drivers are
 therefor not allowed to load.</p>

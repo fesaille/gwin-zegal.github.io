@@ -1373,6 +1373,40 @@
     Selection stage
   </a>
   
+    <nav class="md-nav" aria-label="Selection stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match-filtering-documents" class="md-nav__link">
+    $match - filtering documents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-shaping-document-projection" class="md-nav__link">
+    $project - shaping document (projection)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addfields-add-transformation-fields-in-the-document" class="md-nav__link">
+    $addFields: add transformation fields in the document
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geonear-filtering-documents" class="md-nav__link">
+    $geoNear: filtering    documents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1380,12 +1414,66 @@
     Cursor-like stages
   </a>
   
+    <nav class="md-nav" aria-label="Cursor-like stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limit-limit" class="md-nav__link">
+    $limit: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-limit" class="md-nav__link">
+    $skip: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-limit" class="md-nav__link">
+    $count: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-limit" class="md-nav__link">
+    $sort: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-limit" class="md-nav__link">
+    $sample: limit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#group-stage" class="md-nav__link">
     Group stage
   </a>
+  
+    <nav class="md-nav" aria-label="Group stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-limit" class="md-nav__link">
+    $group: limit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2026,6 +2114,40 @@
     Selection stage
   </a>
   
+    <nav class="md-nav" aria-label="Selection stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#match-filtering-documents" class="md-nav__link">
+    $match - filtering documents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-shaping-document-projection" class="md-nav__link">
+    $project - shaping document (projection)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addfields-add-transformation-fields-in-the-document" class="md-nav__link">
+    $addFields: add transformation fields in the document
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geonear-filtering-documents" class="md-nav__link">
+    $geoNear: filtering    documents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2033,12 +2155,66 @@
     Cursor-like stages
   </a>
   
+    <nav class="md-nav" aria-label="Cursor-like stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limit-limit" class="md-nav__link">
+    $limit: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skip-limit" class="md-nav__link">
+    $skip: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#count-limit" class="md-nav__link">
+    $count: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-limit" class="md-nav__link">
+    $sort: limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-limit" class="md-nav__link">
+    $sample: limit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#group-stage" class="md-nav__link">
     Group stage
   </a>
+  
+    <nav class="md-nav" aria-label="Group stage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#group-limit" class="md-nav__link">
+    $group: limit
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2069,14 +2245,14 @@
 </code></pre></div>
 </div>
 <h2 id="selection-stage">Selection stage<a class="headerlink" href="#selection-stage" title="Permanent link">&para;</a></h2>
-<h3><strong><code>$match</code></strong> - filtering documents</h3>
+<h3 id="match-filtering-documents"><strong><code>$match</code></strong> - filtering documents<a class="headerlink" href="#match-filtering-documents" title="Permanent link">&para;</a></h3>
 <ul>
 <li>a <code>$match</code> may contain a <code>$text</code> query operator, but it must be the first in the pipeline</li>
 <li><code>$match</code> should come early in the pipeline</li>
 <li><code>$where</code> can not be used with <code>$match</code></li>
 <li><code>$match</code> uses the same syntax as <code>find()</code></li>
 </ul>
-<h3><strong><code>$project</code></strong> - shaping document (projection)</h3>
+<h3 id="project-shaping-document-projection"><strong><code>$project</code></strong> - shaping document (projection)<a class="headerlink" href="#project-shaping-document-projection" title="Permanent link">&para;</a></h3>
 <p>{ $project: { <specification(s)> } }</p>
 <ul>
 <li>specify fields to be retained</li>
@@ -2084,8 +2260,8 @@
 <li>let add new fields or reassign values</li>
 <li>can be used as many times as required in an aggregation pipeline</li>
 </ul>
-<h3><strong><code>$addFields</code></strong>: add transformation fields in the document</h3>
-<h3><strong><code>$geoNear</code></strong>: filtering    documents</h3>
+<h3 id="addfields-add-transformation-fields-in-the-document"><strong><code>$addFields</code></strong>: add transformation fields in the document<a class="headerlink" href="#addfields-add-transformation-fields-in-the-document" title="Permanent link">&para;</a></h3>
+<h3 id="geonear-filtering-documents"><strong><code>$geoNear</code></strong>: filtering    documents<a class="headerlink" href="#geonear-filtering-documents" title="Permanent link">&para;</a></h3>
 <ul>
 <li>must be the first stage in the pipeline</li>
 <li>is a collection with only one geo index</li>
@@ -2096,13 +2272,13 @@
 </code></pre></div>
 </div>
 <h2 id="cursor-like-stages">Cursor-like stages<a class="headerlink" href="#cursor-like-stages" title="Permanent link">&para;</a></h2>
-<h3><strong><code>$limit</code></strong>: limit</h3>
-<h3><strong><code>$skip</code></strong>: limit</h3>
-<h3><strong><code>$count</code></strong>: limit</h3>
-<h3><strong><code>$sort</code></strong>: limit</h3>
-<h3><strong><code>$sample</code></strong>: limit</h3>
+<h3 id="limit-limit"><strong><code>$limit</code></strong>: limit<a class="headerlink" href="#limit-limit" title="Permanent link">&para;</a></h3>
+<h3 id="skip-limit"><strong><code>$skip</code></strong>: limit<a class="headerlink" href="#skip-limit" title="Permanent link">&para;</a></h3>
+<h3 id="count-limit"><strong><code>$count</code></strong>: limit<a class="headerlink" href="#count-limit" title="Permanent link">&para;</a></h3>
+<h3 id="sort-limit"><strong><code>$sort</code></strong>: limit<a class="headerlink" href="#sort-limit" title="Permanent link">&para;</a></h3>
+<h3 id="sample-limit"><strong><code>$sample</code></strong>: limit<a class="headerlink" href="#sample-limit" title="Permanent link">&para;</a></h3>
 <h2 id="group-stage">Group stage<a class="headerlink" href="#group-stage" title="Permanent link">&para;</a></h2>
-<h3><strong><code>$group</code></strong>: limit</h3>
+<h3 id="group-limit"><strong><code>$group</code></strong>: limit<a class="headerlink" href="#group-limit" title="Permanent link">&para;</a></h3>
                 
               
               
