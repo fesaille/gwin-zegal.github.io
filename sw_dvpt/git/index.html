@@ -815,46 +815,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-flow" class="md-nav__link">
-    Git flow
-  </a>
-  
-    <nav class="md-nav" aria-label="Git flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#platform-specific" class="md-nav__link">
-    Platform specific
-  </a>
-  
-    <nav class="md-nav" aria-label="Platform specific">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    Github
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#hooks" class="md-nav__link">
     Hooks
   </a>
@@ -2267,46 +2227,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-flow" class="md-nav__link">
-    Git flow
-  </a>
-  
-    <nav class="md-nav" aria-label="Git flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pull-request" class="md-nav__link">
-    Pull request
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#platform-specific" class="md-nav__link">
-    Platform specific
-  </a>
-  
-    <nav class="md-nav" aria-label="Platform specific">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    Github
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#hooks" class="md-nav__link">
     Hooks
   </a>
@@ -2490,77 +2410,24 @@ git log rebB --not revA
 <p>The <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">submodule configuration</a> can be displayed with <code>git config</code>:
 <div class="highlight"><pre><span></span><code>git config -l
 </code></pre></div>
-A specific config file can be given to <code>git config</code> with the <code>--file</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file">flag</a>:
+A specific config file can be given to <code>git config</code> with the <code>--file</code> <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt---fileconfig-file">flag</a>:</p>
 <div class="highlight"><pre><span></span><code>git config -l --file=.gitmodules
 </code></pre></div>
-Url, branch and <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">other parameters</a> can be configured via <code>git config</code>
+<p>Url, branch and <a href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-submoduleltnamegturl">other parameters</a> can be configured via <code>git config</code></p>
 <div class="highlight"><pre><span></span><code>git config --file=.gitmodules submodule.&lt;submodule_name&gt;.url &lt;git@github.com:username/repository.git&gt;
 git config --file=.gitmodules submodule.&lt;submodule_name&gt;.branch &lt;branch_name&gt;
 </code></pre></div>
-Synchronization adn update of the submodules are done with:
+<p>Synchronization adn update of the submodules are done with:</p>
 <div class="highlight"><pre><span></span><code>git submodule sync
 git submodule update --init --recursive --remote --merge
 # ! If --merge option is missing, HEAD will be detached
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
 <p>First the other repository source must be added to the remote list
 <div class="highlight"><pre><span></span><code>git remote add other https://other.url/repository.git
 git fetch other
 </code></pre></div></p>
 <p>Then use <a href="https://git-scm.com/docs/git-cherry-pick"><code>git cherry-pick</code></a></p>
-<h2 id="git-flow">Git flow<a class="headerlink" href="#git-flow" title="Permanent link">&para;</a></h2>
-<p>From <a href="http://scottchacon.com/2011/08/31/github-flow.html">Scott Chacon blog</a>:</p>
-<blockquote>
-<ul>
-<li>To work on something new, create a descriptively named branch off of master</li>
-<li>Commit to that branch locally and regularly push your work to the same named branch on the server</li>
-<li>When you need feedback or help, or you think the branch is ready for merging, open a pull request</li>
-<li>After someone else has reviewed and signed off on the feature, you can merge it into master</li>
-</ul>
-</blockquote>
-<h3 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h3>
-<p>https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/
-https://stackoverflow.com/questions/14680711</p>
-<p>https://stackoverflow.com/questions/29049650</p>
-<p>Switch branches or restore working tree files</p>
-<div class="highlight"><pre><span></span><code>git checkout master
-git checkout -b mybranch
-</code></pre></div>
-<p><code>git remote</code> manage the set of repositories ("remotes") whose branches you track.
-<div class="highlight"><pre><span></span><code>git remote -v
-# If upstream is not configured, add the upstream route
-git remote add upstream /url/original/repo
-
-git fetch upstream
-
-# reset master to upstream/master
-git checkout master
-git reset --hard upstream/master
-git push --force
-
-  y--y--y (mybranch)
- /
-z--z--z   (master, upstream/master, origin/master)
-
-# replay the patches (even they are rejected for now) on top of master
-git checkout mybranch
-git rebase master
-git push -u origin mybranch
-
-        y&#39;--y&#39;--y&#39; (mybranch, origin/mybranch)
-       /
-z--z--z   (master, upstream/master, origin/master)
-</code></pre></div></p>
-<h2 id="platform-specific">Platform specific<a class="headerlink" href="#platform-specific" title="Permanent link">&para;</a></h2>
-<h3 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
-<p><strong>cli</strong> <badge-stars repo='cli/cli'></badge-stars> is github official cli tool.</p>
-<h4>Change the repository language detection</h4>
-<p><a href="https://git-scm.com/docs/gitattributes/2.9.5"><code>.gitattributes</code></a> s used for the files you want to override using the <code>linguist-documentation</code>, <code>linguist-language</code>, <code>linguist-vendored</code>, <code>linguist-generated</code> and <code>linguist-detectable</code> attributes.</p>
-<p>Installation <badge-doc href='https://github.com/github/linguist#installation', logo='github'></badge-doc> is performed with gem:
-<div class="highlight"><pre><span></span><code>gem install github-linguist
-</code></pre></div></p>
-<h4>Github action</h4>
-<p><strong>act</strong> <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.</p>
 <h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
 <p>Hooks <badge-doc
 href='https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'></badge-doc> are
@@ -2795,6 +2662,59 @@ document are to be interpreted as described in <a href="https://www.ietf.org/rfc
 </details>
 <p><strong>ghq</strong> <badge-stars repo='x-motemen/ghq'></badge-stars> provides a way to
 organize remote repository clones, like go get does.</p>
+<h2 id="git-flow">Git flow<a class="headerlink" href="#git-flow" title="Permanent link">&para;</a></h2>
+<p>From <a href="http://scottchacon.com/2011/08/31/github-flow.html">Scott Chacon blog</a>:</p>
+<blockquote>
+<ul>
+<li>To work on something new, create a descriptively named branch off of master</li>
+<li>Commit to that branch locally and regularly push your work to the same named branch on the server</li>
+<li>When you need feedback or help, or you think the branch is ready for merging, open a pull request</li>
+<li>After someone else has reviewed and signed off on the feature, you can merge it into master</li>
+</ul>
+</blockquote>
+<h3 id="pull-request">Pull request<a class="headerlink" href="#pull-request" title="Permanent link">&para;</a></h3>
+<p>https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/
+https://stackoverflow.com/questions/14680711</p>
+<p>https://stackoverflow.com/questions/29049650</p>
+<p>Switch branches or restore working tree files</p>
+<div class="highlight"><pre><span></span><code>git checkout master
+git checkout -b mybranch
+</code></pre></div>
+<p><code>git remote</code> manage the set of repositories ("remotes") whose branches you track.
+<div class="highlight"><pre><span></span><code>git remote -v
+# If upstream is not configured, add the upstream route
+git remote add upstream /url/original/repo
+
+git fetch upstream
+
+# reset master to upstream/master
+git checkout master
+git reset --hard upstream/master
+git push --force
+
+  y--y--y (mybranch)
+ /
+z--z--z   (master, upstream/master, origin/master)
+
+# replay the patches (even they are rejected for now) on top of master
+git checkout mybranch
+git rebase master
+git push -u origin mybranch
+
+        y&#39;--y&#39;--y&#39; (mybranch, origin/mybranch)
+       /
+z--z--z   (master, upstream/master, origin/master)
+</code></pre></div></p>
+<h2 id="platform-specific">Platform specific<a class="headerlink" href="#platform-specific" title="Permanent link">&para;</a></h2>
+<h3 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p><strong>cli</strong> <badge-stars repo='cli/cli'></badge-stars> is github official cli tool.</p>
+<h4>Change the repository language detection</h4>
+<p><a href="https://git-scm.com/docs/gitattributes/2.9.5"><code>.gitattributes</code></a> s used for the files you want to override using the <code>linguist-documentation</code>, <code>linguist-language</code>, <code>linguist-vendored</code>, <code>linguist-generated</code> and <code>linguist-detectable</code> attributes.</p>
+<p>Installation <badge-doc href='https://github.com/github/linguist#installation', logo='github'></badge-doc> is performed with gem:
+<div class="highlight"><pre><span></span><code>gem install github-linguist
+</code></pre></div></p>
+<h4>Github action</h4>
+<p><strong>act</strong> <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.</p>
 <h2 id="git-diff">Git diff<a class="headerlink" href="#git-diff" title="Permanent link">&para;</a></h2>
 <p>Git diff can be displayed side by side with delta as a pager
 <badge-stars repo='dandavison/delta'></badge-stars> <badge-doc
