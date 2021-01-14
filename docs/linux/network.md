@@ -2,7 +2,7 @@
 
 ## Basics
 
-The [OSI (Open Systems Interconnection)](https://en.wikipedia.org/wiki/OSI_model) uses seven layers, 
+The [OSI (Open Systems Interconnection)](https://en.wikipedia.org/wiki/OSI_model) uses seven layers,
 - physical layer (layer 1)
 - network layer (layer 3)
 - transport layer (layer 4)
@@ -11,10 +11,10 @@ The [OSI (Open Systems Interconnection)](https://en.wikipedia.org/wiki/OSI_model
 
 ### SASL/GSSAPI
 
-#### SASL: *Simple Authentification and Security Layer* 
+#### SASL: *Simple Authentification and Security Layer*
 
 Framework  authentication and data security in Internet protocols. It decouples authentication mechanisms from application protocols:
- 
+
 - developpers can implement different authentication mechanisms
 - clients and servers can negociate a mutulaly acceptable exchange mechanism
 
@@ -34,11 +34,11 @@ The AS becomes the request and uses the password to decrypt the request: the use
 	- Client sends an unauthenticated request to the server
 	- Server sends back a 401 response with a `WWW-Authenticate: Negotiate` header with no authentication details
 
-- **Client Authentication** 
+- **Client Authentication**
 		which forwards the username to a **key distribution center (KDC)**. The KDC
 issues a **ticket-granting ticket (TGT)**, which is time stamped and encrypts
 it using the **ticket-granting service's (TGS)** secret key and returns the
-encrypted result to the user's workstation. 
+encrypted result to the user's workstation.
 
 
 The Ticket Granting Ticket (TGT) encrypted with another secret key
@@ -72,3 +72,4 @@ ifconfig eth0 | grep "inet ad" | cut -d ':' -f 2 | cut -d ' ' -f 1
 ```
 
 [18 commands to monitor network bandwith on Linux server](https://www.binarytides.com/linux-commands-monitor-network/)
+[Red Hat blog: Introduction to Linux interfaces for virtual networking](https://developers.redhat.com/blog/2018/10/22/introduction-to-linux-interfaces-for-virtual-networking)

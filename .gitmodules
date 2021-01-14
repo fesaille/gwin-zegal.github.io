@@ -1,6 +1,6 @@
 [submodule "md-guide"]
 	path = docs/extern/md-guide
 	url = https://github.com/mattcone/markdown-guide.git
-[submodule "ipynb"]
-	path = docs/_nb
-	url = https://github.com/fesaille/ipy_all.git
+[submodule "docs/python"]
+	path = docs/python
+	url = git@github.com:fesaille/doc-python.git

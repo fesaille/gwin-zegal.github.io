@@ -188,7 +188,7 @@ div.highlight:before {
   list-style-type: '- ';
 }
 
-.table_initial + div tr { 
+.table_initial + div tr {
   line-height: initial;
 }
 
@@ -196,3 +196,10 @@ div.highlight:before {
 /*     line-height: initial; */
 /* } */
 
+div.input {
+        border-left: 4px blueviolet solid;
+      }
+
+.md-typeset__table tr {
+    line-height: 2.5ex;
+}

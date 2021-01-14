@@ -74,6 +74,40 @@ Selection must sometimes include the column on which the is done.
     SELECT col1, col2, col3 * col4 AS muliplication FROM table1 ORDER BY multiplication 
     ```
 
+## Limit
+
+For pagination, sql specific implementations:
+
+!!! Example ""
+
+    ```SQL
+    -- For Impala and PostgreSQL
+    LIMIT <limit> OFFSET <offset>
+
+    -- For Hive
+    Limit <offset>, <limit>
+    
+    -- MySQL supports both
+    -- some use SKIP
+    ```
+
+!!! Danger
+
+    Without `ORDER BY`, order is not deterministic: some row could be displayed
+    multiple times or missing as selection is arbitrary. Impala require `ORDER BY`
+    when using `OFFSET`
+
+
+## Select
+
+Syntaxic order
+
+SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
+
+Execution order (in general)
+
+FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT
+
 ### Shortcut
 
 

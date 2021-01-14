@@ -1,19 +1,32 @@
 # Vim
 
-`:h terminal` or <badge-doc href="https://vimhelp.org/terminal.html" message="terminal" logo="vim"></badge-doc>
+[Cheatsheet](https://vim.rtorr.com/)
 
+## Initialisation
 
-https://vim.rtorr.com/
+`:h init` or <badge-doc href="https://vimhelp.org/starting.html#initialization" message="initialization" logo="vim"></badge-doc>
+
+At startup, Vim checks environment variables and files and sets values
+in this order:
+
+1. Set the 'shell' and 'term' option
+2. Process the arguments
+3. Execute Ex commands, from environment variables and/or files
+4. Load the plugin scripts.
+5. Set 'shellpipe' and 'shellredir'
+6. Set various less used initialization until windows open (see doc)
+12. Execute startup commands
 
 ## Configuration
 
 Vim has a number of internal variables and switches:
 
 - [options](https://vimhelp.org/options.txt.html)   description of all options
+  <badge-doc href='https://vimhelp.org/quickref.txt.html#option-list' logo='vim'></badge-doc>
 - [map](https://vimhelp.org/map.txt.html)       key mapping and abbreviations
-- [autocmd](https://vimhelp.org/autocmd.txt.html)p  automatically executing commands on an event
-<!-- - [eval](https://vimhelp.org/eval.txt.html)      expression evaluation, conditional commands -->
+- [autocmd](https://vimhelp.org/autocmd.txt.html)  automatically executing commands on an event
 - [fold](https://vimhelp.org/fold.txt.html)      hide (fold) ranges of lines
+<!-- - [eval](https://vimhelp.org/eval.txt.html)      expression evaluation, conditional commands -->
 
 When starting, vim will look in the [ runtimepath ](https://vimhelp.org/options.txt.html#%27runtimepath%27) and underlying directories for runtime files. Basicaly on unix like systems:
 
@@ -42,6 +55,13 @@ This is a list of some directories which will be searched for runtime files:
 
 `~/.vim/syntax` contains
 
+## Packages (Plugins)
+
+:h packages' <badge-doc href='https://vimhelp.org/repeat.txt.html#packages' logo='vim'></badge-doc>
+
+
 ## Links
 
-[Learn vim script the hard way](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+- [Learn vim script the hard way](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
+- [VIM cheatsheet](https://github.com/hackjutsu/vim-cheatsheet)
+- [VIM script cheatsheet](https://github.com/hackjutsu/vim-cheatsheet)

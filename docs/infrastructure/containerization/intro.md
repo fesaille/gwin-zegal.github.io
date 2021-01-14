@@ -6,3 +6,14 @@ Containers and virtual machines have similar resource isolation and allocation b
 
 
 Source: http://docker.com
+
+
+## Tools
+
+ **container-diff** <badge-stars repo='GoogleContainerTools/container-diff'></badge-stars> is a tool for analyzing and comparing container images along several different criteria, e.g. Docker Image History, image file system andsize, Apt, RPM, pip and npm packages.
+
+**Dive** <badge-stars repo='wagoodman/dive'></badge-stars> is a tool
+for exploring each layer in a docker image.
+
+**DockerSlim** <badge-stars repo='docker-slim/docker-slim'></badge-stars> minify docker image and
+Generate Security Profiles.

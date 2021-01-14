@@ -15,6 +15,19 @@
                 ||----w |
                 ||     ||
 
+## Keywords
+
+ <badge-doc
+ href='https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html' logo="ansible"></badge-doc>
+
+
+## Templates
+
+ <badge-doc
+ href='https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_module.html' logo='ansible'></badge-doc>
+
+[Tutorial](https://www.toptechskills.com/ansible-tutorials-courses/ansible-template-module-tutorial-examples/)
+
 
 ## Testing
 

@@ -68,11 +68,11 @@ Airline integrates with a lot of utilities and therefor has a lot of configurati
 | `:AirlineExtensions`         | Shows the status of all available airline extensions.  Extern means, the extensions does not come bundled with Airline.      |
 
 
-#### Default section
+####  Airline section
 
 
  | variable names                  | default content                                                               |
- | -----------------------------   | ----------------------------------------------                                |
+ |---------------------------------|-------------------------------------------------------------------------------|
  | `let g:airline_section_a`       | (mode, crypt, paste, spell, iminsert)                                         |
  | `let g:airline_section_b`       | (hunks, branch)                                                               |
  | `let g:airline_section_c`       | (bufferline or filename, readonly)                                            |
@@ -108,19 +108,85 @@ Section b needs the [fugitive](https://github.com/tpope/vim-fugitive) plugin-in.
 - **echodoc.vim** <badge-stars repo='Shougo/echodoc.vim'></badge-stars> displays function signatures from completions in the command line.
 
 
-### File editing
+## Tags
+
+https://github.com/liuchengxu/vista.vi://github.com/liuchengxu/vista.vim
+
+
+## Session
+
+- <b>obsession</b> <badge-stars repo='tpope/vim-obsession'></badge-stars>
+  continuously updates session files.
+  `:mksession` command to write a file.
+
+## File editing
 
 - <b>vim-commentary</b> <badge-stars repo='tpope/vim-commentary'></badge-stars> <badge-doc href="https://github.com/tpope/vim-commentary"></badge-doc> comment stuff out
+
 - <b>vim-surround</b> <badge-stars repo='tpope/vim-surround'></badge-stars> provides mapping for parentheses, brackets, quotes, XML tags, and more.
+
+
 - <b>vim-multiple-cursors</b> <badge-stars repo='terryma/vim-multiple-cursors'></badge-stars> <badge-doc href="https://github.com/terryma/vim-multiple-cursors#quick-start" message="latest" logo="github"></badge-doc> is a Sublime Text style multiple selections for Vim
 
-### Browse files, buffers, search
+
+## Browse files: nnn
+
+Other projects:
 
 - <b>Ranger.vim</b> <badge-stars repo='francoiscabrol/ranger.vim'></badge-stars> <badge-doc href="https://github.com/francoiscabrol/ranger.vim#how-to-use-it"></badge-doc>, Ranger integration in vim
-- <b>ctrlp.vim</b> <badge-stars repo='ctrlpvim/ctrlp.vim'></badge-stars>
-- <b>ack.vim</b> <badge-stars repo='mileszs/ack.vim'></badge-stars>
 
+
+## search; fzf
+
+### Commands
+
+| Command           | Description                                                             |
+|-------------------|-------------------------------------------------------------------------|
+| `:Files [PATH]`   | Files (runs `$FZF_DEFAULT_COMMAND` if defined)                          |
+| `:GFiles [OPTS]`  | Git files (`git ls-files`)                                              |
+| `:GFiles?`        | Git files (`git status`)                                                |
+| `:Buffers`        | Open buffers                                                            |
+| `:Colors`         | Color schemes                                                           |
+| `:Ag [PATTERN]`   | [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
+| `:Rg [PATTERN]`   | [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
+| `:Lines [QUERY]`  | Lines in loaded buffers                                                 |
+| `:BLines [QUERY]` | Lines in the current buffer                                             |
+| `:Tags [QUERY]`   | Tags in the project (`ctags -R`)                                        |
+| `:BTags [QUERY]`  | Tags in the current buffer                                              |
+| `:Marks`          | Marks                                                                   |
+| `:Windows`        | Windows                                                                 |
+| `:Locate PATTERN` | `locate` command output                                                 |
+| `:History`        | `v:oldfiles` and open buffers                                           |
+| `:History:`       | Command history                                                         |
+| `:History/`       | Search history                                                          |
+| `:Snippets`       | Snippets ([UltiSnips][us])                                              |
+| `:Commits`        | Git commits (requires [fugitive.vim][f])                                |
+| `:BCommits`       | Git commits for the current buffer                                      |
+| `:Commands`       | Commands                                                                |
+| `:Maps`           | Normal mode mappings                                                    |
+| `:Helptags`       | Help tags <sup id="a1">[1](#helptags)</sup>                             |
+| `:Filetypes`      | File types                                                              |
+
+
+
+Other projects:
+
+- <b>ctrlp.vim</b> <badge-stars repo='ctrlpvim/ctrlp.vim'></badge-stars> is a fuzzy file, buffer, mru, tag finder.
+- <b>ack.vim</b> <badge-stars repo='mileszs/ack.vim'></badge-stars> is a plugin for the Perl module / CLI script 'ack'.
 
 ### DB
 
-<badge-stars repo='tpope/vim-dadbod'></badge-repo>Modern database interface for Vim 
+<badge-stars repo='tpope/vim-dadbod'></badge-repo>Modern database interface for Vim
+
+
+[fzf]:   https://github.com/junegunn/fzf
+[run]:   https://github.com/junegunn/fzf/blob/master/README-VIM.md#fzfrun
+[vimrc]: https://github.com/junegunn/dotfiles/blob/master/vimrc
+[ag]:    https://github.com/ggreer/the_silver_searcher
+[rg]:    https://github.com/BurntSushi/ripgrep
+[us]:    https://github.com/SirVer/ultisnips
+
+## Linting: ALE
+
+**ALE** <badge-stars repo='dense-analysis/ale'></badge-stars> supports a wide range of
+[tools](https://github.com/dense-analysis/ale/blob/master/doc/ale-supported-languages-and-tools.txt)

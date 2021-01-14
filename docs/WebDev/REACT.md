@@ -81,3 +81,13 @@ https://jaredpalmer.com/formik/docs/overview
 		</div>
 	</div>
 </div>
+
+<br/>
+
+## Open
+
+  <badge-stars repo='react-boilerplate/react-boilerplate'></badge-stars> <badge-doc href='https://www.reactboilerplate.com/'></badge-doc>
+
+ Styled components <badge-stars repo='styled-components/styled-components'></badge-stars> make use of <badge-doc href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals' label='template literals'></badge-doc> 
+
+

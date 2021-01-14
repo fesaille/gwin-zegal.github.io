@@ -1,12 +1,18 @@
 # CI/CD
 
+- [ Continuous Integration
+  ](https://en.wikipedia.org/wiki/Continuous_integration) ensure an application build and test triggered by defined changes.
+
+
+
+
 Continuous Integration/Delivery
 
 ![whatis](https://about.gitlab.com/images/blogimages/cicd_pipeline_infograph.png)
 
 ## with `pre-commmit`
 
-<badge-stars repo='pre-commit/pre-commit'></badge-stars> <badge-doc href='https://pre-commit.com/'></badge-doc> is a command line utility - `pre-commit` aliased `pc` - that can be used for automation of the creation of [git pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks). 
+<badge-stars repo='pre-commit/pre-commit'></badge-stars> <badge-doc href='https://pre-commit.com/'></badge-doc> is a command line utility - `pre-commit` aliased `pc` - that can be used for automation of the creation of [git pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
 !!! Quote "What is a git pre-commit hook?"
 
@@ -19,13 +25,13 @@ Continuous Integration/Delivery
 
 ```bash
 pre-commit sample-config > .pre-commit-config.yaml
-``` 
+```
 
 and the script is installed with:
 
 ```bash
 pre-commit install
-``` 
+```
 
 Some [hooks]() are available for various purpose:
 
@@ -33,7 +39,7 @@ Some [hooks]() are available for various purpose:
 
 Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-available) are provided with pre-commit.
 
-??? Example 
+??? Example
 
 	```yaml
 	- repo: https://github.com/pre-commit/pre-commit-hooks
@@ -47,7 +53,7 @@ Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-ava
 
 #### Isort
 
-??? Example 
+??? Example
 
 	```yaml
 	- repo: https://github.com/psf/black
@@ -58,7 +64,7 @@ Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-ava
 
 #### Black
 
-??? Example 
+??? Example
 
 	```yaml
 	- repo: https://github.com/psf/black
@@ -71,7 +77,7 @@ Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-ava
 
 #### yamllint
 
-??? Example 
+??? Example
 
 	```yaml
 	- repo: https://github.com/adrienverge/yamllint
@@ -92,9 +98,9 @@ Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-ava
 		  additional_dependencies: [flake8-bugbear]
 	```
 
-### Code checker 
+### Code checker
 
-### MyPy 
+### MyPy
 
 ??? Example
 
@@ -105,5 +111,3 @@ Some ["built-in" hooks](https://github.com/pre-commit/pre-commit-hooks#hooks-ava
 		- id: mypy
 		  exclude: ^docs/conf.py
 	```
-
-

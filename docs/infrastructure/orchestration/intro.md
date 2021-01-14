@@ -1,3 +1,6 @@
+# Kubernetes
+
+
 ## K8S components
 
 Brendan Burns
@@ -13,9 +16,9 @@ Orchestrator role: get a status defined declarativly by the prgrammer.
 ### Control Plane Components
 
 * **kube-apiserver** exposes K8S API.
-* **etcd** is used as Kubernetes' store for all cluster data.
+* **etcd** <badge-stars repo='etcd-io/etcd'></badge-stars> is distributed key-value store used to store all cluster data.
 * **kube-scheduler** watches and decide on why node to run newly created pods.
-* **kube-controller-manager** 
+* **kube-controller-manager**
       - *Node controller*: notices and responds when nodes go down.
       - *Replication controller*: maintains the correct number of pods for every replication controller object
       - *Endpoints controller*: populates the Endpoints object (that is, joins Services & Pods).
@@ -45,11 +48,11 @@ Set of containers, all containers inside a port share a port-space. An appliciat
 Desired state definition for pods. Deployment strategies on Kubernetes
 
 
-Kubernetes Examples <badge-stars repo='ContainerSolutions/kubernetes-examples'></badge-stars> 
+Kubernetes Examples <badge-stars repo='ContainerSolutions/kubernetes-examples'></badge-stars>
 
 #### Strategies
 
- Kubernetes deployment strategies explained <badge-stars repo='ContainerSolutions/k8s-deployment-strategies'></badge-stars> 
+ Kubernetes deployment strategies explained <badge-stars repo='ContainerSolutions/k8s-deployment-strategies'></badge-stars>
 
 <div class="table_initial"></div>
 
@@ -121,31 +124,15 @@ Azure Securtiy Center on AKS:
 - no image from repo xyz
 - ...
 
-No native kubernetes solution for this. 
+No native kubernetes solution for this.
 
 
-### Tracing 
-
-- applicaton Insights (Azure)
-- OpenCensus / OpenTelmetry
-  - Zipkin (java)
-  - Jaeger (go)
 
 
-### dapr.io
-
-[dapr.io](https://dapr.io/)
-
-
-![Overview](https://raw.githubusercontent.com/dapr/docs/master/images/overview.png)
-
-Service invocation over API 
-State management: key/value
-Publish and subscribe `v1.0/publish/`
-
-# Giant swarm
+## Giant swarm
 
 Cloud native for entreprise
+
 
 
 ## Day 2 operation
@@ -155,3 +142,38 @@ try to ensure everything is:
 - automated
 - declarative
 - operated
+
+
+## Testing
+
+**conftest** <badge-stars repo='open-policy-agent/conftest'></badge-stars> helps defining tests against structured configuration data for Kubernetes configuration, Tekton pipeline definitions, Terraform code, Serverless configs or any other config files.
+
+## Tools
+
+### GitOps
+
+**flux2** <badge-stars repo='fluxcd/flux2'></badge-stars> <badge-doc href='https://toolkit.fluxcd.io'></badge-doc> is constructed
+with the GitOps Toolkit and is a tool for keeping Kubernetes clusters in sync
+with sources of configuration (like Git repositories), and automating updates to
+configuration when there is new code to deploy.
+
+### Tracing
+
+- applicaton Insights (Azure)
+- [OpenCensus](https://github.com/census-instrumentation) /
+  [OpenTelemetry](https://github.com/open-telemetry)
+
+  - **Zipkin** (java) <badge-stars repo='openzipkin/zipkin'></badge-stars>
+  - **Jaeger** (go) <badge-stars repo='jaegertracing/jaeger'></badge-stars>
+
+### Others
+
+**dapr.io** <badge-stars repo='dapr/dapr'></badge-stars> is a portable,
+event-driven, runtime for building distributed applications across cloud and
+edge.
+
+- Service invocation over API
+- State management: key/value
+- Publish and subscribe `v1.0/publish/`
+
+![Overview](https://raw.githubusercontent.com/dapr/dapr/master/img/overview.png)

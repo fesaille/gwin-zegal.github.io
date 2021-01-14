@@ -8,39 +8,41 @@ theme:
     text: Work Sans
   logo: images/logo.svg
   icon:
-    # logo: images/logo.svg
     favicon: images/favicon.png
+  # https://bit.ly/2KW7fKk
   features:
-    - tabs
-    # The (still experimental) instant loading feature will intercept clicks
-    # on all internal links and dispatch them directly via XHR without a full
-    # page reload.
-    - instant
+    - navigation.expand
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
   palette:
     primary: "indigo"
     accent: "lime"
 
 nav:
   - Home: index.md
-  - Linux: 
+  - Linux:
+      - terminal: linux/terminal.md
       - shell: shell/intro.md
       - zsh: shell/zsh.md
       - tmux: shell/tmux.md
-      - vim:
-          - Intro: shell/vim.md
-          - "Status line": shell/vim/statusline.md
-          - Panes: shell/vim/panes.md
-          - Edition: shell/vim/edition.md
-          - Search: shell/vim/search.md
-          - Motion: shell/vim/motion.md
-          - Plugins: shell/vim/plugins.md
-          - Script: shell/vim/script.md
-          - "Language support": shell/vim/languages.md
       - freedesktop: linux/freedesktop.md
       - network: linux/network.md
       - Ubuntu:
           - Configuration: shell/Ubuntu/configuration.md
           - Python: shell/Ubuntu/python.md
+      - "Pkg management":
+          - "Alpine linux": linux/pkg_mgt/apk.md
+  - vim:
+      - Intro: vim/intro.md
+      - "Status line": vim/statusline.md
+      - Panes: vim/panes.md
+      - Edition: vim/edition.md
+      - Search: vim/search.md
+      - Motion: vim/motion.md
+      - Plugins: vim/plugins.md
+      - Script: vim/script.md
+      - "Language support": vim/languages.md
   - "SW dvpt":
       - VCS:
           - git: sw_dvpt/git.md
@@ -66,7 +68,7 @@ nav:
       - "Cloud native": cloud/cloudnative.md
       - "Cloud landscape": cloud/cloudlandscape.md
   - Data:
-      - "CRISP-DM": data/crisp-dm.md 
+      - "CRISP-DM": data/crisp-dm.md
       - Pipelines:
           - Luigi: data/pipelines/luigi.md
           - prefect: data/pipelines/prefect.md
@@ -97,15 +99,19 @@ nav:
       - Regression: ml/regression.md
       - Pipelining: ml/pipelines.md
   - Python:
-      - Packaging: Python/packaging.md
-      - Environments: Python/env.md
-      - Typing: Python/typing.md
-      - Profiling: Python/profiling.md
-      - Tests: Python/test.md
-      - Click: Python/click.md
-      - "Iterators, generators and coroutines": Python/IterGen.md
-      - ASyncio: Python/asyncio.md
-      - Jupyter: Python/jupyter.md
+      - That: python/01 - Python - CPython design.ipynb
+      - base:
+          - "Data types": python/base/Data types.ipynb
+          - "Iterators, generators and coroutines": python/base/iter_gen_coro.ipynb
+          - "Date manipulation": python/base/date manipulation.ipynb
+      - ASyncio: python/asyncio.ipynb
+      - Packaging: python/packaging.md
+      - Environments: python/env.md
+      - Typing: python/typing.md
+      - Profiling: python/profiling.md
+      - Tests: python/test.md
+      - Click: python/click.md
+      - Jupyter: python/jupyter.md
   - Go:
       - Concurency: go/concurency.md
       - Distributed: go/distributed.md
@@ -122,11 +128,10 @@ nav:
 
 plugins:
   - mknotebooks:
-       enable_default_jupyter_cell_styling: false
-  - exclude:
-      glob:
-        - _nb/*
-        - _nb/extern/*
+      enable_default_jupyter_cell_styling: false
+      binder: true
+      binder_service_name: "gh/fesaille/doc-python"
+      binder_branch: "master"
   - awesome-pages
   - search
 
@@ -140,29 +145,21 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - meta
+
   # ########################################################################
-  # PyMdown Extensions
-  # https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
-  # ======   https://facelessuser.github.io/pymdown-extensions/   ======== #
+  # PyMdown Extensions https://facelessuser.github.io/pymdown-extensions/
   # ########################################################################
-  # Arithmatex is an extension that preserves LaTeX math equations
-  # during the Markdown conversion process so that they can be used with
-  # MathJax.
+  # Add ^ and ~ character for super-/subscript, ~~ for striked text (<del>)
+  - pymdownx.caret
+  - pymdownx.tilde
+  # ??? and ???+ for collapsible elements (<details><summary>)
+  - pymdownx.details
+  # LaTeX math equations compatibility with MathJax.
   - pymdownx.arithmatex
-  # BetterEm is a different approach to emphasis than Python Markdown's
-  # default. It works similar but handles certain corner cases differently.
+       # generic: true
+  # improve emphasis (bold and italic) handling
   - pymdownx.betterem:
       smart_enable: asterisk
-  # Caret is an extension that is syntactically built around the ^ character.
-  # It adds support for inserting superscripts and adds an easy way to place
-  # text in an <ins> tag.
-  - pymdownx.caret
-  # Details is an extension that creates collapsible elements that hide their
-  # content. It uses the HTML5 <details><summary> tags to accomplish this. It
-  # supports nesting and you can also force the default state to be open. And
-  # if you want to style some different than others, you can optionally feed
-  # in a custom class.
-  - pymdownx.details
   # PyMdown Extensions' extra is just like Python Markdown's extra except
   # smartstrong is replaced by betterem and fenced_code is replaced by
   # superfences
@@ -178,6 +175,12 @@ markdown_extensions:
   # markdown file.
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.keys
+  - toc:
+      toc_depth: 3
+      permalink: True
+
   #     preserve_tabs: true
   #     custom_fences:
   #       - name: flow
@@ -189,12 +192,6 @@ markdown_extensions:
   #       - name: treediagram
   #         class: uml-treediagram
   #         format: !!python/name:pymdownx.superfences.fence_code_format
-  # To denote a subscript, you can surround the desired content in single ~
-  - pymdownx.tabbed
-  - pymdownx.tilde
-  - pymdownx.keys
-  - toc:
-      permalink: True
 
 site_url: "https://github.com/fesaille"
 remote_branch: master
@@ -208,15 +205,12 @@ extra_css:
 
 extra_javascript:
   - _js/extra.js
-  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
-  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
+  - _js/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - "https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"
   - "https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"
   - "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"
-#extra:
-#  social:
-#    - type: 'github'
-#      link: 'https://github.com/fesaille'
