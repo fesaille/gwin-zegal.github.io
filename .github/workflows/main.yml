@@ -1,0 +1,16 @@
+name: Build documentation using mkdocs
+
+on:
+  push:
+    branches: [src]
+  pull_request:
+    branches: [src]
+jobs:
+  build:
+    name: Build and deploy documentation
+    runs-on: registry.gitlab.com/f.docker/mkdocs:latest
+    steps:
+      - name: Checkout Master
+        uses: actions/checkout@v2
+      - name: Deploy
+        run: mkdocs gh-deploy
