@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build and deploy documentation
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
     container: registry.gitlab.com/f.docker/mkdocs:latest
     steps:
       - name: Checkout Master
