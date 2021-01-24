@@ -220,6 +220,50 @@
      <lastmod>2021-01-24</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://github.com/fesaille/python/py_dev_env/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/01%20-%20Python%20-%20CPython%20design/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/base/Data%20types/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/base/iter_gen_coro/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/base/date%20manipulation/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/asyncio/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/typing/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/profiling/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/test/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/click/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/jupyter/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://github.com/fesaille/go/concurency/</loc>
      <lastmod>2021-01-24</lastmod>
      <changefreq>daily</changefreq>
@@ -249,6 +293,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://github.com/fesaille/doc/md/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/extern/md-guide/basic-syntax/</loc>
+     <lastmod>2021-01-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/extern/md-guide/extended-syntax/</loc>
      <lastmod>2021-01-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
