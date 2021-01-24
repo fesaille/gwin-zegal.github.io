@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout Master
         uses: actions/checkout@v2
+          with:
+            submodules: recursive
       - name: Deploy
         run: |
           git pull --recurse-submodules
