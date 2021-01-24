@@ -99,14 +99,13 @@ nav:
       - Regression: ml/regression.md
       - Pipelining: ml/pipelines.md
   - Python:
+      - Development env: python/py_dev_env.md
       - That: python/01 - Python - CPython design.ipynb
       - base:
           - "Data types": python/base/Data types.ipynb
           - "Iterators, generators and coroutines": python/base/iter_gen_coro.ipynb
           - "Date manipulation": python/base/date manipulation.ipynb
       - ASyncio: python/asyncio.ipynb
-      - Packaging: python/packaging.md
-      - Environments: python/env.md
       - Typing: python/typing.md
       - Profiling: python/profiling.md
       - Tests: python/test.md
