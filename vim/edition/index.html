@@ -2497,7 +2497,8 @@
 <p>There are 10 types of <code>:h registers</code>:</p>
 <ol>
 <li>The unnamed register <code>""</code></li>
-<li>10 numbered registers <code>"0</code> to <code>"9</code> filled with text from the last 10 yank and delete commands.</li>
+<li>10 numbered registers <code>"0</code> to <code>"9</code> filled with text from the last 10 yank and
+   delete commands.</li>
 <li>The small delete register <code>"-</code> from commands that delete less than a line.</li>
 <li>26 named registers <code>"a</code> to <code>"z</code> or <code>"A</code> to <code>"Z</code></li>
 <li>
@@ -2515,8 +2516,11 @@
 <li>
 <p>The selection and drop registers (:</p>
 <ul>
-<li><code>"*</code>, contains the <code>PRIMARY</code> selection which is available on Linux when users select some data.</li>
-<li><code>"+</code>, contains the <code>CLIPBOARD</code> select, available on active requests of copy.  To use the <code>PRIMARY</code> selection too, <code>set clipboard^=unnamed,unnamedplus</code></li>
+<li><code>"*</code>, contains the <code>PRIMARY</code> selection which is available on Linux when
+  users select some data.</li>
+<li><code>"+</code>, contains the <code>CLIPBOARD</code> select, available on active requests of
+  copy.  To use the <code>PRIMARY</code> selection too, <code>set
+  clipboard^=unnamed,unnamedplus</code></li>
 <li><code>"~</code> registers the dropped text from the last drag'n'drop operation.</li>
 </ul>
 </li>
@@ -2527,7 +2531,10 @@
 </ol>
 <p>Insertion of register in command mode in triggerd by <kbd>C-r</kbd>.</p>
 <h2 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h2>
-<p><code>:h text-objects</code> or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection.</p>
+<p><code>:h text-objects</code> or <badge-doc
+href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal"
+logo="vim"></badge-doc> operate in visual mode and consists ot two characters:
+<kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection.</p>
 <h2 id="comment">Comment<a class="headerlink" href="#comment" title="Permanent link">&para;</a></h2>
 <p>Comment line (via plugin vim-commentary): <kbd>gcc</kbd> in normal mode,
 <kbd>gc</kbd> in visual mode</p>
@@ -2547,24 +2554,84 @@ completion lookup.</p>
 <h3 id="completeopt"><code>completeopt</code><a class="headerlink" href="#completeopt" title="Permanent link">&para;</a></h3>
 <p>The completion menu appearance is controlled by <code>completeopt</code> (<code>ofu</code>)</p>
 <h3 id="ins-completion"><code>ins-completion</code><a class="headerlink" href="#ins-completion" title="Permanent link">&para;</a></h3>
-<p>Completion in insert mode <code>h: ins-completion</code> is activated with <kbd>C-x</kbd> and triggers a
-sub-mode <code>h: i_CTRL-X</code>.</p>
-<p>|-----|--------------------------------------------|-------------------|
-|     | Desc                                       | Key               |
-|-----|--------------------------------------------|-------------------|
-| 1.  | Whole lines                                | <kbd>CTRL-L</kbd> |
-| 2.  | keywords in the current file               | <kbd>CTRL-N</kbd> |
-| 3.  | keywords in 'dictionary'                   | <kbd>CTRL-K</kbd> |
-| 4.  | keywords in 'thesaurus', thesaurus-style   | <kbd>CTRL-T</kbd> |
-| 5.  | keywords in the current and included files | <kbd>CTRL-I</kbd> |
-| 6.  | tags                                       | <kbd>CTRL-]</kbd> |
-| 7.  | file names                                 | <kbd>CTRL-F</kbd> |
-| 8.  | definitions or macros                      | <kbd>CTRL-D</kbd> |
-| 9.  | Vim command-line                           | <kbd>CTRL-V</kbd> |
-| 10. | User defined completion                    | <kbd>CTRL-U</kbd> |
-| 11. | omni completion                            | <kbd>CTRL-O</kbd> |
-| 12. | Spelling suggestions                       | <kbd>s</kbd>      |
-| 13. | keywords in 'complete'                     | CTRL-N / CTRL-P   |</p>
+<p>Completion in insert mode <code>h: ins-completion</code> is activated with <kbd>C-x</kbd>
+and triggers a sub-mode <code>h: i_CTRL-X</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Desc</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td>Whole lines</td>
+<td><kbd>CTRL-L</kbd></td>
+</tr>
+<tr>
+<td>2.</td>
+<td>keywords in the current file</td>
+<td><kbd>CTRL-N</kbd></td>
+</tr>
+<tr>
+<td>3.</td>
+<td>keywords in 'dictionary'</td>
+<td><kbd>CTRL-K</kbd></td>
+</tr>
+<tr>
+<td>4.</td>
+<td>keywords in 'thesaurus', thesaurus-style</td>
+<td><kbd>CTRL-T</kbd></td>
+</tr>
+<tr>
+<td>5.</td>
+<td>keywords in the current and included files</td>
+<td><kbd>CTRL-I</kbd></td>
+</tr>
+<tr>
+<td>6.</td>
+<td>tags</td>
+<td><kbd>CTRL-]</kbd></td>
+</tr>
+<tr>
+<td>7.</td>
+<td>file names</td>
+<td><kbd>CTRL-F</kbd></td>
+</tr>
+<tr>
+<td>8.</td>
+<td>definitions or macros</td>
+<td><kbd>CTRL-D</kbd></td>
+</tr>
+<tr>
+<td>9.</td>
+<td>Vim command-line</td>
+<td><kbd>CTRL-V</kbd></td>
+</tr>
+<tr>
+<td>10.</td>
+<td>User defined completion</td>
+<td><kbd>CTRL-U</kbd></td>
+</tr>
+<tr>
+<td>11.</td>
+<td>omni completion</td>
+<td><kbd>CTRL-O</kbd></td>
+</tr>
+<tr>
+<td>12.</td>
+<td>Spelling suggestions</td>
+<td><kbd>s</kbd></td>
+</tr>
+<tr>
+<td>13.</td>
+<td>keywords in 'complete'</td>
+<td>CTRL-N / CTRL-P</td>
+</tr>
+</tbody>
+</table>
 <h3 id="omnifunc"><code>omnifunc</code><a class="headerlink" href="#omnifunc" title="Permanent link">&para;</a></h3>
 <p>Omni completion supports filetype-specific completion. Ex:</p>
 <p><code>omnifunc=htmlcomplete#CompleteTags</code></p>
@@ -2582,7 +2649,8 @@ endfunction</p>
   " -&gt; get selection and introduce ` around selection
 endfunction</p>
 <h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
-<p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim" message="usr_28"></badge-doc></p>
+<p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim"
+message="usr_28"></badge-doc></p>
 <p><strong>Types of Folding</strong>:</p>
 <table>
 <thead>
@@ -2618,14 +2686,23 @@ endfunction</p>
 </tr>
 </tbody>
 </table>
-<p>The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It's easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).</p>
-<p>The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).</p>
-<p>The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
-<p>The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds.</p>
+<p>The command zc will close a fold (if the cursor is in an open fold), and zo will
+open a fold (if the cursor is in a closed fold). It's easier to just use za
+which will toggle the current fold (close it if it was open, or open it if it
+was closed).</p>
+<p>The commands zc (close), zo (open), and za (toggle) operate on one level of
+folding, at the cursor. The commands zC, zO and zA are similar, but operate on
+all folding levels (for example, the cursor line may be in an open fold, which
+is inside another open fold; typing zC would close all folds at the cursor).</p>
+<p>The command zr reduces folding by opening one more level of folds throughout the
+whole buffer (the cursor position is not relevant). Use zR to open all folds.</p>
+<p>The command zm gives more folding by closing one more level of folds throughout
+the whole buffer. Use zM to close all folds.</p>
 <p>Source: https://vim.fandom.com/wiki/Folding</p>
 <p>Folding principel:</p>
 <ul>
-<li>folds at defined per level: <code>:set foldlevel=&lt;LEVEL&gt;</code> and adjacent lines are fold grouped by level value</li>
+<li>folds at defined per level: <code>:set foldlevel=&lt;LEVEL&gt;</code> and adjacent lines
+  are fold grouped by level value</li>
 <li>to fold level at start <code>:set foldlevelstart=&lt;LEVEL&gt;</code></li>
 </ul>
 <h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h2>
@@ -2633,7 +2710,8 @@ endfunction</p>
 <p>From <a href="https://vim.fandom.com/wiki/Macros#Editing_a_macro">vim.fandom.com</a>:</p>
 <ul>
 <li>Type <code>:let @a='i</code></li>
-<li>Press <code>Ctrl-R Ctrl-R</code> a to insert the current contents of register a (type Ctrl-R twice to insert the register exactly).</li>
+<li>Press <code>Ctrl-R Ctrl-R</code> a to insert the current contents of register a (type
+  Ctrl-R twice to insert the register exactly).</li>
 <li>Edit the text as required.</li>
 <li>Append an apostrophe <code>'</code> to finish the command, and press Enter.</li>
 <li>Enter <code>:reg</code> a to view the new value in the register.</li>
