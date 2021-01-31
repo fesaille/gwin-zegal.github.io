@@ -2614,52 +2614,149 @@
                 
                 <h1 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h1>
 <h2 id="initialization">Initialization<a class="headerlink" href="#initialization" title="Permanent link">&para;</a></h2>
-<p>=== bash</p>
-<pre><code>|                  | Interactive | Interactive | Script |
-|                  | login       | non-login   |        |
-|------------------|:-----------:|:-----------:|:------:|
-| /etc/profile     | A           |             |        |
-|------------------|-------------|-------------|--------|
-| /etc/bash.bashrc |             | A           |        |
-|------------------|-------------|-------------|--------|
-| ~/.bashrc        |             | B           |        |
-|------------------|-------------|-------------|--------|
-| ~/.bash_profile  | B1          |             |        |
-|------------------|-------------|-------------|--------|
-| ~/.bash_login    | B2          |             |        |
-|------------------|-------------|-------------|--------|
-| ~/.profile       | B3          |             |        |
-|------------------|-------------|-------------|--------|
-| BASH_ENV         |             |             | A      |
-|------------------|-------------|-------------|--------|
-| ~/.bash_logout   | C           |             |        |
-</code></pre>
-<p>=== zsh</p>
-<pre><code>|               | Interactive | Interactive | Script |
-|               | login       | non-login   |        |
-|---------------|:-----------:|:-----------:|:------:|
-| /etc/profile  | A           |             |        |
-|---------------|-------------|-------------|--------|
-| /etc/zshenv   | A           | A           | A      |
-|---------------|-------------|-------------|--------|
-| ~/.zshenv     | B           | B           | B      |
-|---------------|-------------|-------------|--------|
-| /etc/zprofile | C           |             |        |
-|---------------|-------------|-------------|--------|
-| ~/.zprofile   | D           |             |        |
-|---------------|-------------|-------------|--------|
-| /etc/zshrc    | E           | C           |        |
-|---------------|-------------|-------------|--------|
-| ~/.zshrc      | F           | D           |        |
-|---------------|-------------|-------------|--------|
-| /etc/zlogin   | G           |             |        |
-|---------------|-------------|-------------|--------|
-| ~/.zlogin     | H           |             |        |
-|---------------|-------------|-------------|--------|
-| ~/.zlogout    | I           |             |        |
-|---------------|-------------|-------------|--------|
-| /etc/zlogout  | J           |             |        |
-</code></pre>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">bash</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Interactive login</th>
+<th align="center">Interactive non-login</th>
+<th align="center">Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/profile</td>
+<td align="center">A</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>/etc/bash.bashrc</td>
+<td align="center"></td>
+<td align="center">A</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.bashrc</td>
+<td align="center"></td>
+<td align="center">B</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.bash_profile</td>
+<td align="center">B1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.bash_login</td>
+<td align="center">B2</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.profile</td>
+<td align="center">B3</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>BASH_ENV</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td>~/.bash_logout</td>
+<td align="center">C</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">zsh</label><div class="tabbed-content">
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Interactive login</th>
+<th align="center">Interactive non-login</th>
+<th align="center">Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/profile</td>
+<td align="center">A</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>/etc/zshenv</td>
+<td align="center">A</td>
+<td align="center">A</td>
+<td align="center">A</td>
+</tr>
+<tr>
+<td>~/.zshenv</td>
+<td align="center">B</td>
+<td align="center">B</td>
+<td align="center">B</td>
+</tr>
+<tr>
+<td>/etc/zprofile</td>
+<td align="center">C</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.zprofile</td>
+<td align="center">D</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>/etc/zshrc</td>
+<td align="center">E</td>
+<td align="center">C</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.zshrc</td>
+<td align="center">F</td>
+<td align="center">D</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>/etc/zlogin</td>
+<td align="center">G</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.zlogin</td>
+<td align="center">H</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>~/.zlogout</td>
+<td align="center">I</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>/etc/zlogout</td>
+<td align="center">J</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p><a href="https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/">Souce</a></p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <h3 id="line-edition-and-keybindings">Line edition and keybindings<a class="headerlink" href="#line-edition-and-keybindings" title="Permanent link">&para;</a></h3>
