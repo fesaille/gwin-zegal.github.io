@@ -11,7 +11,8 @@
 There are 10 types of `:h registers`:
 
 1. The unnamed register `""`
-2. 10 numbered registers `"0` to `"9` filled with text from the last 10 yank and delete commands.
+2. 10 numbered registers `"0` to `"9` filled with text from the last 10 yank and
+   delete commands.
 3. The small delete register `"-` from commands that delete less than a line.
 4. 26 named registers `"a` to `"z` or `"A` to `"Z`
 5. Three read-only registers:
@@ -24,8 +25,11 @@ There are 10 types of `:h registers`:
 7. The expression register `"=`:
 8. The selection and drop registers (:
 
-    - `"*`, contains the `PRIMARY` selection which is available on Linux when users select some data.
-    - `"+`, contains the `CLIPBOARD` select, available on active requests of copy.  To use the `PRIMARY` selection too, `set clipboard^=unnamed,unnamedplus`
+    - `"*`, contains the `PRIMARY` selection which is available on Linux when
+      users select some data.
+    - `"+`, contains the `CLIPBOARD` select, available on active requests of
+      copy.  To use the `PRIMARY` selection too, `set
+      clipboard^=unnamed,unnamedplus`
     - `"~` registers the dropped text from the last drag'n'drop operation.
 
 
@@ -37,7 +41,10 @@ Insertion of register in command mode in triggerd by <kbd>C-r</kbd>.
 
 ## Selection
 
-`:h text-objects` or <badge-doc href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal" logo="vim"></badge-doc> operate in visual mode and consists ot two characters: <kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection.
+`:h text-objects` or <badge-doc
+href="https://vimhelp.org/motion.txt.html#text-objects" message="terminal"
+logo="vim"></badge-doc> operate in visual mode and consists ot two characters:
+<kbd>i</kbd> and <kbd>a</kbd> and correspond to an inner resp. outer selection.
 
 ## Comment
 Comment line (via plugin vim-commentary): <kbd>gcc</kbd> in normal mode,
@@ -68,10 +75,9 @@ The completion menu appearance is controlled by `completeopt` (`ofu`)
 
 ### `ins-completion`
 
-Completion in insert mode `h: ins-completion` is activated with <kbd>C-x</kbd> and triggers a
-sub-mode `h: i_CTRL-X`.
+Completion in insert mode `h: ins-completion` is activated with <kbd>C-x</kbd>
+and triggers a sub-mode `h: i_CTRL-X`.
 
-|-----|--------------------------------------------|-------------------|
 |     | Desc                                       | Key               |
 |-----|--------------------------------------------|-------------------|
 | 1.  | Whole lines                                | <kbd>CTRL-L</kbd> |
@@ -112,7 +118,8 @@ endfunction
 
 ## Folding
 
-<badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim" message="usr_28"></badge-doc>
+<badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim"
+message="usr_28"></badge-doc>
 
 **Types of Folding**:
 
@@ -125,19 +132,28 @@ endfunction
 | syntax | syntax highlightung items specify folds      |
 |  diff  | fold test that is not changed                |
 
-The command zc will close a fold (if the cursor is in an open fold), and zo will open a fold (if the cursor is in a closed fold). It's easier to just use za which will toggle the current fold (close it if it was open, or open it if it was closed).
+The command zc will close a fold (if the cursor is in an open fold), and zo will
+open a fold (if the cursor is in a closed fold). It's easier to just use za
+which will toggle the current fold (close it if it was open, or open it if it
+was closed).
 
-The commands zc (close), zo (open), and za (toggle) operate on one level of folding, at the cursor. The commands zC, zO and zA are similar, but operate on all folding levels (for example, the cursor line may be in an open fold, which is inside another open fold; typing zC would close all folds at the cursor).
+The commands zc (close), zo (open), and za (toggle) operate on one level of
+folding, at the cursor. The commands zC, zO and zA are similar, but operate on
+all folding levels (for example, the cursor line may be in an open fold, which
+is inside another open fold; typing zC would close all folds at the cursor).
 
-The command zr reduces folding by opening one more level of folds throughout the whole buffer (the cursor position is not relevant). Use zR to open all folds.
+The command zr reduces folding by opening one more level of folds throughout the
+whole buffer (the cursor position is not relevant). Use zR to open all folds.
 
-The command zm gives more folding by closing one more level of folds throughout the whole buffer. Use zM to close all folds.
+The command zm gives more folding by closing one more level of folds throughout
+the whole buffer. Use zM to close all folds.
 
 Source: https://vim.fandom.com/wiki/Folding
 
 Folding principel:
 
-- folds at defined per level: ```:set foldlevel=<LEVEL>``` and adjacent lines are fold grouped by level value
+- folds at defined per level: ```:set foldlevel=<LEVEL>``` and adjacent lines
+  are fold grouped by level value
 - to fold level at start ``` :set foldlevelstart=<LEVEL>```
 
 ## Macros
@@ -147,7 +163,8 @@ Folding principel:
 From [vim.fandom.com](https://vim.fandom.com/wiki/Macros#Editing_a_macro):
 
 - Type `:let @a='i`
-- Press `Ctrl-R Ctrl-R` a to insert the current contents of register a (type Ctrl-R twice to insert the register exactly).
+- Press `Ctrl-R Ctrl-R` a to insert the current contents of register a (type
+  Ctrl-R twice to insert the register exactly).
 - Edit the text as required.
 - Append an apostrophe `'` to finish the command, and press Enter.
 - Enter `:reg` a to view the new value in the register.
