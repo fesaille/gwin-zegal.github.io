@@ -1174,6 +1174,19 @@
     kubectl
   </a>
   
+    <nav class="md-nav" aria-label="kubectl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2285,6 +2298,19 @@
     kubectl
   </a>
   
+    <nav class="md-nav" aria-label="kubectl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    Context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2321,6 +2347,80 @@
 <li><b>helm convert</b> <badge-stars repo='ContainerSolutions/helm-convert'></badge-stars> let you convert existing charts into Kustomize compatible package.</li>
 </ul>
 <h2 id="kubectl">kubectl<a class="headerlink" href="#kubectl" title="Permanent link">&para;</a></h2>
+<h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
+<p>Clusters and users can be managed within context <badge-doc
+href='https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/'
+logo="kubernetes"></badge-doc>.</p>
+<p><code>kubectl</code> enable setting the different parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Completion results:</span>
+&gt; kubectl config &lt;TAB&gt;
+current-context  get-contexts     set-context      view
+delete-cluster   rename-context   set-credentials
+delete-context   <span class="nb">set</span>              <span class="nb">unset</span>
+get-clusters     set-cluster      use-context
+
+&gt; kubectl config --&lt;TAB&gt;
+--add-dir-header            --logtostderr
+--alsologtostderr           --match-server-version
+--as                        --namespace
+--as-group                  --password
+--cache-dir                 --profile
+--certificate-authority     --profile-output
+--client-certificate        --request-timeout
+--client-key                --server
+--cluster                   --skip-headers
+--context                   --skip-log-headers
+--insecure-skip-tls-verify  --stderrthreshold
+--kubeconfig                --token
+--log-backtrace-at          --user
+--log-dir                   --username
+--log-file                  --v
+--log-file-max-size         --vmodule
+--log-flush-frequency
+</code></pre></div>
+<details class="config example"><summary>Config</summary><p>```yaml
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: fake-ca-file
+    server: https://1.2.3.4
+name: development
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://5.6.7.8
+name: scratch
+contexts:
+- context:
+    cluster: development
+    namespace: frontend
+    user: developer
+name: dev-frontend
+- context:
+    cluster: development
+    namespace: storage
+    user: developer
+name: dev-storage
+- context:
+    cluster: scratch
+    namespace: default
+    user: experimenter
+name: exp-scratch
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: developer
+user:
+    client-certificate: fake-cert-file
+    client-key: fake-key-file
+- name: experimenter
+user:
+    password: some-password
+    username: exp
+'''</p>
+</details>
+<p><code>kubectl</code> config is stored by default in <code>$HOME/.kube/config</code>. The default
+location are several locations can be set in <code>$KUBECONFIG</code>.</p>
 <h2 id="helm">helm<a class="headerlink" href="#helm" title="Permanent link">&para;</a></h2>
 <h2 id="kustomize">kustomize<a class="headerlink" href="#kustomize" title="Permanent link">&para;</a></h2>
                 
