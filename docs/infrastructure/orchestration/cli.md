@@ -9,7 +9,7 @@
 
 ### Context
 
-Clusters and users can be managed within context <badge-doc
+Clusters and users can be managed within contexts <badge-doc
 href='https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/'
 logo="kubernetes"></badge-doc>.
 
@@ -43,7 +43,7 @@ get-clusters     set-cluster      use-context
 --log-flush-frequency
 ```
 
-??? Config example
+??? example "Config example"
 
     ```yaml
     apiVersion: v1
