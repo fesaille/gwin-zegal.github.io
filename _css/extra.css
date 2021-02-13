@@ -21,6 +21,10 @@ h2:not([class]),h2 [class=""]{
      border-bottom: solid 0.5px gray;
 }
 
+.md-content h3 {
+  font-weight: bold;
+}
+
 .titleLogo {
   position: absolute;
   top: 7rem;

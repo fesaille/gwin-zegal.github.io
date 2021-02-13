@@ -891,6 +891,19 @@
   </li>
 
         
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../sw_dvpt/make/" class="md-nav__link">
+      make
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2251,6 +2264,50 @@
 
 
 
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11-4" data-md-state="indeterminate" type="checkbox" id="nav-11-4" checked>
+    
+    <label class="md-nav__link" for="nav-11-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="2">
+      <label class="md-nav__title" for="nav-11-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../WebDev/jinja2/" class="md-nav__link">
+      jinja2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
   <li class="md-nav__item">
     <a href="../../../WebDev/node/" class="md-nav__link">
       node
@@ -2617,21 +2674,25 @@ trigger
 <li>idempotence</li>
 <li>verify</li>
 </ul>
-<p>Default scenarios sequences are:
-- "check_sequence": [ "dependency", "cleanup", "destroy", "create", "prepare", "converge", "check", "cleanup", "destroy", ],
-- "cleanup_sequence": ["cleanup"],
-- "converge_sequence": ["dependency", "create", "prepare", "converge"],
-- "create_sequence": ["dependency", "create", "prepare"],
-- "destroy_sequence": ["dependency", "cleanup", "destroy"],
-- "test_sequence": [ "dependency", "lint", "cleanup", "destroy", "syntax", "create", "prepare", "converge", "idempotence", "side_effect", "verify", "cleanup", "destroy",</p>
-<p>The corresponding playbooks are stored in the files whose default names are:
-- "cleanup": "cleanup.yml",
-- "create": "create.yml",
-- "converge": "converge.yml",
-- "destroy": "destroy.yml",
-- "prepare": "prepare.yml",
-- "side_effect": "side_effect.yml",
-- "verify": "verify.yml",</p>
+<p>Default scenarios sequences are:</p>
+<ul>
+<li>"check_sequence": [ "dependency", "cleanup", "destroy", "create", "prepare", "converge", "check", "cleanup", "destroy", ],</li>
+<li>"cleanup_sequence": ["cleanup"],</li>
+<li>"converge_sequence": ["dependency", "create", "prepare", "converge"],</li>
+<li>"create_sequence": ["dependency", "create", "prepare"],</li>
+<li>"destroy_sequence": ["dependency", "cleanup", "destroy"],</li>
+<li>"test_sequence": [ "dependency", "lint", "cleanup", "destroy", "syntax", "create", "prepare", "converge", "idempotence", "side_effect", "verify", "cleanup", "destroy",</li>
+</ul>
+<p>The corresponding playbooks are stored in the files whose default names are:</p>
+<ul>
+<li>"cleanup": "cleanup.yml",</li>
+<li>"create": "create.yml",</li>
+<li>"converge": "converge.yml",</li>
+<li>"destroy": "destroy.yml",</li>
+<li>"prepare": "prepare.yml",</li>
+<li>"side_effect": "side_effect.yml",</li>
+<li>"verify": "verify.yml",</li>
+</ul>
 <h2 id="creating-a-new-role">Creating a new role<a class="headerlink" href="#creating-a-new-role" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="go">molecule init role my-new-role</span>
 </code></pre></div>
