@@ -189,7 +189,7 @@ markdown_extensions:
   #         class: uml-flowchart
   #         format: !!python/name:pymdownx.superfences.fence_code_format
   #       - name: sequence
-://makefiletutorial.com/ #         class: uml-sequence-diagram
+  #         class: uml-sequence-diagram
   #         format: !!python/name:pymdownx.superfences.fence_code_format
   #       - name: treediagram
   #         class: uml-treediagram
