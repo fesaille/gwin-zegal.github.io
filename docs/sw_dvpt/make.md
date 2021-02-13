@@ -78,3 +78,8 @@ Of the variables listed above, four have values that are single file names, and 
 ‘$(?F)’
 
     Lists of the directory parts and the file-within-directory parts of all prerequisites that are newer than the target.
+
+
+## Links
+
+ https://makefiletutorial.com://makefiletutorial.com/

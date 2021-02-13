@@ -188,6 +188,7 @@ Scenarios can be though as multiple test suites. Each scenario is configured thr
 - verify
 
 Default scenarios sequences are:
+
 - "check_sequence": [ "dependency", "cleanup", "destroy", "create", "prepare", "converge", "check", "cleanup", "destroy", ],
 - "cleanup_sequence": ["cleanup"],
 - "converge_sequence": ["dependency", "create", "prepare", "converge"],
@@ -196,6 +197,7 @@ Default scenarios sequences are:
 - "test_sequence": [ "dependency", "lint", "cleanup", "destroy", "syntax", "create", "prepare", "converge", "idempotence", "side_effect", "verify", "cleanup", "destroy",
 
 The corresponding playbooks are stored in the files whose default names are:
+
 - "cleanup": "cleanup.yml",
 - "create": "create.yml",
 - "converge": "converge.yml",

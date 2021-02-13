@@ -50,6 +50,7 @@ nav:
           - Intro: sw_dvpt/ci_cd/cicd.md
           - "Code coverage": sw_dvpt/ci_cd/codecov.md
       - "Design patterns": sw_dvpt/patterns.md
+      - make: sw_dvpt/make.md
   - Infrastructure:
       - VM: infrastructure/vm.md
       - DevOps:
@@ -118,6 +119,8 @@ nav:
       - Intro: WebDev/Intro.md
       - CSS: WebDev/css.md
       - CORS: WebDev/cors.md
+      - Python:
+        - jinja2: WebDev/jinja2.md
       - node: WebDev/node.md
       - REACT: WebDev/REACT.md
   - "?":
@@ -186,7 +189,7 @@ markdown_extensions:
   #         class: uml-flowchart
   #         format: !!python/name:pymdownx.superfences.fence_code_format
   #       - name: sequence
-  #         class: uml-sequence-diagram
+://makefiletutorial.com/ #         class: uml-sequence-diagram
   #         format: !!python/name:pymdownx.superfences.fence_code_format
   #       - name: treediagram
   #         class: uml-treediagram

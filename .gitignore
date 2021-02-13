@@ -2,3 +2,5 @@ site
 *.swp
 .ropeproject
 *.md.tmp
+.jedi
+nohup.out
