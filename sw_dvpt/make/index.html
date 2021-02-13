@@ -2390,74 +2390,48 @@
 </ul>
 <h3 id="automatic-variables">Automatic variables<a class="headerlink" href="#automatic-variables" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables"></a></p>
-<p><span><span class="MathJax_Preview">@ | The file name of the target of the rule. If the target is an archive member, then ‘</span><script type="math/tex">@ | The file name of the target of the rule. If the target is an archive member, then ‘</script></span>@’ is the name of the archive file. In a pattern rule that has multiple targets (see Introduction to Pattern Rules), ‘$@’ is the name of whichever target caused the rule’s recipe to be run.</p>
-<p>| <span><span class="MathJax_Preview">% | The target member name, when the target is an archive member. See Archives. For example, if the target is foo.a(bar.o) then ‘</span><script type="math/tex">% | The target member name, when the target is an archive member. See Archives. For example, if the target is foo.a(bar.o) then ‘</script></span>%’ is bar.o and ‘<span><span class="MathJax_Preview">@’ is foo.a. ‘</span><script type="math/tex">@’ is foo.a. ‘</script></span>%’ is empty when the target is not an archive member. |</p>
-<p>$&lt;</p>
-<pre><code>The name of the first prerequisite. If the target got its recipe from an implicit rule, this will be the first prerequisite added by the implicit rule (see Implicit Rules).
-</code></pre>
-<p>$?</p>
-<pre><code>The names of all the prerequisites that are newer than the target, with spaces between them. If the target does not exist, all prerequisites will be included. For prerequisites which are archive members, only the named member is used (see Archives).
-</code></pre>
-<p>$^</p>
-<pre><code>The names of all the prerequisites, with spaces between them. For prerequisites which are archive members, only the named member is used (see Archives). A target has only one prerequisite on each other file it depends on, no matter how many times each file is listed as a prerequisite. So if you list a prerequisite more than once for a target, the value of $^ contains just one copy of the name. This list does not contain any of the order-only prerequisites; for those see the ‘$|’ variable, below.
-</code></pre>
-<p>$+</p>
-<pre><code>This is like ‘$^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile. This is primarily useful for use in linking commands where it is meaningful to repeat library file names in a particular order.
-</code></pre>
-<p>$|</p>
-<pre><code>The names of all the order-only prerequisites, with spaces between them.
-</code></pre>
-<p>$*</p>
-<pre><code>The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files.
-
-In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern.
-
-In an explicit rule, there is no stem; so ‘$*’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see Old-Fashioned Suffix Rules), ‘$*’ is set to the target name minus the suffix. For example, if the target name is ‘foo.c’, then ‘$*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘$*’ except in implicit rules or static pattern rules.
-
-If the target name in an explicit rule does not end with a recognized suffix, ‘$*’ is set to the empty string for that rule.
-</code></pre>
-<p>‘$?’ is useful even in explicit rules when you wish to operate on only the prerequisites that have changed. For example, suppose that an archive named lib is supposed to contain copies of several object files. This rule copies just the changed object files into the archive:</p>
-<p>lib: foo.o bar.o lose.o win.o
-        ar r lib $?</p>
-<p>Of the variables listed above, four have values that are single file names, and three have values that are lists of file names. These seven have variants that get just the file’s directory name or just the file name within the directory. The variant variables’ names are formed by appending ‘D’ or ‘F’, respectively. The functions dir and notdir can be used to obtain a similar effect (see Functions for File Names). Note, however, that the ‘D’ variants all omit the trailing slash which always appears in the output of the dir function. Here is a table of the variants:</p>
-<p>‘$(@D)’</p>
-<pre><code>The directory part of the file name of the target, with the trailing slash removed. If the value of ‘$@’ is dir/foo.o then ‘$(@D)’ is dir. This value is . if ‘$@’ does not contain a slash.
-</code></pre>
-<p>‘$(@F)’</p>
-<pre><code>The file-within-directory part of the file name of the target. If the value of ‘$@’ is dir/foo.o then ‘$(@F)’ is foo.o. ‘$(@F)’ is equivalent to ‘$(notdir $@)’.
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(*D)’
-‘</span><script type="math/tex">(*D)’
-‘</script></span>(*F)’</p>
-<pre><code>The directory part and the file-within-directory part of the stem; dir and foo in this example.
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(%D)’
-‘</span><script type="math/tex">(%D)’
-‘</script></span>(%F)’</p>
-<pre><code>The directory part and the file-within-directory part of the target archive member name. This makes sense only for archive member targets of the form archive(member) and is useful only when member may contain a directory name. (See Archive Members as Targets.)
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(&lt;D)’
-‘</span><script type="math/tex">(<D)’
-‘</script></span>(&lt;F)’</p>
-<pre><code>The directory part and the file-within-directory part of the first prerequisite.
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(^D)’
-‘</span><script type="math/tex">(^D)’
-‘</script></span>(^F)’</p>
-<pre><code>Lists of the directory parts and the file-within-directory parts of all prerequisites.
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(+D)’
-‘</span><script type="math/tex">(+D)’
-‘</script></span>(+F)’</p>
-<pre><code>Lists of the directory parts and the file-within-directory parts of all prerequisites, including multiple instances of duplicated prerequisites.
-</code></pre>
-<p>‘<span><span class="MathJax_Preview">(?D)’
-‘</span><script type="math/tex">(?D)’
-‘</script></span>(?F)’</p>
-<pre><code>Lists of the directory parts and the file-within-directory parts of all prerequisites that are newer than the target.
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$@</td>
+<td>The file name of the target of the rule. If the target is an archive member, then ‘$@’ is the name of the archive file. In a pattern rule that has multiple targets (see Introduction to Pattern Rules), ‘$@’ is the name of whichever target caused the rule’s recipe to be run.</td>
+</tr>
+<tr>
+<td>$%</td>
+<td>The target member name, when the target is an archive member. See Archives. For example, if the target is foo.a(bar.o) then ‘<span><span class="MathJax_Preview">%’ is bar.o and ‘</span><script type="math/tex">%’ is bar.o and ‘</script></span>@’ is foo.a. ‘$%’ is empty when the target is not an archive member.</td>
+</tr>
+<tr>
+<td>$&lt;</td>
+<td>The name of the first prerequisite. If the target got its recipe from an implicit rule, this will be the first prerequisite added by the implicit rule (see Implicit Rules).</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>The names of all the prerequisites that are newer than the target, with spaces between them. If the target does not exist, all prerequisites will be included. For prerequisites which are archive members, only the named member is used (see Archives).</td>
+</tr>
+<tr>
+<td>$^</td>
+<td>The names of all the prerequisites, with spaces between them. For prerequisites which are archive members, only the named member is used (see Archives). A target has only one prerequisite on each other file it depends on, no matter how many times each file is listed as a prerequisite. So if you list a prerequisite more than once for a target, the value of $^ contains just one copy of the name. This list does not contain any of the order-only prerequisites; for those see the ‘$|’ variable, below.</td>
+</tr>
+</tbody>
+</table>
+<p>| <span><span class="MathJax_Preview">+  | This is like ‘</span><script type="math/tex">+  | This is like ‘</script></span>^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile. This is primarily useful for use in linking commands where it is meaningful to repeat library file names in a particular order. |
+| <span><span class="MathJax_Preview">| | The names of all the order-only prerequisites, with spaces between
+them.|
+| <span><span class="MathJax_Preview">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</span><script type="math/tex">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</script></span></span><script type="math/tex">| | The names of all the order-only prerequisites, with spaces between
+them.|
+| <span><span class="MathJax_Preview">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</span><script type="math/tex">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</script></span><em>’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see Old-Fashioned Suffix Rules), ‘</em>’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see Old-Fashioned Suffix Rules), ‘</script></span><em>’ is set to the target name minus the suffix. For example, if the target name is ‘foo.c’, then ‘<span><span class="MathJax_Preview">*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘</span><script type="math/tex">*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘</script></span></em>’ except in implicit rules or static pattern rules. If the target name in an explicit rule does not end with a recognized suffix, ‘<span><span class="MathJax_Preview">*’ is set to the empty string for that rule. |
+| ‘</span><script type="math/tex">*’ is set to the empty string for that rule. |
+| ‘</script></span>(@D)’ | The directory part of the file name of the target, with the trailing slash removed. If the value of ‘<span><span class="MathJax_Preview">@’ is dir/foo.o then ‘</span><script type="math/tex">@’ is dir/foo.o then ‘</script></span>(@D)’ is dir. This value is . if ‘<span><span class="MathJax_Preview">@’ does not contain a slash.
+| ‘</span><script type="math/tex">@’ does not contain a slash.
+| ‘</script></span>(@F)’ | The file-within-directory part of the file name of the target. If the value of ‘<span><span class="MathJax_Preview">@’ is dir/foo.o then ‘</span><script type="math/tex">@’ is dir/foo.o then ‘</script></span>(@F)’ is foo.o. ‘<span><span class="MathJax_Preview">(@F)’ is equivalent to ‘</span><script type="math/tex">(@F)’ is equivalent to ‘</script></span>(notdir $@)’.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
-<p>https://makefiletutorial.com://makefiletutorial.com/</p>
+<p>https://makefiletutorial.com</p>
                 
               
               
