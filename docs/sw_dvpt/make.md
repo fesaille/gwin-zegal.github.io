@@ -1,5 +1,13 @@
 # Make
 
+<badge-doc href='https://www.gnu.org/software/make/manual'></badge-doc>
+
+
+## Wildcard characters
+
+`*`, `?` and `[...]`
+
+
 ## Variables
 
 - variables defined with ‘=’ are recursively expanded.
@@ -10,6 +18,12 @@
 
 [](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)
 
+
+`$^` list all the prerequisites of the rule
+`$<` list the first prerequisite
+`$?` list all the prerequisites newer than the target
+
+`$@` is the target
 
 | Variable | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -31,3 +45,11 @@ them.|
 ## Links
 
  https://makefiletutorial.com
+
+Introduction à Makefile
+
+https://gl.developpez.com/tutoriel/outil/makefile/
+
+Splitting Recipe Lines
+
+https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html
