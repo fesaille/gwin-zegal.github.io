@@ -204,38 +204,6 @@ href="https://stedolan.github.io/jq/"></badge-doc>
 **yq** <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc
 href="https://mikefarah.gitbook.io/yq/"></badge-doc>
 
-
-## Makefile
-
- <badge-doc href='https://www.gnu.org/software/make/manual'></badge-doc>
-
-
-### Wildcard characters
-
-`*`, `?` and `[...]`
-
-### Automatic variables
-
-`$^` list all the prerequisites of the rule
-`$<` list the first prerequisite
-`$?` list all the prerequisites newer than the target
-
-`$@` is the target
-
-Splitting Recipe Lines
-
-https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html
-
-Makefile tutorial
-
-https://makefiletutorial.com/
-
-
-Introduction à Makefile
-
-https://gl.developpez.com/tutoriel/outil/makefile/
-
-
 ## Workflows
 
 **desk** <badge-stars repo='jamesob/desk'></badge-stars> makes it easy
@@ -244,9 +212,13 @@ shell. Change directory, activate a virtualenv or rvm, load in domain-specific
 aliases, environment variables, functions, arbitrary shell files, all in a
 single command.
 
-**direnv** <badge-stars repo='direnv/direnv'></badge-stars> augments existing shells with a new feature that can load and unload environment variables depending on the current directory.
+**direnv** <badge-stars repo='direnv/direnv'></badge-stars> augments existing
+shells with a new feature that can load and unload environment variables
+depending on the current directory.
 
-**Modules** <badge-stars repo='cea-hpc/modules'></badge-stars>  is a tool that simplify shell initialization and lets users easily modify their environment during the session with modulefiles.
+**Modules** <badge-stars repo='cea-hpc/modules'></badge-stars>  is a tool that
+simplify shell initialization and lets users easily modify their environment
+during the session with modulefiles.
 
 **zsh-autoenv** <badge-stars repo='Tarrasch/zsh-autoenv'></badge-stars>
 automatically sources (known/whitelisted) `.autoenv.zsh ` files, handles "enter"
@@ -263,3 +235,8 @@ versions with a single CLI tool, extendable via plugins.
 
 **nutshell** <badge-stars repo='nushell/nushell'></badge-stars> is a new kind of
 shell, currently under heavy development.
+
+### Linting
+
+**shellcheck** <badge-stars repo='koalaman/shellcheck'></badge-stars>, can be
+used by [ ALE ](https://github.com/) in vim.
