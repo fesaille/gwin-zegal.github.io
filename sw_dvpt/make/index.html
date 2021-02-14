@@ -931,6 +931,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#wildcard-characters" class="md-nav__link">
+    Wildcard characters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variables" class="md-nav__link">
     Variables
   </a>
@@ -2342,6 +2349,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#wildcard-characters" class="md-nav__link">
+    Wildcard characters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variables" class="md-nav__link">
     Variables
   </a>
@@ -2382,6 +2396,9 @@
                 
                 
                 <h1 id="make">Make<a class="headerlink" href="#make" title="Permanent link">&para;</a></h1>
+<p><badge-doc href='https://www.gnu.org/software/make/manual'></badge-doc></p>
+<h2 id="wildcard-characters">Wildcard characters<a class="headerlink" href="#wildcard-characters" title="Permanent link">&para;</a></h2>
+<p><code>*</code>, <code>?</code> and <code>[...]</code></p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <ul>
 <li>variables defined with ‘=’ are recursively expanded.</li>
@@ -2390,6 +2407,10 @@
 </ul>
 <h3 id="automatic-variables">Automatic variables<a class="headerlink" href="#automatic-variables" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables"></a></p>
+<p><code>$^</code> list all the prerequisites of the rule
+<code>$&lt;</code> list the first prerequisite
+<code>$?</code> list all the prerequisites newer than the target</p>
+<p><code>$@</code> is the target</p>
 <table>
 <thead>
 <tr>
@@ -2432,6 +2453,10 @@ them.|
 | ‘</script></span>(@F)’ | The file-within-directory part of the file name of the target. If the value of ‘<span><span class="MathJax_Preview">@’ is dir/foo.o then ‘</span><script type="math/tex">@’ is dir/foo.o then ‘</script></span>(@F)’ is foo.o. ‘<span><span class="MathJax_Preview">(@F)’ is equivalent to ‘</span><script type="math/tex">(@F)’ is equivalent to ‘</script></span>(notdir $@)’.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <p>https://makefiletutorial.com</p>
+<p>Introduction à Makefile</p>
+<p>https://gl.developpez.com/tutoriel/outil/makefile/</p>
+<p>Splitting Recipe Lines</p>
+<p>https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html</p>
                 
               
               
