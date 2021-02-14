@@ -606,33 +606,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    Makefile
-  </a>
-  
-    <nav class="md-nav" aria-label="Makefile">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wildcard-characters" class="md-nav__link">
-    Wildcard characters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automatic-variables" class="md-nav__link">
-    Automatic variables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#workflows" class="md-nav__link">
     Workflows
   </a>
@@ -643,6 +616,19 @@
   <a href="#others" class="md-nav__link">
     Others
   </a>
+  
+    <nav class="md-nav" aria-label="Others">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    Linting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2616,33 +2602,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#makefile" class="md-nav__link">
-    Makefile
-  </a>
-  
-    <nav class="md-nav" aria-label="Makefile">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#wildcard-characters" class="md-nav__link">
-    Wildcard characters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automatic-variables" class="md-nav__link">
-    Automatic variables
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#workflows" class="md-nav__link">
     Workflows
   </a>
@@ -2653,6 +2612,19 @@
   <a href="#others" class="md-nav__link">
     Others
   </a>
+  
+    <nav class="md-nav" aria-label="Others">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    Linting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2974,29 +2946,18 @@ jq  -s 'sort_by(.streams.__default__.size) | reverse |
 <h3 id="yaml">YAML<a class="headerlink" href="#yaml" title="Permanent link">&para;</a></h3>
 <p><strong>yq</strong> <badge-stars repo='mikefarah/yq'></badge-stars> <badge-doc
 href="https://mikefarah.gitbook.io/yq/"></badge-doc></p>
-<h2 id="makefile">Makefile<a class="headerlink" href="#makefile" title="Permanent link">&para;</a></h2>
-<p><badge-doc href='https://www.gnu.org/software/make/manual'></badge-doc></p>
-<h3 id="wildcard-characters">Wildcard characters<a class="headerlink" href="#wildcard-characters" title="Permanent link">&para;</a></h3>
-<p><code>*</code>, <code>?</code> and <code>[...]</code></p>
-<h3 id="automatic-variables">Automatic variables<a class="headerlink" href="#automatic-variables" title="Permanent link">&para;</a></h3>
-<p><code>$^</code> list all the prerequisites of the rule
-<code>$&lt;</code> list the first prerequisite
-<code>$?</code> list all the prerequisites newer than the target</p>
-<p><code>$@</code> is the target</p>
-<p>Splitting Recipe Lines</p>
-<p>https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html</p>
-<p>Makefile tutorial</p>
-<p>https://makefiletutorial.com/</p>
-<p>Introduction à Makefile</p>
-<p>https://gl.developpez.com/tutoriel/outil/makefile/</p>
 <h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
 <p><strong>desk</strong> <badge-stars repo='jamesob/desk'></badge-stars> makes it easy
 to flip back and forth between different project contexts in your favorite
 shell. Change directory, activate a virtualenv or rvm, load in domain-specific
 aliases, environment variables, functions, arbitrary shell files, all in a
 single command.</p>
-<p><strong>direnv</strong> <badge-stars repo='direnv/direnv'></badge-stars> augments existing shells with a new feature that can load and unload environment variables depending on the current directory.</p>
-<p><strong>Modules</strong> <badge-stars repo='cea-hpc/modules'></badge-stars>  is a tool that simplify shell initialization and lets users easily modify their environment during the session with modulefiles.</p>
+<p><strong>direnv</strong> <badge-stars repo='direnv/direnv'></badge-stars> augments existing
+shells with a new feature that can load and unload environment variables
+depending on the current directory.</p>
+<p><strong>Modules</strong> <badge-stars repo='cea-hpc/modules'></badge-stars>  is a tool that
+simplify shell initialization and lets users easily modify their environment
+during the session with modulefiles.</p>
 <p><strong>zsh-autoenv</strong> <badge-stars repo='Tarrasch/zsh-autoenv'></badge-stars>
 automatically sources (known/whitelisted) <code>.autoenv.zsh</code> files, handles "enter"
 and leave" events, nesting, and stashing of variables (overwriting and
@@ -3009,6 +2970,9 @@ versions with a single CLI tool, extendable via plugins.</p>
 <h2 id="others">Others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h2>
 <p><strong>nutshell</strong> <badge-stars repo='nushell/nushell'></badge-stars> is a new kind of
 shell, currently under heavy development.</p>
+<h3 id="linting">Linting<a class="headerlink" href="#linting" title="Permanent link">&para;</a></h3>
+<p><strong>shellcheck</strong> <badge-stars repo='koalaman/shellcheck'></badge-stars>, can be
+used by <a href="https://github.com/"> ALE </a> in vim.</p>
                 
               
               
