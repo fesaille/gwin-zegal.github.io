@@ -4,8 +4,6 @@
   ](https://en.wikipedia.org/wiki/Continuous_integration) ensure an application build and test triggered by defined changes.
 
 
-
-
 Continuous Integration/Delivery
 
 ![whatis](https://about.gitlab.com/images/blogimages/cicd_pipeline_infograph.png)

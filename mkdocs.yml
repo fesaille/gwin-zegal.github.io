@@ -49,6 +49,8 @@ nav:
       - "CI/CD":
           - Intro: sw_dvpt/ci_cd/cicd.md
           - "Code coverage": sw_dvpt/ci_cd/codecov.md
+      - Protocols:
+          - kerberos: sw_dvpt/protocols/kerberos.md
       - "Design patterns": sw_dvpt/patterns.md
       - make: sw_dvpt/make.md
   - Infrastructure:
