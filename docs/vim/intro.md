@@ -2,6 +2,19 @@
 
 [Cheatsheet](https://vim.rtorr.com/)
 
+## Start
+
+Vim can be started with several options, loading or not configuration file,
+plugins or viminfo. 
+
+This can be especially useful in case of problem at start. 
+
+```terminal
+vim -N -u NONE -U NONE -i NONE
+vim -N -u NONE -U NONE 
+vim -N -u ~/.vimrc --noplugin -i NONE
+```
+
 ## Initialisation
 
 `:h init` or <badge-doc href="https://vimhelp.org/starting.html#initialization" message="initialization" logo="vim"></badge-doc>
@@ -64,4 +77,4 @@ This is a list of some directories which will be searched for runtime files:
 
 - [Learn vim script the hard way](https://learnvimscriptthehardway.stevelosh.com/chapters/42.html)
 - [VIM cheatsheet](https://github.com/hackjutsu/vim-cheatsheet)
-- [VIM script cheatsheet](https://github.com/hackjutsu/vim-cheatsheet)
+- [VIM script aheatsheet](https://github.com/hackjutsu/vim-cheatsheet)

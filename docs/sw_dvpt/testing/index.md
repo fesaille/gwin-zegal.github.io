@@ -19,3 +19,6 @@ With parametrized tests, multiple tests can be executed with different inputs.
 ## Links
 
 <b>tox</b> <badge-stars repo='tox-dev/tox'></badge-stars> <badge-doc
+
+- Software testing for continuous delivery at [Atlassian](https://www.atlassian.com/continuous-delivery/software-testing)
+- Testing standards and style guidelines on the [gitlab project](https://docs.gitlab.com/ee/development/testing_guide/)

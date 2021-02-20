@@ -5,7 +5,7 @@ href='https://web.mit.edu/kerberos/krb5-latest/doc/'></badge-doc>  is a network
 authentication protocol. It provides a strong authentication for client/server
 applications by using secret-key cryptography.
 
-For ticket management at the user level <badge-doc href='https://web.mit.edu/kerberos/krb5-latest/doc/user/index.html'></badge-doc> some utilies are available:
+For ticket management at the user level <badge-doc href='https://web.mit.edu/kerberos/krb5-latest/doc/user/index.html'></badge-doc> some utilities are available:
 
 - `kinit` obtains and caches an initial ticket-granting ticket for
   principal. If principal is absent, kinit chooses an appropriate principal name
