@@ -990,8 +990,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#variables-definition" class="md-nav__link">
+    Variables definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#automatic-variables" class="md-nav__link">
     Automatic variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    "Macros"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansion" class="md-nav__link">
+    Expansion
   </a>
   
 </li>
@@ -2408,8 +2429,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#variables-definition" class="md-nav__link">
+    Variables definition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#automatic-variables" class="md-nav__link">
     Automatic variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    "Macros"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expansion" class="md-nav__link">
+    Expansion
   </a>
   
 </li>
@@ -2444,17 +2486,23 @@
 <h2 id="wildcard-characters">Wildcard characters<a class="headerlink" href="#wildcard-characters" title="Permanent link">&para;</a></h2>
 <p><code>*</code>, <code>?</code> and <code>[...]</code></p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<p>Variables are case sensitive, may contain function and variable references,
+which are expanded when the line is read to find the actual variable name to
+use.</p>
+<h3 id="variables-definition">Variables definition<a class="headerlink" href="#variables-definition" title="Permanent link">&para;</a></h3>
+<p>Variables can be declated through various operators:</p>
 <ul>
-<li>variables defined with ‘=’ are recursively expanded.</li>
-<li>variables defined with ‘:=’ or ‘::=’ are simply expanded</li>
-<li>variable names may contain function and variable references, which are expanded when the line is read to find the actual variable name to use.</li>
+<li>with <code>=</code>, they are called <em>recursively expanded</em>, i.e. lazily evaluated with
+  the specificity of being always re-evaluated.</li>
+<li>with <code>:=</code> or <code>::=</code>, they are <em>simply expanded</em>. The righthand side is expanded
+  immediately upon reading the line.</li>
+<li><code>?=</code> is the <em>conditional variable assignment operator</em>. Assignement is
+  performed only is the variables does not have a value.</li>
+<li><code>+=</code> is used to append to a variable. This one is created if it does not
+  exist.</li>
 </ul>
 <h3 id="automatic-variables">Automatic variables<a class="headerlink" href="#automatic-variables" title="Permanent link">&para;</a></h3>
-<p><a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables"></a></p>
-<p><code>$^</code> list all the prerequisites of the rule
-<code>$&lt;</code> list the first prerequisite
-<code>$?</code> list all the prerequisites newer than the target</p>
-<p><code>$@</code> is the target</p>
+<p><a href="https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables">Most important variables</a></p>
 <table>
 <thead>
 <tr>
@@ -2465,36 +2513,68 @@
 <tbody>
 <tr>
 <td>$@</td>
-<td>The file name of the target of the rule. If the target is an archive member, then ‘$@’ is the name of the archive file. In a pattern rule that has multiple targets (see Introduction to Pattern Rules), ‘$@’ is the name of whichever target caused the rule’s recipe to be run.</td>
+<td>File name of the target of the rule.</td>
 </tr>
 <tr>
 <td>$%</td>
-<td>The target member name, when the target is an archive member. See Archives. For example, if the target is foo.a(bar.o) then ‘<span><span class="MathJax_Preview">%’ is bar.o and ‘</span><script type="math/tex">%’ is bar.o and ‘</script></span>@’ is foo.a. ‘$%’ is empty when the target is not an archive member.</td>
+<td>Target member name, when the target is an archive member. For example, if the target is foo.a(bar.o) then ‘<span><span class="MathJax_Preview">%’ is bar.o and ‘</span><script type="math/tex">%’ is bar.o and ‘</script></span>@’ is foo.a. Empty when the target is not an archive member.</td>
 </tr>
 <tr>
 <td>$&lt;</td>
-<td>The name of the first prerequisite. If the target got its recipe from an implicit rule, this will be the first prerequisite added by the implicit rule (see Implicit Rules).</td>
+<td>Name of the first prerequisite.</td>
 </tr>
 <tr>
 <td>$?</td>
-<td>The names of all the prerequisites that are newer than the target, with spaces between them. If the target does not exist, all prerequisites will be included. For prerequisites which are archive members, only the named member is used (see Archives).</td>
+<td>Names of all the prerequisites that are newer than the target, with spaces between them.</td>
 </tr>
 <tr>
 <td>$^</td>
-<td>The names of all the prerequisites, with spaces between them. For prerequisites which are archive members, only the named member is used (see Archives). A target has only one prerequisite on each other file it depends on, no matter how many times each file is listed as a prerequisite. So if you list a prerequisite more than once for a target, the value of $^ contains just one copy of the name. This list does not contain any of the order-only prerequisites; for those see the ‘$|’ variable, below.</td>
+<td>Names of all the prerequisites, with spaces between them.</td>
+</tr>
+<tr>
+<td>$+</td>
+<td>Like ‘$^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile.</td>
+</tr>
+<tr>
+<td>$|</td>
+<td>Names of all the order-only prerequisites, with spaces between them.</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>Stem with which an implicit rule matches.</td>
 </tr>
 </tbody>
 </table>
-<p>| <span><span class="MathJax_Preview">+  | This is like ‘</span><script type="math/tex">+  | This is like ‘</script></span>^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile. This is primarily useful for use in linking commands where it is meaningful to repeat library file names in a particular order. |
-| <span><span class="MathJax_Preview">| | The names of all the order-only prerequisites, with spaces between
-them.|
-| <span><span class="MathJax_Preview">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</span><script type="math/tex">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</script></span></span><script type="math/tex">| | The names of all the order-only prerequisites, with spaces between
-them.|
-| <span><span class="MathJax_Preview">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</span><script type="math/tex">*      | The stem with which an implicit rule matches (see How Patterns Match). If the target is dir/a.foo.b and the target pattern is a.%.b then the stem is dir/foo. The stem is useful for constructing names of related files. In a static pattern rule, the stem is part of the file name that matched the ‘%’ in the target pattern. In an explicit rule, there is no stem; so ‘</script></span><em>’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see Old-Fashioned Suffix Rules), ‘</em>’ cannot be determined in that way. Instead, if the target name ends with a recognized suffix (see Old-Fashioned Suffix Rules), ‘</script></span><em>’ is set to the target name minus the suffix. For example, if the target name is ‘foo.c’, then ‘<span><span class="MathJax_Preview">*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘</span><script type="math/tex">*’ is set to ‘foo’, since ‘.c’ is a suffix. GNU make does this bizarre thing only for compatibility with other implementations of make. You should generally avoid using ‘</script></span></em>’ except in implicit rules or static pattern rules. If the target name in an explicit rule does not end with a recognized suffix, ‘<span><span class="MathJax_Preview">*’ is set to the empty string for that rule. |
-| ‘</span><script type="math/tex">*’ is set to the empty string for that rule. |
-| ‘</script></span>(@D)’ | The directory part of the file name of the target, with the trailing slash removed. If the value of ‘<span><span class="MathJax_Preview">@’ is dir/foo.o then ‘</span><script type="math/tex">@’ is dir/foo.o then ‘</script></span>(@D)’ is dir. This value is . if ‘<span><span class="MathJax_Preview">@’ does not contain a slash.
-| ‘</span><script type="math/tex">@’ does not contain a slash.
-| ‘</script></span>(@F)’ | The file-within-directory part of the file name of the target. If the value of ‘<span><span class="MathJax_Preview">@’ is dir/foo.o then ‘</span><script type="math/tex">@’ is dir/foo.o then ‘</script></span>(@F)’ is foo.o. ‘<span><span class="MathJax_Preview">(@F)’ is equivalent to ‘</span><script type="math/tex">(@F)’ is equivalent to ‘</script></span>(notdir $@)’.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |</p>
+<p>Each of those variables has complementary directory or file portion, e.g. for
+the target:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>‘$(@D)’</td>
+<td>The directory part of the file name of the target, with the trailing slash removed.</td>
+</tr>
+<tr>
+<td>‘$(@F)’</td>
+<td>The file-within-directory part of the file name of the target.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="macros">"Macros"<a class="headerlink" href="#macros" title="Permanent link">&para;</a></h3>
+<p>Variables can contain one liner expressions, for more complex sequences, a
+variable can use the sequence <code>define</code>...<code>enddef</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">define two-lines</span>
+<span class="err">echo</span> <span class="err">foo</span>
+<span class="err">echo</span> <span class="k">$(</span><span class="nv">bar</span><span class="k">)</span>
+<span class="cp">endef</span>
+</code></pre></div>
+<h3 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">&para;</a></h3>
+<p>Expansion is only made immediately when the variable is declare with <code>=</code>.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <p>https://makefiletutorial.com</p>
 <p>Introduction à Makefile</p>
