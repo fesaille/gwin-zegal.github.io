@@ -1635,6 +1635,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    Connection
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2388,6 +2395,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
+    Connection
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2427,6 +2441,11 @@
 <li>execution in alphabetical order</li>
 <li><code>.js</code> files will be executed by mongo using <code>MONGO_INIT_DATABASE</code> otherwise 'test'</li>
 </ul>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">&para;</a></h2>
+<p>Either with dockerized shell or with the OS mongo shell.</p>
+<div class="highlight"><pre><span></span><code>$ docker <span class="nb">exec</span> -it &lt;CONTAINER_NAME&gt; mongo
+$ mongo --port <span class="m">27017</span> -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt; --authenticatioinDatabase admin
+</code></pre></div>
                 
               
               
