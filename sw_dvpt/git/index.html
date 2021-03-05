@@ -2730,16 +2730,16 @@ git log rebB --not revA
 </code></pre></div>
 </div>
 <input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Extended selection</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>    G   H   I   J   |      Args     |  Expanded arguments  |  Selected commits
-     \ /     \ /    |     ----------|----------------------|------------------
-      D   E   F     |       D       |                      | G H D
-       \  |  / \    |       D F     |                      | G H I J D F
-        \ | /   |   |       ^G D    |                      | H D
-         \|/    |   |       ^D B    |                      | E I J F B
-          B     C   |       ^D B C  |                      | E I J F B C
-           \   /    |       C       |                      | I J F C
-            \ /     |       B..C    |  = ^B C              | C
-             A      |       B...C   |  = B ^F C            | G H D E B C
+<div class="highlight"><pre><span></span><code>   G   H   I   J    |      Args     |  Expanded arguments  |  Selected commits
+    \ /     \ /     |     ----------|----------------------|------------------
+     D   E   F      |       D       |                      | G H D
+      \  |  / \     |       D F     |                      | G H I J D F
+       \ | /   |    |       ^G D    |                      | H D
+        \|/    |    |       ^D B    |                      | E I J F B
+         B     C    |       ^D B C  |                      | E I J F B C
+          \   /     |       C       |                      | I J F C
+           \ /      |       B..C    |  = ^B C              | C
+            A       |       B...C   |  = B ^F C            | G H D E B C
                     |       B^-     |  = B^..B             |
                     |               |  = ^B^1 B            | E I J F B
                     |       C^@     |  = C^1               |
@@ -2862,6 +2862,31 @@ two groups:</p>
 <li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
   am</code> for an email-based workflow.</li>
 </ul>
+<details class="example"><summary>Post commit</summary><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Update a superproject when a commit is made to a submodule.</span>
+<span class="c1"># Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit</span>
+<span class="c1"># where the double-star indicates variadic path elements.</span>
+<span class="c1">#</span>
+<span class="c1"># Depends on Git &gt;= 2.13.</span>
+
+<span class="c1"># Clean the Git environment before crossing repository boundaries.</span>
+<span class="c1"># From https://stackoverflow.com/questions/36196548</span>
+<span class="k">while</span> <span class="nb">read</span> variable<span class="p">;</span> <span class="k">do</span>
+    <span class="nb">unset</span> <span class="nv">$variable</span>
+<span class="k">done</span> &lt; &lt;<span class="o">(</span>env <span class="p">|</span> grep <span class="s2">&quot;^GIT_&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/=.*//g&#39;</span><span class="o">)</span>
+
+<span class="nv">COMMIT_MSG</span><span class="o">=</span><span class="k">$(</span>git log --format<span class="o">=</span>%B -n <span class="m">1</span><span class="k">)</span>
+<span class="nv">GIT</span><span class="o">=</span><span class="s2">&quot;git&quot;</span>
+<span class="nv">SUPERPROJECT_WORKING_TREE</span><span class="o">=</span><span class="sb">`</span>git rev-parse --show-superproject-working-tree<span class="sb">`</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;📣 Committing to </span><span class="nv">$SUPERPROJECT_WORKING_TREE</span><span class="s2">.&quot;</span>
+
+<span class="nb">cd</span> <span class="nv">$SUPERPROJECT_WORKING_TREE</span>
+<span class="nv">$GIT</span> add .
+<span class="nv">$GIT</span> commit -m <span class="s2">&quot;</span><span class="nv">$COMMIT_MSG</span><span class="s2">&quot;</span>
+</code></pre></div>
+</details>
 <h3 id="server-side">Server side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
