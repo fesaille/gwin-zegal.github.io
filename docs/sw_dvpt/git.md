@@ -45,13 +45,13 @@ Enable to see commits between two history points that can be on different branch
 
 !!! Examples ""
 
-	```bash
-	# Show what is beeing pulled (what's between HEAD and origin/master)
-	git log --pretty=oneline -n 10 HEAD..origin/master
+    ```bash
+    # Show what is beeing pulled (what's between HEAD and origin/master)
+    git log --pretty=oneline -n 10 HEAD..origin/master
 
-	# Show a branch history (master to parent's commit o new_branch)
-	git log master..new_branch^
-	```
+    # Show a branch history (master to parent's commit o new_branch)
+    git log master..new_branch^
+    ```
 
 ### Exclude reachable commit
 
@@ -59,16 +59,16 @@ This can be done with `^` before the commit or branch or by using thee `--not` s
 
 !!! Examples ""
 
-	```bash
-	# Usage are equivalent
-	git log revA revB ^revC
-	git log revA revB --not revC
+    ```bash
+    # Usage are equivalent
+    git log revA revB ^revC
+    git log revA revB --not revC
 
-	# Usage are equivalent
-	git log revA..revB
-	git log ^revA revB
-	git log rebB --not revA
-	```
+    # Usage are equivalent
+    git log revA..revB
+    git log ^revA revB
+    git log rebB --not revA
+    ```
 
 ### Mutualy exclution: triple dot
 
@@ -79,63 +79,63 @@ Specify commits that are reachabel either by both references
 
 !!!	Examples ""
 
-	=== "Loeliger notation"
+    === "Loeliger notation"
 
-		```
-			G   H   I   J
-			 \ /     \ /
-			  D   E   F
-			   \  |  / \
-				\ | /   |
-			     \|/    |
-			      B     C
-			   	   \   /
-			        \ /
-			    	 A
-		```
+        ```
+            G   H   I   J
+             \ /     \ /
+              D   E   F
+               \  |  / \
+                \ | /   |
+                 \|/    |
+                  B     C
+                   \   /
+                    \ /
+                     A
+        ```
 
-	=== "Ancestry selection"
+    === "Ancestry selection"
 
-		```
-			G   H   I   J   |     A =      = A^0
-			 \ /     \ /    |     B = A^   = A^1     = A~1
-			  D   E   F     |     C = A^2  = A^2
-			   \  |  / \    |     D = A^^  = A^1^1   = A~2
-				\ | /   |   |     E = B^2  = A^^2
-			     \|/    |   |     F = B^3  = A^^3
-			      B     C   |     G = A^^^ = A^1^1^1 = A~3
-			   	   \   /    |     H = D^2  = B^^2    = A^^^2  = A~2^2
-			        \ /     |     I = F^   = B^3^    = A^^3^
-			    	 A      |     J = F^2  = B^3^2   = A^^3^2
-		```
+        ```
+            G   H   I   J   |     A =      = A^0
+             \ /     \ /    |     B = A^   = A^1     = A~1
+              D   E   F     |     C = A^2  = A^2
+               \  |  / \    |     D = A^^  = A^1^1   = A~2
+                \ | /   |   |     E = B^2  = A^^2
+                 \|/    |   |     F = B^3  = A^^3
+                  B     C   |     G = A^^^ = A^1^1^1 = A~3
+                   \   /    |     H = D^2  = B^^2    = A^^^2  = A~2^2
+                    \ /     |     I = F^   = B^3^    = A^^3^
+                     A      |     J = F^2  = B^3^2   = A^^3^2
+        ```
 
-	=== "Extended selection"
+    === "Extended selection"
 
-		```
-		   	G   H   I   J	|      Args     |  Expanded arguments  |  Selected commits
-		   	 \ /     \ /	|     ----------|----------------------|------------------
-		   	  D   E   F  	|       D       |                      | G H D
-		   	   \  |  / \ 	|       D F     |                      | G H I J D F
-		   	    \ | /   |	|       ^G D    |                      | H D
-		   	 	 \|/    |	|       ^D B    |                      | E I J F B
-		   	 	  B     C	|       ^D B C  |                      | E I J F B C
-		   	 	   \   / 	|       C       |                      | I J F C
-		   	 	    \ /  	|       B..C    |  = ^B C              | C
-		   	 	     A   	|       B...C   |  = B ^F C            | G H D E B C
-							|       B^-     |  = B^..B             |
-							|               |  = ^B^1 B            | E I J F B
-							|       C^@     |  = C^1               |
-							|               |  = F                 | I J F
-							|       B^@     |  = B^1 B^2 B^3       |
-							|               |  = D E F             | D G H E F I J
-							|       C^!     |  = C ^C^@            |
-							|               |  = C ^C^1            |
-							|               |  = C ^F              | C
-							|       B^!     |  = B ^B^@            |
-							|               |  = B ^B^1 ^B^2 ^B^3  |
-							|               |  = B ^D ^E ^F        | B
-		                    |       F^! D   |  = F ^I ^J D         | G H D F
-		```
+        ```
+           G   H   I   J    |      Args     |  Expanded arguments  |  Selected commits
+            \ /     \ /     |     ----------|----------------------|------------------
+             D   E   F      |       D       |                      | G H D
+              \  |  / \     |       D F     |                      | G H I J D F
+               \ | /   |    |       ^G D    |                      | H D
+                \|/    |    |       ^D B    |                      | E I J F B
+                 B     C    |       ^D B C  |                      | E I J F B C
+                  \   /     |       C       |                      | I J F C
+                   \ /      |       B..C    |  = ^B C              | C
+                    A       |       B...C   |  = B ^F C            | G H D E B C
+                            |       B^-     |  = B^..B             |
+                            |               |  = ^B^1 B            | E I J F B
+                            |       C^@     |  = C^1               |
+                            |               |  = F                 | I J F
+                            |       B^@     |  = B^1 B^2 B^3       |
+                            |               |  = D E F             | D G H E F I J
+                            |       C^!     |  = C ^C^@            |
+                            |               |  = C ^C^1            |
+                            |               |  = C ^F              | C
+                            |       B^!     |  = B ^B^@            |
+                            |               |  = B ^B^1 ^B^2 ^B^3  |
+                            |               |  = B ^D ^E ^F        | B
+                            |       F^! D   |  = F ^I ^J D         | G H D F
+        ```
 
 
 ## Submodules
@@ -147,8 +147,6 @@ Specify commits that are reachabel either by both references
 - **-** if the submodule is not initialized
 - **+** in case of conflicts between current subdmodule and the index of the containing directory
 - **U** in case of merge conflicts
-
-
 
 ### Remove a submodule
 
@@ -170,8 +168,6 @@ Commit the changes
 ```
  git commit-m "Removed submodule "
 ```
-
-
 
 Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
 ```
@@ -244,6 +240,34 @@ There are other hooks, invoked by specific commands:
 - `pre-auto-gc` by invoking garbage collection `git gc --auto`
 - `applypatch-msg`, `pre-applypatch` and `post-applypatch` all invoked by `git
   am` for an email-based workflow.
+
+??? example "Post commit"
+
+    ```bash
+    #!/bin/bash
+    #
+    # Update a superproject when a commit is made to a submodule.
+    # Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit
+    # where the double-star indicates variadic path elements.
+    #
+    # Depends on Git >= 2.13.
+
+    # Clean the Git environment before crossing repository boundaries.
+    # From https://stackoverflow.com/questions/36196548
+    while read variable; do
+        unset $variable
+    done < <(env | grep "^GIT_" | sed 's/=.*//g')
+
+    COMMIT_MSG=$(git log --format=%B -n 1)
+    GIT="git"
+    SUPERPROJECT_WORKING_TREE=`git rev-parse --show-superproject-working-tree`
+
+    echo "📣 Committing to $SUPERPROJECT_WORKING_TREE."
+
+    cd $SUPERPROJECT_WORKING_TREE
+    $GIT add .
+    $GIT commit -m "$COMMIT_MSG"
+    ```
 
 ### Server side
 
