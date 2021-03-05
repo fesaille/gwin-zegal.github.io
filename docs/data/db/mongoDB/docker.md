@@ -1,7 +1,7 @@
 # MongoDB docker image
 
 <a href="https://hub.docker.com/_/mongo" alt="Docker hub repository" target="_blank">
-	<img alt="Docker Stars" src="https://img.shields.io/docker/stars/_/mongo">
+    <img alt="Docker Stars" src="https://img.shields.io/docker/stars/_/mongo">
 </a>
 
 ## Environment variables / startup scripts
@@ -24,3 +24,12 @@
 - all files located at `/dock-entrypoint-initdb.d/` with extension `.js` and `.sh` will be executed.
 - execution in alphabetical order
 - `.js` files will be executed by mongo using `MONGO_INIT_DATABASE` otherwise 'test'
+
+## Connection
+
+Either with dockerized shell or with the OS mongo shell.
+
+```bash
+$ docker exec -it <CONTAINER_NAME> mongo
+$ mongo --port 27017 -u <USERNAME> -p <PASSWORD> --authenticatioinDatabase admin
+```
