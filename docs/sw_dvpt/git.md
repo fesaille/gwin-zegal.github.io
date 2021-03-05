@@ -112,16 +112,16 @@ Specify commits that are reachabel either by both references
     === "Extended selection"
 
         ```
-           G   H   I   J    |      Args     |  Expanded arguments  |  Selected commits
-            \ /     \ /     |     ----------|----------------------|------------------
-             D   E   F      |       D       |                      | G H D
-              \  |  / \     |       D F     |                      | G H I J D F
-               \ | /   |    |       ^G D    |                      | H D
-                \|/    |    |       ^D B    |                      | E I J F B
-                 B     C    |       ^D B C  |                      | E I J F B C
-                  \   /     |       C       |                      | I J F C
-                   \ /      |       B..C    |  = ^B C              | C
-                    A       |       B...C   |  = B ^F C            | G H D E B C
+            G   H   I   J   |      Args     |  Expanded arguments  |  Selected commits
+             \ /     \ /    |     ----------|----------------------|------------------
+              D   E   F     |       D       |                      | G H D
+               \  |  / \    |       D F     |                      | G H I J D F
+                \ | /   |   |       ^G D    |                      | H D
+                 \|/    |   |       ^D B    |                      | E I J F B
+                  B     C   |       ^D B C  |                      | E I J F B C
+                   \   /    |       C       |                      | I J F C
+                    \ /     |       B..C    |  = ^B C              | C
+                     A      |       B...C   |  = B ^F C            | G H D E B C
                             |       B^-     |  = B^..B             |
                             |               |  = ^B^1 B            | E I J F B
                             |       C^@     |  = C^1               |
