@@ -116,6 +116,68 @@ function! Codify()
   " -> get selection and introduce ` around selection
 endfunction
 
+## Syntax
+
+### Keywords
+
+The generic form for defining syntaxing is:
+
+```vim
+:syntax keyword {group} {keyword} ...
+```
+
+The correspoding hightlighting is set with `hightlight`
+
+!!! Example
+
+    ```vim
+        syntax keyword xType int long char
+        highlight link xType Type
+    ```
+
+### Matches
+
+Syntax can match ordinary identifiers:
+
+```vim
+:syntax match xIdentifier /\<\l\+\>/
+```
+`Keywords` have a high precedence over matches.
+
+### Regions
+
+Region can be defined with a `start` and `end` parameter, optional `skip`:
+
+```vim
+:syntax region xString start=/"/ end=/"/
+:syntax region xString start=/"/ skip=/\\"/ end=/"/
+```
+
+### Clusters
+
+A cluster is a collection of syntax groups.
+
+!!! Example
+
+    ```vim
+    " Instead of manualy defining elements contained in match
+	:syntax match xFor /^for.*/ contains=xNumber,xIdent
+	:syntax match xIf /^if.*/ contains=xNumber,xIdent
+	:syntax match xWhile /^while.*/ contains=xNumber,xIdent
+
+    " One can define a cluster
+	:syntax cluster xState contains=xNumber,xIdent
+
+    " And later reuse it
+	:syntax match xFor /^for.*/ contains=@xState
+	:syntax match xIf /^if.*/ contains=@xState
+	:syntax match xWhile /^while.*/ contains=@xState
+
+    " Add and remove to a cluster
+	:syntax cluster xState add=xString
+	:syntax cluster xState remove=xString
+
+
 ## Folding
 
 <badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim"
