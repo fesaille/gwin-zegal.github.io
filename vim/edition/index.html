@@ -2845,32 +2845,35 @@ endfunction</p>
 </div>
 <h3 id="matches">Matches<a class="headerlink" href="#matches" title="Permanent link">&para;</a></h3>
 <p>Syntax can match ordinary identifiers:</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nb">syntax</span> <span class="k">match</span> xIdentifier <span class="sr">/\&lt;\l\+\&gt;/</span>
+<p><div class="highlight"><pre><span></span><code>    <span class="nb">syntax</span> <span class="k">match</span> xIdentifier <span class="sr">/\&lt;\l\+\&gt;/</span>
 </code></pre></div>
 <code>Keywords</code> have a high precedence over matches.</p>
 <h3 id="regions">Regions<a class="headerlink" href="#regions" title="Permanent link">&para;</a></h3>
 <p>Region can be defined with a <code>start</code> and <code>end</code> parameter, optional <code>skip</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
-<span class="p">:</span><span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> skip<span class="p">=</span><span class="sr">/\\&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
+<div class="highlight"><pre><span></span><code>    <span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
+    <span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> skip<span class="p">=</span><span class="sr">/\\&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
 </code></pre></div>
 <h3 id="clusters">Clusters<a class="headerlink" href="#clusters" title="Permanent link">&para;</a></h3>
 <p>A cluster is a collection of syntax groups.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>```vim
-" Instead of manualy defining elements contained in match
-:syntax match xFor /^for.<em>/ contains=xNumber,xIdent
-:syntax match xIf /^if.</em>/ contains=xNumber,xIdent
-:syntax match xWhile /^while.*/ contains=xNumber,xIdent</p>
-<p>" One can define a cluster
-:syntax cluster xState contains=xNumber,xIdent</p>
-<p>" And later reuse it
-:syntax match xFor /^for.<em>/ contains=@xState
-:syntax match xIf /^if.</em>/ contains=@xState
-:syntax match xWhile /^while.*/ contains=@xState</p>
-<p>" Add and remove to a cluster
-:syntax cluster xState add=xString
-:syntax cluster xState remove=xString</p>
+<div class="highlight"><pre><span></span><code><span class="c">    &quot; Instead of manualy defining elements contained in match</span>
+    <span class="nb">syntax</span> <span class="k">match</span> xFor <span class="sr">/^for.*/</span> contains<span class="p">=</span>xNumber<span class="p">,</span>xIdent
+    <span class="nb">syntax</span> <span class="k">match</span> xIf <span class="sr">/^if.*/</span> contains<span class="p">=</span>xNumber<span class="p">,</span>xIdent
+    <span class="nb">syntax</span> <span class="k">match</span> xWhile <span class="sr">/^while.*/</span> contains<span class="p">=</span>xNumber<span class="p">,</span>xIdent
+
+<span class="c">    &quot; One can define a cluster</span>
+    <span class="nb">syntax</span> cluster xState contains<span class="p">=</span>xNumber<span class="p">,</span>xIdent
+
+<span class="c">    &quot; And later reuse it</span>
+    <span class="nb">syntax</span> <span class="k">match</span> xFor <span class="sr">/^for.*/</span> contains<span class="p">=</span>@xState
+    <span class="nb">syntax</span> <span class="k">match</span> xIf <span class="sr">/^if.*/</span> contains<span class="p">=</span>@xState
+    <span class="nb">syntax</span> <span class="k">match</span> xWhile <span class="sr">/^while.*/</span> contains<span class="p">=</span>@xState
+
+<span class="c">    &quot; Add and remove to a cluster</span>
+    <span class="nb">syntax</span> cluster xState add<span class="p">=</span>xString
+    <span class="nb">syntax</span> cluster xState remove<span class="p">=</span>xString
+</code></pre></div>
 </div>
 <h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
 <p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim"
