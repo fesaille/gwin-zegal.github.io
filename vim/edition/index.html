@@ -772,6 +772,47 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matches" class="md-nav__link">
+    Matches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regions" class="md-nav__link">
+    Regions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusters" class="md-nav__link">
+    Clusters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#folding" class="md-nav__link">
     Folding
   </a>
@@ -2517,6 +2558,47 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    Syntax
+  </a>
+  
+    <nav class="md-nav" aria-label="Syntax">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keywords" class="md-nav__link">
+    Keywords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matches" class="md-nav__link">
+    Matches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regions" class="md-nav__link">
+    Regions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clusters" class="md-nav__link">
+    Clusters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#folding" class="md-nav__link">
     Folding
   </a>
@@ -2749,6 +2831,47 @@ endfunction</p>
   " Length &gt;= 1   (visual mode)
   " -&gt; get selection and introduce ` around selection
 endfunction</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<h3 id="keywords">Keywords<a class="headerlink" href="#keywords" title="Permanent link">&para;</a></h3>
+<p>The generic form for defining syntaxing is:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nb">syntax</span> keyword {group} {keyword} ...
+</code></pre></div>
+<p>The correspoding hightlighting is set with <code>hightlight</code></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>    <span class="nb">syntax</span> keyword xType int long char
+    <span class="nb">highlight</span> link xType Type
+</code></pre></div>
+</div>
+<h3 id="matches">Matches<a class="headerlink" href="#matches" title="Permanent link">&para;</a></h3>
+<p>Syntax can match ordinary identifiers:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nb">syntax</span> <span class="k">match</span> xIdentifier <span class="sr">/\&lt;\l\+\&gt;/</span>
+</code></pre></div>
+<code>Keywords</code> have a high precedence over matches.</p>
+<h3 id="regions">Regions<a class="headerlink" href="#regions" title="Permanent link">&para;</a></h3>
+<p>Region can be defined with a <code>start</code> and <code>end</code> parameter, optional <code>skip</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
+<span class="p">:</span><span class="nb">syntax</span> region xString <span class="k">start</span><span class="p">=</span><span class="sr">/&quot;/</span> skip<span class="p">=</span><span class="sr">/\\&quot;/</span> <span class="k">end</span><span class="p">=</span><span class="sr">/&quot;/</span>
+</code></pre></div>
+<h3 id="clusters">Clusters<a class="headerlink" href="#clusters" title="Permanent link">&para;</a></h3>
+<p>A cluster is a collection of syntax groups.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>```vim
+" Instead of manualy defining elements contained in match
+:syntax match xFor /^for.<em>/ contains=xNumber,xIdent
+:syntax match xIf /^if.</em>/ contains=xNumber,xIdent
+:syntax match xWhile /^while.*/ contains=xNumber,xIdent</p>
+<p>" One can define a cluster
+:syntax cluster xState contains=xNumber,xIdent</p>
+<p>" And later reuse it
+:syntax match xFor /^for.<em>/ contains=@xState
+:syntax match xIf /^if.</em>/ contains=@xState
+:syntax match xWhile /^while.*/ contains=@xState</p>
+<p>" Add and remove to a cluster
+:syntax cluster xState add=xString
+:syntax cluster xState remove=xString</p>
+</div>
 <h2 id="folding">Folding<a class="headerlink" href="#folding" title="Permanent link">&para;</a></h2>
 <p><badge-doc href="https://vimhelp.org/usr_28.txt.html" logo="vim"
 message="usr_28"></badge-doc></p>
