@@ -549,3 +549,9 @@ href='https://github.com/dandavison/delta#configuration'></badge-doc>
 [core]
     pager = delta
 ```
+
+Open all files with git merge conflicts.
+
+```terminal
+git diff --name-only | uniq | xargs vim
+```
