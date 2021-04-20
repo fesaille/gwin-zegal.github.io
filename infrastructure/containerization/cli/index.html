@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#docker-cli" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1097,10 +1102,62 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Docker CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
       Docker CLI
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-application" class="md-nav__link">
+    Docker Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-builder" class="md-nav__link">
+    Docker builder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-buildx" class="md-nav__link">
+    Docker buildx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker compose
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2314,15 +2371,309 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-application" class="md-nav__link">
+    Docker Application
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-builder" class="md-nav__link">
+    Docker builder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-buildx" class="md-nav__link">
+    Docker buildx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    Docker compose
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Docker CLI</h1>
-                
-                
+                <h1 id="docker-cli">Docker CLI<a class="headerlink" href="#docker-cli" title="Permanent link">&para;</a></h1>
+<h2 id="docker-application">Docker Application<a class="headerlink" href="#docker-application" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker app bundle</td>
+<td>Create a CNAB invocation image and bundle.json for the application</td>
+</tr>
+<tr>
+<td>docker app completion</td>
+<td>Generates completion scripts for the specified shell (bash or zsh)</td>
+</tr>
+<tr>
+<td>docker app init</td>
+<td>Initialize Docker Application definition</td>
+</tr>
+<tr>
+<td>docker app inspect</td>
+<td>Shows metadata, parameters and a summary of the Compose file for a given application</td>
+</tr>
+<tr>
+<td>docker app install</td>
+<td>Install an application</td>
+</tr>
+<tr>
+<td>docker app list</td>
+<td>List the installations and their last known installation result</td>
+</tr>
+<tr>
+<td>docker app merge</td>
+<td>Merge a directory format Docker Application definition into a single file</td>
+</tr>
+<tr>
+<td>docker app pull</td>
+<td>Pull an application package from a registry</td>
+</tr>
+<tr>
+<td>docker app push</td>
+<td>Push an application package to a registry</td>
+</tr>
+<tr>
+<td>docker app render</td>
+<td>Render the Compose file for an Application Package</td>
+</tr>
+<tr>
+<td>docker app split</td>
+<td>Split a single-file Docker Application definition into the directory format</td>
+</tr>
+<tr>
+<td>docker app status</td>
+<td>Get the installation status of an application</td>
+</tr>
+<tr>
+<td>docker app uninstall</td>
+<td>Uninstall an application</td>
+</tr>
+<tr>
+<td>docker app upgrade</td>
+<td>Upgrade an installed application</td>
+</tr>
+<tr>
+<td>docker app validate</td>
+<td>Checks the rendered application is syntactically correct</td>
+</tr>
+<tr>
+<td>docker app version</td>
+<td>Print version information</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker-builder">Docker builder<a class="headerlink" href="#docker-builder" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker builder build</td>
+<td>Build an image from a Dockerfile</td>
+</tr>
+<tr>
+<td>docker builder prune</td>
+<td>Remove build cache</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker-buildx">Docker buildx<a class="headerlink" href="#docker-buildx" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker buildx bake</td>
+<td>Build from a file</td>
+</tr>
+<tr>
+<td>docker buildx build</td>
+<td>Start a build</td>
+</tr>
+<tr>
+<td>docker buildx create</td>
+<td>Create a new builder instance</td>
+</tr>
+<tr>
+<td>docker buildx du</td>
+<td>Disk usage</td>
+</tr>
+<tr>
+<td>docker buildx imagetools</td>
+<td>Commands to work on images in registry</td>
+</tr>
+<tr>
+<td>docker buildx inspect</td>
+<td>Inspect current builder instance</td>
+</tr>
+<tr>
+<td>docker buildx ls</td>
+<td>List builder instances</td>
+</tr>
+<tr>
+<td>docker buildx prune</td>
+<td>Remove build cache</td>
+</tr>
+<tr>
+<td>docker buildx rm</td>
+<td>Remove a builder instance</td>
+</tr>
+<tr>
+<td>docker buildx stop</td>
+<td>Stop builder instance</td>
+</tr>
+<tr>
+<td>docker buildx use</td>
+<td>Set the current builder instance</td>
+</tr>
+<tr>
+<td>docker buildx version</td>
+<td>Show buildx version information</td>
+</tr>
+</tbody>
+</table>
+<h2 id="docker-compose">Docker compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker compose build</td>
+<td>Build or rebuild services</td>
+</tr>
+<tr>
+<td>docker compose convert</td>
+<td>Converts the compose file to platform’s canonical format</td>
+</tr>
+<tr>
+<td>docker compose create</td>
+<td>Creates containers for a service.</td>
+</tr>
+<tr>
+<td>docker compose down</td>
+<td>Stop and remove containers, networks</td>
+</tr>
+<tr>
+<td>docker compose events</td>
+<td>Receive real time events from containers.</td>
+</tr>
+<tr>
+<td>docker compose exec</td>
+<td>Execute a command in a running container.</td>
+</tr>
+<tr>
+<td>docker compose kill</td>
+<td>Force stop service containers.</td>
+</tr>
+<tr>
+<td>docker compose logs</td>
+<td>View output from containers</td>
+</tr>
+<tr>
+<td>docker compose ls</td>
+<td>List running compose projects</td>
+</tr>
+<tr>
+<td>docker compose pause</td>
+<td>pause services</td>
+</tr>
+<tr>
+<td>docker compose ps</td>
+<td>List containers</td>
+</tr>
+<tr>
+<td>docker compose pull</td>
+<td>Pull service images</td>
+</tr>
+<tr>
+<td>docker compose push</td>
+<td>Push service images</td>
+</tr>
+<tr>
+<td>docker compose rm</td>
+<td>Removes stopped service containers</td>
+</tr>
+<tr>
+<td>docker compose run</td>
+<td>Run a one-off command on a service.</td>
+</tr>
+<tr>
+<td>docker compose start</td>
+<td>Start services</td>
+</tr>
+<tr>
+<td>docker compose stop</td>
+<td>Stop services</td>
+</tr>
+<tr>
+<td>docker compose top</td>
+<td>Display the running processes</td>
+</tr>
+<tr>
+<td>docker compose unpause</td>
+<td>unpause services</td>
+</tr>
+<tr>
+<td>docker compose up</td>
+<td>Create and start containers</td>
+</tr>
+</tbody>
+</table>
                 
               
               
