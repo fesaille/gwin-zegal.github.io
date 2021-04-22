@@ -123,7 +123,7 @@ endfunction
 The generic form for defining syntaxing is:
 
 ```vim
-:syntax keyword {group} {keyword} ...
+    syntax keyword {group} {keyword} ...
 ```
 
 The correspoding hightlighting is set with `hightlight`
