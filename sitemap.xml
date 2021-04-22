@@ -88,6 +88,18 @@
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/unittest/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/pytest/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://github.com/fesaille/sw_dvpt/patterns/</loc>
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
@@ -260,7 +272,15 @@
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/python/test/</loc>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/unittest/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/sw_dvpt/testing/pytest/</loc>
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
