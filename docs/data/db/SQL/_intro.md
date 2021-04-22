@@ -1,11 +1,14 @@
-
 # SQL - Structured Query Language
 
 ## Command types
 
-| Name                             | Description                                             | sample                                      |
-|----------------------------------|---------------------------------------------------------|---------------------------------------------|
-| DML - Data Manipulation Language | used to retrieve and manipulate data in a relational DB | `SELECT...INTO`, `INSERT INTO... VALUES...` |
+| Name                                   | Description                                             | Example                                     |
+|----------------------------------------|---------------------------------------------------------|---------------------------------------------|
+| **DDL** - Data Definition Language     | organization of data whithin the DB                     | `CREATE`, `ALTER`, `DROP`, `TRUNCATE`       |
+| **DQL** - Data Query Language          | to perform queries on the data                          | `SELECT`                                    |
+| **DML** - Data Manipulation Language   | used to retrieve and manipulate data in a relational DB | `SELECT...INTO`, `INSERT INTO... VALUES...` |
+| **DCL** - Data Control Language        | user rights and permission                              | `GRANT`, ` REVOKE`                          |
+| **TCL** - Transaction Control Language | deals with DB transactions                              | `COMMIT`, `ROLLBACK`, `SAVEPOINT`           |
 
 
 ## SQL within Python
@@ -23,7 +26,7 @@ For SQL command in jupyter, see the [SQL jupyter magic](https://github.com/cathe
 
 String sorting is done on a character-by-character basis but custom alphanumeric values is [possible]( https://www.essentialsql.com/use-sql-server-to-sort-alphanumeric-values/ ).
 
-!!! Info "" 
+!!! Info ""
 
     A DBMS uses a collating sequence, or collation, to determine the order in
     which characters are sorted. The collation defines the order of precedence
@@ -43,7 +46,7 @@ String sorting is done on a character-by-character basis but custom alphanumeric
 ### Missing values
 
 `NULL` values are handled differently on SQL engine, e.g.:
-  
+
 - Impala handles `NULL` as top values
 - Hive and MySQL handles `NULL` as lower values.
 
@@ -58,10 +61,10 @@ SELECT col, col2 FROM table1 ORDER BY col2 IS NULL ASC, col2
 
 Selection must sometimes include the column on which the is done.
 
-??? Example 
+??? Example
 
     ```SQL
-    -- This will not work in Hive 
+    -- This will not work in Hive
     SELECT col1, col2 FROM table1 ORDER BY col3
 
     -- Nor this
@@ -71,7 +74,7 @@ Selection must sometimes include the column on which the is done.
     SELECT col1, col2, col3, col4 FROM table1 ORDER BY col3 * col4
 
     -- and this
-    SELECT col1, col2, col3 * col4 AS muliplication FROM table1 ORDER BY multiplication 
+    SELECT col1, col2, col3 * col4 AS muliplication FROM table1 ORDER BY multiplication
     ```
 
 ## Limit
@@ -86,7 +89,7 @@ For pagination, sql specific implementations:
 
     -- For Hive
     Limit <offset>, <limit>
-    
+
     -- MySQL supports both
     -- some use SKIP
     ```
@@ -112,7 +115,7 @@ FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT
 
 
 !!! Danger "Order by position"
-  
+
     It is possible in some engine to specify the position or the column to apply the order on. This is not supported by every engine and will not raise an error.
 
     ```SQL
