@@ -18,7 +18,7 @@
     
     
       
-        <title>ASyncio - My Docs</title>
+        <title>Asyncio - My Docs</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              ASyncio
+              Asyncio
             
           </span>
         </div>
@@ -291,15 +291,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../py_dev_env/" class="md-tabs__link md-tabs__link--active">
+      <a href="../py_dev_env/" class="md-tabs__link">
         Python
       </a>
     </li>
@@ -1886,14 +1884,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" data-md-state="indeterminate" type="checkbox" id="nav-9" checked>
     
     <label class="md-nav__link" for="nav-9">
       Python
@@ -2008,85 +2004,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        ASyncio
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="./" class="md-nav__link">
       ASyncio
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-    <nav class="md-nav" aria-label="Objects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#coroutines" class="md-nav__link">
-    Coroutines
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tasks-and-futures" class="md-nav__link">
-    Tasks (and Futures)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#execution" class="md-nav__link">
-    Execution
-  </a>
-  
-    <nav class="md-nav" aria-label="Execution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#event-loop" class="md-nav__link">
-    Event loop
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -2149,7 +2071,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../test/intro.md" class="md-nav__link">
+    <a href="../test/intro/" class="md-nav__link">
       Intro
     </a>
   </li>
@@ -2162,7 +2084,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../test/unittest.md" class="md-nav__link">
+    <a href="../test/unittest/" class="md-nav__link">
       unittest
     </a>
   </li>
@@ -2175,7 +2097,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../test/pytest.md" class="md-nav__link">
+    <a href="../test/pytest/" class="md-nav__link">
       pytest
     </a>
   </li>
@@ -2560,53 +2482,10 @@
               
                 
                 
-                  <h1>ASyncio</h1>
+                  <h1>Asyncio</h1>
                 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script>
-(function() {
-  function addWidgetsRenderer() {
-    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
-    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
-    var widgetState;
-
-    // Fallback for older version:
-    try {
-      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
-
-      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
-        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
-      }
-    } catch(e) {}
-
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
-  }
-
-  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
-}());
-</script>
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://mybinder.org/v2/gh/fesaille/doc-python//master?filepath=docs/python/asyncio.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h2>
+                <h2 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h2>
 <p>Awaitable objects - <a href="#coroutines"><code>Coroutines</code></a>, <a href="#tasks-and-futures"> <code>Tasks</code> </a>, and <a href="#tasks-and-futures"> <code>Futures</code> </a> - can be used in an await expression.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="coroutines">Coroutines<a class="headerlink" href="#coroutines" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>Computer program components that generalize subroutines for
@@ -2622,12 +2501,6 @@ no need for support from the operating system.</p>
 <p>Source: Wikipedia</p>
 </details>
 <p>Python <a href="https://docs.python.org/3/library/asyncio-task.html#coroutines"><code>Coroutines</code></a> run in an <a href="https://docs.python.org/3/library/asyncio-task.html#coroutines">event loop</a>. Coroutines are a backbone of asyncio and third party async frameworks like <a href="https://github.com/dabeaz/curio">Curio</a> or <a href="https://github.com/python-trio/trio">trio</a></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="tasks-and-futures">Tasks (and Futures)<a class="headerlink" href="#tasks-and-futures" title="Permanent link">&para;</a></h3>
 <p><code>Futures</code> represent a placeholder for an action that return a result (or not).
  <code>Tasks</code> are a subclass of
@@ -2649,31 +2522,10 @@ coroutine and waits for the completion of the Future, the event loop runs
 meanwhile other Tasks, callbacks, or performs IO operations. When the Future is
 done, the execution of the wrapped coroutine resumes.</p>
 <p>Both are not thread-safe.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="execution">Execution<a class="headerlink" href="#execution" title="Permanent link">&para;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="event-loop">Event loop<a class="headerlink" href="#event-loop" title="Permanent link">&para;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
 <div class="highlight"><pre><span></span><code>
 </code></pre></div>
-
-</div>
-</div>
                 
               
               
@@ -2692,7 +2544,7 @@ done, the execution of the wrapped coroutine resumes.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../base/date%20manipulation/" title="Date manipulation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="./" title="None" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2701,19 +2553,19 @@ done, the execution of the wrapped coroutine resumes.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Date manipulation
+                None
               </span>
             </div>
           </a>
         
         
-          <a href="../typing/" title="Typing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../click/" title="None" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Typing
+                None
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

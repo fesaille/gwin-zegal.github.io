@@ -264,6 +264,18 @@
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://github.com/fesaille/python/test/intro/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/test/unittest/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/python/test/pytest/</loc>
+     <lastmod>2021-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://github.com/fesaille/python/click/</loc>
      <lastmod>2021-04-22</lastmod>
      <changefreq>daily</changefreq>
