@@ -555,3 +555,8 @@ Open all files with git merge conflicts.
 ```terminal
 git diff --name-only | uniq | xargs vim
 ```
+
+Vim has a powerfull diff mode <badge-doc
+href='https://vimhelp.org/diff.txt.html' logo='vim'></badge-doc>.
+
+Jumping to diff, backwards/forewargs: `[c`, `]c`.
