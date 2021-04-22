@@ -2530,14 +2530,34 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>sample</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>DML - Data Manipulation Language</td>
+<td><strong>DDL</strong> - Data Definition Language</td>
+<td>organization of data whithin the DB</td>
+<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td>
+</tr>
+<tr>
+<td><strong>DQL</strong> - Data Query Language</td>
+<td>to perform queries on the data</td>
+<td><code>SELECT</code></td>
+</tr>
+<tr>
+<td><strong>DML</strong> - Data Manipulation Language</td>
 <td>used to retrieve and manipulate data in a relational DB</td>
 <td><code>SELECT...INTO</code>, <code>INSERT INTO... VALUES...</code></td>
+</tr>
+<tr>
+<td><strong>DCL</strong> - Data Control Language</td>
+<td>user rights and permission</td>
+<td><code>GRANT</code>, <code>REVOKE</code></td>
+</tr>
+<tr>
+<td><strong>TCL</strong> - Transaction Control Language</td>
+<td>deals with DB transactions</td>
+<td><code>COMMIT</code>, <code>ROLLBACK</code>, <code>SAVEPOINT</code></td>
 </tr>
 </tbody>
 </table>
@@ -2574,7 +2594,7 @@ documentation for collation or sort order.</p>
 </code></pre></div>
 <h3 id="engines-limitations">Engines limitations<a class="headerlink" href="#engines-limitations" title="Permanent link">&para;</a></h3>
 <p>Selection must sometimes include the column on which the is done.</p>
-<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="c1">-- This will not work in Hive </span>
+<details class="example"><summary>Example</summary><div class="highlight"><pre><span></span><code><span class="c1">-- This will not work in Hive</span>
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span>
 
 <span class="c1">-- Nor this</span>
@@ -2584,7 +2604,7 @@ documentation for collation or sort order.</p>
 <span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span><span class="p">,</span> <span class="n">col4</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span>
 
 <span class="c1">-- and this</span>
-<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span> <span class="k">AS</span> <span class="n">muliplication</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">multiplication</span> 
+<span class="k">SELECT</span> <span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="o">*</span> <span class="n">col4</span> <span class="k">AS</span> <span class="n">muliplication</span> <span class="k">FROM</span> <span class="n">table1</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">multiplication</span>
 </code></pre></div>
 </details>
 <h2 id="limit">Limit<a class="headerlink" href="#limit" title="Permanent link">&para;</a></h2>
