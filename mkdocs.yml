@@ -51,6 +51,10 @@ nav:
           - "Code coverage": sw_dvpt/ci_cd/codecov.md
       - Protocols:
           - kerberos: sw_dvpt/protocols/kerberos.md
+      - Testing: &testing
+          - Intro: sw_dvpt/testing/index.md
+          - unittest: sw_dvpt/testing/unittest.md
+          - pytest: sw_dvpt/testing/pytest.md
       - "Design patterns": sw_dvpt/patterns.md
       - make: sw_dvpt/make.md
   - Infrastructure:
@@ -111,7 +115,7 @@ nav:
       - ASyncio: python/asyncio.ipynb
       - Typing: python/typing.md
       - Profiling: python/profiling.md
-      - Tests: python/test.md
+      - Tests: *testing
       - Click: python/click.md
       - Jupyter: python/jupyter.md
   - Go:
