@@ -246,9 +246,9 @@ Rewrite history: `git rebase`
 - in the interactive pane, select `edit` for the commit to be rewritten
 - amend the part of the commit to be edited, e.g.:
 
-  - `git commit --amend --author="Author Name <email@address.com>"`
-  - `git commit  --amend --date="$(date -R)"`
-  - `git commit --amend -m "New Commit Message"`
+    - `git commit --amend --author="Author Name <email@address.com>"`
+    - `git commit  --amend --date="$(date -R)"`
+    - `git commit --amend -m "New Commit Message"`
 
 - eventualy, edit the commit message
 - continue with the rebase: `git rebase --continue`
