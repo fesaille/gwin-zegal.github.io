@@ -941,23 +941,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-    <nav class="md-nav" aria-label="Hooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#client-side" class="md-nav__link">
-    Client side
+  <a href="#git-diff" class="md-nav__link">
+    Git diff
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#history-revision" class="md-nav__link">
+    History revision
+  </a>
+  
+    <nav class="md-nav" aria-label="History revision">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#server-side" class="md-nav__link">
-    Server side
+  <a href="#edit-already-pushed-specific-commit" class="md-nav__link">
+    Edit already pushed specific commit
   </a>
   
 </li>
@@ -2695,23 +2695,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-    <nav class="md-nav" aria-label="Hooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#client-side" class="md-nav__link">
-    Client side
+  <a href="#git-diff" class="md-nav__link">
+    Git diff
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#history-revision" class="md-nav__link">
+    History revision
+  </a>
+  
+    <nav class="md-nav" aria-label="History revision">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#server-side" class="md-nav__link">
-    Server side
+  <a href="#edit-already-pushed-specific-commit" class="md-nav__link">
+    Edit already pushed specific commit
   </a>
   
 </li>
@@ -2901,126 +2901,44 @@ git submodule update --init --recursive --remote --merge
 <p>Get the most recent tag:</p>
 <div class="highlight"><pre><span></span><code>git describe --tags --abbrev=0
 </code></pre></div>
-<h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
-<p>Hooks <badge-doc
-href='https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'></badge-doc> are
-executable scripts, generaly located in <code>.git/hooks</code>. They can be devided into
-two groups:</p>
-<ul>
-<li>client-side</li>
-<li>server-side</li>
-</ul>
-<h3 id="client-side">Client side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Hook</th>
-<th>Run description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>post-checkout</code></td>
-<td>after a successful git checkout</td>
-</tr>
-<tr>
-<td><code>pre-commit</code></td>
-<td>before commiting message, general checks like linting</td>
-</tr>
-<tr>
-<td><code>prepare-commit-msg</code></td>
-<td>before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated</td>
-</tr>
-<tr>
-<td><code>commit-msg</code></td>
-<td>validate project state or commit message</td>
-</tr>
-<tr>
-<td><code>pre-rebase</code></td>
-<td>before you rebase anything</td>
-</tr>
-<tr>
-<td><code>pre-push</code></td>
-<td>during <code>git push</code>, after the remote refs have been updated but before any objects have been transferred</td>
-</tr>
-<tr>
-<td><code>post-rewrite</code></td>
-<td>triggered by commands that replace commits, such as <code>git commit --amend</code> and <code>git rebase</code></td>
-</tr>
-<tr>
-<td><code>post-merge</code></td>
-<td>after a successful <code>merge</code> command</td>
-</tr>
-<tr>
-<td><code>post-commit</code></td>
-<td>once eveything coompleted.</td>
-</tr>
-</tbody>
-</table>
-<p>There are other hooks, invoked by specific commands:</p>
-<ul>
-<li><code>pre-auto-gc</code> by invoking garbage collection <code>git gc --auto</code></li>
-<li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
-  am</code> for an email-based workflow.</li>
-</ul>
-<details class="example"><summary>Post commit</summary><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1">#</span>
-<span class="c1"># Update a superproject when a commit is made to a submodule.</span>
-<span class="c1"># Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit</span>
-<span class="c1"># where the double-star indicates variadic path elements.</span>
-<span class="c1">#</span>
-<span class="c1"># Depends on Git &gt;= 2.13.</span>
-
-<span class="c1"># Clean the Git environment before crossing repository boundaries.</span>
-<span class="c1"># From https://stackoverflow.com/questions/36196548</span>
-<span class="k">while</span> <span class="nb">read</span> variable<span class="p">;</span> <span class="k">do</span>
-    <span class="nb">unset</span> <span class="nv">$variable</span>
-<span class="k">done</span> &lt; &lt;<span class="o">(</span>env <span class="p">|</span> grep <span class="s2">&quot;^GIT_&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/=.*//g&#39;</span><span class="o">)</span>
-
-<span class="nv">COMMIT_MSG</span><span class="o">=</span><span class="k">$(</span>git log --format<span class="o">=</span>%B -n <span class="m">1</span><span class="k">)</span>
-<span class="nv">GIT</span><span class="o">=</span><span class="s2">&quot;git&quot;</span>
-<span class="nv">SUPERPROJECT_WORKING_TREE</span><span class="o">=</span><span class="sb">`</span>git rev-parse --show-superproject-working-tree<span class="sb">`</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;📣 Committing to </span><span class="nv">$SUPERPROJECT_WORKING_TREE</span><span class="s2">.&quot;</span>
-
-<span class="nb">cd</span> <span class="nv">$SUPERPROJECT_WORKING_TREE</span>
-<span class="nv">$GIT</span> add .
-<span class="nv">$GIT</span> commit -m <span class="s2">&quot;</span><span class="nv">$COMMIT_MSG</span><span class="s2">&quot;</span>
+<h2 id="git-diff">Git diff<a class="headerlink" href="#git-diff" title="Permanent link">&para;</a></h2>
+<p>Git diff can be displayed side by side with delta as a pager
+<badge-stars repo='dandavison/delta'></badge-stars> <badge-doc
+href='https://github.com/dandavison/delta#configuration'></badge-doc></p>
+<div class="highlight"><pre><span></span><code><span class="k">[core]</span>
+    <span class="na">pager</span> <span class="o">=</span> <span class="s">delta</span>
 </code></pre></div>
-</details>
-<h3 id="server-side">Server side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Hook</th>
-<th>Run description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>pre-receive</code></td>
-<td>first script to run when handling a push from a client. Runs only once.</td>
-</tr>
-<tr>
-<td><code>post-receive</code></td>
-<td>run once for each branch the pusher is trying to update</td>
-</tr>
-<tr>
-<td><code>update</code></td>
-<td>after the entire process is completed and can be used to update other services or notify users</td>
-</tr>
-</tbody>
-</table>
-<p>Installation must be performed on the server, see e.g. for
-<a href="https://docs.gitlab.com/ee/administration/server_hooks.html">gitlab</a>. If no
-admin rights are available, some alternatives:</p>
+<p>Open all files with git merge conflicts.</p>
+<div class="highlight"><pre><span></span><code>git diff --name-only | uniq | xargs vim
+</code></pre></div>
+<p>Vim has a powerfull diff mode <badge-doc
+href='https://vimhelp.org/diff.txt.html' logo='vim'></badge-doc>.</p>
+<p>Jumping to diff, backwards/forewargs: <code>[c</code>, <code>]c</code>.</p>
+<h2 id="history-revision">History revision<a class="headerlink" href="#history-revision" title="Permanent link">&para;</a></h2>
+<p>Rewrite history: <code>git rebase</code></p>
+<h3 id="edit-already-pushed-specific-commit">Edit already pushed specific commit<a class="headerlink" href="#edit-already-pushed-specific-commit" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">This is to be done in very specific situations</p>
+</div>
 <ul>
-<li>webhooks
-  <a href="https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhooks">github</a>/<a href="https://docs.gitlab.com/ee/user/project/integrations/webhooks.html">gitlab</a></li>
-<li>CI/CD pipeline
-  <a href="https://docs.github.com/en/free-pro-team@latest/actions">github</a>
-  <a href="https://docs.gitlab.com/ee/ci/README.html">gitlab</a></li>
-<li>push rules <a href="https://docs.gitlab.com/ee/push_rules/push_rules.html">gitlab</a></li>
+<li>Specify a rebase by identifying an earlier commit <code>git rebase -i &lt;Earlier
+  Commit&gt;</code></li>
+<li>in the interactive pane, select <code>edit</code> for the commit to be rewritten</li>
+<li>
+<p>amend the part of the commit to be edited, e.g.:</p>
+</li>
+<li>
+<p><code>git commit --amend --author="Author Name &lt;email@address.com&gt;"</code></p>
+</li>
+<li><code>git commit  --amend --date="$(date -R)"</code></li>
+<li>
+<p><code>git commit --amend -m "New Commit Message"</code></p>
+</li>
+<li>
+<p>eventualy, edit the commit message</p>
+</li>
+<li>continue with the rebase: <code>git rebase --continue</code></li>
+<li>force a pull <code>git pull --force</code></li>
 </ul>
 <h2 id="cherry-pick-from-another-repository">Cherry pick from another repository<a class="headerlink" href="#cherry-pick-from-another-repository" title="Permanent link">&para;</a></h2>
 <p>First the other repository source must be added to the remote list
@@ -3166,6 +3084,127 @@ document are to be interpreted as described in <a href="https://www.ietf.org/rfc
 </details>
 <p><strong>ghq</strong> <badge-stars repo='x-motemen/ghq'></badge-stars> provides a way to
 organize remote repository clones, like go get does.</p>
+<h2 id="hooks">Hooks<a class="headerlink" href="#hooks" title="Permanent link">&para;</a></h2>
+<p>Hooks <badge-doc
+href='https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'></badge-doc> are
+executable scripts, generaly located in <code>.git/hooks</code>. They can be devided into
+two groups:</p>
+<ul>
+<li>client-side</li>
+<li>server-side</li>
+</ul>
+<h3 id="client-side">Client side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Run description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>post-checkout</code></td>
+<td>after a successful git checkout</td>
+</tr>
+<tr>
+<td><code>pre-commit</code></td>
+<td>before commiting message, general checks like linting</td>
+</tr>
+<tr>
+<td><code>prepare-commit-msg</code></td>
+<td>before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated</td>
+</tr>
+<tr>
+<td><code>commit-msg</code></td>
+<td>validate project state or commit message</td>
+</tr>
+<tr>
+<td><code>pre-rebase</code></td>
+<td>before you rebase anything</td>
+</tr>
+<tr>
+<td><code>pre-push</code></td>
+<td>during <code>git push</code>, after the remote refs have been updated but before any objects have been transferred</td>
+</tr>
+<tr>
+<td><code>post-rewrite</code></td>
+<td>triggered by commands that replace commits, such as <code>git commit --amend</code> and <code>git rebase</code></td>
+</tr>
+<tr>
+<td><code>post-merge</code></td>
+<td>after a successful <code>merge</code> command</td>
+</tr>
+<tr>
+<td><code>post-commit</code></td>
+<td>once eveything coompleted.</td>
+</tr>
+</tbody>
+</table>
+<p>There are other hooks, invoked by specific commands:</p>
+<ul>
+<li><code>pre-auto-gc</code> by invoking garbage collection <code>git gc --auto</code></li>
+<li><code>applypatch-msg</code>, <code>pre-applypatch</code> and <code>post-applypatch</code> all invoked by <code>git
+  am</code> for an email-based workflow.</li>
+</ul>
+<details class="example"><summary>Post commit</summary><div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Update a superproject when a commit is made to a submodule.</span>
+<span class="c1"># Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit</span>
+<span class="c1"># where the double-star indicates variadic path elements.</span>
+<span class="c1">#</span>
+<span class="c1"># Depends on Git &gt;= 2.13.</span>
+
+<span class="c1"># Clean the Git environment before crossing repository boundaries.</span>
+<span class="c1"># From https://stackoverflow.com/questions/36196548</span>
+<span class="k">while</span> <span class="nb">read</span> variable<span class="p">;</span> <span class="k">do</span>
+    <span class="nb">unset</span> <span class="nv">$variable</span>
+<span class="k">done</span> &lt; &lt;<span class="o">(</span>env <span class="p">|</span> grep <span class="s2">&quot;^GIT_&quot;</span> <span class="p">|</span> sed <span class="s1">&#39;s/=.*//g&#39;</span><span class="o">)</span>
+
+<span class="nv">COMMIT_MSG</span><span class="o">=</span><span class="k">$(</span>git log --format<span class="o">=</span>%B -n <span class="m">1</span><span class="k">)</span>
+<span class="nv">GIT</span><span class="o">=</span><span class="s2">&quot;git&quot;</span>
+<span class="nv">SUPERPROJECT_WORKING_TREE</span><span class="o">=</span><span class="sb">`</span>git rev-parse --show-superproject-working-tree<span class="sb">`</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;📣 Committing to </span><span class="nv">$SUPERPROJECT_WORKING_TREE</span><span class="s2">.&quot;</span>
+
+<span class="nb">cd</span> <span class="nv">$SUPERPROJECT_WORKING_TREE</span>
+<span class="nv">$GIT</span> add .
+<span class="nv">$GIT</span> commit -m <span class="s2">&quot;</span><span class="nv">$COMMIT_MSG</span><span class="s2">&quot;</span>
+</code></pre></div>
+</details>
+<h3 id="server-side">Server side<a class="headerlink" href="#server-side" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Run description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pre-receive</code></td>
+<td>first script to run when handling a push from a client. Runs only once.</td>
+</tr>
+<tr>
+<td><code>post-receive</code></td>
+<td>run once for each branch the pusher is trying to update</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>after the entire process is completed and can be used to update other services or notify users</td>
+</tr>
+</tbody>
+</table>
+<p>Installation must be performed on the server, see e.g. for
+<a href="https://docs.gitlab.com/ee/administration/server_hooks.html">gitlab</a>. If no
+admin rights are available, some alternatives:</p>
+<ul>
+<li>webhooks
+  <a href="https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhooks">github</a>/<a href="https://docs.gitlab.com/ee/user/project/integrations/webhooks.html">gitlab</a></li>
+<li>CI/CD pipeline
+  <a href="https://docs.github.com/en/free-pro-team@latest/actions">github</a>
+  <a href="https://docs.gitlab.com/ee/ci/README.html">gitlab</a></li>
+<li>push rules <a href="https://docs.gitlab.com/ee/push_rules/push_rules.html">gitlab</a></li>
+</ul>
 <h2 id="git-flow">Git flow<a class="headerlink" href="#git-flow" title="Permanent link">&para;</a></h2>
 <p>From <a href="http://scottchacon.com/2011/08/31/github-flow.html">Scott Chacon blog</a>:</p>
 <blockquote>
@@ -3219,19 +3258,6 @@ z--z--z   (master, upstream/master, origin/master)
 </code></pre></div></p>
 <h4>Github action</h4>
 <p><strong>act</strong> <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.</p>
-<h2 id="git-diff">Git diff<a class="headerlink" href="#git-diff" title="Permanent link">&para;</a></h2>
-<p>Git diff can be displayed side by side with delta as a pager
-<badge-stars repo='dandavison/delta'></badge-stars> <badge-doc
-href='https://github.com/dandavison/delta#configuration'></badge-doc></p>
-<div class="highlight"><pre><span></span><code><span class="k">[core]</span>
-    <span class="na">pager</span> <span class="o">=</span> <span class="s">delta</span>
-</code></pre></div>
-<p>Open all files with git merge conflicts.</p>
-<div class="highlight"><pre><span></span><code>git diff --name-only | uniq | xargs vim
-</code></pre></div>
-<p>Vim has a powerfull diff mode <badge-doc
-href='https://vimhelp.org/diff.txt.html' logo='vim'></badge-doc>.</p>
-<p>Jumping to diff, backwards/forewargs: <code>[c</code>, <code>]c</code>.</p>
                 
               
               
