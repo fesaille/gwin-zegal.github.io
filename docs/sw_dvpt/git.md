@@ -210,83 +210,49 @@ Get the most recent tag:
 git describe --tags --abbrev=0
 ```
 
-## Hooks
+## Git diff
 
-Hooks <badge-doc
-href='https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'></badge-doc> are
-executable scripts, generaly located in `.git/hooks`. They can be devided into
-two groups:
+Git diff can be displayed side by side with delta as a pager
+<badge-stars repo='dandavison/delta'></badge-stars> <badge-doc
+href='https://github.com/dandavison/delta#configuration'></badge-doc>
 
-- client-side
-- server-side
+```ini
+[core]
+    pager = delta
+```
 
-### Client side
+Open all files with git merge conflicts.
 
-| Hook                 | Run description                                                                                                                                     |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `post-checkout`      | after a successful git checkout                                                                                                                     |
-| `pre-commit`         | before commiting message, general checks like linting                                                                                               |
-| `prepare-commit-msg` | before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated |
-| `commit-msg`         | validate project state or commit message                                                                                                            |
-| `pre-rebase`         | before you rebase anything                                                                                                                          |
-| `pre-push `          | during `git push`, after the remote refs have been updated but before any objects have been transferred                                             |
-| `post-rewrite`       | triggered by commands that replace commits, such as `git commit --amend` and `git rebase`                                                           |
-| `post-merge`         | after a successful `merge` command                                                                                                                  |
-| `post-commit`        | once eveything coompleted.                                                                                                                          |
+```terminal
+git diff --name-only | uniq | xargs vim
+```
+
+Vim has a powerfull diff mode <badge-doc
+href='https://vimhelp.org/diff.txt.html' logo='vim'></badge-doc>.
+
+Jumping to diff, backwards/forewargs: `[c`, `]c`.
+
+## History revision
+
+Rewrite history: `git rebase`
+
+### Edit already pushed specific commit
+
+!!! Danger "This is to be done in very specific situations"
 
 
-There are other hooks, invoked by specific commands:
+- Specify a rebase by identifying an earlier commit `git rebase -i <Earlier
+  Commit>`
+- in the interactive pane, select `edit` for the commit to be rewritten
+- amend the part of the commit to be edited, e.g.:
 
-- `pre-auto-gc` by invoking garbage collection `git gc --auto`
-- `applypatch-msg`, `pre-applypatch` and `post-applypatch` all invoked by `git
-  am` for an email-based workflow.
+  - `git commit --amend --author="Author Name <email@address.com>"`
+  - `git commit  --amend --date="$(date -R)"`
+  - `git commit --amend -m "New Commit Message"`
 
-??? example "Post commit"
-
-    ```bash
-    #!/bin/bash
-    #
-    # Update a superproject when a commit is made to a submodule.
-    # Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit
-    # where the double-star indicates variadic path elements.
-    #
-    # Depends on Git >= 2.13.
-
-    # Clean the Git environment before crossing repository boundaries.
-    # From https://stackoverflow.com/questions/36196548
-    while read variable; do
-        unset $variable
-    done < <(env | grep "^GIT_" | sed 's/=.*//g')
-
-    COMMIT_MSG=$(git log --format=%B -n 1)
-    GIT="git"
-    SUPERPROJECT_WORKING_TREE=`git rev-parse --show-superproject-working-tree`
-
-    echo "📣 Committing to $SUPERPROJECT_WORKING_TREE."
-
-    cd $SUPERPROJECT_WORKING_TREE
-    $GIT add .
-    $GIT commit -m "$COMMIT_MSG"
-    ```
-
-### Server side
-
-| Hook           | Run description                                                                                |
-|----------------|------------------------------------------------------------------------------------------------|
-| `pre-receive`  | first script to run when handling a push from a client. Runs only once.                        |
-| `post-receive` | run once for each branch the pusher is trying to update                                        |
-| `update`       | after the entire process is completed and can be used to update other services or notify users |
-
-Installation must be performed on the server, see e.g. for
-[gitlab](https://docs.gitlab.com/ee/administration/server_hooks.html). If no
-admin rights are available, some alternatives:
-
-- webhooks
-  [github](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhooks)/[gitlab](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)
-- CI/CD pipeline
-  [github](https://docs.github.com/en/free-pro-team@latest/actions)
-  [gitlab](https://docs.gitlab.com/ee/ci/README.html)
-- push rules [gitlab](https://docs.gitlab.com/ee/push_rules/push_rules.html)
+- eventualy, edit the commit message
+- continue with the rebase: `git rebase --continue`
+- force a pull `git pull --force`
 
 
 ## Cherry pick from another repository
@@ -465,6 +431,85 @@ for enforcing policies on your build pipelines.
 **ghq** <badge-stars repo='x-motemen/ghq'></badge-stars> provides a way to
 organize remote repository clones, like go get does.
 
+## Hooks
+
+Hooks <badge-doc
+href='https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks'></badge-doc> are
+executable scripts, generaly located in `.git/hooks`. They can be devided into
+two groups:
+
+- client-side
+- server-side
+
+### Client side
+
+| Hook                 | Run description                                                                                                                                     |
+|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `post-checkout`      | after a successful git checkout                                                                                                                     |
+| `pre-commit`         | before commiting message, general checks like linting                                                                                               |
+| `prepare-commit-msg` | before the commit message editor is fired up but after the default message is created, good for commits where the default message is auto-generated |
+| `commit-msg`         | validate project state or commit message                                                                                                            |
+| `pre-rebase`         | before you rebase anything                                                                                                                          |
+| `pre-push `          | during `git push`, after the remote refs have been updated but before any objects have been transferred                                             |
+| `post-rewrite`       | triggered by commands that replace commits, such as `git commit --amend` and `git rebase`                                                           |
+| `post-merge`         | after a successful `merge` command                                                                                                                  |
+| `post-commit`        | once eveything coompleted.                                                                                                                          |
+
+
+There are other hooks, invoked by specific commands:
+
+- `pre-auto-gc` by invoking garbage collection `git gc --auto`
+- `applypatch-msg`, `pre-applypatch` and `post-applypatch` all invoked by `git
+  am` for an email-based workflow.
+
+??? example "Post commit"
+
+    ```bash
+    #!/bin/bash
+    #
+    # Update a superproject when a commit is made to a submodule.
+    # Intended for .git/**modules/{THE_SUBMODULE}/hooks/post-commit
+    # where the double-star indicates variadic path elements.
+    #
+    # Depends on Git >= 2.13.
+
+    # Clean the Git environment before crossing repository boundaries.
+    # From https://stackoverflow.com/questions/36196548
+    while read variable; do
+        unset $variable
+    done < <(env | grep "^GIT_" | sed 's/=.*//g')
+
+    COMMIT_MSG=$(git log --format=%B -n 1)
+    GIT="git"
+    SUPERPROJECT_WORKING_TREE=`git rev-parse --show-superproject-working-tree`
+
+    echo "📣 Committing to $SUPERPROJECT_WORKING_TREE."
+
+    cd $SUPERPROJECT_WORKING_TREE
+    $GIT add .
+    $GIT commit -m "$COMMIT_MSG"
+    ```
+
+### Server side
+
+| Hook           | Run description                                                                                |
+|----------------|------------------------------------------------------------------------------------------------|
+| `pre-receive`  | first script to run when handling a push from a client. Runs only once.                        |
+| `post-receive` | run once for each branch the pusher is trying to update                                        |
+| `update`       | after the entire process is completed and can be used to update other services or notify users |
+
+Installation must be performed on the server, see e.g. for
+[gitlab](https://docs.gitlab.com/ee/administration/server_hooks.html). If no
+admin rights are available, some alternatives:
+
+- webhooks
+  [github](https://docs.github.com/en/free-pro-team@latest/developers/webhooks-and-events/webhooks)/[gitlab](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)
+- CI/CD pipeline
+  [github](https://docs.github.com/en/free-pro-team@latest/actions)
+  [gitlab](https://docs.gitlab.com/ee/ci/README.html)
+- push rules [gitlab](https://docs.gitlab.com/ee/push_rules/push_rules.html)
+
+
 ## Git flow
 
 From [Scott Chacon blog](http://scottchacon.com/2011/08/31/github-flow.html):
@@ -537,26 +582,3 @@ gem install github-linguist
 #### Github action
 
 **act** <badge-stars repo='nektos/act'></badge-stars> run GitHub Actions locally.
-
-
-## Git diff
-
-Git diff can be displayed side by side with delta as a pager
-<badge-stars repo='dandavison/delta'></badge-stars> <badge-doc
-href='https://github.com/dandavison/delta#configuration'></badge-doc>
-
-```ini
-[core]
-    pager = delta
-```
-
-Open all files with git merge conflicts.
-
-```terminal
-git diff --name-only | uniq | xargs vim
-```
-
-Vim has a powerfull diff mode <badge-doc
-href='https://vimhelp.org/diff.txt.html' logo='vim'></badge-doc>.
-
-Jumping to diff, backwards/forewargs: `[c`, `]c`.
