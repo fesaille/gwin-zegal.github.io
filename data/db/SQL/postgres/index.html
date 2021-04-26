@@ -1558,6 +1558,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#common-table-expression-cte" class="md-nav__link">
+    Common Table Expression (CTE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate_series" class="md-nav__link">
+    generate_series
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2475,6 +2489,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#common-table-expression-cte" class="md-nav__link">
+    Common Table Expression (CTE)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate_series" class="md-nav__link">
+    generate_series
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2499,6 +2527,72 @@
 <p><a href="https://hub.docker.com/_/postgres" alt="Docker hub repository" target="_blank">
     <img alt="Docker Stars" src="https://img.shields.io/docker/stars/_/postgres">
 </a></p>
+<p>Starting a docker container requires <code>POSTGRES_PASSWORD</code> to be set as
+environement variable. If <code>POSTGRES_DB</code> is not set, it is defaulted to
+<code>POSTGRES_USER</code> value.</p>
+<div class="highlight"><pre><span></span><code>docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
+</code></pre></div>
+<h2 id="common-table-expression-cte">Common Table Expression (CTE)<a class="headerlink" href="#common-table-expression-cte" title="Permanent link">&para;</a></h2>
+<p>A CTE is a temporary result set that can be referenced within another SQL
+statement, e.g. <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.</p>
+<h2 id="generate_series"><code>generate_series</code><a class="headerlink" href="#generate_series" title="Permanent link">&para;</a></h2>
+<p><badge-doc href='https://www.postgresql.org/docs/current/functions-srf.html' logo="postgresql"></badge-doc>
+Works with types <code>int</code>, <code>bigint</code>, <code>numeric</code>, <code>timestamp</code> w. and w.o. time
+zone.</p>
+<details class="examples"><summary>Examples</summary><div class="highlight"><pre><span></span><code>    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span>
+    <span class="n">generate_series</span>
+    <span class="c1">-----------------</span>
+                <span class="mi">2</span>
+                <span class="mi">3</span>
+                <span class="mi">4</span>
+    <span class="p">(</span><span class="mi">3</span> <span class="k">rows</span><span class="p">)</span>
+
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">generate_series</span>
+    <span class="c1">-----------------</span>
+                <span class="mi">5</span>
+                <span class="mi">3</span>
+                <span class="mi">1</span>
+    <span class="p">(</span><span class="mi">3</span> <span class="k">rows</span><span class="p">)</span>
+
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">generate_series</span>
+    <span class="c1">-----------------</span>
+    <span class="p">(</span><span class="mi">0</span> <span class="k">rows</span><span class="p">)</span>
+
+    <span class="k">SELECT</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">3</span><span class="p">);</span>
+    <span class="n">generate_series</span>
+    <span class="c1">-----------------</span>
+                <span class="mi">1</span><span class="p">.</span><span class="mi">1</span>
+                <span class="mi">2</span><span class="p">.</span><span class="mi">4</span>
+                <span class="mi">3</span><span class="p">.</span><span class="mi">7</span>
+    <span class="p">(</span><span class="mi">3</span> <span class="k">rows</span><span class="p">)</span>
+
+    <span class="c1">-- this example relies on the date-plus-integer operator:</span>
+    <span class="k">SELECT</span> <span class="k">current_date</span> <span class="o">+</span> <span class="n">s</span><span class="p">.</span><span class="n">a</span> <span class="k">AS</span> <span class="n">dates</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="k">AS</span> <span class="n">s</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">dates</span>
+    <span class="c1">------------</span>
+    <span class="mi">2004</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span>
+    <span class="mi">2004</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">12</span>
+    <span class="mi">2004</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">19</span>
+    <span class="p">(</span><span class="mi">3</span> <span class="k">rows</span><span class="p">)</span>
+
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">generate_series</span><span class="p">(</span><span class="s1">&#39;2008-03-01 00:00&#39;</span><span class="p">::</span><span class="k">timestamp</span><span class="p">,</span>
+                                <span class="s1">&#39;2008-03-04 12:00&#39;</span><span class="p">,</span> <span class="s1">&#39;10 hours&#39;</span><span class="p">);</span>
+    <span class="n">generate_series</span>
+    <span class="c1">---------------------</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span> <span class="mi">10</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span> <span class="mi">20</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">02</span> <span class="mi">06</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">02</span> <span class="mi">16</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">02</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">03</span> <span class="mi">22</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="mi">2008</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="mi">08</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+    <span class="p">(</span><span class="mi">9</span> <span class="k">rows</span><span class="p">)</span>
+</code></pre></div>
+</details>
                 
               
               
