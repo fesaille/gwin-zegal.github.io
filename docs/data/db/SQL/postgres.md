@@ -33,7 +33,7 @@ docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
 |    Command   | Description                                   |
 |:------------:|-----------------------------------------------|
 |     `\l`     | list databases                                |
-|     `\d`     | list tables,, views, and sequences            |
+|     `\d`     | list tables, views, and sequences             |
 | `\d <TABLE>` | describe named table, view, sequence or index |
 |     `\dt`    | list tables                                   |
 |     `\di`    | list indexes                                  |
