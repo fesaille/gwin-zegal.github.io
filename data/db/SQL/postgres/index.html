@@ -1559,6 +1559,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#postgresql-informational-commands" class="md-nav__link">
+    PostgreSQL informational commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-table-expression-cte" class="md-nav__link">
     Common Table Expression (CTE)
   </a>
@@ -2490,6 +2497,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#postgresql-informational-commands" class="md-nav__link">
+    PostgreSQL informational commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-table-expression-cte" class="md-nav__link">
     Common Table Expression (CTE)
   </a>
@@ -2532,6 +2546,41 @@ environement variable. If <code>POSTGRES_DB</code> is not set, it is defaulted t
 <code>POSTGRES_USER</code> value.</p>
 <div class="highlight"><pre><span></span><code>docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
 </code></pre></div>
+<h2 id="postgresql-informational-commands">PostgreSQL informational commands<a class="headerlink" href="#postgresql-informational-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>\l</code></td>
+<td>list databases</td>
+</tr>
+<tr>
+<td align="center"><code>\d</code></td>
+<td>list tables,, views, and sequences</td>
+</tr>
+<tr>
+<td align="center"><code>\d &lt;TABLE&gt;</code></td>
+<td>describe named table, view, sequence or index</td>
+</tr>
+<tr>
+<td align="center"><code>\dt</code></td>
+<td>list tables</td>
+</tr>
+<tr>
+<td align="center"><code>\di</code></td>
+<td>list indexes</td>
+</tr>
+<tr>
+<td align="center"><code>\dv</code></td>
+<td>list views</td>
+</tr>
+</tbody>
+</table>
 <h2 id="common-table-expression-cte">Common Table Expression (CTE)<a class="headerlink" href="#common-table-expression-cte" title="Permanent link">&para;</a></h2>
 <p>A CTE is a temporary result set that can be referenced within another SQL
 statement, e.g. <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.</p>
