@@ -30,14 +30,38 @@ docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
 
 ## PostgreSQL informational commands
 
+Basic commands to survive on PostgreSQL.
+
 |    Command   | Description                                   |
 |:------------:|-----------------------------------------------|
 |     `\l`     | list databases                                |
+|   `\c <DB>`  | connect to a database                         |
 |     `\d`     | list tables, views, and sequences             |
 | `\d <TABLE>` | describe named table, view, sequence or index |
 |     `\dt`    | list tables                                   |
 |     `\di`    | list indexes                                  |
 |     `\dv`    | list views                                    |
+|     `\q`     | quit application                              |
+
+
+## Load data from cli/files
+
+
+```sql
+ -- Input from stdin
+ echo """1 | Paul  |  32 | California|  20000
+  2 | Allen |  25 | Texas     |  15000
+  3 | Teddy |  23 | Norway    |  20000
+  4 | Mark  |  25 | Rich-Mond |  65000
+  5 | David |  27 | Texas     |  85000
+  6 | Kim   |  22 | South-Hall|  45000
+  7 | James |  24 | Houston   |  10000""" | \
+  psql -U postgres -h localhost -p 5432 -d mydb \
+  -c "COPY mytable FROM STDIN DELIMITER '|'"
+
+-- Or from a file
+CAT mydata.csv | psql -U postgres -c "COPY mytable FROM STDIN"
+```
 
 
 ## Common Table Expression (CTE)
