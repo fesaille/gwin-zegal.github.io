@@ -2061,6 +2061,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#generic-concrete-collections" class="md-nav__link">
+    Generic concrete collections
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic concrete collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-base-class" class="md-nav__link">
+    Abstract Base Class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#static-type-checker" class="md-nav__link">
     Static type checker
   </a>
@@ -2494,6 +2514,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#generic-concrete-collections" class="md-nav__link">
+    Generic concrete collections
+  </a>
+  
+    <nav class="md-nav" aria-label="Generic concrete collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abstract-base-class" class="md-nav__link">
+    Abstract Base Class
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#static-type-checker" class="md-nav__link">
     Static type checker
   </a>
@@ -2531,12 +2571,51 @@
 <p>PEPS:</p>
 <ul>
 <li><strong>Literature Overview for Type Hints</strong> <badge-pep nr='482'></badge-pep></li>
-<li><strong>Theory of Type Hints</strong> <badge-pep nr='483'></badge-pep> </li>
+<li><strong>Theory of Type Hints</strong> <badge-pep nr='483'></badge-pep></li>
 <li><strong>Type Hints</strong> <badge-pep nr='484'></badge-pep> <badge-stars repo='python/typing'></badge-stars></li>
 <li><strong>TypedDict</strong> <badge-pep nr='589'></badge-pep></li>
-<li>
-<p><strong>Protocols: Structural subtyping</strong> <badge-pep nr='544'></badge-pep> </p>
-<p>ClassVar
+<li><strong>Protocols: Structural subtyping</strong> <badge-pep nr='544'></badge-pep></li>
+</ul>
+<details class="info"><summary>Nominal/Structural subtyping</summary><p>PEP 544 does not suppress nominal subtyping (explicit declaration of base
+classes), instead propose usage of protocol classes  (static duck typing).</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Nominal subtyping</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Sized</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Iterator</span>
+
+    <span class="k">class</span> <span class="nc">Bucket</span><span class="p">(</span><span class="n">Sized</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="o">...</span>
+        <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> <span class="o">...</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Structural subtyping</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>    <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Iterable</span>
+
+    <span class="k">class</span> <span class="nc">Bucket</span><span class="p">:</span>  <span class="c1"># Note: no base classes</span>
+        <span class="o">...</span>
+        <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+        <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span> <span class="o">...</span>
+</code></pre></div>
+</div>
+</div>
+</details>
+<h2 id="generic-concrete-collections">Generic concrete collections<a class="headerlink" href="#generic-concrete-collections" title="Permanent link">&para;</a></h2>
+<p>Dict
+List
+Set
+FrozenSet
+DefaultDict
+OrderedDict
+ChainMap
+Counter
+Deque</p>
+<p>IO
+TextIO
+BinaryIO
+Pattern
+Match
+Text</p>
+<h3 id="abstract-base-class">Abstract Base Class<a class="headerlink" href="#abstract-base-class" title="Permanent link">&para;</a></h3>
+<pre><code>ClassVar
 ContextManager
 Counter
 DefaultDict
@@ -2552,9 +2631,8 @@ runtime (except on Python 3.5.0)
 Text
 Type
 TypedDict
-TYPE_CHECKING</p>
-</li>
-</ul>
+TYPE_CHECKING
+</code></pre>
 <h2 id="static-type-checker">Static type checker<a class="headerlink" href="#static-type-checker" title="Permanent link">&para;</a></h2>
 <h3 id="pytype">pytype<a class="headerlink" href="#pytype" title="Permanent link">&para;</a></h3>
 <p>Pytype <badge-stars repo='google/pytype'></badge-stars> <badge-doc
