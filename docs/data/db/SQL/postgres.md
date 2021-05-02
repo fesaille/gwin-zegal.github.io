@@ -28,6 +28,17 @@ environement variable. If `POSTGRES_DB` is not set, it is defaulted to
 docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
 ```
 
+## PostgreSQL informational commands
+
+|    Command   | Description                                   |
+|:------------:|-----------------------------------------------|
+|     `\l`     | list databases                                |
+|     `\d`     | list tables,, views, and sequences            |
+| `\d <TABLE>` | describe named table, view, sequence or index |
+|     `\dt`    | list tables                                   |
+|     `\di`    | list indexes                                  |
+|     `\dv`    | list views                                    |
+
 
 ## Common Table Expression (CTE)
 
