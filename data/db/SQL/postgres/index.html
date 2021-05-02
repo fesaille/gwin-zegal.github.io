@@ -1566,6 +1566,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#load-data-from-clifiles" class="md-nav__link">
+    Load data from cli/files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-table-expression-cte" class="md-nav__link">
     Common Table Expression (CTE)
   </a>
@@ -2504,6 +2511,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#load-data-from-clifiles" class="md-nav__link">
+    Load data from cli/files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-table-expression-cte" class="md-nav__link">
     Common Table Expression (CTE)
   </a>
@@ -2547,6 +2561,7 @@ environement variable. If <code>POSTGRES_DB</code> is not set, it is defaulted t
 <div class="highlight"><pre><span></span><code>docker run -i -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres:latest
 </code></pre></div>
 <h2 id="postgresql-informational-commands">PostgreSQL informational commands<a class="headerlink" href="#postgresql-informational-commands" title="Permanent link">&para;</a></h2>
+<p>Basic commands to survive on PostgreSQL.</p>
 <table>
 <thead>
 <tr>
@@ -2558,6 +2573,10 @@ environement variable. If <code>POSTGRES_DB</code> is not set, it is defaulted t
 <tr>
 <td align="center"><code>\l</code></td>
 <td>list databases</td>
+</tr>
+<tr>
+<td align="center"><code>\c &lt;DB&gt;</code></td>
+<td>connect to a database</td>
 </tr>
 <tr>
 <td align="center"><code>\d</code></td>
@@ -2579,8 +2598,27 @@ environement variable. If <code>POSTGRES_DB</code> is not set, it is defaulted t
 <td align="center"><code>\dv</code></td>
 <td>list views</td>
 </tr>
+<tr>
+<td align="center"><code>\q</code></td>
+<td>quit application</td>
+</tr>
 </tbody>
 </table>
+<h2 id="load-data-from-clifiles">Load data from cli/files<a class="headerlink" href="#load-data-from-clifiles" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code> <span class="c1">-- Input from stdin</span>
+ <span class="n">echo</span> <span class="ss">&quot;&quot;&quot;1 | Paul  |  32 | California|  20000</span>
+<span class="ss">  2 | Allen |  25 | Texas     |  15000</span>
+<span class="ss">  3 | Teddy |  23 | Norway    |  20000</span>
+<span class="ss">  4 | Mark  |  25 | Rich-Mond |  65000</span>
+<span class="ss">  5 | David |  27 | Texas     |  85000</span>
+<span class="ss">  6 | Kim   |  22 | South-Hall|  45000</span>
+<span class="ss">  7 | James |  24 | Houston   |  10000&quot;&quot;&quot;</span> <span class="o">|</span> <span class="err">\</span>
+  <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="n">localhost</span> <span class="o">-</span><span class="n">p</span> <span class="mi">5432</span> <span class="o">-</span><span class="n">d</span> <span class="n">mydb</span> <span class="err">\</span>
+  <span class="o">-</span><span class="k">c</span> <span class="ss">&quot;COPY mytable FROM STDIN DELIMITER &#39;|&#39;&quot;</span>
+
+<span class="c1">-- Or from a file</span>
+<span class="n">CAT</span> <span class="n">mydata</span><span class="p">.</span><span class="n">csv</span> <span class="o">|</span> <span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="k">c</span> <span class="ss">&quot;COPY mytable FROM STDIN&quot;</span>
+</code></pre></div>
 <h2 id="common-table-expression-cte">Common Table Expression (CTE)<a class="headerlink" href="#common-table-expression-cte" title="Permanent link">&para;</a></h2>
 <p>A CTE is a temporary result set that can be referenced within another SQL
 statement, e.g. <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>.</p>
