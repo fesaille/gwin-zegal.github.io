@@ -391,6 +391,12 @@ autoload -U compinit
 compinit
 ```
 
+### Cache reset
+
+```bash
+rm -f ~/.zcompdump% compinit 
+```
+
 #### Behind the hood
 
 Completion is provided by files named as the command name prefixed by an
@@ -398,8 +404,12 @@ underscore: `_cmd` contains the completion logic for `cmd`. The location of this
 file must be in `$fpath`. Addition of a path can be done with `fpath+=<PATH TO
 COMPLETION FILE>`.
 
-When `compinit` is run, the first line of accessible files in `$fpath` is read. Those containing one of the tags [`#compdef` or `#autoload`](http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files) will be autoloaded.
-The declaration can be done for multiple commands, function aliases can be referenced too, e.g. `slogin` to `ssh` hereunder:
+When `compinit` is run, the first line of accessible files in `$fpath` is read.
+Those containing one of the tags [`#compdef` or
+`#autoload`](http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files)
+will be autoloaded.
+The declaration can be done for multiple commands, function aliases can be
+referenced too, e.g. `slogin` to `ssh` hereunder:
 
 ```
 #compdef ssh slogin=ssh scp ssh-add ssh-agent ssh-copy-id ssh-keygen ssh-keyscan sftp
