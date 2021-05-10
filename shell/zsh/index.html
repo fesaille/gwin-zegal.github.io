@@ -592,6 +592,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cache-reset" class="md-nav__link">
+    Cache reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -2726,6 +2733,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#cache-reset" class="md-nav__link">
+    Cache reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
     Configuration
   </a>
@@ -3442,13 +3456,20 @@ zmodload -i zsh/complist
 autoload -U compinit
 compinit
 </code></pre></div>
+<h3 id="cache-reset">Cache reset<a class="headerlink" href="#cache-reset" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>rm -f ~/.zcompdump% compinit 
+</code></pre></div>
 <h4>Behind the hood</h4>
 <p>Completion is provided by files named as the command name prefixed by an
 underscore: <code>_cmd</code> contains the completion logic for <code>cmd</code>. The location of this
 file must be in <code>$fpath</code>. Addition of a path can be done with <code>fpath+=&lt;PATH TO
 COMPLETION FILE&gt;</code>.</p>
-<p>When <code>compinit</code> is run, the first line of accessible files in <code>$fpath</code> is read. Those containing one of the tags <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files"><code>#compdef</code> or <code>#autoload</code></a> will be autoloaded.
-The declaration can be done for multiple commands, function aliases can be referenced too, e.g. <code>slogin</code> to <code>ssh</code> hereunder:</p>
+<p>When <code>compinit</code> is run, the first line of accessible files in <code>$fpath</code> is read.
+Those containing one of the tags <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Autoloaded-files"><code>#compdef</code> or
+<code>#autoload</code></a>
+will be autoloaded.
+The declaration can be done for multiple commands, function aliases can be
+referenced too, e.g. <code>slogin</code> to <code>ssh</code> hereunder:</p>
 <div class="highlight"><pre><span></span><code>#compdef ssh slogin=ssh scp ssh-add ssh-agent ssh-copy-id ssh-keygen ssh-keyscan sftp
 </code></pre></div>
 <p>As an alternative, <code>compdef</code> <a href="http://zsh.sourceforge.net/Doc/Release/Completion-System.html#Functions-4">may be called
