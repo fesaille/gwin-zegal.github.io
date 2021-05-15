@@ -4,6 +4,14 @@
      <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://github.com/fesaille/linux/freedesktop/</loc>
+     <lastmod>2021-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://github.com/fesaille/linux/network/</loc>
+     <lastmod>2021-05-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://github.com/fesaille/linux/terminal/</loc>
      <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
@@ -20,11 +28,7 @@
      <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://github.com/fesaille/linux/freedesktop/</loc>
-     <lastmod>2021-05-15</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://github.com/fesaille/linux/network/</loc>
+     <loc>https://github.com/fesaille/shell/bats/</loc>
      <lastmod>2021-05-15</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
