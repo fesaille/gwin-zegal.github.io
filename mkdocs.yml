@@ -22,16 +22,16 @@ theme:
 nav:
   - Home: index.md
   - Linux:
-      - terminal: linux/terminal.md
-      - shell: shell/intro.md
-      - zsh: shell/zsh.md
-      - tmux: shell/tmux.md
       - freedesktop: linux/freedesktop.md
       - network: linux/network.md
-      - Ubuntu:
-          - Configuration: shell/Ubuntu/configuration.md
-          - Python: shell/Ubuntu/python.md
-      - "Pkg management":
+      - terminal:
+          - Intro: linux/terminal.md
+          - shell: shell/intro.md
+          - zsh: shell/zsh.md
+          - tmux: shell/tmux.md
+          - test (bats): shell/bats.md
+      - Distributions:
+          - Ubuntu: shell/Ubuntu/configuration.md
           - "Alpine linux": linux/pkg_mgt/apk.md
   - vim:
       - Intro: vim/intro.md
