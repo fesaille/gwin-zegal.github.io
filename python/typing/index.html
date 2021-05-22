@@ -2061,6 +2061,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stubs" class="md-nav__link">
+    Stubs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generic-concrete-collections" class="md-nav__link">
     Generic concrete collections
   </a>
@@ -2514,6 +2521,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#stubs" class="md-nav__link">
+    Stubs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#generic-concrete-collections" class="md-nav__link">
     Generic concrete collections
   </a>
@@ -2575,6 +2589,7 @@
 <li><strong>Type Hints</strong> <badge-pep nr='484'></badge-pep> <badge-stars repo='python/typing'></badge-stars></li>
 <li><strong>Syntax for Variable Annotations</strong> <badge-pep nr='526'></badge-pep></li>
 <li><strong>Protocols: Structural subtyping</strong> <badge-pep nr='544'></badge-pep></li>
+<li><strong>Distributing and Packaging Type Information</strong> <badge-pep nr='561'></badge-pep></li>
 <li><strong>Postponed Evaluation of Annotations</strong> <badge-pep nr='563'></badge-pep></li>
 <li><strong>TypedDict</strong> <badge-pep nr='589'></badge-pep></li>
 </ul>
@@ -2600,6 +2615,16 @@ classes), instead propose usage of protocol classes  (static duck typing).</p>
 </div>
 </div>
 </details>
+<h2 id="stubs">Stubs<a class="headerlink" href="#stubs" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A library <a href="https://www.python.org/dev/peps/pep-0484/#stub-files">stub</a> defines a skeleton of the <strong>public interface</strong> of the library, including classes, variables and functions, and their types.</p>
+</div>
+<p><code>typeshed</code> <badge-stars repo='python/typeshed'></badge-stars> is a collection of library stubs for Python, with static types. Those are distributed with and used by MyPy <badge-stars repo='python/mypy'></badge-stars> <badge-doc href='https://mypy.readthedocs.io'></badge-doc> to determine the types of standard library and third-party library functions, classes, and other definitions.</p>
+<p>Stubs files can be generated using mypy's utility <a href="https://mypy.readthedocs.io/en/stable/stubgen.html"><code>stugen</code></a>. Distribution and packaging are described in <badge-pep nr='561'></badge-pep>. And type stubs for third party packages and modules can be installed from PyPI, e.g.:</p>
+<div class="highlight"><pre><span></span><code># pip install types-&lt;PKG&gt;
+pip install types-six types-requests
+</code></pre></div>
 <h2 id="generic-concrete-collections">Generic concrete collections<a class="headerlink" href="#generic-concrete-collections" title="Permanent link">&para;</a></h2>
 <p>Dict
 List
