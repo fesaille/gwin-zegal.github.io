@@ -1218,63 +1218,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#molecule" class="md-nav__link">
-    Molecule
-  </a>
-  
-    <nav class="md-nav" aria-label="Molecule">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenarios" class="md-nav__link">
-    Scenarios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
-    Action
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-new-role" class="md-nav__link">
-    Creating a new role
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#role-metadata" class="md-nav__link">
-    Role metadata
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     Notes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#faq" class="md-nav__link">
-    FAQ
   </a>
   
 </li>
@@ -1283,6 +1228,19 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../molecule/" class="md-nav__link">
+      Molecule
+    </a>
   </li>
 
         
@@ -2756,63 +2714,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#molecule" class="md-nav__link">
-    Molecule
-  </a>
-  
-    <nav class="md-nav" aria-label="Molecule">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#scenarios" class="md-nav__link">
-    Scenarios
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
-    Action
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-new-role" class="md-nav__link">
-    Creating a new role
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#role-metadata" class="md-nav__link">
-    Role metadata
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#links" class="md-nav__link">
-    Links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     Notes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#faq" class="md-nav__link">
-    FAQ
   </a>
   
 </li>
@@ -2931,76 +2834,7 @@ trigger
 <p>Get the number of distribution (<code>platforms</code> key in metadata)</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> curl  https://galaxy.ansible.com/api/v1/platforms/ <span class="p">|</span> jq <span class="s1">&#39;.results | group_by(.name)[] | {key: .[0].name, length: length}&#39;</span>
 </code></pre></div>
-<h2 id="molecule">Molecule<a class="headerlink" href="#molecule" title="Permanent link">&para;</a></h2>
-<p><badge-doc href='https://molecule.readthedocs.io'></badge-doc></p>
-<p>Note: default <a href="https://molecule.readthedocs.io/en/latest/configuration.html">configuration</a> is defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
-<h3 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h3>
-<p>Scenarios can be though as multiple test suites. Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
-<ul>
-<li><code>dependency</code>: dependency manager [galaxy, gilt, shell]</li>
-<li><code>driver</code>: driver for spinning-up the environment to test on [delegated, docker, podman]</li>
-<li><code>lint</code>: external lint commands.</li>
-<li><code>platforms</code>: instances to be tested, and the groups to which the instances belong.</li>
-<li><code>provisioner</code>: handles provisioning and converging the role (ansible).</li>
-<li><code>scenario</code>: scenarios are first-class citizens with a top-level configuration syntax. It is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.</li>
-<li><code>state</code>: internal bookkeeping mechanism</li>
-<li><code>verifier</code>: test suite</li>
-</ul>
-<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
-<ul>
-<li>dependency</li>
-<li>check</li>
-<li>converge</li>
-<li>cleanup</li>
-<li>create</li>
-<li>destroy</li>
-<li>prepare</li>
-<li>idempotence</li>
-<li>verify</li>
-</ul>
-<p>Default scenarios sequences are:</p>
-<ul>
-<li>"check_sequence": [ "dependency", "cleanup", "destroy", "create", "prepare", "converge", "check", "cleanup", "destroy", ],</li>
-<li>"cleanup_sequence": ["cleanup"],</li>
-<li>"converge_sequence": ["dependency", "create", "prepare", "converge"],</li>
-<li>"create_sequence": ["dependency", "create", "prepare"],</li>
-<li>"destroy_sequence": ["dependency", "cleanup", "destroy"],</li>
-<li>"test_sequence": [ "dependency", "lint", "cleanup", "destroy", "syntax", "create", "prepare", "converge", "idempotence", "side_effect", "verify", "cleanup", "destroy",</li>
-</ul>
-<p>The corresponding playbooks are stored in the files whose default names are:</p>
-<ul>
-<li>"cleanup": "cleanup.yml",</li>
-<li>"create": "create.yml",</li>
-<li>"converge": "converge.yml",</li>
-<li>"destroy": "destroy.yml",</li>
-<li>"prepare": "prepare.yml",</li>
-<li>"side_effect": "side_effect.yml",</li>
-<li>"verify": "verify.yml",</li>
-</ul>
-<h3 id="creating-a-new-role">Creating a new role<a class="headerlink" href="#creating-a-new-role" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="go">molecule init role my-new-role</span>
-</code></pre></div>
-<p>or add to an existing role:</p>
-<div class="highlight"><pre><span></span><code><span class="go">molecule scenario role my-new-role</span>
-</code></pre></div>
-<h3 id="role-metadata">Role metadata<a class="headerlink" href="#role-metadata" title="Permanent link">&para;</a></h3>
-<p><badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc></p>
-<div class="admonition danger">
-<p class="admonition-title">Role name <code>role_name</code></p>
-<p>In the past, Galaxy would apply a regex expression to the GitHub repository
-name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
-if your repository name was ‘ansible-role-apache’, the role name would
-translate to ‘apache’. Galaxy no longer does this automatically. Instead,
-use the role_name setting to tell Galaxy what the role name should be.</p>
-</div>
-<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://www.jeffgeerling.com/blog/2018/testing-your-ansible-roles-molecule"> Jeff Geerling's blog </a></li>
-<li><a href="https://www.ansible.com/hubfs//AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf">Fabian von Feilitzsch - Practical Ansible Testing with Molecule</a></li>
-</ul>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
-<p><a href="https://stackoverflow.com/questions/47159193/why-does-ansible-show-error-no-action-detected-in-task-error">ERROR! no action detected in task</a></p>
 <div class="footnote">
 <hr />
 <ol>
@@ -3042,13 +2876,13 @@ use the role_name setting to tell Galaxy what the role name should be.</p>
           </a>
         
         
-          <a href="../../containerization/intro/" title="Docker" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../molecule/" title="Molecule" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Docker
+                Molecule
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
