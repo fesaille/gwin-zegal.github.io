@@ -1115,6 +1115,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-initialisation" class="md-nav__link">
+    Role initialisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -2510,6 +2524,20 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-initialisation" class="md-nav__link">
+    Role initialisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -2558,7 +2586,44 @@
                 
                 
                 <h1 id="molecule">Molecule<a class="headerlink" href="#molecule" title="Permanent link">&para;</a></h1>
-<p><badge-doc href='https://molecule.readthedocs.io'></badge-doc></p>
+<p>Molecule <badge-stars repo='ansible-community/molecule'></badge-stars>
+<badge-doc href='https://molecule.readthedocs.io'></badge-doc>  is designed to
+aid in the development and testing of Ansible roles. It provides support for:</p>
+<ul>
+<li>testing with multiple instances, operating systems and distributions;</li>
+<li>virtualization providers;</li>
+<li>test frameworks and testing scenarios.</li>
+</ul>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>With <a href="https://pipxproject.github.io/pipx">pipx</a>:</p>
+<div class="highlight"><pre><span></span><code>pipx install ansible
+pipx inject --include-apps ansible &#39;molecule[docker]&#39;
+</code></pre></div>
+<h2 id="role-initialisation">Role initialisation<a class="headerlink" href="#role-initialisation" title="Permanent link">&para;</a></h2>
+<p>New role are initialized with the <code>molecule init role</code> command. Configuration
+can contain <a href="https://molecule.readthedocs.io/en/latest/configuration.html">environment
+variables</a> and is
+beeing loaded from:</p>
+<ul>
+<li>project config</li>
+<li>local config (~/.config/molecule/config.yml)</li>
+<li>default config (molecule.yml)</li>
+</ul>
+<p>Options can be set on the command line</p>
+<div class="highlight"><pre><span></span><code>Usage: molecule init role [OPTIONS] ROLE_NAME
+
+  Initialize a new role for use with Molecule.
+
+Options:
+  --dependency-name [galaxy]      Name of dependency to initialize. (galaxy)
+  -d, --driver-name [delegated|docker]
+                                  Name of driver to initialize. (delegated)
+  --lint-name [yamllint]          Name of lint to initialize. (yamllint)
+  --provisioner-name [ansible]    Name of provisioner to initialize. (ansible)
+  --verifier-name [ansible|testinfra]
+                                  Name of verifier to initialize. (ansible)
+  --help                          Show this message and exit.
+</code></pre></div>
 <p>Note: default <a href="https://molecule.readthedocs.io/en/latest/configuration.html">configuration</a> is defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
 <h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
 <p>Scenarios can be though as multiple test suites. Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
