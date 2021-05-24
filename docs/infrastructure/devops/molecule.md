@@ -53,16 +53,36 @@ Note: default [configuration](https://molecule.readthedocs.io/en/latest/configur
 
 
 
+## Role metadata
+
+ <badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc>
+
+
+!!! danger "Role name `role_name`"
+
+    In the past, Galaxy would apply a regex expression to the GitHub repository
+    name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
+    if your repository name was ‘ansible-role-apache’, the role name would
+    translate to ‘apache’. Galaxy no longer does this automatically. Instead,
+    use the role_name setting to tell Galaxy what the role name should be.
+
 ## Scenarios
 
-Scenarios can be though as multiple test suites. Each scenario is configured in `molecule.yml` with top level key:
+Scenarios <badge-doc
+href='https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.scenario.Scenario'
+logo='ansible'></badge-doc> are first-class citizens and can be though as
+multiple test suites.  A default scenario named `default` is mandatory.
+Each scenario is configured in `molecule.yml` with top level key:
 
 - `dependency`: dependency manager [galaxy, gilt, shell]
 - `driver`: driver for spinning-up the environment to test on [delegated, docker, podman]
 - `lint`: external lint commands.
 - `platforms`: instances to be tested, and the groups to which the instances belong.
 - `provisioner`: handles provisioning and converging the role (ansible).
-- `scenario`: scenarios are first-class citizens with a top-level configuration syntax. It is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.
+- `scenario`: scenarios are first-class citizens with a top-level configuration
+  syntax. It is a self-contained directory containing everything necessary for
+  testing the role in a particular way. The default scenario is named default,
+  and every role should contain a default scenario.
 - `state`: internal bookkeeping mechanism
 - `verifier`: test suite
 
@@ -98,32 +118,31 @@ The corresponding playbooks are stored in the files whose default names are:
 - "side_effect": "side_effect.yml",
 - "verify": "verify.yml",
 
+## Environment variables
 
-## Creating a new role
+Configuration options may contain [environment
+variables](https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.interpolation.Interpolator).
+There are following environment variables available in `molecule.yml`:
 
-```console
-molecule init role my-new-role
-```
-
-or add to an existing role:
-
-```console
-molecule scenario role my-new-role
-```
-
-## Role metadata
-
- <badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc>
-
-
-!!! danger "Role name `role_name`"
-
-    In the past, Galaxy would apply a regex expression to the GitHub repository
-    name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
-    if your repository name was ‘ansible-role-apache’, the role name would
-    translate to ‘apache’. Galaxy no longer does this automatically. Instead,
-    use the role_name setting to tell Galaxy what the role name should be.
-
+| Variable                           | Description                                                              |
+|------------------------------------|--------------------------------------------------------------------------|
+| `MOLECULE_DEBUG`                   | If debug is turned on or off                                             |
+| `MOLECULE_FILE`                    | Path to molecule config file                                             |
+| `MOLECULE_ENV_FILE`                | Path to molecule environment file                                        |
+| `MOLECULE_STATE_FILE`              | ?                                                                        |
+| `MOLECULE_INVENTORY_FILE`          | Path to generated inventory file                                         |
+| `MOLECULE_EPHEMERAL_DIRECTORY`     | Path to generated directory, usually `~/.cache/molecule/<scenario-name>` |
+| `MOLECULE_SCENARIO_DIRECTORY`      | Path to scenario directory                                               |
+| `MOLECULE_PROJECT_DIRECTORY`       | Path to your project directory                                           |
+| `MOLECULE_INSTANCE_CONFIG`         | ?                                                                        |
+| `MOLECULE_DEPENDENCY_NAME`         | Dependency type name, usually 'galaxy'                                   |
+| `MOLECULE_DRIVER_NAME`             | Name of the molecule scenario driver                                     |
+| `MOLECULE_PROVISIONER_NAME`        | Name of the provisioner tool (usually 'ansible')                         |
+| `MOLECULE_REPORT`                  | Name of HTML file where to dump execution report.                        |
+| `MOLECULE_SCENARIO_NAME`           | Name of the scenario                                                     |
+| `MOLECULE_VERBOSITY`               | Determine Ansible verbosity level.                                       |
+| `MOLECULE_VERIFIER_NAME`           | Name of the verifier tool (usually 'ansible')                            |
+| `MOLECULE_VERIFIER_TEST_DIRECTORY` | ?                                                                        |
 
 ## Links
 
