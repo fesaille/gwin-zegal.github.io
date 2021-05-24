@@ -1140,12 +1140,18 @@
     Scenarios
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#action" class="md-nav__link">
     Action
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2549,12 +2555,18 @@
     Scenarios
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#action" class="md-nav__link">
     Action
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2626,7 +2638,10 @@ Options:
 </code></pre></div>
 <p>Note: default <a href="https://molecule.readthedocs.io/en/latest/configuration.html">configuration</a> is defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
 <h2 id="role-metadata">Role metadata<a class="headerlink" href="#role-metadata" title="Permanent link">&para;</a></h2>
-<p><badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc></p>
+<p>Using <code>molecule init role &lt;ROLE_NAME&gt;</code> <badge-doc
+href='https://galaxy.ansible.com/docs/contributing/creating_role.html'
+logo="ansible"></badge-doc> creates a <code>meta/main.yaml</code> file storing
+role informations.</p>
 <div class="admonition danger">
 <p class="admonition-title">Role name <code>role_name</code></p>
 <p>In the past, Galaxy would apply a regex expression to the GitHub repository
@@ -2639,42 +2654,32 @@ use the role_name setting to tell Galaxy what the role name should be.</p>
 <p>Scenarios <badge-doc
 href='https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.scenario.Scenario'
 logo='ansible'></badge-doc> are first-class citizens and can be though as
-multiple test suites.  A default scenario named <code>default</code> is mandatory.
+multiple test suites.  By default, scenarios are stored organized in
+directories in the <code>molecule</code> project directory. A default scenario named
+<code>default</code> is mandatory.
 Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
 <ul>
-<li><code>dependency</code>: dependency manager [galaxy, gilt, shell]</li>
-<li><code>driver</code>: driver for spinning-up the environment to test on [delegated, docker, podman]</li>
-<li><code>lint</code>: external lint commands.</li>
-<li><code>platforms</code>: instances to be tested, and the groups to which the instances belong.</li>
-<li><code>provisioner</code>: handles provisioning and converging the role (ansible).</li>
-<li><code>scenario</code>: scenarios are first-class citizens with a top-level configuration
-  syntax. It is a self-contained directory containing everything necessary for
-  testing the role in a particular way. The default scenario is named default,
-  and every role should contain a default scenario.</li>
-<li><code>state</code>: internal bookkeeping mechanism</li>
-<li><code>verifier</code>: test suite</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#dependency"> <code>dependency</code> </a>: dependency manager [galaxy, gilt, shell]</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#driver"> <code>driver</code> </a>: driver for spinning-up the environment to test on [delegated, docker, podman]</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#lint"> <code>lint</code> </a>: external lint commands.</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#platforms"> <code>platforms</code> </a>: instances to be tested, and the groups to which the instances belong.</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#provisioner"> <code>provisioner</code> </a>: handles provisioning and converging the role (ansible).</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#scenario"><code>scenario</code></a>: to override the defaults actions</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#state"> <code>state</code> </a>: internal bookkeeping mechanism</li>
+<li><a href="https://molecule.readthedocs.io/en/latest/configuration.html?#verifier"> <code>verifier</code> </a>: test suite</li>
 </ul>
-<h2 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h2>
-<ul>
-<li>dependency</li>
-<li>check</li>
-<li>converge</li>
-<li>cleanup</li>
-<li>create</li>
-<li>destroy</li>
-<li>prepare</li>
-<li>idempotence</li>
-<li>verify</li>
-</ul>
-<p>Default scenarios sequences are:</p>
-<ul>
-<li>"check_sequence": [ "dependency", "cleanup", "destroy", "create", "prepare", "converge", "check", "cleanup", "destroy", ],</li>
-<li>"cleanup_sequence": ["cleanup"],</li>
-<li>"converge_sequence": ["dependency", "create", "prepare", "converge"],</li>
-<li>"create_sequence": ["dependency", "create", "prepare"],</li>
-<li>"destroy_sequence": ["dependency", "cleanup", "destroy"],</li>
-<li>"test_sequence": [ "dependency", "lint", "cleanup", "destroy", "syntax", "create", "prepare", "converge", "idempotence", "side_effect", "verify", "cleanup", "destroy",</li>
-</ul>
+<p>The <code>provisioner</code> handles provisioning and converging the role. The only
+supported provisioner is ansible itself.</p>
+<p>check        Use the provisioner to perform a Dry-Run (destroy,...
+cleanup      Use the provisioner to cleanup any changes made to...
+converge     Use the provisioner to configure instances (dependency,...
+create       Use the provisioner to start the instances.
+destroy      Use the provisioner to destroy the instances.
+idempotence  Use the provisioner to configure the instances and parse...
+prepare      Use the provisioner to prepare the instances into a...
+side-effect  Use the provisioner to perform side-effects to the instances.
+syntax       Use the provisioner to syntax check the role.</p>
+<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
 <p>The corresponding playbooks are stored in the files whose default names are:</p>
 <ul>
 <li>"cleanup": "cleanup.yml",</li>
@@ -2685,6 +2690,117 @@ Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
 <li>"side_effect": "side_effect.yml",</li>
 <li>"verify": "verify.yml",</li>
 </ul>
+<p>Default scenarios sequences are:</p>
+<div id="molecule_scenario"></div>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">dependency</th>
+<th align="center">lint</th>
+<th align="center">cleanup</th>
+<th align="center">destroy</th>
+<th align="center">syntax</th>
+<th align="center">create</th>
+<th align="center">prepare</th>
+<th align="center">converge</th>
+<th align="center">check</th>
+<th align="center">idempotence</th>
+<th align="center">side_effect</th>
+<th align="center">verify</th>
+<th align="center">cleanup</th>
+<th align="center">destroy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>create_sequence</code></td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><code>check_sequence</code></td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td><code>converge_sequence</code></td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td><code>destroy_sequence</code></td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td><code>test_sequence</code></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center"></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+</tbody>
+</table>
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <p>Configuration options may contain <a href="https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.interpolation.Interpolator">environment
 variables</a>.
