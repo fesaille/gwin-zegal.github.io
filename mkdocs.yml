@@ -59,6 +59,7 @@ nav:
       - VM: infrastructure/vm.md
       - DevOps:
           - Ansible: infrastructure/devops/ansible.md
+          - Molecule: infrastructure/devops/molecule.md
       - Containerization:
           - Docker: infrastructure/containerization/intro.md
           - Containerd: infrastructure/containerization/containerd.md
