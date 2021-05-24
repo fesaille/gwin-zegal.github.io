@@ -1,8 +1,55 @@
 # Molecule
 
-<badge-doc href='https://molecule.readthedocs.io'></badge-doc>
+Molecule <badge-stars repo='ansible-community/molecule'></badge-stars>
+<badge-doc href='https://molecule.readthedocs.io'></badge-doc>  is designed to
+aid in the development and testing of Ansible roles. It provides support for:
+
+- testing with multiple instances, operating systems and distributions;
+- virtualization providers;
+- test frameworks and testing scenarios.
+
+
+## Installation
+
+With [pipx]:
+
+```terminal
+pipx install ansible
+pipx inject --include-apps ansible 'molecule[docker]'
+```
+
+## Role initialisation
+
+New role are initialized with the `molecule init role` command. Configuration
+can contain [environment
+variables](https://molecule.readthedocs.io/en/latest/configuration.html) and is
+beeing loaded from:
+
+- project config
+- local config (~/.config/molecule/config.yml)
+- default config (molecule.yml)
+
+Options can be set on the command line
+
+```terminal
+Usage: molecule init role [OPTIONS] ROLE_NAME
+
+  Initialize a new role for use with Molecule.
+
+Options:
+  --dependency-name [galaxy]      Name of dependency to initialize. (galaxy)
+  -d, --driver-name [delegated|docker]
+                                  Name of driver to initialize. (delegated)
+  --lint-name [yamllint]          Name of lint to initialize. (yamllint)
+  --provisioner-name [ansible]    Name of provisioner to initialize. (ansible)
+  --verifier-name [ansible|testinfra]
+                                  Name of verifier to initialize. (ansible)
+  --help                          Show this message and exit.
+```
 
 Note: default [configuration](https://molecule.readthedocs.io/en/latest/configuration.html) is defined in [`molecule.config`](https://github.com/ansible-community/molecule/blob/master/molecule/config.py)
+
+
 
 
 
@@ -86,3 +133,6 @@ molecule scenario role my-new-role
 # FAQ
 
 [ERROR! no action detected in task](https://stackoverflow.com/questions/47159193/why-does-ansible-show-error-no-action-detected-in-task-error)
+
+
+[pipx]: https://pipxproject.github.io/pipx
