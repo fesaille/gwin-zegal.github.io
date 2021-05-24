@@ -1130,8 +1130,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-elements" class="md-nav__link">
-    Basic elements
+  <a href="#task" class="md-nav__link">
+    Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlers" class="md-nav__link">
+    Handlers
   </a>
   
 </li>
@@ -1206,6 +1213,68 @@
         <li class="md-nav__item">
   <a href="#ansible-galaxy" class="md-nav__link">
     Ansible-galaxy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#molecule" class="md-nav__link">
+    Molecule
+  </a>
+  
+    <nav class="md-nav" aria-label="Molecule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-new-role" class="md-nav__link">
+    Creating a new role
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-metadata" class="md-nav__link">
+    Role metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
   </a>
   
 </li>
@@ -2599,8 +2668,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-elements" class="md-nav__link">
-    Basic elements
+  <a href="#task" class="md-nav__link">
+    Task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handlers" class="md-nav__link">
+    Handlers
   </a>
   
 </li>
@@ -2679,6 +2755,68 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#molecule" class="md-nav__link">
+    Molecule
+  </a>
+  
+    <nav class="md-nav" aria-label="Molecule">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenarios" class="md-nav__link">
+    Scenarios
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    Action
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-new-role" class="md-nav__link">
+    Creating a new role
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-metadata" class="md-nav__link">
+    Role metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2696,8 +2834,9 @@
 <p><img src='https://upload.wikimedia.org/wikipedia/commons/2/24/Ansible_logo.svg' class='titleLogo' alt='logo'/></p>
 <p>Global configuration is in <code>/etc/ansible</code></p>
 <p>By default, Ansible will try to use native OpenSSH for remote communication when
-possible. This enables <a href="https://man.openbsd.org/ssh_config.5#ControlPersist">ControlPersist</a>[controlPersistNote],
-Kerberos, and options in ~/.ssh/config such as Jump Host setup.</p>
+possible. This enables
+<a href="https://man.openbsd.org/ssh_config.5#ControlPersist">ControlPersist</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>,
+Kerberos, and options in <code>~/.ssh/config</code> such as Jump Host setup.</p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Variable names should be letters, numbers, and underscores. Variables should
 always start with a letter. YAML also supports dictionaries which <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#creating-valid-variable-names">map keys to
@@ -2729,11 +2868,10 @@ from systems.</p>
 <span class="go">}</span>
 </code></pre></div>
 <h2 id="playbooks">Playbooks<a class="headerlink" href="#playbooks" title="Permanent link">&para;</a></h2>
-<h3 id="basic-elements"><a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Basic elements</a><a class="headerlink" href="#basic-elements" title="Permanent link">&para;</a></h3>
-<h4>Play</h4>
-<p>The goal of a play is to map a group of hosts to some well defined roles,
-represented by things ansible calls tasks.</p>
-<h4>Task</h4>
+<p>The goal of a playbook is to map a group of hosts to some well defined roles,
+represented by things ansible calls tasks.
+<a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Basic elements</a></p>
+<h3 id="task">Task<a class="headerlink" href="#task" title="Permanent link">&para;</a></h3>
 <p>A task is in its simple form triggers the executing of a module, with specific
 arguments. Tasks can be <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">condionally executed</a>,
 <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html">looped</a>.
@@ -2743,10 +2881,9 @@ Logical grouping of tasks can be organised in
 can be used in arguments to modules. Modules should be idempotent and changes
 trigger
 <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#handlers-running-operations-on-change"><code>handlers</code></a>.</p>
-<h4>Handlers</h4>
+<h3 id="handlers">Handlers<a class="headerlink" href="#handlers" title="Permanent link">&para;</a></h3>
 <p>Modules can relay when they have made a change on the remote system: <code>notify</code>.</p>
 <h3 id="loops">loops<a class="headerlink" href="#loops" title="Permanent link">&para;</a></h3>
-<h4>Looping</h4>
 <p><code>loop</code> is prefered over <code>with_*</code> (not deprecated)</p>
 <p><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html">Best practices</a></p>
 <p>Run a <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks.html"><em>playbook</em></a> and load password stored in vault</p>
@@ -2794,20 +2931,22 @@ trigger
 <p>Get the number of distribution (<code>platforms</code> key in metadata)</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$</span> curl  https://galaxy.ansible.com/api/v1/platforms/ <span class="p">|</span> jq <span class="s1">&#39;.results | group_by(.name)[] | {key: .[0].name, length: length}&#39;</span>
 </code></pre></div>
-<h1 id="molecule">Molecule<a class="headerlink" href="#molecule" title="Permanent link">&para;</a></h1>
+<h2 id="molecule">Molecule<a class="headerlink" href="#molecule" title="Permanent link">&para;</a></h2>
 <p><badge-doc href='https://molecule.readthedocs.io'></badge-doc></p>
-<p>Note: default configurations are defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
-<h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
-<p>Scenarios can be though as multiple test suites. Each scenario is configured through a YAML file <code>molecule.yml</code> with top level key:
-- <code>dependency</code>: sets and configure the dependency manager [galaxy, gilt, shell]
-- <code>driver</code>: sets the driver for spinning-up the environment to test on [delegated, docker, podman]
-- <code>lint</code>: to configure any external lint commands.
-- <code>platforms</code>: defines the instances to be tested, and the groups to which the instances belong.
-- <code>provisioner</code>: handles provisioning and converging the role (ansible).
-- <code>scenario</code>: scenarios are first-class citizens with a top-level configuration syntax. A scenario is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.
-- <code>state</code>: is an internal bookkeeping mechanism
-- <code>verifier</code>: sets the test suite</p>
-<h2 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h2>
+<p>Note: default <a href="https://molecule.readthedocs.io/en/latest/configuration.html">configuration</a> is defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
+<h3 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h3>
+<p>Scenarios can be though as multiple test suites. Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
+<ul>
+<li><code>dependency</code>: dependency manager [galaxy, gilt, shell]</li>
+<li><code>driver</code>: driver for spinning-up the environment to test on [delegated, docker, podman]</li>
+<li><code>lint</code>: external lint commands.</li>
+<li><code>platforms</code>: instances to be tested, and the groups to which the instances belong.</li>
+<li><code>provisioner</code>: handles provisioning and converging the role (ansible).</li>
+<li><code>scenario</code>: scenarios are first-class citizens with a top-level configuration syntax. It is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.</li>
+<li><code>state</code>: internal bookkeeping mechanism</li>
+<li><code>verifier</code>: test suite</li>
+</ul>
+<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
 <ul>
 <li>dependency</li>
 <li>check</li>
@@ -2838,25 +2977,35 @@ trigger
 <li>"side_effect": "side_effect.yml",</li>
 <li>"verify": "verify.yml",</li>
 </ul>
-<h2 id="creating-a-new-role">Creating a new role<a class="headerlink" href="#creating-a-new-role" title="Permanent link">&para;</a></h2>
+<h3 id="creating-a-new-role">Creating a new role<a class="headerlink" href="#creating-a-new-role" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="go">molecule init role my-new-role</span>
 </code></pre></div>
 <p>or add to an existing role:</p>
 <div class="highlight"><pre><span></span><code><span class="go">molecule scenario role my-new-role</span>
 </code></pre></div>
+<h3 id="role-metadata">Role metadata<a class="headerlink" href="#role-metadata" title="Permanent link">&para;</a></h3>
+<p><badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc></p>
+<div class="admonition danger">
+<p class="admonition-title">Role name <code>role_name</code></p>
+<p>In the past, Galaxy would apply a regex expression to the GitHub repository
+name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
+if your repository name was ‘ansible-role-apache’, the role name would
+translate to ‘apache’. Galaxy no longer does this automatically. Instead,
+use the role_name setting to tell Galaxy what the role name should be.</p>
+</div>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.jeffgeerling.com/blog/2018/testing-your-ansible-roles-molecule"> Jeff Geerling's blog </a></li>
 <li><a href="https://www.ansible.com/hubfs//AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf">Fabian von Feilitzsch - Practical Ansible Testing with Molecule</a></li>
 </ul>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <p><a href="https://stackoverflow.com/questions/47159193/why-does-ansible-show-error-no-action-detected-in-task-error">ERROR! no action detected in task</a></p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:controlPersistNote">
-<p>Note on this in <a href="https://www.quora.com/What-is-the-controlpersist-feature-Unix">post</a>&#160;<a class="footnote-backref" href="#fnref:controlPersistNote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn:1">
+<p>Note on this in <a href="https://www.quora.com/What-is-the-controlpersist-feature-Unix">post</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
