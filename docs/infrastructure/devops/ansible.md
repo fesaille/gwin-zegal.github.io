@@ -5,9 +5,9 @@
 Global configuration is in `/etc/ansible`
 
 By default, Ansible will try to use native OpenSSH for remote communication when
-possible. This enables [ControlPersist](
-https://man.openbsd.org/ssh_config.5#ControlPersist)[controlPersistNote],
-Kerberos, and options in ~/.ssh/config such as Jump Host setup.
+possible. This enables
+[ControlPersist](https://man.openbsd.org/ssh_config.5#ControlPersist)[^1],
+Kerberos, and options in `~/.ssh/config` such as Jump Host setup.
 
 ## Variables
 
@@ -48,14 +48,11 @@ $ ansible localhost -m setup -a "filter=*arch*"
 
 ## Playbooks
 
-### [Basic elements](https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html)
-
-#### Play
-
-The goal of a play is to map a group of hosts to some well defined roles,
+The goal of a playbook is to map a group of hosts to some well defined roles,
 represented by things ansible calls tasks.
+[Basic elements](https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html)
 
-#### Task
+### Task
 
 A task is in its simple form triggers the executing of a module, with specific
 arguments. Tasks can be [condionally executed]( https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html),
@@ -67,13 +64,11 @@ can be used in arguments to modules. Modules should be idempotent and changes
 trigger
 [`handlers`](https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#handlers-running-operations-on-change).
 
-#### Handlers
+### Handlers
 
  Modules can relay when they have made a change on the remote system: `notify`.
 
 ### loops
-
-#### Looping
 
 `loop` is prefered over `with_*` (not deprecated)
 
@@ -149,6 +144,9 @@ Print all variables in debug mode (flag `-vvvv`)
 
 ## Ansible-galaxy
 
+
+
+
 Get the number of distribution (`platforms` key in metadata)
 
 ```console
@@ -156,26 +154,29 @@ $ curl  https://galaxy.ansible.com/api/v1/platforms/ | jq '.results | group_by(.
 ```
 
 
-# Molecule
+## Molecule
 
 <badge-doc href='https://molecule.readthedocs.io'></badge-doc>
 
-Note: default configurations are defined in [`molecule.config`](https://github.com/ansible-community/molecule/blob/master/molecule/config.py)
+Note: default [configuration](https://molecule.readthedocs.io/en/latest/configuration.html) is defined in [`molecule.config`](https://github.com/ansible-community/molecule/blob/master/molecule/config.py)
 
-## Scenarios
 
-Scenarios can be though as multiple test suites. Each scenario is configured through a YAML file `molecule.yml` with top level key:
-- `dependency`: sets and configure the dependency manager [galaxy, gilt, shell]
-- `driver`: sets the driver for spinning-up the environment to test on [delegated, docker, podman]
-- `lint`: to configure any external lint commands.
-- `platforms`: defines the instances to be tested, and the groups to which the instances belong.
+
+### Scenarios
+
+Scenarios can be though as multiple test suites. Each scenario is configured in `molecule.yml` with top level key:
+
+- `dependency`: dependency manager [galaxy, gilt, shell]
+- `driver`: driver for spinning-up the environment to test on [delegated, docker, podman]
+- `lint`: external lint commands.
+- `platforms`: instances to be tested, and the groups to which the instances belong.
 - `provisioner`: handles provisioning and converging the role (ansible).
-- `scenario`: scenarios are first-class citizens with a top-level configuration syntax. A scenario is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.
-- `state`: is an internal bookkeeping mechanism
-- `verifier`: sets the test suite
+- `scenario`: scenarios are first-class citizens with a top-level configuration syntax. It is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.
+- `state`: internal bookkeeping mechanism
+- `verifier`: test suite
 
 
-## Action
+### Action
 
 - dependency
 - check
@@ -207,7 +208,7 @@ The corresponding playbooks are stored in the files whose default names are:
 - "verify": "verify.yml",
 
 
-## Creating a new role
+### Creating a new role
 
 ```console
 molecule init role my-new-role
@@ -218,6 +219,21 @@ or add to an existing role:
 ```console
 molecule scenario role my-new-role
 ```
+
+### Role metadata
+
+ <badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc>
+
+
+!!! danger "Role name `role_name`"
+
+    In the past, Galaxy would apply a regex expression to the GitHub repository
+    name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
+    if your repository name was ‘ansible-role-apache’, the role name would
+    translate to ‘apache’. Galaxy no longer does this automatically. Instead,
+    use the role_name setting to tell Galaxy what the role name should be.
+
+
 ## Links
 
 - [ Jeff Geerling's blog ](https://www.jeffgeerling.com/blog/2018/testing-your-ansible-roles-molecule)
@@ -225,9 +241,9 @@ molecule scenario role my-new-role
 
 ## Notes
 
-[^controlPersistNote]: Note on this in [post](https://www.quora.com/What-is-the-controlpersist-feature-Unix)
+[^1]: Note on this in [post](https://www.quora.com/What-is-the-controlpersist-feature-Unix)
 
 
-# FAQ
+## FAQ
 
 [ERROR! no action detected in task](https://stackoverflow.com/questions/47159193/why-does-ansible-show-error-no-action-detected-in-task-error)
