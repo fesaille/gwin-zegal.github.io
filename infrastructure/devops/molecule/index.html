@@ -1129,6 +1129,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#role-metadata" class="md-nav__link">
+    Role metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -1143,15 +1150,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-new-role" class="md-nav__link">
-    Creating a new role
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#role-metadata" class="md-nav__link">
-    Role metadata
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
   </a>
   
 </li>
@@ -2538,6 +2538,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#role-metadata" class="md-nav__link">
+    Role metadata
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#scenarios" class="md-nav__link">
     Scenarios
   </a>
@@ -2552,15 +2559,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-new-role" class="md-nav__link">
-    Creating a new role
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#role-metadata" class="md-nav__link">
-    Role metadata
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
   </a>
   
 </li>
@@ -2625,15 +2625,32 @@ Options:
   --help                          Show this message and exit.
 </code></pre></div>
 <p>Note: default <a href="https://molecule.readthedocs.io/en/latest/configuration.html">configuration</a> is defined in <a href="https://github.com/ansible-community/molecule/blob/master/molecule/config.py"><code>molecule.config</code></a></p>
+<h2 id="role-metadata">Role metadata<a class="headerlink" href="#role-metadata" title="Permanent link">&para;</a></h2>
+<p><badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc></p>
+<div class="admonition danger">
+<p class="admonition-title">Role name <code>role_name</code></p>
+<p>In the past, Galaxy would apply a regex expression to the GitHub repository
+name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
+if your repository name was ‘ansible-role-apache’, the role name would
+translate to ‘apache’. Galaxy no longer does this automatically. Instead,
+use the role_name setting to tell Galaxy what the role name should be.</p>
+</div>
 <h2 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link">&para;</a></h2>
-<p>Scenarios can be though as multiple test suites. Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
+<p>Scenarios <badge-doc
+href='https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.scenario.Scenario'
+logo='ansible'></badge-doc> are first-class citizens and can be though as
+multiple test suites.  A default scenario named <code>default</code> is mandatory.
+Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
 <ul>
 <li><code>dependency</code>: dependency manager [galaxy, gilt, shell]</li>
 <li><code>driver</code>: driver for spinning-up the environment to test on [delegated, docker, podman]</li>
 <li><code>lint</code>: external lint commands.</li>
 <li><code>platforms</code>: instances to be tested, and the groups to which the instances belong.</li>
 <li><code>provisioner</code>: handles provisioning and converging the role (ansible).</li>
-<li><code>scenario</code>: scenarios are first-class citizens with a top-level configuration syntax. It is a self-contained directory containing everything necessary for testing the role in a particular way. The default scenario is named default, and every role should contain a default scenario.</li>
+<li><code>scenario</code>: scenarios are first-class citizens with a top-level configuration
+  syntax. It is a self-contained directory containing everything necessary for
+  testing the role in a particular way. The default scenario is named default,
+  and every role should contain a default scenario.</li>
 <li><code>state</code>: internal bookkeeping mechanism</li>
 <li><code>verifier</code>: test suite</li>
 </ul>
@@ -2668,22 +2685,88 @@ Options:
 <li>"side_effect": "side_effect.yml",</li>
 <li>"verify": "verify.yml",</li>
 </ul>
-<h2 id="creating-a-new-role">Creating a new role<a class="headerlink" href="#creating-a-new-role" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="go">molecule init role my-new-role</span>
-</code></pre></div>
-<p>or add to an existing role:</p>
-<div class="highlight"><pre><span></span><code><span class="go">molecule scenario role my-new-role</span>
-</code></pre></div>
-<h2 id="role-metadata">Role metadata<a class="headerlink" href="#role-metadata" title="Permanent link">&para;</a></h2>
-<p><badge-doc href='https://galaxy.ansible.com/docs/contributing/creating_role.html' logo="ansible"></badge-doc></p>
-<div class="admonition danger">
-<p class="admonition-title">Role name <code>role_name</code></p>
-<p>In the past, Galaxy would apply a regex expression to the GitHub repository
-name and automatically remove ‘ansible-‘ and ‘ansible-role-‘. For example,
-if your repository name was ‘ansible-role-apache’, the role name would
-translate to ‘apache’. Galaxy no longer does this automatically. Instead,
-use the role_name setting to tell Galaxy what the role name should be.</p>
-</div>
+<h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<p>Configuration options may contain <a href="https://molecule.readthedocs.io/en/latest/configuration.html?#molecule.interpolation.Interpolator">environment
+variables</a>.
+There are following environment variables available in <code>molecule.yml</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MOLECULE_DEBUG</code></td>
+<td>If debug is turned on or off</td>
+</tr>
+<tr>
+<td><code>MOLECULE_FILE</code></td>
+<td>Path to molecule config file</td>
+</tr>
+<tr>
+<td><code>MOLECULE_ENV_FILE</code></td>
+<td>Path to molecule environment file</td>
+</tr>
+<tr>
+<td><code>MOLECULE_STATE_FILE</code></td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>MOLECULE_INVENTORY_FILE</code></td>
+<td>Path to generated inventory file</td>
+</tr>
+<tr>
+<td><code>MOLECULE_EPHEMERAL_DIRECTORY</code></td>
+<td>Path to generated directory, usually <code>~/.cache/molecule/&lt;scenario-name&gt;</code></td>
+</tr>
+<tr>
+<td><code>MOLECULE_SCENARIO_DIRECTORY</code></td>
+<td>Path to scenario directory</td>
+</tr>
+<tr>
+<td><code>MOLECULE_PROJECT_DIRECTORY</code></td>
+<td>Path to your project directory</td>
+</tr>
+<tr>
+<td><code>MOLECULE_INSTANCE_CONFIG</code></td>
+<td>?</td>
+</tr>
+<tr>
+<td><code>MOLECULE_DEPENDENCY_NAME</code></td>
+<td>Dependency type name, usually 'galaxy'</td>
+</tr>
+<tr>
+<td><code>MOLECULE_DRIVER_NAME</code></td>
+<td>Name of the molecule scenario driver</td>
+</tr>
+<tr>
+<td><code>MOLECULE_PROVISIONER_NAME</code></td>
+<td>Name of the provisioner tool (usually 'ansible')</td>
+</tr>
+<tr>
+<td><code>MOLECULE_REPORT</code></td>
+<td>Name of HTML file where to dump execution report.</td>
+</tr>
+<tr>
+<td><code>MOLECULE_SCENARIO_NAME</code></td>
+<td>Name of the scenario</td>
+</tr>
+<tr>
+<td><code>MOLECULE_VERBOSITY</code></td>
+<td>Determine Ansible verbosity level.</td>
+</tr>
+<tr>
+<td><code>MOLECULE_VERIFIER_NAME</code></td>
+<td>Name of the verifier tool (usually 'ansible')</td>
+</tr>
+<tr>
+<td><code>MOLECULE_VERIFIER_TEST_DIRECTORY</code></td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.jeffgeerling.com/blog/2018/testing-your-ansible-roles-molecule"> Jeff Geerling's blog </a></li>
