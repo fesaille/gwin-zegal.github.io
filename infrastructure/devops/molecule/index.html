@@ -2670,7 +2670,9 @@ Each scenario is configured in <code>molecule.yml</code> with top level key:</p>
 </ul>
 <p>The <code>provisioner</code> handles provisioning and converging the role. The only
 supported provisioner is ansible itself.</p>
-<p>check        Use the provisioner to perform a Dry-Run (destroy,...
+<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
+<p>Action are provisionied with ansible and following subcommands are available:</p>
+<div class="highlight"><pre><span></span><code>check        Use the provisioner to perform a Dry-Run (destroy,...
 cleanup      Use the provisioner to cleanup any changes made to...
 converge     Use the provisioner to configure instances (dependency,...
 create       Use the provisioner to start the instances.
@@ -2678,8 +2680,8 @@ destroy      Use the provisioner to destroy the instances.
 idempotence  Use the provisioner to configure the instances and parse...
 prepare      Use the provisioner to prepare the instances into a...
 side-effect  Use the provisioner to perform side-effects to the instances.
-syntax       Use the provisioner to syntax check the role.</p>
-<h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
+syntax       Use the provisioner to syntax check the role.
+</code></pre></div>
 <p>The corresponding playbooks are stored in the files whose default names are:</p>
 <ul>
 <li>"cleanup": "cleanup.yml",</li>
