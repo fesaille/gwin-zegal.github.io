@@ -115,7 +115,13 @@ The corresponding playbooks are stored in the files whose default names are:
 
 
 
-Default scenarios sequences are:
+Default scenarios sequences can be displayed with:
+
+```terminal
+molecule matrix <SUBCOMMAND>
+```
+
+Defaults are:
 
 <div id="molecule_scenario"></div>
 
