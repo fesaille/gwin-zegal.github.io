@@ -91,6 +91,11 @@ Each scenario is configured in `molecule.yml` with top level key:
 The `provisioner` handles provisioning and converging the role. The only
 supported provisioner is ansible itself.
 
+### Action
+
+Action are provisionied with ansible and following subcommands are available:
+
+```terminal
 check        Use the provisioner to perform a Dry-Run (destroy,...
 cleanup      Use the provisioner to cleanup any changes made to...
 converge     Use the provisioner to configure instances (dependency,...
@@ -100,8 +105,7 @@ idempotence  Use the provisioner to configure the instances and parse...
 prepare      Use the provisioner to prepare the instances into a...
 side-effect  Use the provisioner to perform side-effects to the instances.
 syntax       Use the provisioner to syntax check the role.
-
-### Action
+```
 
 The corresponding playbooks are stored in the files whose default names are:
 
@@ -112,7 +116,6 @@ The corresponding playbooks are stored in the files whose default names are:
 - "prepare": "prepare.yml",
 - "side_effect": "side_effect.yml",
 - "verify": "verify.yml",
-
 
 
 Default scenarios sequences can be displayed with:
