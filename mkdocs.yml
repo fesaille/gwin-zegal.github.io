@@ -33,16 +33,17 @@ nav:
       - Distributions:
           - Ubuntu: shell/Ubuntu/configuration.md
           - "Alpine linux": linux/pkg_mgt/apk.md
-  - vim:
-      - Intro: vim/intro.md
-      - "Status line": vim/statusline.md
-      - Panes: vim/panes.md
-      - Edition: vim/edition.md
-      - Search: vim/search.md
-      - Motion: vim/motion.md
-      - Plugins: vim/plugins.md
-      - Script: vim/script.md
-      - "Language support": vim/languages.md
+  - Editor:
+      - vim:
+          - Intro: editor/vim/intro.md
+          - "Status line": editor/vim/statusline.md
+          - Panes: editor/vim/panes.md
+          - Edition: editor/vim/edition.md
+          - Search: editor/vim/search.md
+          - Motion: editor/vim/motion.md
+          - Plugins: editor/vim/plugins.md
+          - Script: editor/vim/script.md
+          - "Language support": editor/vim/languages.md
   - "SW dvpt":
       - VCS:
           - git: sw_dvpt/git.md
@@ -150,6 +151,8 @@ markdown_extensions:
   # makes it possible to add block-styled side content
   # https://squidfunk.github.io/mkdocs-material/extensions/admonition/
   - admonition
+  # adds a syntax to define attributes on the various HTML elements in markdown’s output
+  - attr_list
   # Adds the ability to add inline footnotes to your documentation
   # https://squidfunk.github.io/mkdocs-material/extensions/footnotes/
   - footnotes
