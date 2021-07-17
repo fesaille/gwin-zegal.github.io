@@ -2648,7 +2648,7 @@
                 <h1 id="vm">VM<a class="headerlink" href="#vm" title="Permanent link">&para;</a></h1>
 <p><a href="https://fr.wikipedia.org/wiki/Virtualisation">Wikipedia</a></p>
 <h2 id="virtualbox">VirtualBox<a class="headerlink" href="#virtualbox" title="Permanent link">&para;</a></h2>
-<p><a href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a> is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use. </p>
+<p><a href="https://www.virtualbox.org/wiki/VirtualBox">VirtualBox</a> is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.</p>
 <h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <p>Binaries, extension and source code can be installed from the <a href="https://www.virtualbox.org/wiki/Downloads">wiki</a>.</p>
 <p>A handy feature is the ability to run common commands for managing VM from the cli after installing the <a href="https://www.virtualbox.org/wiki/Downloads">extension pack</a></p>
@@ -2672,7 +2672,7 @@ vbm list runningvms
 vbm controlvm <span class="s2">&quot;MyVM&quot;</span> resume --type headless
 vbm controlvm <span class="s2">&quot;MyVM&quot;</span> poweroff --type headless
 </code></pre></div></p>
-<p>View VM properties with <code>vboxmanage guestproperty</code> <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc> 
+<p>View VM properties with <code>vboxmanage guestproperty</code> <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc>
 <div class="highlight"><pre><span></span><code><span class="c1"># Enumerate all properties of the VM named MyVM</span>
 vbm guestproperty enumerate MyVM
 
@@ -2682,47 +2682,58 @@ vbm guestproperty get Cloudera /VirtualBox/GuestInfo/Net/0/V4/IP
 <h2 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">&para;</a></h2>
 <h3 id="installation-on-debian-based-systems">Installation on Debian based systems<a class="headerlink" href="#installation-on-debian-based-systems" title="Permanent link">&para;</a></h3>
 <p>deb package can be found at <a href="https://www.vagrantup.com/downloads.html">download</a></p>
-<div class="highlight"><pre><span></span><code>curl -LO https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-sudo apt install ./vagrant_2.2.9_x86_64.deb
-# or dpkg -i 
+<div class="highlight"><pre><span></span><code>curl -LO https://releases.hashicorp.com/vagrant/2.2.17/vagrant_2.2.17_x86_64.deb
+sudo apt install ./vagrant_2.2.17_x86_64.deb
+# or dpkg -i
 </code></pre></div>
 <p><a href="https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html">Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters</a></p>
 <p><a href="https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d">How to create a Vagrant Box running Red Hat Enterprise Linux</a></p>
 <h3 id="troubleshooting-on-hosts-with-secure-mode-enabled">Troubleshooting on hosts with secure mode enabled<a class="headerlink" href="#troubleshooting-on-hosts-with-secure-mode-enabled" title="Permanent link">&para;</a></h3>
-<p>UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that
+<p>UEFI<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> Secure Boot<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> (SB) is a verification mechanism for ensuring that
 code launched by a computer's UEFI firmware is trusted. Unsigned drivers are
 therefor not allowed to load.</p>
 <p>2 kernels modules are compiled at installation time and must be loaded. If the
 host provides the proper kernel headers and gcc, these two modules will be
-built silently. The progress is logged into /tmp/vmware-root/vmware-PID.log[^3].</p>
+built silently. The progress is logged into /tmp/vmware-root/vmware-PID.log<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
 <p>On error type like:</p>
 <blockquote>
 <p>Cannot open <code>/dev/vmmon</code>: No such file or directory. Please make sure that the kernel module <code>vmmon</code> is loaded</p>
 </blockquote>
 <p>The modules must be signed and the keys added to a database recognised by the first stage of the bootloader, the <strong>Machine Owner Key</strong></p>
-<div class="highlight"><pre><span></span><code><span class="gp">#</span> Modules must be signed by a CA <span class="o">(</span>Certificate Authority<span class="o">)</span>, here self-signed  
+<div class="highlight"><pre><span></span><code><span class="gp">#</span> Modules must be signed by a CA <span class="o">(</span>Certificate Authority<span class="o">)</span>, here self-signed
 <span class="go">openssl req -new -x509 -newkey rsa:2048 -keyout &lt;MOK.priv&gt; -outform DER -out &lt;MOK.der&gt; -nodes -days 36500 -subj &quot;/CN=VMware/&quot;</span>
 <span class="go">sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 &lt;MOK.priv&gt; &lt;MOK.der&gt; $(modinfo -n vmmon)</span>
 <span class="go">sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 &lt;MOK.priv&gt; &lt;MOK.der&gt; $(modinfo -n vmnet)</span>
 
-<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;    </span>
+<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;</span>
 <span class="gp">#</span> cert should not be currently enrolled
 
 <span class="go">sudo mokutil --import &lt;MOK.der&gt;</span>
-<span class="gp">#</span> mokutil should request <span class="nb">pwd</span> 
+<span class="gp">#</span> mokutil should request <span class="nb">pwd</span>
 
-<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;    </span>
-<span class="gp">#</span> cert should be enrolled now 
+<span class="go">sudo mokutil --test-key &lt;MOK.der&gt;</span>
+<span class="gp">#</span> cert should be enrolled now
 
-<span class="go">sudo mokutil --list-new    </span>
+<span class="go">sudo mokutil --list-new</span>
 <span class="gp">#</span> your cert should be displayed
 
 <span class="go">reboot</span>
 </code></pre></div>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
-<p>[^1] Unified Extensible Firmware Interface - https://wiki.debian.org/UEFI<br />
-[^2] <a href="https://wiki.debian.org/SecureBoot">Debian secure boot documentation page</a><br />
-[^3] <a href="https://kb.vmware.com/s/article/2146460">VMware knowledge base</a></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Unified Extensible Firmware Interface - https://wiki.debian.org/UEFI&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://wiki.debian.org/SecureBoot">Debian secure boot documentation page</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://kb.vmware.com/s/article/2146460">VMware knowledge base</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
