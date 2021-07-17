@@ -2,9 +2,9 @@
 
 [Wikipedia](https://fr.wikipedia.org/wiki/Virtualisation)
 
-## VirtualBox 
+## VirtualBox
 
-[VirtualBox](https://www.virtualbox.org/wiki/VirtualBox) is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use. 
+[VirtualBox](https://www.virtualbox.org/wiki/VirtualBox) is a general-purpose full virtualizer for x86 hardware, targeted at server, desktop and embedded use.
 
 ### Installation
 
@@ -44,7 +44,7 @@ vbm controlvm "MyVM" resume --type headless
 vbm controlvm "MyVM" poweroff --type headless
 ```
 
-View VM properties with `vboxmanage guestproperty` <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc> 
+View VM properties with `vboxmanage guestproperty` <badge-doc href='https://docs.oracle.com/en/virtualization/virtualbox/6.1/user/vboxmanage.html#vboxmanage-guestproperty' logo='VirtualBox'></badge-doc>
 ```bash
 # Enumerate all properties of the VM named MyVM
 vbm guestproperty enumerate MyVM
@@ -54,23 +54,23 @@ vbm guestproperty get Cloudera /VirtualBox/GuestInfo/Net/0/V4/IP
 ```
 
 
-## Vagrant 
+## Vagrant
 
 ### Installation on Debian based systems
 
 deb package can be found at [download](https://www.vagrantup.com/downloads.html)
 
 ```
-curl -LO https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
-sudo apt install ./vagrant_2.2.9_x86_64.deb
-# or dpkg -i 
+curl -LO https://releases.hashicorp.com/vagrant/2.2.17/vagrant_2.2.17_x86_64.deb
+sudo apt install ./vagrant_2.2.17_x86_64.deb
+# or dpkg -i
 ```
 
 [Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters](https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html)
 
 [How to create a Vagrant Box running Red Hat Enterprise Linux](https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d)
 
-### Troubleshooting on hosts with secure mode enabled  
+### Troubleshooting on hosts with secure mode enabled
 
 UEFI[^1] Secure Boot[^2] (SB) is a verification mechanism for ensuring that
 code launched by a computer's UEFI firmware is trusted. Unsigned drivers are
@@ -88,21 +88,21 @@ The modules must be signed and the keys added to a database recognised by the fi
 
 
 ```console
-# Modules must be signed by a CA (Certificate Authority), here self-signed  
+# Modules must be signed by a CA (Certificate Authority), here self-signed
 openssl req -new -x509 -newkey rsa:2048 -keyout <MOK.priv> -outform DER -out <MOK.der> -nodes -days 36500 -subj "/CN=VMware/"
 sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 <MOK.priv> <MOK.der> $(modinfo -n vmmon)
 sudo /usr/src/linux-headers-``uname -r``/scripts/sign-file sha256 <MOK.priv> <MOK.der> $(modinfo -n vmnet)
 
-sudo mokutil --test-key <MOK.der>    
+sudo mokutil --test-key <MOK.der>
 # cert should not be currently enrolled
 
 sudo mokutil --import <MOK.der>
-# mokutil should request pwd 
+# mokutil should request pwd
 
-sudo mokutil --test-key <MOK.der>    
-# cert should be enrolled now 
+sudo mokutil --test-key <MOK.der>
+# cert should be enrolled now
 
-sudo mokutil --list-new    
+sudo mokutil --list-new
 # your cert should be displayed
 
 reboot
@@ -110,6 +110,6 @@ reboot
 
 ## Links
 
-[^1] Unified Extensible Firmware Interface - https://wiki.debian.org/UEFI  
-[^2] [Debian secure boot documentation page](https://wiki.debian.org/SecureBoot)  
-[^3] [VMware knowledge base](https://kb.vmware.com/s/article/2146460)
+[^1]: Unified Extensible Firmware Interface - https://wiki.debian.org/UEFI
+[^2]: [Debian secure boot documentation page](https://wiki.debian.org/SecureBoot)
+[^3]: [VMware knowledge base](https://kb.vmware.com/s/article/2146460)
