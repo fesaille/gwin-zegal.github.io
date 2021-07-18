@@ -2541,12 +2541,14 @@
                 
                 <h1 id="mongodb">MongoDB<a class="headerlink" href="#mongodb" title="Permanent link">&para;</a></h1>
 <p><img src='https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg' class='titleLogo' alt='logo'/></p>
-<p>Notation: </p>
+<p>Notation:</p>
 <ul>
 <li>field path: <code>$fieldName</code></li>
 <li>system variable: <code>$$UPPERCASE</code></li>
 <li>user variable: <code>$$foo</code></li>
 </ul>
+<p><a href="https://docs.mongodb.com/manual/reference/program/mongod/">mongod</a> is the main daemon process for mongoDB. Interaction is not performed directly but through a driver. Basic flags for the cli: <code>--port</code>/<code>--dbpath</code>/<code>--logpath</code>/<code>--fork</code>. Server shutdown is performed with <code>db.shutdownServer</code> after selecting the admin db (<code>use admin</code>).</p>
+<p>Configuration file:</p>
 <h2 id="jupyter-kernel-imongo">Jupyter kernel imongo<a class="headerlink" href="#jupyter-kernel-imongo" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/fesaille/imongo">imongo</a></p>
 <p><a href="https://ipython.readthedocs.io/en/stable/development/wrapperkernels.html">ipython wrapper kernel</a>

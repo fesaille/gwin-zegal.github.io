@@ -2096,6 +2096,19 @@
     Application manager: pipx
   </a>
   
+    <nav class="md-nav" aria-label="Application manager: pipx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    Update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2714,6 +2727,19 @@
     Application manager: pipx
   </a>
   
+    <nav class="md-nav" aria-label="Application manager: pipx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    Update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2916,6 +2942,24 @@ env. Linked environments can be displayed with <code>poetry env list</code>.</p>
 <p><strong>pipx</strong> <badge-stars repo='pipxproject/pipx'></badge-stars>
 <badge-doc href="https://pipxproject.github.io/pipx"></badge-doc> installs and
 run python applications in isolated environments.</p>
+<h3 id="update">Update<a class="headerlink" href="#update" title="Permanent link">&para;</a></h3>
+<h4>Update packages: <code>upgrade</code></h4>
+<div class="highlight"><pre><span></span><code>pipx upgrade jupyterlab
+<span class="c1"># with injected dependencies</span>
+pipx upgrade --include-injected jupyterlab
+</code></pre></div>
+<h4>Update python version: <code>reinstall</code></h4>
+<p>Python version can be updated with the <code>reinstall</code> subcommand</p>
+<div class="highlight"><pre><span></span><code>pipx list --json <span class="se">\</span>
+  <span class="p">|</span> jq -r <span class="s1">&#39;&#39;&#39;.venvs</span>
+<span class="s1">    | with_entries(select(.value | .metadata.python_version==&quot;Python 3.9.2&quot;))</span>
+<span class="s1">    | keys</span>
+<span class="s1">    | .[]</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="err">&#39;</span> <span class="se">\</span>
+  <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> line<span class="p">;</span> <span class="k">do</span>
+      pipx reinstall --python python3.9 <span class="nv">$line</span><span class="p">;</span>
+    <span class="k">done</span>
+</code></pre></div>
                 
               
               
