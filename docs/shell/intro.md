@@ -236,6 +236,10 @@ versions with a single CLI tool, extendable via plugins.
 **nutshell** <badge-stars repo='nushell/nushell'></badge-stars> is a new kind of
 shell, currently under heavy development.
 
+### Style guide
+
+[google shell style](https://google.github.io/styleguide/shellguide.html)
+
 ### Linting
 
 **shellcheck** <badge-stars repo='koalaman/shellcheck'></badge-stars>, can be
