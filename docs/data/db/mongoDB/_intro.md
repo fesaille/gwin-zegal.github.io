@@ -2,13 +2,15 @@
 
 <img src='https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg' class='titleLogo' alt='logo'/>
 
-
-Notation: 
+Notation:
 
 - field path: `$fieldName`
 - system variable: `$$UPPERCASE`
 - user variable: `$$foo`
 
+[mongod](https://docs.mongodb.com/manual/reference/program/mongod/) is the main daemon process for mongoDB. Interaction is not performed directly but through a driver. Basic flags for the cli: `--port`/`--dbpath`/`--logpath`/`--fork`. Server shutdown is performed with `db.shutdownServer` after selecting the admin db (`use admin`).
+
+Configuration file:
 
 ## Jupyter kernel imongo
 

@@ -66,6 +66,14 @@ sudo apt install ./vagrant_2.2.17_x86_64.deb
 # or dpkg -i
 ```
 
+### `vagranfile`
+
+Vagrant climbs up the directory tree looking for the first
+[Vagrantfile](https://www.vagrantup.com/docs/vagrantfile) it can
+find, starting first in the current directory (or using `$VAGRANT_CWD` value).
+See [load oder and
+merging](https://www.vagrantup.com/docs/vagrantfile#load-order).
+
 [Customizing Vagrant VMware Fusion Virtual Machines with VMX Parameters](https://thornelabs.net/posts/customizing-vagrant-vmware-fusion-virtual-machines-with-vmx-parameters.html)
 
 [How to create a Vagrant Box running Red Hat Enterprise Linux](https://medium.com/@severi/how-to-create-a-vagrant-box-running-red-hat-enterprise-linux-55410f8cfa7d)
